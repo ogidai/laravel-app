@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Models\Test;
 
+use Illuminate\Support\Facades\DB;
+
+
 class TestController extends Controller
 {
     //
@@ -13,7 +16,11 @@ class TestController extends Controller
     {
       $values = Test::all();
 
-      // dd($values);
+      $tests = DB::table('tests')
+      ->select('id')
+      ->get();
+
+      dd($tests);
 
       return view('tests.test', compact('values'));
     }

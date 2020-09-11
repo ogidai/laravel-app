@@ -1,0 +1,179 @@
+// ==========================================================================
+// Base
+// ==========================================================================
+html {
+  font-size: 62.5%;
+}
+
+// Default body properties
+body {
+  background-color: $color-base-secondary;
+  color: $base-color-text;
+  font-size: $base-font-size;
+  font-weight: $base-font-weight;
+  //font-size: 1em; // currently ems cause chrome bug misinterpreting rems on body element
+  font-family: $font-family-primary;
+  line-height: $base-line-height;
+  letter-spacing: 0.01em;
+  @include mq{
+    font-size: 1.6rem;
+  }
+}
+
+.h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: $weight-bold;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+  @include mq{
+    font-size: 2.8rem;
+  }
+  .lg {
+    display: block;
+    margin-bottom: 5px;
+    color: $color-primary;
+    font-size: 1.3rem;
+    font-weight: $weight-medium;
+    letter-spacing: 0.1em;
+  }
+}
+
+h2 {
+  margin: 0;
+  font-weight: $weight-medium;
+  &.pro_name {
+    margin-top: 20px;
+    padding: 0;
+    font-size: 1.6rem;
+    & + .pro_img {
+      margin: 0;
+      padding: 15px;
+      width: 100%;
+    }
+  }
+}
+
+h3 {
+  &.content_title {
+    display: block;
+    margin: 0;
+    padding: 0 0 10px 0;
+    color: $color-normal-light;
+    font-size: 1.3rem;
+    font-weight: normal;
+    &.-lg {
+      color: $color-normal;
+      font-size: 1.6rem;
+      font-weight: $weight-bold;
+    }
+    &.-top {
+      padding: 0 0 20px 0;
+    }
+  }
+  &.list_title {
+    display: block;
+    margin: 0;
+    padding: 25px 15px 5px;
+    color: $color-normal-light;
+    font-size: 1.3rem;
+    font-weight: normal;
+    &.-lg {
+      color: $color-normal;
+      font-size: 1.6rem;
+      font-weight: $weight-bold;
+    }
+    &.-top{
+      padding-top: 0;
+    }
+  }
+}
+
+p {
+  margin: 0;
+  & + p {
+    margin-top: 15px;
+  }
+  & + form {
+    margin-top: 20px;
+  }
+  & + .btnWrap {
+    margin-top: 15px;
+  }
+}
+
+p,dt,dd {
+  line-height: 1.75;
+  letter-spacing: 0.02em;
+  &.-xs {
+    font-size: 1.1rem;
+    @include mq{
+      font-size: 1.2rem;
+    }
+  }
+  &.-sm {
+    font-size: 1.2rem;
+  }
+  &.-lg {
+    font-size: 1.6rem;
+    @include mq{
+      font-size: 1.7rem;
+    }
+  }
+  &.-xl {
+    font-size: 2rem;
+    @include mq{
+      font-size: 2.2rem;
+    }
+  }
+  &.-caution {
+    color: $color-primary;
+  }
+}
+
+span {
+  &.-xs {
+    font-size: 1.1rem;
+    @include mq{
+      font-size: 1.2rem;
+    }
+  }
+  &.-sm {
+    font-size: 1.2rem;
+  }
+  &.-lg {
+    font-size: 1.6rem;
+    @include mq{
+      font-size: 1.7rem;
+    }
+  }
+  &.-xl {
+    font-size: 2rem;
+    @include mq{
+      font-size: 2.2rem;
+    }
+  }
+  &.-caution {
+    color: $color-primary;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: #007AFF;
+  &:hover{
+    text-decoration: none;
+  }
+  &.-link{
+    color: $base-color-link;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+img {
+  width: 100%;
+  height: auto;
+}

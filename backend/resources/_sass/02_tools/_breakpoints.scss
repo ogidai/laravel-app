@@ -1,0 +1,5 @@
+@mixin mq($breakpoint: lg) {
+  @media screen and (min-width: #{map-get($mq-breakpoints, $breakpoint)}) {
+    @content;
+  }
+}

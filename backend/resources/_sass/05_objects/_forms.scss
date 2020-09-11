@@ -1,0 +1,78 @@
+// ==========================================================================
+// formwrap
+// ==========================================================================
+
+
+.formWrap {
+  margin: 0;
+  padding: 0;
+  > li {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    list-style: none;
+    @include mq(md) {
+      flex-direction: column;
+    }
+    + li {
+      margin-top: 20px;
+      @include mq(md) {
+        margin-top: 20px;
+      }
+    }
+    p + p {
+      margin-top: 0;
+    }
+    .note {
+      font-size: 1.1rem;
+      color: lighten($color-normal,35%);
+    }
+  }
+  .label {
+    width: 20%;
+    padding-right: 30px;
+    font-weight: $weight-bold;
+    @include mq(md) {
+      margin-bottom: 5px;
+      width: 100%;
+    }
+  }
+  .field {
+    width: 80%;
+    @include mq(md) {
+      width: 100%;
+      padding-left: 0;
+    }
+    &.-birthday {
+      .col {
+        width: 33.333%;
+        @include mq(sm) {
+          width: 100%;
+        }
+        & + .col {
+          @include mq(md) {
+            margin-top: 0px;
+          }
+          @include mq(sm) {
+            margin-top: 5px;
+          }
+        }
+        >* {
+          display: inline-block;
+        }
+        .selectWrap {
+          width: calc(100% - 2em);
+        }
+      }
+    }
+    .col + .col {
+      @include mq(md) {
+        margin-top: 5px;
+      }
+    }
+
+  }
+}
+

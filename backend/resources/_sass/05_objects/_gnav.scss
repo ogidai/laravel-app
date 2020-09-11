@@ -1,0 +1,45 @@
+// ==========================================================================
+// global navigation
+// ==========================================================================
+.gnav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 85vw;
+  height: 100vh;
+  z-index: 1000;
+  background: $color-base;
+  transform: translateX(-100%);
+  -webkit-transition: .35s ease-in-out;
+  -moz-transition: .35s ease-in-out;
+  transition: .35s ease-in-out;
+  &.active {
+    transform: none;
+  }
+}
+.gnav_list {
+  margin: 0;
+  padding: 60px 15px 0;
+  list-style: none;
+}
+.gnav_item {
+  & + .gnav_item {
+    margin-top: 10px;
+  }
+  a {
+    display: block;
+    padding: 7px 0 7px 5px;
+    border-bottom: 1px solid $color-normal-light;
+    color: $color-normal;
+    font-size: 1.6rem;
+    font-weight: $weight-bold;
+  }
+  &.-sns {
+    margin: 30px 0 0 10px;
+    a {
+      width: 50px;
+      border: none;
+      padding: 0;
+    }
+  }
+}

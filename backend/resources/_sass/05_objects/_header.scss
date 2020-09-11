@@ -1,0 +1,221 @@
+// ==========================================================================
+// header
+// ==========================================================================
+
+
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  background: $color-base;
+  border-bottom: 1px solid $color-normal-lighter;
+  -webkit-transition: .35s ease-in-out;
+    -moz-transition: .35s ease-in-out;
+    transition: .35s ease-in-out;
+  a {
+    color: $color-primary;
+  }
+  .contentInner {
+    position: relative;
+    height: 54px;
+    @include mq {
+      height: 70px;
+    }
+  }
+  .logo {
+    width: 120px;
+    height: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 0;
+    @include mq {
+      width: 160px;
+    }
+    a{
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+  }
+  .left {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    bottom: 0;
+    margin: auto;
+    @include mq {
+      left: 80px;
+    }
+  }
+  .right {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    bottom: 0;
+    margin: auto;
+    @include mq {
+      right: 80px;
+    }
+  }
+  .text {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    align-items: center;
+  }
+  .btnWrap {
+    height: 27px;
+  }
+  .btn {
+    padding: 3px 8px;
+    border: none;
+    background: $color-primary;
+    color: $color-base;
+    @include mq {
+      padding: 5px 20px;
+    }
+  }
+  .home{
+    display: block;
+    width: 23px;
+    height: 23px;
+  }
+  .conf{
+    display: block;
+    width: 26px;
+    height: 26px;
+  }
+  .arrow_back{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 5px;
+    width: 30px;
+    height: 30px;
+    margin: auto;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 14px;
+      height: 14px;
+      border-top: solid 3px $color-primary;
+      border-right: solid 3px $color-primary;
+      -webkit-transform: translateY(-50%) rotate(-135deg);
+      -moz-transform: translateY(-50%) rotate(-135deg);
+      transform: translateY(-50%) rotate(-135deg);
+    }
+  }
+  .next{
+    position: absolute;
+    top: auto;
+    bottom: auto;
+    right: 15px;
+    color: $color-primary;
+    font-weight: $weight-bold;
+  }
+}
+.navBtn {
+  display: block;
+  position: relative;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 10px;
+  width: 38px;
+  height: 37px;
+  margin: auto;
+  cursor: pointer;
+  z-index: 10;
+  text-align: center;
+  @include mq{
+    display: none;
+  }
+  span {
+    display: block;
+    position: absolute;
+    border-bottom: solid 2px $color-normal;
+    border-radius: 1px;
+    -webkit-transition: .35s ease-in-out;
+    -moz-transition: .35s ease-in-out;
+    transition: .35s ease-in-out;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 18px;
+    &:nth-child(1) {
+      top: 10px;
+    }
+    &:nth-child(2) {
+      top: 17px;
+    }
+    &:nth-child(3) {
+      top: 24px;
+    }
+  }
+  &.-back {
+    top: 11px;
+    bottom: auto;
+    span {
+      width: 25px;
+      &:nth-child(1) {
+        top: 16px;
+        -webkit-transform: translateX(-50%) rotate(-45deg);
+        -moz-transform: translateX(-50%) rotate(-45deg);
+        transform: translateX(-50%) rotate(-45deg);
+      }
+      &:nth-child(2),
+      &:nth-child(3) {
+        top: 16px;
+        -webkit-transform: translateX(-50%) rotate(45deg);
+        -moz-transform: translateX(-50%) rotate(45deg);
+        transform: translateX(-50%) rotate(45deg);
+      }
+    }
+  }
+}
+
+
+// 検索ボックス
+.search_box{
+  padding-top: 10px;
+  margin-left: 60px;
+  margin-right: 60px;
+  form{
+    position: relative;
+  }
+  input{
+    height: 35px;
+    border-radius: 20px;
+    background: $color-base-secondary;
+  }
+  .placeholder{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    align-items: center;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+    white-space: nowrap;
+    color: $color-normal-light;
+    .icon-search{
+      width: 17px;
+      height: 18px;
+      margin-right: 6px;
+    }
+  }
+}

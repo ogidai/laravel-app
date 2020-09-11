@@ -1,0 +1,74 @@
+// ==========================================================================
+// pagenation
+// ==========================================================================
+
+.pagenation {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  padding: 0;
+  .pagenation__item {
+    width: 28px;
+    height: 28px;
+    background-color: $color-base;
+    line-height: 28px;
+    text-align: center;
+    list-style: none;
+    font-size: 1.4rem;
+    border-radius: 5px;
+    box-shadow: 0 3px 0 rgba(0, 0, 0, .07);
+    > a {
+      display: block;
+      height: 100%;
+      color: $color-normal;
+    }
+    &:hover {
+      background-color: lighten($color-normal, 65%);
+    }
+    &.-active {
+      background-color: $color-primary;
+      color: rgba($color-normal, 1);
+    }
+    &.-arrow {
+      > a {
+        position: relative;
+        color: rgba($color-normal, 0);
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 8px;
+          height: 8px;
+          margin-top: auto;
+          margin-bottom: auto;
+          border-top: 2px solid $color-normal;
+          border-right: 2px solid $color-normal;
+        }
+      }
+      &.-previous {
+        > a:before {
+          transform: rotate(-135deg);
+          left: 11px;
+        }
+        & + .pagenation__item {
+          margin-left: 10px;
+        }
+      }
+      &.-next {
+        margin-left: 10px;
+        > a:before {
+          transform: rotate(45deg);
+          right: 11px;
+        }
+      }
+    }
+    & + .pagenation__item {
+      margin-left: 5px;
+    }
+  }
+}

@@ -1,0 +1,329 @@
+@charset "utf-8";
+/*
+theme Name: exat theme
+Author: exat Inc,
+Description: for exat Corporate Original Theme
+version： 0.0.1
+*/
+
+// ==========================================================================
+// Import Modules
+// ==========================================================================
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700&display=swap');
+
+@import "01_settings/variables";
+
+@import "02_tools/breakpoints";
+@import "02_tools/box-sizing";
+
+@import "03_generic/reset";
+
+@import "04_elements/base";
+@import "04_elements/form";
+@import "04_elements/table";
+
+@import "05_objects/footer";
+@import "05_objects/gnav";
+@import "05_objects/header";
+@import "05_objects/sidebar";
+@import "05_objects/forms";
+@import "05_objects/pagenation";
+@import "05_objects/dlList";
+
+@import "06_components/button";
+@import "06_components/card";
+@import "06_components/arrow";
+@import "06_components/breadcrumb";
+@import "06_components/sort";
+
+@import "07_utilities/type";
+@import "07_utilities/align";
+@import "07_utilities/ellipsis";
+@import "07_utilities/margin";
+@import "07_utilities/padding";
+
+
+
+
+//------------------------------------
+.align-left {
+  text-align: left !important;
+}
+
+.align-center {
+  text-align: center !important;
+}
+
+.align-right {
+  text-align: right !important;
+}
+
+
+.disp-block {
+  display: block;
+}
+
+.-sp {
+  display: block;
+  @include mq {
+    display: none;
+  }
+}
+
+.-pc {
+  display: none;
+  @include mq {
+    display: block;
+  }
+}
+
+//-------------------------------------------------
+.overlay {
+  &.active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    background: #00000060;
+    z-index: 100;
+  }
+}
+
+.wrapper {
+  padding-top: 54px;
+  @include mq {
+    padding-top: 70px;
+  }
+}
+
+.main {
+  &.-padding {
+    padding: 0 15px;
+  }
+}
+
+.registar {
+    padding: 30px 15px;
+    text-align: center;
+  &.-top {
+    padding: 20px 15px;
+  }
+  & + .options_wrap {
+    border-top: 1px solid $color-normal-lighter;
+  }
+  .btn {
+    &.-hasicon {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 0;
+    }
+  }
+  .icon {
+    display: block;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+  }
+  .or {
+    position: relative;
+    padding: 30px 0;
+    font-size: 1.7rem;
+    &:before {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 45%;
+      height: 1px;
+      content: "";
+      background: $color-normal;
+    }
+    &:after {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 45%;
+      height: 1px;
+      content: "";
+      background: $color-normal;
+    }
+  }
+  .login_form {
+    margin-top: 0;
+    input + input {
+      margin-top: 10px;
+    }
+    label + .btnWrap {
+      margin-top: 10px;
+    }
+    .btnWrap{
+      margin-top: 30px;
+      .submit {
+        margin-top: 15px;
+      }
+    }
+    .submit {
+      margin-top: 30px;
+      padding: 12px;
+    }
+    &.-confirm {
+      padding-top: 10px;
+      .-eventNone {
+        pointer-events: none;
+      }
+    }
+    .remember_me {
+      margin-top: 30px;;
+    }
+  }
+}
+
+.options_wrap {
+  background: $color-base-secondary;
+}
+.options {
+  position: relative;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 15px 70px 15px 10px;
+  @include mq {
+    padding: 25px 160px 25px 80px;
+  }
+  .submit {
+    position: absolute;
+    top: auto;
+    right: 10px;
+    bottom: auto;
+    @include mq {
+      right: 80px;
+    }
+    input {
+      display: block;
+    }
+  }
+}
+.options_item {
+    margin-right: 5px;
+    @include mq {
+      margin-right: 25px;
+      font-size: 1.6rem;
+    }
+}
+.submit {
+  position: relative;
+  margin-left: auto;
+  input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .search_text {
+    display: inline-block;
+    padding: 2px 10px;
+    color: $color-base;
+    border-radius: 20px;
+    background: $color-primary;
+    font-weight: $weight-bold;
+  }
+}
+
+.pro_list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pro_item {
+  border-top: 1px solid $color-normal-lighter;
+}
+.pro_item a{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  padding: 10px;
+  @include mq {
+    padding: 15px 80px;
+  }
+}
+.pro_item_left {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  figure {
+    padding: 5px;
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+  }
+}
+.pro_item_right {
+  padding-left: 10px;
+  color: $color-normal;
+  @include mq {
+    padding-left: 40px;
+  }
+}
+.pro_name {
+  padding-right: 5px;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  @include mq {
+    font-size: 1.8rem;
+  }
+}
+.review {
+  &.-row_sp {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    .review_cat {
+      padding-top: 2px;
+    }
+    .star_icons {
+      margin-left: 20px;
+    }
+  }
+  &.-row_pc {
+    @include mq {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      align-items: center;
+      padding: 0;
+      .star_icons {
+        margin-left: 30px;
+        padding-bottom: 5px;
+      }
+    }
+  }
+}
+.star_icons {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
+  .star_icon {
+    display: block;
+    height: 16px;
+    & + .star_icon {
+      margin-left: 2px;
+    }
+  }
+}
+.review_cat {
+  padding-top: 5px;
+}

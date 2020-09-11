@@ -1,0 +1,56 @@
+// ==========================================================================
+// Arrow
+// ==========================================================================
+
+.arrow {
+  position: relative;
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    width: 8px;
+    height: 8px;
+    border-top: solid 2px $color-normal;
+    border-right: solid 2px $color-normal;
+    -webkit-transform: translateY(-50%) rotate(135deg);
+    -moz-transform: translateY(-50%) rotate(135deg);
+    transform: translateY(-50%) rotate(135deg);
+  }
+  &.-next {
+    &:before {
+      -webkit-transform: translateY(-50%) rotate(45deg);
+      -moz-transform: translateY(-50%) rotate(45deg);
+      transform: translateY(-50%) rotate(45deg);
+    }
+  }
+  &.-prev {
+    &:before {
+      -webkit-transform: translateY(-50%) rotate(-135deg);
+      -moz-transform: translateY(-50%) rotate(-135deg);
+      transform: translateY(-50%) rotate(-135deg);
+    }
+  }
+  &.-darker{
+    &::before{
+      border-top: solid 2px $color-normal-light;
+      border-right: solid 2px $color-normal-light;
+    }
+  }
+}
+
+.arrow_next {
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    left: 0;
+    margin: auto;
+    width: 50px;
+    border-top: 30px solid $color-normal;
+    border-right: 55px solid transparent;
+    border-left: 55px solid transparent;
+  }
+}

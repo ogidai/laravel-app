@@ -1,0 +1,254 @@
+// ==========================================================================
+// Button
+// ==========================================================================
+
+.btn {
+  display: inline-block;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 10px 60px;
+  border: 2px solid $color-normal;
+  border-radius: 50px;
+  background-color: $color-base;
+  color: $color-normal;
+  font-size: 1.4rem;
+  font-weight: $weight-bold;
+  text-align: center;
+  transition: all 0.2s linear;
+  cursor: pointer;
+  @include mq {
+    font-size: 1.6rem;
+  }
+  &:hover {
+    background-color: lighten($color-normal, 30%);
+    text-decoration: none;
+  }
+  & + .btn {
+    margin-left: 10px;
+  }
+  &.-full {
+    width: 100%;
+    max-width: 500px;
+    & + .btn {
+      margin-top: 10px;
+      margin-left: 0;
+    }
+  }
+  &.-invert {
+    background-color: $color-normal-light;
+    border: none;
+    color: $color-base;
+    &:hover {
+      background-color: lighten($color-normal-light,10%);
+    }
+  }
+  &.-primary {
+    background-color: $color-primary;
+    color: $color-base;
+    border: none;
+    border: 2px solid $color-primary;
+    &:hover {
+      background-color: lighten($color-primary,10%);
+    }
+  }
+  &.-fb {
+    background-color: #4267B2;
+    color: $color-base;
+    border: none;
+    &:hover {
+      background-color: lighten(#4267B2, 20%);
+    }
+  }
+  &.-tw {
+    background-color: #2AA3EF;
+    color: $color-base;
+    border: none;
+    &:hover {
+      background-color: lighten(#2AA3EF, 20%);
+    }
+  }
+  &.-line {
+    background-color: #1BB71F;
+    color: $color-base;
+    border: none;
+    &:hover {
+      background-color: lighten(#1BB71F, 20%);
+    }
+  }
+  &.-yahoo {
+    background-color: #FF0033;
+    color: $color-base;
+    border: none;
+    &:hover {
+      background-color: lighten(#FF0033, 20%);
+    }
+  }
+  &.-google {
+    background-color: #808080;
+    color: $color-base;
+    border: none;
+    &:hover {
+      background-color: lighten(#808080, 20%);
+    }
+  }
+  &.-secondary {
+    background-color: $color-normal-light;
+    color: $color-base;
+    border: none;
+    &:hover {
+      background-color: lighten($color-normal-light,10%);
+    }
+  }
+  &.-xs {
+    padding: 4px 20px;
+    font-size: 1.1rem;
+  }
+  &.-sm {
+    padding: 6px 20px;
+    font-size: 1.4rem;
+    i {
+      display: inline-block;
+      width: 13px;
+      vertical-align: middle;
+      margin-right: 3px;
+      .st0 {
+        fill: #fff;
+      }
+    }
+  }
+  &.-md {
+    min-width: 200px;
+  }
+  &.-lg {
+    padding: 5px 30px;
+    font-size: 2.0rem;
+    i {
+      display: inline-block;
+      width: 20px;
+      vertical-align: middle;
+      margin-right: 5px;
+      .st0 {
+        fill: #fff;
+      }
+    }
+  }
+  &.arrow {
+    position: relative;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: calc(50% + 2px);
+      right: 30px;
+      width: 8px;
+      height: 8px;
+      border-top: solid 2px $color-normal;
+      border-right: solid 2px $color-normal;
+      -webkit-transform: translateY(-50%) rotate(135deg);
+      -moz-transform: translateY(-50%) rotate(135deg);
+      transform: translateY(-50%) rotate(135deg);
+    }
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 28px;
+      width: 12px;
+      border-top: solid 2px $color-normal;
+      -webkit-transform: translateY(-50%) rotate(90deg);
+      -moz-transform: translateY(-50%) rotate(90deg);
+      transform: translateY(-50%) rotate(90deg);
+    }
+    &.-primary {
+      &:before,
+      &:after {
+        border-color: $color-base;
+      }
+    }
+    &.-xs {
+      &:before {
+        width: 8px;
+        height: 8px;
+      }
+      &:after {
+        width: 9px;
+      }
+    }
+  }
+}
+
+
+.btnWrap {
+  text-align: center;
+  &.-head{
+    margin-top: 15px;
+    .btn{
+      padding: 10px 35px;
+    }
+  }
+  &.-row {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 500px;
+    .btn{
+      min-width: auto;
+      width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+// バツボタン
+.delete{
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 31px;
+  height: 31px;
+  background: $color-normal;
+  border-radius: 50%;
+  &::before, &::after{
+    position: absolute;
+    top: 14px;
+    left: 7px;
+    display: block;
+    width: 18px;
+    height: 3px;
+    content: "";
+    transform: rotate(45deg);
+    background: $color-base;
+    }
+  &::after{
+    transform: rotate(-45deg) ;
+  }
+  &.-secondary{
+    background: #E6E6E7;
+    &::before, &::after{
+      background: $color-normal-light;
+    }
+  }
+  &.-sm{
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    &::before, &::after{
+      top: 11px;
+      left: 4px;
+      width: 16px;
+      height: 2px;
+      }
+    &::after{
+      transform: rotate(-45deg) ;
+    }
+  }
+}

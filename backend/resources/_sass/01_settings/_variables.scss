@@ -1,0 +1,52 @@
+// ==========================================================================
+// Variables
+// ==========================================================================
+
+/* setting ------------------ */
+$color-base: #fff !default;
+$color-base-secondary: #E2E6EA47 !default;
+$color-normal: #333 !default;
+$color-normal-light: #808080 !default;
+$color-normal-lighter: #D6DADD !default;
+$color-primary: #FFD00C !default;
+$color-primary-light: #FFF5F7 !default;
+$color-accent: #F25768 !default;
+$color-accent-light: lighten($color-accent,30%) !default;
+/* -------------------------- */
+
+
+$base-color-text: $color-normal !default;
+$base-color-bg: $color-base !default;
+$base-color-border: $color-normal-lighter !default;
+
+$base-color-caution: $color-primary;
+$base-color-link: $color-primary;
+
+
+$base-font-size: 1.4rem !default;
+$base-font-weight: 400 !default;
+$base-line-height: 1.7 !default;
+
+$font-family-primary: 'Arial','Montserrat', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, "Segoe UI", Ubuntu,"Open Sans","Helvetica Neue",sans-serif !default;
+
+$base-radius: 4px !default;
+
+
+$weight-medium: 500 !default;
+$weight-bold: 700 !default;
+
+$type-italic: italic !default;
+$type-small: 0.7em !default;
+$type-caps: small-caps !default;
+
+
+
+$mq-breakpoints: (
+  xs: 350px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+  xxxl: 1600px
+) !default;
