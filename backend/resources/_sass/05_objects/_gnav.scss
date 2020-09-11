@@ -42,4 +42,12 @@
       padding: 0;
     }
   }
+  .greeting {
+    margin-top: 10px;
+    font-size: 1.6rem;
+    span {
+      font-size: 1.7rem;
+      font-weight: $weight-bold;
+    }
+  }
 }

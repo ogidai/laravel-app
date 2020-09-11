@@ -42,39 +42,16 @@
                                                      document.getElementById('logout-form').submit();" class="btn">ログアウト</a>
         </div>
        
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="">
             @csrf
         </form>
         @endguest
       </div>
     </header>
 
-    <nav class="gnav">
-      <div class="navBtn -back js-navBtnBack">
-        <span class="js-badge active"></span><span></span><span></span>
-      </div>
-        <ul class="gnav_list">
-          <li class="gnav_item">
-            <a href="#" class="arrow -next">ProHikaとは？</a>
-          </li>
-          <li class="gnav_item">
-            <a href="#" class="arrow -next">FAQ</a>
-          </li>
-          <li class="gnav_item">
-            <a href="#" class="arrow -next">お問い合わせ</a>
-          </li>
-          <li class="gnav_item">
-            <a href="#" class="arrow -next">プライバシーポリシー</a>
-          </li>
-          <li class="gnav_item">
-            <a href="#" class="arrow -next">利用規約</a>
-          </li>
-          <li class="gnav_item -sns">
-            <a href="#"><img src="images/t_logo.svg" alt=""></a>
-          </li>
-        </ul>
-    </nav>
+    @extends('layouts.gnav')
 
+    @section('gnav')
 
     <div class="wrapper">
 
@@ -91,7 +68,7 @@
         @endguest
 
         <div class="options_wrap">
-          <form class="options" action="#" method="post">
+          <form class="options" action="{{ route('home')}}" method="post">
             @csrf
             <div class="options_item">
               <input type="radio" name="option" value="all" id="all"　 checked="checked">
@@ -111,6 +88,8 @@
             </div>
           </form>
         </div>
+        
+
 
         <ul class="pro_list">
           <li class="pro_item">

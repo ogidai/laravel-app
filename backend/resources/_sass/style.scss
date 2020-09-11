@@ -193,6 +193,7 @@ version： 0.0.1
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  margin: 0;
   padding: 15px 70px 15px 10px;
   @include mq {
     padding: 25px 160px 25px 80px;

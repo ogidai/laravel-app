@@ -782,6 +782,16 @@ table .bg-light {
   padding: 0;
 }
 
+.gnav_item .greeting {
+  margin-top: 10px;
+  font-size: 1.6rem;
+}
+
+.gnav_item .greeting span {
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
 .header {
   position: fixed;
   left: 0;
@@ -2612,6 +2622,7 @@ table .bg-light {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  margin: 0;
   padding: 15px 70px 15px 10px;
 }
 

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,5 +26,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('user/index', 'AppUserController@index');
 
-Auth::routes();
 

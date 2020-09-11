@@ -92,8 +92,6 @@
                 <span>公式SNSアカウント</span>
                 <ul class="fNav_sub -sns">
                   <li><a href="#"><img src="images/t_logo.svg" alt=""></a></li>
-                  <li><a href="#"><img src="images/f_logo.svg" alt=""></a></li>
-                  <li><a href="#"><img src="images/l_logo.svg" alt=""></a></li>
                 </ul>
               </li>
             </ul>
