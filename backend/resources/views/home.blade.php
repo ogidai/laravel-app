@@ -93,7 +93,7 @@
 
         <ul class="pro_list">
           <li class="pro_item">
-            <a href="pro_detail.html">
+            <a href="{{ route('detail') }} ">
               <div class="pro_item_left">
                 <figure>
                   <img src="images/sample.png" alt="">

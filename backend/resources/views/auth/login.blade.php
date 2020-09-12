@@ -105,7 +105,7 @@
             </a>
           </div>
           <p class="or">or</p>
-          <form class="login_form" action="#" method="post">
+          <form class="login_form" action="" method="post">
             @csrf
             <input type="email" name="email" value="" class="-secondary @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="メールアドレス">
             @error('email')
@@ -119,9 +119,9 @@
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
-            <div class="remember_me">
+            <div class="check_me">
               <input type="checkbox" name="remember" value="remember" id="remember">
-              <label for="remember">ログイン状態を保持する</label>
+              <label for="remember">ログイン状態をする</label>
             </div>
             <input type="submit" name="submit" value="submit" id="submit">
             <label for="submit" class="submit">ログイン</label>

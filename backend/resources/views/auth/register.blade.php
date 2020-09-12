@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<!-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -73,7 +73,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <div class="container">
 
     <header class="header">
@@ -89,7 +89,7 @@
         <!-- <div class="right btnWrap">
           <a href="index.html" class="btn">トップへ</a>
         </div> -->
-        <a href="{{('home')}}" class="left arrow_back"></a>
+        <a href="{{('/')}}" class="left arrow_back"></a>
       </div>
 
     </header>
@@ -133,8 +133,15 @@
                 </span>
             @enderror
             <input type="password" name="password_confirmation" value="" class="-secondary" placeholder="パスワード確認"  required autocomplete="new-password">
-            <input type="submit" name="submit" value="submit" id="submit">
-            <label for="submit" class="submit">確認画面へ</label>
+            <p class="alert">＊入力内容の確認画面には遷移しません。上記の内容が登録されます。入力内容に不備がないか、今一度ご確認ください。</p>
+            <div class="check_me">
+              <input type="checkbox" name="check" value="check" id="check" required>
+              <label for="check">確認しました</label>
+            </div>
+            <div class="js-submitBtn -hide">
+                <input type="submit" name="submit" value="submit" id="submit">
+                <label for="submit" class="submit">上記の新規内容で登録</label>
+            </div>
           </form>
         </div>
 

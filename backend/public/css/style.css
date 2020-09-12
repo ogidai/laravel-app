@@ -2517,21 +2517,14 @@ table .bg-light {
   }
 }
 
-.main.-padding {
-  padding: 0 15px;
-}
-
 .registar {
   padding: 30px 15px;
+  border-bottom: 1px solid #D6DADD;
   text-align: center;
 }
 
 .registar.-top {
   padding: 20px 15px;
-}
-
-.registar + .options_wrap {
-  border-top: 1px solid #D6DADD;
 }
 
 .registar .btn.-hasicon {
@@ -2608,8 +2601,19 @@ table .bg-light {
   pointer-events: none;
 }
 
-.registar .login_form .remember_me {
+.registar .login_form .check_me {
   margin-top: 30px;
+}
+
+.registar .login_form .alert {
+  margin-top: 30px;
+  text-align: left;
+  font-weight: 700;
+  color: #F25768;
+}
+
+.registar .login_form .alert + .check_me {
+  margin-top: 15px;
 }
 
 .options_wrap {
@@ -2769,6 +2773,14 @@ table .bg-light {
     margin-left: 30px;
     padding-bottom: 5px;
   }
+}
+
+.registar + .pro_detail .pro_name {
+  margin-top: 10px;
+}
+
+.pro_detail {
+  padding: 15px;
 }
 
 .star_icons {
