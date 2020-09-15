@@ -139,7 +139,7 @@
     });
 
     $(function() {
-      $('#register_check').attr('disabled', 'disabled');
+      $('#term_check').attr('disabled', 'disabled');
       $('form input:required').change(function() {
           //必須項目が空かどうかフラグ
           let flag = true;
@@ -153,11 +153,11 @@
           //全て埋まっていたら
           if (flag) {
               //送信ボタンを復活
-              $('#register_check').removeAttr('disabled');
+              $('#term_check').removeAttr('disabled');
           }
           else {
               //送信ボタンを閉じる
-              $('#register_check').attr('disabled', 'disabled');
+              $('#term_check').attr('disabled', 'disabled');
           }
       });
     });
@@ -165,7 +165,7 @@
     $(function() {
       $('#register_submit').attr('disabled', 'disabled');
 
-      $('#register_check').click(function() {
+      $('#term_check').click(function() {
         if ( $(this).prop('checked') == false ) {
           $('#register_submit').attr('disabled', 'disabled');
         } else {
@@ -180,7 +180,7 @@
     var containerHeight = $('.container').height();
     var contentHeight = winHeight - containerHeight;
     if (contentHeight > 0) {
-      $('footer').css({'position':'absolute','bottom':'0','left':'0'});
+      $('footer').css({'position':'fixed','bottom':'0','left':'0'});
     }
   });
   </script>

@@ -19,6 +19,20 @@
   @include mq {
     font-size: 1.6rem;
   }
+  &.-hasicon {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+  }
+  .icon {
+    display: block;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+  }
   &:hover {
     background-color: lighten($color-normal, 30%);
     text-decoration: none;
@@ -29,7 +43,7 @@
   &.-full {
     width: 100%;
     & + .btn {
-      margin-top: 10px;
+      margin-top: 15px;
       margin-left: 0;
     }
   }
@@ -48,46 +62,6 @@
     border: 2px solid $color-primary;
     &:hover {
       background-color: lighten($color-primary,10%);
-    }
-  }
-  &.-fb {
-    background-color: #4267B2;
-    color: $color-base;
-    border: none;
-    &:hover {
-      background-color: lighten(#4267B2, 20%);
-    }
-  }
-  &.-tw {
-    background-color: #2AA3EF;
-    color: $color-base;
-    border: none;
-    &:hover {
-      background-color: lighten(#2AA3EF, 20%);
-    }
-  }
-  &.-line {
-    background-color: #1BB71F;
-    color: $color-base;
-    border: none;
-    &:hover {
-      background-color: lighten(#1BB71F, 20%);
-    }
-  }
-  &.-yahoo {
-    background-color: #FF0033;
-    color: $color-base;
-    border: none;
-    &:hover {
-      background-color: lighten(#FF0033, 20%);
-    }
-  }
-  &.-google {
-    background-color: #808080;
-    color: $color-base;
-    border: none;
-    &:hover {
-      background-color: lighten(#808080, 20%);
     }
   }
   &.-secondary {

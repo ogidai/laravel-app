@@ -2,6 +2,9 @@
   margin-top: 0;
   input + input {
     margin-top: 10px;
+    @include mq {
+      margin-top: 20px;
+    }
   }
   input + .label {
     margin-top: 10px;
@@ -21,6 +24,9 @@
   .submit {
     margin-top: 30px;
     padding: 12px;
+    @include mq {
+      margin-top: 60px;
+    }
   }
   &.-confirm {
     padding-top: 10px;
@@ -34,14 +40,15 @@
   .alert {
     margin-top: 30px;
     text-align: left;
-    font-weight: $weight-bold;
-    color: $color-accent;
     & + .check_me {
       margin-top: 15px;
     }
     &.-top {
       margin-top: 0;
       margin-bottom: 10px;
+    }
+    &.-margin {
+      margin-top: 15px;
     }
   }
   .link_wrap{

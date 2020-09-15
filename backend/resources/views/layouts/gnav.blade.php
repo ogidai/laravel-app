@@ -11,8 +11,11 @@
         <li class="gnav_item">
           <a href="{{ route('post') }}" class="arrow -next">レビューを投稿する</a>
         </li>
-        <li class="gnav_item -margin">
+        <li class="gnav_item">
           <a href="#" class="arrow -next">あなたの投稿</a>
+        </li>
+        <li class="gnav_item -margin">
+          <a href="{{ route('user') }}" class="arrow -next">ユーザー情報</a>
         </li>
         @endauth
         <li class="gnav_item">
@@ -25,10 +28,7 @@
             <a href="{{ route('contact') }}" class="arrow -next">お問い合わせ</a>
         </li>
         <li class="gnav_item">
-            <a href="#" class="arrow -next">プライバシーポリシー</a>
-        </li>
-        <li class="gnav_item">
-            <a href="#" class="arrow -next">利用規約</a>
+            <a href="{{ route('policy') }}" class="arrow -next">利用規約・プライバシーポリシー</a>
         </li>
         <li class="gnav_item -sns">
             <a href="#"><img src="images/t_logo.svg" alt=""></a>

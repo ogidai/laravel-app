@@ -32,11 +32,20 @@ Route::get('faq', 'FaqController@index')->name('faq');
 
 Route::get('about', 'AboutController@index')->name('about');
 
+Route::get('policy', 'PolicyController@index')->name('policy');
+
+Route::get('policy_confirm', 'PolicyConfirmController@index')->name('policy_confirm');
+
 // Route::get('home', 'HomeController@index')->name('home');
 
 Route::get('product/detail', 'ProductDetailController@index')->name('detail');
 
-Route::get('user/index', 'AppUserController@index');
+Route::get('user/index', 'Admin\UserController@index')->name('user');
+Route::get('user/edit', 'Admin\UserController@edit');
+Route::post('user/edit', 'Admin\UserController@update');
+
+Route::get('changepassword', 'HomeController@showChangePasswordForm');
+Route::post('changepassword', 'HomeController@changePassword')->name('changepassword');
 
 // googleのログイン認証
 Route::get('login/google', 'Auth\LoginController@redirectToGoogle');

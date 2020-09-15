@@ -116,14 +116,10 @@ version： 0.0.1
     z-index: 1000;
     top: 0;
     left: 0;
-
     display: block;
-
     width: 100vw;
     height: 100vh;
-
     background: #00000060;
-
     @include mq {
       z-index: 10000;
     }
@@ -162,26 +158,14 @@ version： 0.0.1
   &.-post {
     border-top: 1px solid $color-normal-lighter;
   }
-  .btn {
-    &.-hasicon {
-      display: -webkit-flex;
-      display: -ms-flex;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 0;
-    }
-  }
-  .icon {
-    display: block;
-    margin-right: 10px;
-    width: 30px;
-    height: 30px;
-  }
   .or {
     position: relative;
     padding: 30px 0;
     font-size: 1.7rem;
+    @include mq {
+      padding: 60px 0;
+      font-size: 2rem;
+    }
     &:before {
       position: absolute;
       top: 50%;
@@ -205,17 +189,156 @@ version： 0.0.1
 
 .card {
   width: calc(100% - 30px);
-  max-width: 900px;
+  max-width: 800px;
   margin: 0 auto;
   margin: 30px auto;
   padding: 15px;
   border: 1px solid $color-normal-lighter;
   border-radius: 10px;
   background: $color-base;
-  h2 {
+  @include mq {
+    margin: 60px auto;
+  }
+  h1 {
+    font-size: 1.8rem;
     font-weight: $weight-bold;
     & + p {
       margin-top: 15px;
+    }
+  }
+  &.-faq {
+    padding: 15px 15px 30px;
+    .question {
+      position: relative;
+      font-weight: $weight-bold;
+      padding-left: 15px;
+      &::before {
+        position: absolute;
+        top: 12px;
+        left: 0;
+        content: "";
+        width: 8px;
+        height: 2px;
+        background: $color-normal;
+      }
+    }
+    .answer {
+      & + .question {
+        margin-top: 30px;
+      }
+    }
+  }
+  &.-policy {
+    padding: 15px 15px 30px;
+    h2 {
+      margin-top: 30px;
+      font-size: 1.7rem;
+      &.-top {
+        margin-top: 15px;
+      }
+    }
+    h3 {
+      margin: 0;
+      padding-left: 5px;
+      font-size: 1.6rem;
+      font-weight: $weight-bold;
+      & + h4 {
+        margin-top: 10px;
+      }
+    }
+    h4 {
+      margin: 0;
+      padding-left: 10px;
+      font-size: 1.5rem;
+    }
+    p {
+      margin-top: 5px;
+      font-size: 1.4rem;
+      & + h3 {
+        margin-top: 10px;
+      }
+    }
+    &.-register {
+      margin: 15px 0 0;
+      width: 100%;
+      max-width: none;
+      height: 250px;
+      overflow: scroll;
+      text-align: left;
+      @include mq {
+        margin: 30px 0 0;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+      h2 {
+        margin-top: 15px;
+        font-size: 1.4rem;
+        &.-top {
+          margin-top: 15px;
+        }
+      }
+      h3 {
+        margin: 0;
+        padding-left: 5px;
+        font-size: 1.3rem;
+        font-weight: $weight-bold;
+        & + h4 {
+          margin-top: 10px;
+        }
+      }
+      h4 {
+        margin: 0;
+        padding-left: 10px;
+        font-size: 1.2rem;
+      }
+      p {
+        margin-top: 5px;
+        font-size: 1.1rem;
+        & + h3 {
+          margin-top: 10px;
+        }
+      }
+    }
+    & + .btnWrap {
+      margin: 0 auto 100px;;
+      width: calc(100% - 30px);
+      max-width: 900px;
+    }
+    &.-confirm {
+      max-height: 50vh;
+      overflow: scroll;
+      h1 {
+        font-size: 1.5rem;
+      }
+      h2 {
+        margin-top: 15px;
+        font-size: 1.4rem;
+        &.-top {
+          margin-top: 15px;
+        }
+      }
+      h3 {
+        margin: 0;
+        padding-left: 5px;
+        font-size: 1.3rem;
+        font-weight: $weight-bold;
+        & + h4 {
+          margin-top: 10px;
+        }
+      }
+      h4 {
+        margin: 0;
+        padding-left: 10px;
+        font-size: 1.2rem;
+      }
+      p {
+        margin-top: 5px;
+        font-size: 1.1rem;
+        & + h3 {
+          margin-top: 10px;
+        }
+      }
     }
   }
 }
@@ -376,8 +499,21 @@ version： 0.0.1
 .review_cat {
   padding-top: 5px;
 }
+
 .invalid-feedback {
   display: block;
   padding: 5px 10px 10px;
   text-align: left;
+}
+
+.alert {
+  font-weight: $weight-bold;
+  color: $color-accent;
+  text-align: left;
+  &.-head {
+    margin: 30px 15px 0;
+    & + .card {
+      margin-top: 10px;
+    }
+  }
 }

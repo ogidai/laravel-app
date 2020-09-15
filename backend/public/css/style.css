@@ -92,33 +92,13 @@ body {
   }
 }
 
-.h1 {
+h1 {
   margin: 0;
-  text-align: center;
-  font-size: 2.2rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  line-height: 1.5;
-}
-
-@media screen and (min-width: 992px) {
-  .h1 {
-    font-size: 2.8rem;
-  }
-}
-
-.h1 .lg {
-  display: block;
-  margin-bottom: 5px;
-  color: #FFD00C;
-  font-size: 1.3rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
 }
 
 h2 {
   margin: 0;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 h2.pro_name {
@@ -662,7 +642,7 @@ table .bg-light {
 
 .gnav_item a {
   display: block;
-  padding: 7px 0 7px 5px;
+  padding: 7px 30px 7px 5px;
   border-bottom: 1px solid #808080;
   color: #333;
   font-size: 1.6rem;
@@ -976,6 +956,12 @@ table .bg-light {
   margin-top: 10px;
 }
 
+@media screen and (min-width: 992px) {
+  .form input + input {
+    margin-top: 20px;
+  }
+}
+
 .form input + .label {
   margin-top: 10px;
 }
@@ -1001,6 +987,12 @@ table .bg-light {
   padding: 12px;
 }
 
+@media screen and (min-width: 992px) {
+  .form .submit {
+    margin-top: 60px;
+  }
+}
+
 .form.-confirm {
   padding-top: 10px;
 }
@@ -1016,8 +1008,6 @@ table .bg-light {
 .form .alert {
   margin-top: 30px;
   text-align: left;
-  font-weight: 700;
-  color: #F25768;
 }
 
 .form .alert + .check_me {
@@ -1027,6 +1017,10 @@ table .bg-light {
 .form .alert.-top {
   margin-top: 0;
   margin-bottom: 10px;
+}
+
+.form .alert.-margin {
+  margin-top: 15px;
 }
 
 .form .link_wrap {
@@ -1192,6 +1186,21 @@ table .bg-light {
   }
 }
 
+.btn.-hasicon {
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.btn .icon {
+  display: block;
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+}
+
 .btn:hover {
   background-color: gray;
   text-decoration: none;
@@ -1206,7 +1215,7 @@ table .bg-light {
 }
 
 .btn.-full + .btn {
-  margin-top: 10px;
+  margin-top: 15px;
   margin-left: 0;
 }
 
@@ -1229,56 +1238,6 @@ table .bg-light {
 
 .btn.-primary:hover {
   background-color: #ffda3f;
-}
-
-.btn.-fb {
-  background-color: #4267B2;
-  color: #fff;
-  border: none;
-}
-
-.btn.-fb:hover {
-  background-color: #87a0d3;
-}
-
-.btn.-tw {
-  background-color: #2AA3EF;
-  color: #fff;
-  border: none;
-}
-
-.btn.-tw:hover {
-  background-color: #89ccf6;
-}
-
-.btn.-line {
-  background-color: #1BB71F;
-  color: #fff;
-  border: none;
-}
-
-.btn.-line:hover {
-  background-color: #52e656;
-}
-
-.btn.-yahoo {
-  background-color: #FF0033;
-  color: #fff;
-  border: none;
-}
-
-.btn.-yahoo:hover {
-  background-color: #ff6685;
-}
-
-.btn.-google {
-  background-color: #808080;
-  color: #fff;
-  border: none;
-}
-
-.btn.-google:hover {
-  background-color: #b3b3b3;
 }
 
 .btn.-secondary {
@@ -2500,25 +2459,17 @@ table .bg-light {
   border-top: 1px solid #D6DADD;
 }
 
-.inner .btn.-hasicon {
-  display: -ms-flex;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 0;
-}
-
-.inner .icon {
-  display: block;
-  margin-right: 10px;
-  width: 30px;
-  height: 30px;
-}
-
 .inner .or {
   position: relative;
   padding: 30px 0;
   font-size: 1.7rem;
+}
+
+@media screen and (min-width: 992px) {
+  .inner .or {
+    padding: 60px 0;
+    font-size: 2rem;
+  }
 }
 
 .inner .or:before {
@@ -2543,7 +2494,7 @@ table .bg-light {
 
 .card {
   width: calc(100% - 30px);
-  max-width: 900px;
+  max-width: 800px;
   margin: 0 auto;
   margin: 30px auto;
   padding: 15px;
@@ -2552,12 +2503,186 @@ table .bg-light {
   background: #fff;
 }
 
-.card h2 {
+@media screen and (min-width: 992px) {
+  .card {
+    margin: 60px auto;
+  }
+}
+
+.card h1 {
+  font-size: 1.8rem;
   font-weight: 700;
 }
 
-.card h2 + p {
+.card h1 + p {
   margin-top: 15px;
+}
+
+.card.-faq {
+  padding: 15px 15px 30px;
+}
+
+.card.-faq .question {
+  position: relative;
+  font-weight: 700;
+  padding-left: 15px;
+}
+
+.card.-faq .question::before {
+  position: absolute;
+  top: 12px;
+  left: 0;
+  content: "";
+  width: 8px;
+  height: 2px;
+  background: #333;
+}
+
+.card.-faq .answer + .question {
+  margin-top: 30px;
+}
+
+.card.-policy {
+  padding: 15px 15px 30px;
+}
+
+.card.-policy h2 {
+  margin-top: 30px;
+  font-size: 1.7rem;
+}
+
+.card.-policy h2.-top {
+  margin-top: 15px;
+}
+
+.card.-policy h3 {
+  margin: 0;
+  padding-left: 5px;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.card.-policy h3 + h4 {
+  margin-top: 10px;
+}
+
+.card.-policy h4 {
+  margin: 0;
+  padding-left: 10px;
+  font-size: 1.5rem;
+}
+
+.card.-policy p {
+  margin-top: 5px;
+  font-size: 1.4rem;
+}
+
+.card.-policy p + h3 {
+  margin-top: 10px;
+}
+
+.card.-policy.-register {
+  margin: 15px 0 0;
+  width: 100%;
+  max-width: none;
+  height: 250px;
+  overflow: scroll;
+  text-align: left;
+}
+
+@media screen and (min-width: 992px) {
+  .card.-policy.-register {
+    margin: 30px 0 0;
+  }
+}
+
+.card.-policy.-register h1 {
+  font-size: 1.5rem;
+}
+
+.card.-policy.-register h2 {
+  margin-top: 15px;
+  font-size: 1.4rem;
+}
+
+.card.-policy.-register h2.-top {
+  margin-top: 15px;
+}
+
+.card.-policy.-register h3 {
+  margin: 0;
+  padding-left: 5px;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.card.-policy.-register h3 + h4 {
+  margin-top: 10px;
+}
+
+.card.-policy.-register h4 {
+  margin: 0;
+  padding-left: 10px;
+  font-size: 1.2rem;
+}
+
+.card.-policy.-register p {
+  margin-top: 5px;
+  font-size: 1.1rem;
+}
+
+.card.-policy.-register p + h3 {
+  margin-top: 10px;
+}
+
+.card.-policy + .btnWrap {
+  margin: 0 auto 100px;
+  width: calc(100% - 30px);
+  max-width: 900px;
+}
+
+.card.-policy.-confirm {
+  max-height: 50vh;
+  overflow: scroll;
+}
+
+.card.-policy.-confirm h1 {
+  font-size: 1.5rem;
+}
+
+.card.-policy.-confirm h2 {
+  margin-top: 15px;
+  font-size: 1.4rem;
+}
+
+.card.-policy.-confirm h2.-top {
+  margin-top: 15px;
+}
+
+.card.-policy.-confirm h3 {
+  margin: 0;
+  padding-left: 5px;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.card.-policy.-confirm h3 + h4 {
+  margin-top: 10px;
+}
+
+.card.-policy.-confirm h4 {
+  margin: 0;
+  padding-left: 10px;
+  font-size: 1.2rem;
+}
+
+.card.-policy.-confirm p {
+  margin-top: 5px;
+  font-size: 1.1rem;
+}
+
+.card.-policy.-confirm p + h3 {
+  margin-top: 10px;
 }
 
 .options_wrap {
@@ -2751,5 +2876,19 @@ table .bg-light {
   display: block;
   padding: 5px 10px 10px;
   text-align: left;
+}
+
+.alert {
+  font-weight: 700;
+  color: #F25768;
+  text-align: left;
+}
+
+.alert.-head {
+  margin: 30px 15px 0;
+}
+
+.alert.-head + .card {
+  margin-top: 10px;
 }
 
