@@ -13,14 +13,25 @@
   -webkit-transition: .35s ease-in-out;
   -moz-transition: .35s ease-in-out;
   transition: .35s ease-in-out;
+  @include mq {
+    position: fixed;
+    width: 25vw;
+    z-index: 10;
+    transform: none;
+    border-right: 1px solid $color-normal-lighter;
+    overflow: scroll;
+  }
   &.active {
     transform: none;
   }
 }
 .gnav_list {
   margin: 0;
-  padding: 60px 15px 0;
+  padding: 60px 15px;
   list-style: none;
+  @include mq {
+    padding: 100px 15px;
+  }
 }
 .gnav_item {
   & + .gnav_item {
@@ -48,6 +59,20 @@
     span {
       font-size: 1.7rem;
       font-weight: $weight-bold;
+    }
+  }
+  .auth_email {
+    font-size: 1.2rem;
+    margin-top: 0;
+    padding-left: 4px;
+    @include mq {
+      margin-bottom: 20px;
+    }
+  }
+  &.-margin {
+    margin-bottom: 30px;
+    @include mq {
+      margin-bottom: 60px;
     }
   }
 }

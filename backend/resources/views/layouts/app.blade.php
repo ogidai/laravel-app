@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'ProHika') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -70,37 +70,28 @@
         </nav>
 
         <main class="py-4">
-            
+
         </main>
     </div> -->
     @yield('content')
-    <footer class="footer">
-        <div class="fNav">
-          <div class="contentInner">
-            <ul class="fNavList">
-              <li>
-                <span>ProHikaについて</span>
-                <ul class="fNav_sub -about">
-                  <li><a href="#">ProHikaとは</a></li>
-                  <li><a href="#">プライバシーポリシー</a></li>
-                  <li><a href="#">FAQ</a></li>
-                  <li><a href="#">利用規約</a></li>
-                  <li><a href="#">お問い合わせ</a></li>
-                </ul>
-              </li>
-              <li>
-                <span>公式SNSアカウント</span>
-                <ul class="fNav_sub -sns">
-                  <li><a href="#"><img src="images/t_logo.svg" alt=""></a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="copyright">
-          <small>© ProHika All rights reserved.</small>
-        </div>
-      </footer>
+    @auth
+    <div class="modal js-logoutModal">
+      <p class="text">ログアウトしてもよろしいですか？</p>
+      <div class="btnWrap">
+        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" class="btn -primary">はい</a>
+        <span class="btn js-logoutModalBack">いいえ</span>
+      </div>
+      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="">
+        @csrf
+      </form>
+    </div>
+    @endauth
+    <footer class="footer -sp">
+      <div class="copyright">
+        <small>© 2020 ProHika</small>
+      </div>
+    </footer>
 
     </div>
 
@@ -128,6 +119,70 @@
           $('body').css('overflow', 'auto');
       });
     });
+
+    $(function() {
+      $('.js-showLogoutModal').click(function() {
+          $('.js-logoutModal').addClass('active');
+          $('.overlay').addClass('active');
+          $('body').css('overflow', 'hidden');
+      });
+      $('.overlay').click(function() {
+          $('.js-logoutModal').removeClass('active');
+          $('.overlay').removeClass('active');
+          $('body').css('overflow', 'auto');
+      });
+      $('.js-logoutModalBack').click(function() {
+        $('.js-logoutModal').removeClass('active');
+        $('.overlay').removeClass('active');
+        $('body').css('overflow', 'auto');
+      });
+    });
+
+    $(function() {
+      $('#register_check').attr('disabled', 'disabled');
+      $('form input:required').change(function() {
+          //必須項目が空かどうかフラグ
+          let flag = true;
+          //必須項目をひとつずつチェック
+          $('form input:required').each(function(e) {
+              //もし必須項目が空なら
+              if ($('form input:required').eq(e).val() === "") {
+                  flag = false;
+              }
+          });
+          //全て埋まっていたら
+          if (flag) {
+              //送信ボタンを復活
+              $('#register_check').removeAttr('disabled');
+          }
+          else {
+              //送信ボタンを閉じる
+              $('#register_check').attr('disabled', 'disabled');
+          }
+      });
+    });
+
+    $(function() {
+      $('#register_submit').attr('disabled', 'disabled');
+
+      $('#register_check').click(function() {
+        if ( $(this).prop('checked') == false ) {
+          $('#register_submit').attr('disabled', 'disabled');
+        } else {
+          $('#register_submit').removeAttr('disabled');
+        }
+      });
+    });
+
+  // コンテンツの高さがない時にフッターを下に固定する
+  $(function(){
+    var winHeight = $(window).height();
+    var containerHeight = $('.container').height();
+    var contentHeight = winHeight - containerHeight;
+    if (contentHeight > 0) {
+      $('footer').css({'position':'absolute','bottom':'0','left':'0'});
+    }
+  });
   </script>
 </body>
 </html>

@@ -38,13 +38,9 @@
         </div>
         @else
         <div class="right btnWrap">
-          <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();" class="btn">ログアウト</a>
+          <span class="btn js-showLogoutModal">ログアウト</span>
         </div>
-       
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="">
-            @csrf
-        </form>
+
         @endguest
       </div>
     </header>
@@ -53,13 +49,13 @@
 
     @section('gnav')
 
-    <div class="wrapper">
+    <div class="wrapper -top">
 
 
 
       <main class="main">
         @guest
-        <div class="registar -top">
+        <div class="inner -top">
           <p class="catch">会員になってプロテインのレビューを書きませんか？</p>
           <div class="btnWrap">
             <a href="{{route('register')}}" class="btn -full">新規登録！</a>
@@ -88,7 +84,7 @@
             </div>
           </form>
         </div>
-        
+
 
 
         <ul class="pro_list">
@@ -190,5 +186,5 @@
 
       </main>
 
-    
+
 @endsection

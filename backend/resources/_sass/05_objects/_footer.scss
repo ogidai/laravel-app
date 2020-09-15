@@ -6,121 +6,13 @@
 .footer {
   width: 100%;
   background: $color-normal-lighter;
-  border-top: 1px solid $color-normal-lighter;
-  .fNav {
-    padding-top: 25px;
-    padding-right: 15px;
-    padding-bottom: 25px;
-    padding-left: 15px;
-    .contentInner{
-      max-width: 400px;
-    }
-    .fNavList {
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flex;
-      display: -o-flex;
-      display: flex;
-      flex-wrap: wrap;
-      margin: 0;
-      padding: 0;
-      > li {
-        width: 100%;
-        list-style: none;
-        position: relative;
-        &:nth-child(n + 2){
-          width: 50%;
-        }
-        &+li{
-          margin-top: 40px;
-        }
-        span {
-          font-size: 1.4rem;
-          font-weight: $weight-bold;
-        }
-      }
-    }
-    .fNav_sub {
-      margin-top: 10px;
-      padding: 0;
-      > li {
-        list-style: none;
-        font-size: 1.2rem;
-        line-height: 2.0;
-        a {
-          color: $color-normal;
-        }
-      }
-      &.-about{
-        display: -webkit-flex;
-        display: -moz-flex;
-        display: -ms-flex;
-        display: -o-flex;
-        display: flex;
-        flex-wrap: wrap;
-        li{
-          &:nth-child(odd){
-            width: calc(50% - 10px);
-          }
-          &:nth-child(even){
-            width: calc(50% + 10px);
-          }
-        }
-      }
-      &.-sns{
-        display: -webkit-flex;
-        display: -moz-flex;
-        display: -ms-flex;
-        display: -o-flex;
-        display: flex;
-        li+li{
-          margin-left: 15px;
-        }
-        a{
-          display: block;
-        }
-      }
-    }
-  }
-  .smNav {
-    background-color: $color-normal;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    @include mq {
-      text-align: center;
-    }
-    .smNavList {
-      float: left;
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flex;
-      display: -o-flex;
-      display: flex;
-      list-style: none;
-      margin-top: 0;
-      margin-right: -10px;
-      margin-bottom: 0;
-      margin-left: -10px;
-      padding: 0;
-      @include mq {
-        margin-bottom: 10px;
-        float: none;
-        justify-content: center;
-        text-align: center;
-      }
-      > li {
-        padding-right: 10px;
-        padding-left: 10px;
-        line-height: 1;
-        & + li {
-          border-left: 1px solid #fff;
-        }
-        a {
-          color: #fff;
-          font-size: 1.2rem;
-        }
-      }
-    }
+  @include mq {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 25vw;
+    border: 0;
+    background: none;
   }
   .copyright {
     padding-top: 13px;
@@ -129,5 +21,8 @@
     font-size: 1rem;
     color: #7f7f7f;
     background: $color-base;
+    @include mq {
+      background: none;
+    }
   }
 }

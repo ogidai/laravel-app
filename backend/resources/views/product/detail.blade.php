@@ -24,7 +24,7 @@
         <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();" class="btn">ログアウト</a>
     </div>
-    
+
     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="">
         @csrf
     </form>
@@ -40,7 +40,7 @@
 
   <main class="main">
     @guest
-    <div class="registar -top">
+    <div class="inner -top">
         <p class="catch">会員になってプロテインのレビューを書きませんか？</p>
         <div class="btnWrap">
         <a href="{{route('register')}}" class="btn -full">新規登録！</a>
@@ -50,7 +50,7 @@
     <div class="pro_detail">
         <h2 class="pro_name">ビーレジェンド　ベリベリベリー味　</h2>
         <figure class="pro_img">
-          <img src="images/sample.png" alt="">
+          <img src="" alt="">
         </figure>
         <div class="review -row_sp">
           <p class="review_cat">おすすめ度</p>
@@ -130,7 +130,7 @@
                 </g>
               </svg>
             </i>
-    
+
           </div>
         </div>
         <div class="review -row_sp">
@@ -211,10 +211,18 @@
                 </g>
               </svg>
             </i>
-    
+
           </div>
         </div>
     </div>
+    @auth
+    <div class="inner -top -post">
+        <p class="catch">お気に入りのプロテインをレビューしてみませんか？</p>
+        <div class="btnWrap">
+        <a href="{{route('post')}}" class="btn -full">レビューを投稿！</a>
+        </div>
+    </div>
+    @endauth
 
   </main>
 

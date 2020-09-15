@@ -79,7 +79,7 @@
     <header class="header">
       <div class="contentInner">
         <div class="logo">
-          <a href="#">
+          <a href="{{('/')}}">
             <img src="images/logo.png" alt="">
           </a>
         </div>
@@ -94,58 +94,63 @@
 
     </header>
 
-    <nav class="gnav">
-
-    </nav>
 
 
-    <div class="wrapper">
+    <div class="wrapper -secondary">
 
 
 
       <main class="main">
-        <div class="registar">
+        <div class="inner">
           <div class="btnWrap">
-            <a href="#" class="btn -hasicon">
+            <a href="/login/google" class="btn -hasicon">
               <i class="icon"><img src="images/google.svg" alt=""></i>
               Googleで新規登録
             </a>
           </div>
           <p class="or">or</p>
-          <form class="login_form" method="POST" action="{{ route('register') }}">
+          <form class="login_form form" method="POST" action="{{ route('register') }}">
             @csrf
-            <input type="text" name="name" value="" class="-secondary @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="ユーザーネーム">
+            <p class="alert -top">＊全ての項目を入力してください。</p>
+            <label for="username" class="label">ユーザー名</label>
+            <input id="username" type="text" name="name" value="" class="-secondary @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="プロヒカ（公開されます）">
             @error('name')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
-            <input type="email" name="email" value="" class="-secondary @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="メールアドレス">
+            <label for="email" class="label">メールアドレス</label>
+            <input id="email" type="email" name="email" value="" class="-secondary @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="xxxxx@example.com">
             @error('email')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
-            <input type="password" name="password" value=""class="-secondary @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="パスワード">
+            <label for="password" class="label">パスワード</label>
+            <input id="password" type="password" name="password" value=""class="-secondary @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="８文字以上">
             @error('password')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
-            <input type="password" name="password_confirmation" value="" class="-secondary" placeholder="パスワード確認"  required autocomplete="new-password">
-            <p class="alert">＊入力内容の確認画面には遷移しません。上記の内容が登録されます。入力内容に不備がないか、今一度ご確認ください。</p>
+            <label for="password_confirm" class="label">パスワード確認</label>
+            <input id="password_confirm" type="password" name="password_confirmation" value="" class="-secondary" placeholder="同じパスワードを入力"  required autocomplete="new-password">
+            <p class="alert">
+              ＊ログインの際に、メールアドレスとパスワードを使用します。入力内容をご確認ください。
+              <br>＊全ての項目が入力されていない場合、以下をチェックできません。
+            </p>
             <div class="check_me">
-              <input type="checkbox" name="check" value="check" id="check" required>
-              <label for="check">確認しました</label>
+              <input type="checkbox" name="check" value="check" id="register_check" required>
+              <label for="register_check">確認しました</label>
             </div>
-            <div class="js-submitBtn -hide">
-                <input type="submit" name="submit" value="submit" id="submit">
-                <label for="submit" class="submit">上記の新規内容で登録</label>
+            <div class="js-submitBtn">
+                <input type="submit" name="submit" value="submit" id="register_submit">
+                <label for="register_submit" class="submit">上記の新規内容で登録</label>
             </div>
           </form>
         </div>
 
       </main>
 
-      
+
 @endsection

@@ -589,143 +589,17 @@ table .bg-light {
 .footer {
   width: 100%;
   background: #D6DADD;
-  border-top: 1px solid #D6DADD;
-}
-
-.footer .fNav {
-  padding-top: 25px;
-  padding-right: 15px;
-  padding-bottom: 25px;
-  padding-left: 15px;
-}
-
-.footer .fNav .contentInner {
-  max-width: 400px;
-}
-
-.footer .fNav .fNavList {
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0;
-  padding: 0;
-}
-
-.footer .fNav .fNavList > li {
-  width: 100%;
-  list-style: none;
-  position: relative;
-}
-
-.footer .fNav .fNavList > li:nth-child(n+2) {
-  width: 50%;
-}
-
-.footer .fNav .fNavList > li + li {
-  margin-top: 40px;
-}
-
-.footer .fNav .fNavList > li span {
-  font-size: 1.4rem;
-  font-weight: 700;
-}
-
-.footer .fNav .fNav_sub {
-  margin-top: 10px;
-  padding: 0;
-}
-
-.footer .fNav .fNav_sub > li {
-  list-style: none;
-  font-size: 1.2rem;
-  line-height: 2;
-}
-
-.footer .fNav .fNav_sub > li a {
-  color: #333;
-}
-
-.footer .fNav .fNav_sub.-about {
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.footer .fNav .fNav_sub.-about li:nth-child(odd) {
-  width: calc(50% - 10px);
-}
-
-.footer .fNav .fNav_sub.-about li:nth-child(even) {
-  width: calc(50% + 10px);
-}
-
-.footer .fNav .fNav_sub.-sns {
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: flex;
-}
-
-.footer .fNav .fNav_sub.-sns li + li {
-  margin-left: 15px;
-}
-
-.footer .fNav .fNav_sub.-sns a {
-  display: block;
-}
-
-.footer .smNav {
-  background-color: #333;
-  padding-top: 20px;
-  padding-bottom: 20px;
 }
 
 @media screen and (min-width: 992px) {
-  .footer .smNav {
-    text-align: center;
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 25vw;
+    border: 0;
+    background: none;
   }
-}
-
-.footer .smNav .smNavList {
-  float: left;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: flex;
-  list-style: none;
-  margin-top: 0;
-  margin-right: -10px;
-  margin-bottom: 0;
-  margin-left: -10px;
-  padding: 0;
-}
-
-@media screen and (min-width: 992px) {
-  .footer .smNav .smNavList {
-    margin-bottom: 10px;
-    float: none;
-    justify-content: center;
-    text-align: center;
-  }
-}
-
-.footer .smNav .smNavList > li {
-  padding-right: 10px;
-  padding-left: 10px;
-  line-height: 1;
-}
-
-.footer .smNav .smNavList > li + li {
-  border-left: 1px solid #fff;
-}
-
-.footer .smNav .smNavList > li a {
-  color: #fff;
-  font-size: 1.2rem;
 }
 
 .footer .copyright {
@@ -735,6 +609,12 @@ table .bg-light {
   font-size: 1rem;
   color: #7f7f7f;
   background: #fff;
+}
+
+@media screen and (min-width: 992px) {
+  .footer .copyright {
+    background: none;
+  }
 }
 
 .gnav {
@@ -749,14 +629,31 @@ table .bg-light {
   transition: 0.35s ease-in-out;
 }
 
+@media screen and (min-width: 992px) {
+  .gnav {
+    position: fixed;
+    width: 25vw;
+    z-index: 10;
+    transform: none;
+    border-right: 1px solid #D6DADD;
+    overflow: scroll;
+  }
+}
+
 .gnav.active {
   transform: none;
 }
 
 .gnav_list {
   margin: 0;
-  padding: 60px 15px 0;
+  padding: 60px 15px;
   list-style: none;
+}
+
+@media screen and (min-width: 992px) {
+  .gnav_list {
+    padding: 100px 15px;
+  }
 }
 
 .gnav_item + .gnav_item {
@@ -792,12 +689,34 @@ table .bg-light {
   font-weight: 700;
 }
 
+.gnav_item .auth_email {
+  font-size: 1.2rem;
+  margin-top: 0;
+  padding-left: 4px;
+}
+
+@media screen and (min-width: 992px) {
+  .gnav_item .auth_email {
+    margin-bottom: 20px;
+  }
+}
+
+.gnav_item.-margin {
+  margin-bottom: 30px;
+}
+
+@media screen and (min-width: 992px) {
+  .gnav_item.-margin {
+    margin-bottom: 60px;
+  }
+}
+
 .header {
   position: fixed;
   left: 0;
   top: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 100;
   background: #fff;
   border-bottom: 1px solid #D6DADD;
   transition: 0.35s ease-in-out;
@@ -881,6 +800,12 @@ table .bg-light {
   height: 27px;
 }
 
+@media screen and (min-width: 992px) {
+  .header .btnWrap {
+    margin-top: 18px;
+  }
+}
+
 .header .btn {
   padding: 3px 8px;
   border: none;
@@ -890,7 +815,7 @@ table .bg-light {
 
 @media screen and (min-width: 992px) {
   .header .btn {
-    padding: 5px 20px;
+    padding: 5px 10px;
   }
 }
 
@@ -1043,102 +968,86 @@ table .bg-light {
   width: 333px;
 }
 
-.formWrap {
-  margin: 0;
-  padding: 0;
-}
-
-.formWrap > li {
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: flex;
-  list-style: none;
-}
-
-@media screen and (min-width: 768px) {
-  .formWrap > li {
-    flex-direction: column;
-  }
-}
-
-.formWrap > li + li {
-  margin-top: 20px;
-}
-
-@media screen and (min-width: 768px) {
-  .formWrap > li + li {
-    margin-top: 20px;
-  }
-}
-
-.formWrap > li p + p {
+.form {
   margin-top: 0;
 }
 
-.formWrap > li .note {
-  font-size: 1.1rem;
-  color: #8c8c8c;
+.form input + input {
+  margin-top: 10px;
 }
 
-.formWrap .label {
-  width: 20%;
-  padding-right: 30px;
+.form input + .label {
+  margin-top: 10px;
+}
+
+.form input + .label.-margin {
+  margin-top: 0;
+}
+
+.form label + .btnWrap {
+  margin-top: 10px;
+}
+
+.form .btnWrap {
+  margin-top: 30px;
+}
+
+.form .btnWrap .submit {
+  margin-top: 15px;
+}
+
+.form .submit {
+  margin-top: 30px;
+  padding: 12px;
+}
+
+.form.-confirm {
+  padding-top: 10px;
+}
+
+.form.-confirm .-eventNone {
+  pointer-events: none;
+}
+
+.form .check_me {
+  margin-top: 30px;
+}
+
+.form .alert {
+  margin-top: 30px;
+  text-align: left;
   font-weight: 700;
+  color: #F25768;
 }
 
-@media screen and (min-width: 768px) {
-  .formWrap .label {
-    margin-bottom: 5px;
-    width: 100%;
-  }
+.form .alert + .check_me {
+  margin-top: 15px;
 }
 
-.formWrap .field {
-  width: 80%;
+.form .alert.-top {
+  margin-top: 0;
+  margin-bottom: 10px;
 }
 
-@media screen and (min-width: 768px) {
-  .formWrap .field {
-    width: 100%;
-    padding-left: 0;
-  }
+.form .link_wrap {
+  margin-top: 20px;
 }
 
-.formWrap .field.-birthday .col {
-  width: 33.333%;
+.form .link_wrap .link {
+  display: block;
 }
 
-@media screen and (min-width: 576px) {
-  .formWrap .field.-birthday .col {
-    width: 100%;
-  }
+.form .link_wrap .link + .link {
+  margin-top: 10px;
 }
 
-@media screen and (min-width: 768px) {
-  .formWrap .field.-birthday .col + .col {
-    margin-top: 0px;
-  }
+.form .label {
+  display: block;
+  text-align: left;
 }
 
-@media screen and (min-width: 576px) {
-  .formWrap .field.-birthday .col + .col {
-    margin-top: 5px;
-  }
-}
-
-.formWrap .field.-birthday .col > * {
-  display: inline-block;
-}
-
-.formWrap .field.-birthday .col .selectWrap {
-  width: calc(100% - 2em);
-}
-
-@media screen and (min-width: 768px) {
-  .formWrap .field .col + .col {
-    margin-top: 5px;
-  }
+#register_submit[disabled] + label {
+  opacity: 0.5;
 }
 
 .pagenation {
@@ -1294,7 +1203,6 @@ table .bg-light {
 
 .btn.-full {
   width: 100%;
-  max-width: 500px;
 }
 
 .btn.-full + .btn {
@@ -2496,15 +2404,56 @@ table .bg-light {
   }
 }
 
+.modal {
+  display: none;
+}
+
+.modal.active {
+  position: absolute;
+  z-index: 100000;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 80vw;
+  max-width: 400px;
+  padding: 30px;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  border: 1px solid #D6DADD;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.modal.active .btn {
+  width: 80px;
+  padding: 5px 0px;
+}
+
+.modal.active .btn + .btn {
+  margin-left: 5px;
+}
+
+.modal.active form {
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+}
+
 .overlay.active {
   position: absolute;
+  z-index: 1000;
   top: 0;
   left: 0;
   display: block;
   width: 100vw;
   height: 100vh;
   background: #00000060;
-  z-index: 100;
+}
+
+@media screen and (min-width: 992px) {
+  .overlay.active {
+    z-index: 10000;
+  }
 }
 
 .wrapper {
@@ -2517,17 +2466,41 @@ table .bg-light {
   }
 }
 
-.registar {
+@media screen and (min-width: 992px) {
+  .wrapper.-top {
+    width: 75vw;
+    margin-left: auto;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .wrapper.-secondary {
+    margin: 0 auto;
+    max-width: 800px;
+  }
+}
+
+.inner {
   padding: 30px 15px;
-  border-bottom: 1px solid #D6DADD;
   text-align: center;
 }
 
-.registar.-top {
-  padding: 20px 15px;
+@media screen and (min-width: 992px) {
+  .inner {
+    padding: 60px 15px;
+  }
 }
 
-.registar .btn.-hasicon {
+.inner.-top {
+  padding: 20px 15px;
+  border-bottom: 1px solid #D6DADD;
+}
+
+.inner.-post {
+  border-top: 1px solid #D6DADD;
+}
+
+.inner .btn.-hasicon {
   display: -ms-flex;
   display: flex;
   align-items: center;
@@ -2535,20 +2508,20 @@ table .bg-light {
   padding: 10px 0;
 }
 
-.registar .icon {
+.inner .icon {
   display: block;
   margin-right: 10px;
   width: 30px;
   height: 30px;
 }
 
-.registar .or {
+.inner .or {
   position: relative;
   padding: 30px 0;
   font-size: 1.7rem;
 }
 
-.registar .or:before {
+.inner .or:before {
   position: absolute;
   top: 50%;
   left: 0;
@@ -2558,7 +2531,7 @@ table .bg-light {
   background: #333;
 }
 
-.registar .or:after {
+.inner .or:after {
   position: absolute;
   top: 50%;
   right: 0;
@@ -2568,51 +2541,22 @@ table .bg-light {
   background: #333;
 }
 
-.registar .login_form {
-  margin-top: 0;
+.card {
+  width: calc(100% - 30px);
+  max-width: 900px;
+  margin: 0 auto;
+  margin: 30px auto;
+  padding: 15px;
+  border: 1px solid #D6DADD;
+  border-radius: 10px;
+  background: #fff;
 }
 
-.registar .login_form input + input {
-  margin-top: 10px;
-}
-
-.registar .login_form label + .btnWrap {
-  margin-top: 10px;
-}
-
-.registar .login_form .btnWrap {
-  margin-top: 30px;
-}
-
-.registar .login_form .btnWrap .submit {
-  margin-top: 15px;
-}
-
-.registar .login_form .submit {
-  margin-top: 30px;
-  padding: 12px;
-}
-
-.registar .login_form.-confirm {
-  padding-top: 10px;
-}
-
-.registar .login_form.-confirm .-eventNone {
-  pointer-events: none;
-}
-
-.registar .login_form .check_me {
-  margin-top: 30px;
-}
-
-.registar .login_form .alert {
-  margin-top: 30px;
-  text-align: left;
+.card h2 {
   font-weight: 700;
-  color: #F25768;
 }
 
-.registar .login_form .alert + .check_me {
+.card h2 + p {
   margin-top: 15px;
 }
 
@@ -2628,6 +2572,7 @@ table .bg-light {
   align-items: center;
   margin: 0;
   padding: 15px 70px 15px 10px;
+  border-bottom: 1px solid #D6DADD;
 }
 
 @media screen and (min-width: 992px) {
@@ -2694,7 +2639,7 @@ table .bg-light {
 }
 
 .pro_item {
-  border-top: 1px solid #D6DADD;
+  border-bottom: 1px solid #D6DADD;
 }
 
 .pro_item a {
@@ -2800,5 +2745,11 @@ table .bg-light {
 
 .review_cat {
   padding-top: 5px;
+}
+
+.invalid-feedback {
+  display: block;
+  padding: 5px 10px 10px;
+  text-align: left;
 }
 

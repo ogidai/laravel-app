@@ -1,78 +1,67 @@
-// ==========================================================================
-// formwrap
-// ==========================================================================
-
-
-.formWrap {
-  margin: 0;
-  padding: 0;
-  > li {
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
-    list-style: none;
-    @include mq(md) {
-      flex-direction: column;
-    }
-    + li {
-      margin-top: 20px;
-      @include mq(md) {
-        margin-top: 20px;
-      }
-    }
-    p + p {
+.form {
+  margin-top: 0;
+  input + input {
+    margin-top: 10px;
+  }
+  input + .label {
+    margin-top: 10px;
+    &.-margin{
       margin-top: 0;
     }
-    .note {
-      font-size: 1.1rem;
-      color: lighten($color-normal,35%);
+  }
+  label + .btnWrap {
+    margin-top: 10px;
+  }
+  .btnWrap{
+    margin-top: 30px;
+    .submit {
+      margin-top: 15px;
+    }
+  }
+  .submit {
+    margin-top: 30px;
+    padding: 12px;
+  }
+  &.-confirm {
+    padding-top: 10px;
+    .-eventNone {
+      pointer-events: none;
+    }
+  }
+  .check_me {
+    margin-top: 30px;;
+  }
+  .alert {
+    margin-top: 30px;
+    text-align: left;
+    font-weight: $weight-bold;
+    color: $color-accent;
+    & + .check_me {
+      margin-top: 15px;
+    }
+    &.-top {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+  }
+  .link_wrap{
+    margin-top: 20px;
+    .link {
+      display: block;
+      & + .link {
+        margin-top: 10px;
+      }
     }
   }
   .label {
-    width: 20%;
-    padding-right: 30px;
-    font-weight: $weight-bold;
-    @include mq(md) {
-      margin-bottom: 5px;
-      width: 100%;
-    }
-  }
-  .field {
-    width: 80%;
-    @include mq(md) {
-      width: 100%;
-      padding-left: 0;
-    }
-    &.-birthday {
-      .col {
-        width: 33.333%;
-        @include mq(sm) {
-          width: 100%;
-        }
-        & + .col {
-          @include mq(md) {
-            margin-top: 0px;
-          }
-          @include mq(sm) {
-            margin-top: 5px;
-          }
-        }
-        >* {
-          display: inline-block;
-        }
-        .selectWrap {
-          width: calc(100% - 2em);
-        }
-      }
-    }
-    .col + .col {
-      @include mq(md) {
-        margin-top: 5px;
-      }
-    }
-
+    display: block;
+    text-align: left;
   }
 }
 
+
+#register_submit[disabled] {
+  & + label {
+    opacity: 0.5;
+  }
+}

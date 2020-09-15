@@ -87,33 +87,31 @@
 
     </header>
 
-    <nav class="gnav">
 
-    </nav>
-
-
-    <div class="wrapper">
+    <div class="wrapper -secondary">
 
 
 
       <main class="main">
-        <div class="registar">
+        <div class="inner">
           <div class="btnWrap">
-            <a href="#" class="btn -hasicon">
+            <a href="/login/google" class="btn -hasicon">
               <i class="icon"><img src="images/google.svg" alt=""></i>
               Googleでログイン
             </a>
           </div>
           <p class="or">or</p>
-          <form class="login_form" action="" method="post">
+          <form class="form" action="" method="post">
             @csrf
-            <input type="email" name="email" value="" class="-secondary @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="メールアドレス">
+            <label for="email" class="label -margin">メールアドレス</label>
+            <input id="email" type="email" name="email" value="" class="-secondary @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="xxxxx@example.com">
             @error('email')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
-            <input type="password" name="password" value=""class="-secondary @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="パスワード">
+            <label for="password" class="label">パスワード</label>
+            <input id="password" type="password" name="password" value=""class="-secondary @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
             @error('password')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -125,8 +123,9 @@
             </div>
             <input type="submit" name="submit" value="submit" id="submit">
             <label for="submit" class="submit">ログイン</label>
-            <div class="btnWrap">
-                <a href="{{ route('password.request') }}" class="btn -full">パスワードをお忘れの方</a>
+            <div class="link_wrap">
+              <a href="{{ route('password.request') }}" class="link">パスワードをお忘れの方はこちら</a>
+              <a href="{{ route('register') }}" class="link">新規登録はこちら</a>
             </div>
           </form>
         </div>

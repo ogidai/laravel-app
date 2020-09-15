@@ -79,16 +79,54 @@ version： 0.0.1
 }
 
 //-------------------------------------------------
+.modal {
+  display: none;
+  &.active {
+    position: absolute;
+    z-index: 100000;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 80vw;
+    max-width: 400px;
+    padding: 30px;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border: 1px solid $color-normal-lighter;
+    border-radius: 10px;
+    background: $color-base;
+    .btn {
+      width: 80px;
+      padding: 5px 0px;
+      & + .btn {
+        margin-left: 5px;
+      }
+    }
+    form {
+      margin: 0;
+      padding: 0;
+      opacity: 0;
+    }
+  }
+}
+
 .overlay {
   &.active {
     position: absolute;
+    z-index: 1000;
     top: 0;
     left: 0;
+
     display: block;
+
     width: 100vw;
     height: 100vh;
+
     background: #00000060;
-    z-index: 100;
+
+    @include mq {
+      z-index: 10000;
+    }
   }
 }
 
@@ -97,14 +135,32 @@ version： 0.0.1
   @include mq {
     padding-top: 70px;
   }
+  &.-top {
+    @include mq {
+      width: 75vw;
+      margin-left: auto;
+    }
+  }
+  &.-secondary {
+    @include mq {
+      margin: 0 auto;
+      max-width: 800px;
+    }
+  }
 }
 
-.registar {
+.inner {
     padding: 30px 15px;
-    border-bottom: 1px solid $color-normal-lighter;
     text-align: center;
+    @include mq {
+      padding: 60px 15px;
+    }
   &.-top {
     padding: 20px 15px;
+    border-bottom: 1px solid $color-normal-lighter;
+  }
+  &.-post {
+    border-top: 1px solid $color-normal-lighter;
   }
   .btn {
     &.-hasicon {
@@ -145,41 +201,21 @@ version： 0.0.1
       background: $color-normal;
     }
   }
-  .login_form {
-    margin-top: 0;
-    input + input {
-      margin-top: 10px;
-    }
-    label + .btnWrap {
-      margin-top: 10px;
-    }
-    .btnWrap{
-      margin-top: 30px;
-      .submit {
-        margin-top: 15px;
-      }
-    }
-    .submit {
-      margin-top: 30px;
-      padding: 12px;
-    }
-    &.-confirm {
-      padding-top: 10px;
-      .-eventNone {
-        pointer-events: none;
-      }
-    }
-    .check_me {
-      margin-top: 30px;;
-    }
-    .alert {
-      margin-top: 30px;
-      text-align: left;
-      font-weight: $weight-bold;
-      color: $color-accent;
-      & + .check_me {
-        margin-top: 15px;
-      }
+}
+
+.card {
+  width: calc(100% - 30px);
+  max-width: 900px;
+  margin: 0 auto;
+  margin: 30px auto;
+  padding: 15px;
+  border: 1px solid $color-normal-lighter;
+  border-radius: 10px;
+  background: $color-base;
+  h2 {
+    font-weight: $weight-bold;
+    & + p {
+      margin-top: 15px;
     }
   }
 }
@@ -196,6 +232,7 @@ version： 0.0.1
   align-items: center;
   margin: 0;
   padding: 15px 70px 15px 10px;
+  border-bottom: 1px solid $color-normal-lighter;
   @include mq {
     padding: 25px 160px 25px 80px;
   }
@@ -246,7 +283,7 @@ version： 0.0.1
   list-style: none;
 }
 .pro_item {
-  border-top: 1px solid $color-normal-lighter;
+  border-bottom: 1px solid $color-normal-lighter;
 }
 .pro_item a{
   display: -webkit-flex;
@@ -338,4 +375,9 @@ version： 0.0.1
 }
 .review_cat {
   padding-top: 5px;
+}
+.invalid-feedback {
+  display: block;
+  padding: 5px 10px 10px;
+  text-align: left;
 }
