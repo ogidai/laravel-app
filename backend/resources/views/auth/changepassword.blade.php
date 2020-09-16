@@ -32,7 +32,7 @@
           @endif
           <form class="login_form form" method="POST" action="{{route('changepassword')}}">
             @csrf
-            <label for="password" class="label">現在のパスワード</label>
+            <label for="password" class="label -margin">現在のパスワード</label>
             <input id="password" type="password" value="" class="-secondary" name="current_password" required placeholder="８文字以上">
             @if ($errors->has('new_password'))
               <p class="alert -margin">

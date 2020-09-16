@@ -162,6 +162,7 @@
       });
     });
 
+    // 新規登録のフォームが全て入力されていたらsubmitできるようにする
     $(function() {
       $('#register_submit').attr('disabled', 'disabled');
 
@@ -174,6 +175,7 @@
       });
     });
 
+
   // コンテンツの高さがない時にフッターを下に固定する
   $(function(){
     var winHeight = $(window).height();
@@ -183,6 +185,68 @@
       $('footer').css({'position':'fixed','bottom':'0','left':'0'});
     }
   });
+
+  // 画像の追加
+  $(function() {
+    $('#addImages02, #addImages03').attr('disabled', 'disabled');
+
+    $('#addImages01').on('change', function() {
+      if ( $(this).prop('')) {
+        $('#addImages02').attr('disabled', 'disabled');
+      } else {
+        $('#addImages02').removeAttr('disabled');
+      }
+    });
+    $('#addImages02').on('change', function() {
+      if ( $(this).prop('')) {
+        $('#addImages03').attr('disabled', 'disabled');
+      } else {
+        $('#addImages03').removeAttr('disabled');
+        $('#delete01').removeClass('-hidden');
+      }
+    });
+    $('#addImages03').on('change', function() {
+      if ( $(this).prop('')) {
+        $('#delete01').removeClass('-hidden');
+        $('#delete02').addClass('-hidden');
+      } else {
+        // $('#delete01').addClass('-hidden');
+        $('#delete02').removeClass('-hidden');
+      }
+    });
+
+  $('#addImages01').on('change', function (e) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $("#showImages01").attr('src', e.target.result);
+    }
+    reader.readAsDataURL(e.target.files[0]);
+  });
+  $('#addImages02').on('change', function (e) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $("#showImages02").attr('src', e.target.result);
+    }
+    reader.readAsDataURL(e.target.files[0]);
+  });
+  $('#addImages03').on('change', function (e) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $("#showImages03").attr('src', e.target.result);
+    }
+    reader.readAsDataURL(e.target.files[0]);
+  });
+
+  $('#delete01').click(function() {
+    $("#showImages02").attr('src', '');
+    $('#addImages03').attr('disabled', 'disabled');
+    $('#delete01').addClass('-hidden');
+  });
+  $('#delete02').click(function() {
+    $("#showImages03").attr('src', '');
+    $('#delete02').addClass('-hidden');
+  });
+});
   </script>
 </body>
 </html>

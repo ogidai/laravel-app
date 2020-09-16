@@ -1,19 +1,19 @@
 .form {
   margin-top: 0;
   input + input {
-    margin-top: 10px;
+    margin-top: 15px;
     @include mq {
       margin-top: 20px;
     }
   }
   input + .label {
-    margin-top: 10px;
+    margin-top: 15px;
     &.-margin{
       margin-top: 0;
     }
   }
   label + .btnWrap {
-    margin-top: 10px;
+    margin-top: 15px;
   }
   .btnWrap{
     margin-top: 30px;
@@ -66,6 +66,58 @@
   }
 }
 
+.radio_wrap {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-flow: wrap;
+  margin-top: 15px;
+  p {
+    width: 100%;
+    text-align: left;
+  }
+  input + .label {
+    margin-top: 5px;
+  }
+  .label {
+    margin-right: 30px;
+  }
+  & + .label {
+    margin-top: 15px;
+  }
+  & + .radio_wrap {
+    margin-top: 15px;
+  }
+}
+
+.input_wrap {
+  position: relative;
+  margin-top: 15px;
+  & + .input_wrap {
+    margin-top: 15px;
+  }
+  & + .label {
+    margin-top: 15px;
+  }
+  .unit {
+    display: none;
+    &.active{
+      display: block;
+      position: absolute;
+      top: 35px;
+      left: 35px;
+      &.price {
+        top: 36px;
+        left: 60px;
+      }
+    }
+  }
+}
+
+input[type="file"] {
+  width: 30px;
+  height: 30px;
+}
 
 #register_submit[disabled] {
   & + label {
