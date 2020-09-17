@@ -4,16 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class RegisterCompleteController extends Controller
 {
     //
     public function __construct() {
-      // $this->middleware('auth');
-      $this->middleware('verified');
+      $this->middleware('auth');
     }
 
     public function index()
     {
-      return view('post');
+      return view('register_complete');
     }
 }

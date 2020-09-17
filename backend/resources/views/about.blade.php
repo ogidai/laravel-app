@@ -7,7 +7,7 @@
       <div class="contentInner">
         <div class="logo">
           <a href="{{('/')}}">
-            <img src="images/logo.png" alt="">
+            <img src="{{ asset('images/logo.png') }}" alt="">
           </a>
         </div>
         <a href="{{('/')}}" class="left arrow_back"></a>

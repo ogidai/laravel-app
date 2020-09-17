@@ -37,6 +37,16 @@ h2 {
       width: 100%;
     }
   }
+  &.page_title {
+    font-size: 1.7rem;
+    text-align: left;
+    & + .alert {
+      margin-top: 10px;
+      & + .btnWrap {
+        margin-top: 30px;
+      }
+    }
+  }
 }
 
 h3 {

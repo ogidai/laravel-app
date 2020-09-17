@@ -147,6 +147,12 @@ version： 0.0.1
       max-width: 800px;
     }
   }
+  &.-hasform {
+    @include mq {
+      margin: 0 auto;
+      max-width: 830px;
+    }
+  }
 }
 
 .inner {
@@ -189,6 +195,12 @@ version： 0.0.1
       background: $color-normal;
     }
   }
+  .link_wrap {
+    margin-top: 15px;
+    a {
+      display: block;
+    }
+  }
 }
 
 .card {
@@ -210,6 +222,16 @@ version： 0.0.1
       margin-top: 15px;
     }
   }
+  h2 {
+    & + p {
+      margin-top: 15px;
+    }
+  }
+  p {
+    & + .btnWrap {
+      margin-top: 30px;
+    }
+  }
   &.-faq {
     padding: 15px 15px 30px;
     .question {
@@ -218,22 +240,30 @@ version： 0.0.1
       padding-left: 15px;
       &::before {
         position: absolute;
-        top: 12px;
+        top: 11px;
         left: 0;
         content: "";
         width: 8px;
         height: 2px;
         background: $color-normal;
       }
+      & + .answer {
+        margin-top: 0;
+      }
     }
     .answer {
+      display: none;
+      padding: 15px;
       & + .question {
-        margin-top: 30px;
+        margin-top: 15px;
       }
     }
   }
   &.-policy {
     padding: 15px 15px 30px;
+    @include mq {
+      padding: 20px 30px 30px;
+    }
     h2 {
       margin-top: 30px;
       font-size: 1.7rem;
@@ -248,6 +278,9 @@ version： 0.0.1
       font-weight: $weight-bold;
       & + h4 {
         margin-top: 10px;
+      }
+      & + p {
+        padding-left: 5px;
       }
     }
     h4 {
@@ -307,7 +340,7 @@ version： 0.0.1
     & + .btnWrap {
       margin: 0 auto 100px;;
       width: calc(100% - 30px);
-      max-width: 900px;
+      max-width: 800px;
     }
     &.-confirm {
       max-height: 50vh;
@@ -342,6 +375,20 @@ version： 0.0.1
         & + h3 {
           margin-top: 10px;
         }
+      }
+    }
+  }
+  &.-form {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px 15px 15px;
+    @include mq {
+      padding: 20px 30px 20px;
+    }
+    .explain {
+      text-align: left;
+      & + .label {
+        margin-top: 15px;
       }
     }
   }
@@ -519,6 +566,9 @@ version： 0.0.1
     & + .card {
       margin-top: 10px;
     }
+  }
+  &.-lg {
+    font-size: 1.6rem;
   }
 }
 

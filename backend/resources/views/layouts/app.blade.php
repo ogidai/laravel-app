@@ -86,6 +86,13 @@
         @csrf
       </form>
     </div>
+    <div class="modal js-deleteAccountModal">
+      <p class="text">この操作は戻せません。<br>本当に退会しますか？</p>
+      <div class="btnWrap">
+        <a href="{{ action('Admin\UserController@destroy')}}" class="btn -primary">はい</a>
+        <span class="btn js-deleteAccountModalBack">いいえ</span>
+      </div>
+    </div>
     @endauth
     <footer class="footer -sp">
       <div class="copyright">
@@ -121,6 +128,7 @@
     });
 
     $(function() {
+      // logout modal
       $('.js-showLogoutModal').click(function() {
           $('.js-logoutModal').addClass('active');
           $('.overlay').addClass('active');
@@ -133,6 +141,22 @@
       });
       $('.js-logoutModalBack').click(function() {
         $('.js-logoutModal').removeClass('active');
+        $('.overlay').removeClass('active');
+        $('body').css('overflow', 'auto');
+      });
+      // delete an account modal
+      $('.js-showDeleteAccountModal').click(function() {
+          $('.js-deleteAccountModal').addClass('active');
+          $('.overlay').addClass('active');
+          $('body').css('overflow', 'hidden');
+      });
+      $('.overlay').click(function() {
+          $('.js-deleteAccountModal').removeClass('active');
+          $('.overlay').removeClass('active');
+          $('body').css('overflow', 'auto');
+      });
+      $('.js-deleteAccountModalBack').click(function() {
+        $('.js-deleteAccountModal').removeClass('active');
         $('.overlay').removeClass('active');
         $('body').css('overflow', 'auto');
       });
@@ -246,6 +270,12 @@
     $("#showImages03").attr('src', '');
     $('#delete02').addClass('-hidden');
   });
+});
+
+$(function(){
+  $('.question').on('click', function() {
+    $(this).next('.answer').slideToggle();
+  })
 });
   </script>
 </body>

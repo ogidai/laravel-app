@@ -7,14 +7,14 @@
       <div class="contentInner">
         <div class="logo">
           <a href="{{('/')}}">
-            <img src="images/logo.png" alt="">
+            <img src="{{ asset('images/logo.png') }}" alt="">
           </a>
         </div>
         <a href="{{route('register')}}" class="left arrow_back"></a>
       </div>
     </header>
 
-    <div class="wrapper">
+    <div class="wrapper -secondary">
 
 
 
@@ -27,7 +27,7 @@
           <h2>2.収集する情報</h2>
           <p>アプリのご利用に際して、以下の利用者情報を取得いたします。</p>
           <h3>2.1 アプリケーションの利用状況の収集</h3>
-          <p></p>
+          <p>当方が運営するアプリでは、利用状況解析のためのツールを使用する場合がございます。個人を特定するためなどには使用しておりません。</p>
           <h3>2.2 お問い合わせやご意見を頂く際の個人情報の収集</h3>
           <h4>2.2.1 送信元のメールアドレス</h4>
           <h4>2.2.2 お問い合わせ内容</h4>
@@ -52,7 +52,7 @@
         <div class="btnWrap">
           <a href="login/google" class="btn -hasicon">
             <i class="icon"><img src="images/google.svg" alt=""></i>
-            同意してGoogleで新規登録
+            同意してGoogleで仮登録
           </a>
         </div>
       </main>

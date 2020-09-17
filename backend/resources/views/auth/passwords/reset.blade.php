@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<!-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+                <div class="card-header">{{ __('Reseああt Password') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('password.update') }}">
@@ -61,5 +61,50 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
+
+<div class="container">
+
+    <header class="header">
+      <div class="contentInner">
+        <div class="logo">
+          <a href="{{('/')}}">
+            <img src="{{ asset('images/logo.png') }}" alt="">
+          </a>
+        </div>
+        <a href="{{('/')}}" class="left arrow_back"></a>
+      </div>
+    </header>
+
+    <div class="wrapper -hasform">
+      <main class="main">
+        <div class="inner">
+          <form class="form" method="POST" action="{{ route('password.update') }}">
+            <div class="card -form">
+              @csrf
+              <input type="hidden" name="token" value="{{ $token }}">
+              <label for="email" class="label">メールアドレス</label>
+              <input id="email" type="email" name="email" class="-secondary @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" placeholder="xxxxx@example.com"required autofocus>
+              @error('email')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+              <label for="password" class="label">パスワード</label>
+              <input id="password" type="password" name="password" value=""class="-secondary @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="８文字以上">
+              @error('password')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+              <label for="password_confirm" class="label">パスワード確認</label>
+              <input id="password_confirm" type="password" name="password_confirmation" value="" class="-secondary" placeholder="同じパスワードを入力"  required autocomplete="new-password">
+            </div>
+            <input type="submit" name="submit" value="submit" id="submit">
+            <label for="submit" class="submit">パスワードを再設定</label>
+          </form>
+        </div>
+
+      </main>
+
 @endsection

@@ -76,7 +76,7 @@
       <div class="contentInner">
         <div class="logo">
           <a href="{{route('home')}}">
-            <img src="images/logo.png" alt="">
+            <img src="{{ asset('images/logo.png') }}" alt="">
           </a>
         </div>
         <!-- <div class="navBtn js-navBtn">
@@ -84,13 +84,9 @@
         </div> -->
         <a href="{{route('home')}}" class="left arrow_back"></a>
       </div>
-
     </header>
 
-
-    <div class="wrapper -secondary">
-
-
+    <div class="wrapper -hasform">
 
       <main class="main">
         <div class="inner">
@@ -101,33 +97,35 @@
             </a>
           </div>
           <p class="or">or</p>
+          <div class="card -form">
           <form class="form" action="" method="post">
-            @csrf
-            <label for="email" class="label -margin">メールアドレス</label>
-            <input id="email" type="email" name="email" value="" class="-secondary @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="xxxxx@example.com">
-            @error('email')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-            <label for="password" class="label">パスワード</label>
-            <input id="password" type="password" name="password" value=""class="-secondary @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-            @error('password')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-            <div class="check_me">
-              <input type="checkbox" name="remember" value="remember" id="remember">
-              <label for="remember">ログイン状態をする</label>
-            </div>
-            <input type="submit" name="submit" value="submit" id="submit">
-            <label for="submit" class="submit">ログイン</label>
-            <div class="link_wrap">
-              <a href="{{ route('password.request') }}" class="link">パスワードをお忘れの方はこちら</a>
-              <a href="{{ route('register') }}" class="link">新規登録はこちら</a>
-            </div>
+              @csrf
+              <label for="email" class="label -margin">メールアドレス</label>
+              <input id="email" type="email" name="email" value="" class="-secondary @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="xxxxx@example.com">
+              @error('email')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+              @enderror
+              <label for="password" class="label">パスワード</label>
+              <input id="password" type="password" name="password" value=""class="-secondary @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+              @error('password')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+              @enderror
+              <div class="check_me">
+                <input type="checkbox" name="remember" value="remember" id="remember">
+                <label for="remember">ログイン状態を保存する</label>
+              </div>
+              <input type="submit" name="submit" value="submit" id="submit">
+              <label for="submit" class="submit">ログイン</label>
           </form>
+          </div>
+          <div class="link_wrap">
+            <a href="{{ route('password.request') }}" class="link">パスワードをお忘れの方はこちら</a>
+            <a href="{{ route('register') }}" class="link">新規登録はこちら</a>
+          </div>
         </div>
 
       </main>

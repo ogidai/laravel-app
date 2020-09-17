@@ -8,7 +8,7 @@
       <div class="contentInner">
         <div class="logo">
           <a href="{{route('home')}}">
-            <img src="../images/logo.png" alt="">
+            <img src="{{ asset('images/logo.png') }}" alt="">
           </a>
         </div>
         <!-- <div class="navBtn js-navBtn">
@@ -18,28 +18,30 @@
       </div>
     </header>
 
-    <div class="wrapper -secondary">
+    <div class="wrapper -hasform">
 
       <main class="main">
         <div class="inner">
           <form class="form" action="{{ action('Admin\UserController@update') }}" method="POST">
             @csrf
-            <label for="name" class="label -margin">ユーザー名</label>
-            <input id="name" type="text" name="name" value="{{ $user->name }}" class="-secondary @error('name') is-invalid @enderror" required>
-            @error('name')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-            <label for="email" class="label -margin">メールアドレス</label>
-            <input id="email" type="email" name="email" value="{{ $user->email }}" class="-secondary @error('email') is-invalid @enderror" required>
-            @error('email')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
+            <div class="card -form">
+              <label for="name" class="label -margin">ユーザー名</label>
+              <input id="name" type="text" name="name" value="{{ $user->name }}" class="-secondary @error('name') is-invalid @enderror" required>
+              @error('name')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+              @enderror
+              <label for="email" class="label">メールアドレス</label>
+              <input id="email" type="email" name="email" value="{{ $user->email }}" class="-secondary @error('email') is-invalid @enderror" required>
+              @error('email')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+              @enderror
             <input type="submit" name="submit" value="submit" id="submit">
             <label for="submit" class="submit">登録情報を変更</label>
+          </div>
           </form>
         </div>
 

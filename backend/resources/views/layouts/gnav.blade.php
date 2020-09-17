@@ -22,6 +22,9 @@
             <a href="{{ route('about') }}" class="arrow -next">ProHikaとは？</a>
         </li>
         <li class="gnav_item">
+            <a href="{{ route('about') }}" class="arrow -next">初めてガイド</a>
+        </li>
+        <li class="gnav_item">
             <a href="{{ route('faq') }}" class="arrow -next">よくある質問</a>
         </li>
         <li class="gnav_item">

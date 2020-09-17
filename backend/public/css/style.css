@@ -113,6 +113,19 @@ h2.pro_name + .pro_img {
   width: 100%;
 }
 
+h2.page_title {
+  font-size: 1.7rem;
+  text-align: left;
+}
+
+h2.page_title + .alert {
+  margin-top: 10px;
+}
+
+h2.page_title + .alert + .btnWrap {
+  margin-top: 30px;
+}
+
 h3.content_title {
   display: block;
   margin: 0;
@@ -2504,6 +2517,13 @@ input[type=file] {
   }
 }
 
+@media screen and (min-width: 992px) {
+  .wrapper.-hasform {
+    margin: 0 auto;
+    max-width: 830px;
+  }
+}
+
 .inner {
   padding: 30px 15px;
   text-align: center;
@@ -2557,6 +2577,14 @@ input[type=file] {
   background: #333;
 }
 
+.inner .link_wrap {
+  margin-top: 15px;
+}
+
+.inner .link_wrap a {
+  display: block;
+}
+
 .card {
   width: calc(100% - 30px);
   max-width: 800px;
@@ -2583,6 +2611,14 @@ input[type=file] {
   margin-top: 15px;
 }
 
+.card h2 + p {
+  margin-top: 15px;
+}
+
+.card p + .btnWrap {
+  margin-top: 30px;
+}
+
 .card.-faq {
   padding: 15px 15px 30px;
 }
@@ -2595,7 +2631,7 @@ input[type=file] {
 
 .card.-faq .question::before {
   position: absolute;
-  top: 12px;
+  top: 11px;
   left: 0;
   content: "";
   width: 8px;
@@ -2603,12 +2639,27 @@ input[type=file] {
   background: #333;
 }
 
+.card.-faq .question + .answer {
+  margin-top: 0;
+}
+
+.card.-faq .answer {
+  display: none;
+  padding: 15px;
+}
+
 .card.-faq .answer + .question {
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
 .card.-policy {
   padding: 15px 15px 30px;
+}
+
+@media screen and (min-width: 992px) {
+  .card.-policy {
+    padding: 20px 30px 30px;
+  }
 }
 
 .card.-policy h2 {
@@ -2629,6 +2680,10 @@ input[type=file] {
 
 .card.-policy h3 + h4 {
   margin-top: 10px;
+}
+
+.card.-policy h3 + p {
+  padding-left: 5px;
 }
 
 .card.-policy h4 {
@@ -2703,7 +2758,7 @@ input[type=file] {
 .card.-policy + .btnWrap {
   margin: 0 auto 100px;
   width: calc(100% - 30px);
-  max-width: 900px;
+  max-width: 800px;
 }
 
 .card.-policy.-confirm {
@@ -2748,6 +2803,26 @@ input[type=file] {
 
 .card.-policy.-confirm p + h3 {
   margin-top: 10px;
+}
+
+.card.-form {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 15px 15px;
+}
+
+@media screen and (min-width: 992px) {
+  .card.-form {
+    padding: 20px 30px 20px;
+  }
+}
+
+.card.-form .explain {
+  text-align: left;
+}
+
+.card.-form .explain + .label {
+  margin-top: 15px;
 }
 
 .options_wrap {
@@ -2955,6 +3030,10 @@ input[type=file] {
 
 .alert.-head + .card {
   margin-top: 10px;
+}
+
+.alert.-lg {
+  font-size: 1.6rem;
 }
 
 .add_images_wrap {

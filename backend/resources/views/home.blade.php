@@ -26,7 +26,7 @@
       <div class="contentInner">
         <div class="logo">
           <a href="#">
-            <img src="images/logo.png" alt="">
+            <img src="{{ asset('images/logo.png') }}" alt="">
           </a>
         </div>
         <div class="navBtn js-navBtnActive">
@@ -58,7 +58,7 @@
         <div class="inner -top">
           <p class="catch">会員になってプロテインのレビューを書きませんか？</p>
           <div class="btnWrap">
-            <a href="{{route('register')}}" class="btn -full">新規登録！</a>
+            <a href="{{route('register')}}" class="btn -full">新規会員登録！</a>
           </div>
         </div>
         @endguest

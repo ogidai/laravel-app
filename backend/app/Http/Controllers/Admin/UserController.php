@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     public function __construct() {
-      $this->middleware('auth');
+      // $this->middleware('auth');
+      $this->middleware('verified');
     }
     //userデータの取得
     public function index() {
@@ -31,4 +32,17 @@ class UserController extends Controller
         //リダイレクト
         return redirect('user/index');
     }
+
+    public function show() {
+        return view('user.delete_account', ['user' => Auth::user() ]);
+    }
+
+    public function destroy() {
+      $user = Auth::user();
+
+      Auth::logout(); // ログアウト、update処理が行われる。
+      $user->delete(); // ユーザが削除される。
+
+      return redirect('/');
+  }
 }

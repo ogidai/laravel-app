@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Auth;
 
 // Route::get('tests/test', 'TestController@index');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/', 'HomeController@index')->name('home');
 
@@ -43,9 +43,13 @@ Route::get('product/detail', 'ProductDetailController@index')->name('detail');
 Route::get('user/index', 'Admin\UserController@index')->name('user');
 Route::get('user/edit', 'Admin\UserController@edit');
 Route::post('user/edit', 'Admin\UserController@update');
+Route::get('user/delete_account', 'Admin\UserController@show')->name('delete');
+Route::get('user/destroy', 'Admin\UserController@destroy');
 
 Route::get('changepassword', 'HomeController@showChangePasswordForm');
 Route::post('changepassword', 'HomeController@changePassword')->name('changepassword');
+
+Route::get('register_complete', 'RegisterCompleteController@index')->name('register_complete');
 
 // googleのログイン認証
 Route::get('login/google', 'Auth\LoginController@redirectToGoogle');

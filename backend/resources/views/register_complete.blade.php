@@ -41,7 +41,8 @@
 
       <main class="main">
         <div class="card">
-          <h2 class="page_title">本登録が完了していません！</h2>
+          <h2 class="page_title">仮登録完了</h2>
+          <p class="alert -lg">＊まだ本登録は完了していません！</p>
           <p>あなたのメールアドレスに送信された認証リンクを確認してください。</p>
           <p>もしメールが届いていない場合は再送信します。</p>
           @if (session('resent'))
