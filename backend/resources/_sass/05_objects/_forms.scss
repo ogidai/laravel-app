@@ -64,6 +64,12 @@
     display: block;
     text-align: left;
   }
+  .textarea {
+    height: 200px;
+    @include mq {
+      height: 300px;
+    }
+  }
 }
 
 .radio_wrap {
@@ -88,6 +94,21 @@
   & + .radio_wrap {
     margin-top: 15px;
   }
+  &.-hasStar {
+    position: relative;
+    padding-bottom: 5px;
+    input[type=radio] {
+      display: block;
+      margin: 10px 0 0 10px;
+      padding: 0;
+      width: 30px;
+      height: 30px;
+      & + input {
+        margin: 10px 0 0 20px;
+
+      }
+    }
+  }
 }
 
 .input_wrap {
@@ -95,6 +116,9 @@
   margin-top: 15px;
   & + .input_wrap {
     margin-top: 15px;
+  }
+  &.-margin {
+    margin-top: 0;
   }
   & + .label {
     margin-top: 15px;

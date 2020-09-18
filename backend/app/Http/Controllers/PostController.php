@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\StorePostForm;
 
 class PostController extends Controller
 {
@@ -14,6 +16,12 @@ class PostController extends Controller
 
     public function index()
     {
-      return view('post');
+      return view('post.index');
+    }
+
+    public function show(Request $request)
+    {
+      $values = $request->all();
+      return view('post.show', compact('values'));
     }
 }

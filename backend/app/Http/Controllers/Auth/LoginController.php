@@ -7,6 +7,9 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\User;
 use Socialite;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class LoginController extends Controller
 {
@@ -28,7 +31,17 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = RouteServiceProvider::HOME;
+
+    protected function redirectTo() {
+      $authUser = Auth::user();
+      $value = $authUser->email_verified_at;
+      if(empty($value) == true) {
+        return route('register_complete');
+      } else {
+        return route('home');
+      }
+    }
 
     /**
      * Create a new controller instance.
@@ -47,25 +60,32 @@ class LoginController extends Controller
 
     public function handleGoogleCallback()
     {
-        $gUser = Socialite::driver('google')->stateless()->user();
-        // email が合致するユーザーを取得
-        $user = User::where('email', $gUser->email)->first();
-        // 見つからなければ新しくユーザーを作成
-        if ($user == null) {
-            $user = $this->createUserByGoogle($gUser);
-        }
-        // ログイン処理
-        \Auth::login($user, true);
+      $gUser = Socialite::driver('google')->stateless()->user();
+      // email が合致するユーザーを取得
+      $user = User::where('email', $gUser->email)->first();
+      // 見つからなければ新しくユーザーを作成
+      if ($user == null) {
+          $user = $this->createUserByGoogle($gUser);
+      }
+      // ログイン処理
+      \Auth::login($user, true);
+      // return redirect('/');
+      $value = $user->email_verified_at;
+      if(empty($value) == true) {
+        return redirect('register_complete_gmail');
+      } else {
         return redirect('/');
+      }
+
     }
 
     public function createUserByGoogle($gUser)
     {
-        $user = User::create([
-            'name'     => $gUser->name,
-            'email'    => $gUser->email,
-            'password' => \Hash::make(uniqid()),
-        ]);
-        return $user;
+      $user = User::create([
+          'name'     => $gUser->name,
+          'email'    => $gUser->email,
+          'password' => \Hash::make(uniqid()),
+      ]);
+      return $user;
     }
 }

@@ -29,11 +29,11 @@
     <header class="header">
       <div class="contentInner">
         <div class="logo">
-          <a href="{{('/')}}">
+          <a href="#">
             <img src="{{ asset('images/logo.png') }}" alt="">
           </a>
         </div>
-        <a href="{{('/')}}" class="left arrow_back"></a>
+        <!-- <a href="{{('/')}}" class="left arrow_back"></a> -->
       </div>
     </header>
 
@@ -41,9 +41,8 @@
 
       <main class="main">
         <div class="card">
-          <h2 class="page_title">仮登録完了</h2>
           <p class="alert -lg">＊まだ本登録は完了していません！</p>
-          <p>あなたのメールアドレスに送信された認証リンクを確認してください。</p>
+          <p>{{Auth::user()->name}}さんのメールアドレス({{Auth::user()->email}})に送信された認証リンクを確認してください。</p>
           <p>もしメールが届いていない場合は再送信します。</p>
           @if (session('resent'))
           <p class="alert" role="alert">

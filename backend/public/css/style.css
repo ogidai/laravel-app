@@ -620,6 +620,7 @@ table .bg-light {
   background: #fff;
   transform: translateX(-100%);
   transition: 0.35s ease-in-out;
+  overflow: scroll;
 }
 
 @media screen and (min-width: 992px) {
@@ -629,7 +630,6 @@ table .bg-light {
     z-index: 10;
     transform: none;
     border-right: 1px solid #D6DADD;
-    overflow: scroll;
   }
 }
 
@@ -1053,6 +1053,16 @@ table .bg-light {
   text-align: left;
 }
 
+.form .textarea {
+  height: 200px;
+}
+
+@media screen and (min-width: 992px) {
+  .form .textarea {
+    height: 300px;
+  }
+}
+
 .radio_wrap {
   display: -ms-flex;
   display: flex;
@@ -1081,6 +1091,23 @@ table .bg-light {
   margin-top: 15px;
 }
 
+.radio_wrap.-hasStar {
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.radio_wrap.-hasStar input[type=radio] {
+  display: block;
+  margin: 10px 0 0 10px;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+}
+
+.radio_wrap.-hasStar input[type=radio] + input {
+  margin: 10px 0 0 20px;
+}
+
 .input_wrap {
   position: relative;
   margin-top: 15px;
@@ -1088,6 +1115,10 @@ table .bg-light {
 
 .input_wrap + .input_wrap {
   margin-top: 15px;
+}
+
+.input_wrap.-margin {
+  margin-top: 0;
 }
 
 .input_wrap + .label {

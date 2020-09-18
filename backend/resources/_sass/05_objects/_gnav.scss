@@ -13,13 +13,13 @@
   -webkit-transition: .35s ease-in-out;
   -moz-transition: .35s ease-in-out;
   transition: .35s ease-in-out;
+  overflow: scroll;
   @include mq {
     position: fixed;
     width: 25vw;
     z-index: 10;
     transform: none;
     border-right: 1px solid $color-normal-lighter;
-    overflow: scroll;
   }
   &.active {
     transform: none;

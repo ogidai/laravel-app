@@ -24,7 +24,9 @@ Auth::routes(['verify' => true]);
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('post', 'PostController@index')->name('post');
+Route::get('post/index', 'PostController@index')->name('post');
+Route::post('post/show', 'PostController@show');
+Route::get('post/show', 'PostController@show');
 
 Route::get('contact', 'ContactController@index')->name('contact');
 
@@ -50,6 +52,7 @@ Route::get('changepassword', 'HomeController@showChangePasswordForm');
 Route::post('changepassword', 'HomeController@changePassword')->name('changepassword');
 
 Route::get('register_complete', 'RegisterCompleteController@index')->name('register_complete');
+Route::get('register_complete_gmail', 'RegisterCompleteGmailController@index')->name('register_complete_gmail');
 
 // googleのログイン認証
 Route::get('login/google', 'Auth\LoginController@redirectToGoogle');
