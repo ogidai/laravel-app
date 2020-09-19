@@ -322,6 +322,14 @@ textarea.-secondary {
   border: 1px solid #D6DADD;
 }
 
+input[type=text].-secondary.is-invalid,
+input[type=email].-secondary.is-invalid,
+input[type=password].-secondary.is-invalid,
+input[type=submit].-secondary.is-invalid,
+textarea.-secondary.is-invalid {
+  border: 2px solid #F25768;
+}
+
 textarea {
   color: #333;
   font-weight: 400;

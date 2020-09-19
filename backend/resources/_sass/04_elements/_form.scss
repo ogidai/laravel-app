@@ -15,6 +15,9 @@ textarea {
   outline: none;
   &.-secondary {
     border: 1px solid $color-normal-lighter;
+    &.is-invalid {
+      border: 2px solid $color-accent;
+    }
   }
 }
 

@@ -25,7 +25,7 @@ class StorePostForm extends FormRequest
     {
         return [
             //
-            'id' => 'required|integer',
+            'user_id' => 'required|integer',
             'image_01' => 'required|image',
             'image_02' => 'nullable|image',
             'image_03' => 'nullable|image',
@@ -39,9 +39,19 @@ class StorePostForm extends FormRequest
             'taste_good' => 'required',
             'cost_paf' => 'required',
             'recomend' => 'required',
-            'how_to_buy' => 'nullable|string|max:50',
+            'how_to_buy' => [
+              'nullable',
+              'string',
+              'max:100',
+              'not_regex:/^(http)$/',
+            ],
             'how_to_drink' => 'nullable|string|max:100',
-            'comment' => 'nullable|string|max:200',
+            'comment' => [
+              'nullable',
+              'string',
+              'max:200',
+              'not_regex:/^(http)$/',
+            ],
         ];
     }
 }
