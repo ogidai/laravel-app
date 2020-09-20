@@ -15,13 +15,15 @@ class PostController extends Controller
       $this->middleware('verified');
     }
 
-    public function index()
+    public function create()
     {
-      return view('post.index');
+      return view('post.create');
     }
 
-    public function show(StorePostForm $request)
+    public function store(StorePostForm $request)
     {
+      $post = new Post;
+
       $post_data = $request->except('image_01', 'image_02', 'image_03');
       $imagefile_01 = $request->file('image_01');
       $imagefile_02 = $request->file('image_02');
@@ -46,10 +48,7 @@ class PostController extends Controller
         $read_temp_path_03 = str_replace('public/', 'storage/', $temp_path_03);
       }
 
-      // $temp_path_02 = $imagefile_02->store('public/temp');
-      // $temp_path_03 = $imagefile_03->store('public/temp');
-
-      $user_id = $post_data['pro_name'];
+      $user_id = $post_data['user_id'];
       $pro_name = $post_data['pro_name'];
       $flavor = $post_data['flavor'];
       $weight = $post_data['weight'];
@@ -64,31 +63,54 @@ class PostController extends Controller
       $how_to_drink = $post_data['how_to_drink'];
       $comment = $post_data['comment'];
 
-      $data = array(
-        'user_id' => $user_id,
-        'temp_path_01' => $temp_path_01,
-        'temp_path_02' => $temp_path_02,
-        'temp_path_03' => $temp_path_03,
-        'read_temp_path_01' => $read_temp_path_01,
-        'read_temp_path_02' => $read_temp_path_02,
-        'read_temp_path_03' => $read_temp_path_03,
-        'pro_name' => $pro_name,
-        'flavor' => $flavor,
-        'weight' => $weight,
-        'price' => $price,
-        'per_protein' => $per_protein,
-        'made' => $made,
-        'type' => $type,
-        'taste_good' => $taste_good,
-        'cost_paf' => $cost_paf,
-        'recomend' => $recomend,
-        'how_to_buy' => $how_to_buy,
-        'how_to_drink' => $how_to_drink,
-        'comment' => $comment,
-      );
-      $request->session()->put('data', $data);
+      $post->user_id = $user_id;
+      $post->temp_path_01 = $temp_path_01;
+      $post->temp_path_02 = $temp_path_02;
+      $post->temp_path_03 = $temp_path_03;
+      $post->read_temp_path_01 = $read_temp_path_01;
+      $post->read_temp_path_02 = $read_temp_path_02;
+      $post->read_temp_path_03 = $read_temp_path_03;
+      $post->pro_name = $pro_name;
+      $post->flavor = $flavor;
+      $post->weight = $weight;
+      $post->price = $price;
+      $post->per_protein = $per_protein;
+      $post->made = $made;
+      $post->type = $type;
+      $post->taste_good = $taste_good;
+      $post->cost_paf = $cost_paf;
+      $post->recomend = $recomend;
+      $post->how_to_buy = $how_to_buy;
+      $post->how_to_drink = $how_to_drink;
+      $post->comment = $comment;
+      // $data = array(
+      //   'user_id' => $user_id,
+      //   'temp_path_01' => $temp_path_01,
+      //   'temp_path_02' => $temp_path_02,
+      //   'temp_path_03' => $temp_path_03,
+      //   'read_temp_path_01' => $read_temp_path_01,
+      //   'read_temp_path_02' => $read_temp_path_02,
+      //   'read_temp_path_03' => $read_temp_path_03,
+      //   'pro_name' => $pro_name,
+      //   'flavor' => $flavor,
+      //   'weight' => $weight,
+      //   'price' => $price,
+      //   'per_protein' => $per_protein,
+      //   'made' => $made,
+      //   'type' => $type,
+      //   'taste_good' => $taste_good,
+      //   'cost_paf' => $cost_paf,
+      //   'recomend' => $recomend,
+      //   'how_to_buy' => $how_to_buy,
+      //   'how_to_drink' => $how_to_drink,
+      //   'comment' => $comment,
+      // );
+      // $request->session()->put('data', $data);
 
-      return view('post.show', compact('data') );
+      $post->save();
+
+      return redirect('/');
+      // return view('post.store', compact('data') );
 
     }
 }

@@ -16,15 +16,18 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id');
-            $table->string('image_01');
-            $table->string('image_02')->nullable($value = true);
-            $table->string('image_03')->nullable($value = true);
+            $table->string('temp_path_01');
+            $table->string('temp_path_02')->nullable($value = true);
+            $table->string('temp_path_03')->nullable($value = true);
+            $table->string('read_temp_path_01');
+            $table->string('read_temp_path_02')->nullable($value = true);
+            $table->string('read_temp_path_03')->nullable($value = true);
             $table->string('pro_name', 30);
             $table->string('flavor', 20);
             $table->integer('weight');
             $table->integer('price');
             $table->integer('per_protein');
-            $table->integer('made');
+            $table->boolean('made');
             $table->integer('type');
             $table->integer('taste_good');
             $table->integer('cost_paf');

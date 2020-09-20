@@ -24,9 +24,9 @@ Auth::routes(['verify' => true]);
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('post/index', 'PostController@index')->name('post');
-Route::post('post/show', 'PostController@show');
-Route::get('post/show', 'PostController@show');
+Route::get('post/create', 'PostController@create')->name('post');
+Route::post('post/store', 'PostController@store');
+Route::get('post/store', 'PostController@store');
 
 Route::get('contact', 'ContactController@index')->name('contact');
 

@@ -23,7 +23,7 @@
 
       <main class="main">
         <div class="inner">
-          <form class="post_form form" action="show" method="post" enctype="multipart/form-data">
+          <form class="post_form form" action="store" method="post" enctype="multipart/form-data">
             @csrf
             <div class="card -form">
               <input type="hidden" name="user_id" class="-secondary" id="" value="{{Auth::user()->id}}">
@@ -174,7 +174,7 @@
 
             </div>
             <input type="submit" name="submit" value="submit" id="submit">
-            <label for="submit" class="submit">確認画面へ</label>
+            <label for="submit" class="submit">上記の内容で投稿</label>
 
           </form>
         </div>
