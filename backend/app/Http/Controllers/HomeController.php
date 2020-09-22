@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Post;
 
 class HomeController extends Controller
 {
@@ -57,14 +58,12 @@ class HomeController extends Controller
 
     public function index()
     {
-        // $values = Auth::all();
-
         $values = DB::table('users')
         ->get();
+        $items = Post::with('user')
+        ->get();
 
-        // dd($values);
-
-        return view('home',compact('values'));
+        return view('home',compact('values', 'items'));
 
     }
 }

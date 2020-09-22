@@ -155,6 +155,10 @@ version： 0.0.1
   }
 }
 
+.main {
+  margin-bottom: 100px;
+}
+
 .inner {
     padding: 30px 15px;
     text-align: center;
@@ -203,6 +207,10 @@ version： 0.0.1
   }
 }
 
+.catch {
+  text-align: center;
+}
+
 .card {
   width: calc(100% - 30px);
   max-width: 800px;
@@ -230,6 +238,9 @@ version： 0.0.1
   p {
     & + .btnWrap {
       margin-top: 30px;
+      &.-margin {
+        margin-top: 20px;
+      }
     }
   }
   &.-faq {
@@ -463,7 +474,7 @@ version： 0.0.1
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
-  padding: 10px;
+  padding: 15px;
   @include mq {
     padding: 15px 80px;
   }
@@ -475,23 +486,37 @@ version： 0.0.1
   align-items: center;
   justify-content: center;
   figure {
-    padding: 5px;
-    width: 120px;
-    height: 120px;
     overflow: hidden;
   }
 }
 .pro_item_right {
-  padding-left: 10px;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex: 1;
+  padding: 15px;
   color: $color-normal;
   @include mq {
     padding-left: 40px;
   }
+  .post_date {
+    font-weight: $weight-bold;
+    font-size: 1.3rem;
+    span {
+      font-size: 1.5rem;
+    }
+  }
 }
 .pro_name {
-  padding-right: 5px;
+  width: 100%;
   font-size: 1.5rem;
+  font-weight: $weight-bold;
   line-height: 1.4;
+  span {
+    margin-right: 10px;
+  }
   @include mq {
     font-size: 1.8rem;
   }
@@ -531,7 +556,7 @@ version： 0.0.1
   }
 }
 .pro_detail {
-  padding: 15px;
+  padding: 0 0 15px 0;
 }
 
 .star_icons {
@@ -549,6 +574,7 @@ version： 0.0.1
 }
 .review_cat {
   padding-top: 5px;
+  font-weight: $weight-bold;
 }
 
 .invalid-feedback {
@@ -622,5 +648,31 @@ version： 0.0.1
       font-weight: $weight-bold;
       line-height: 1;
     }
+  }
+}
+
+.img_outer {
+  position: relative;
+  width: 120px;
+  border: 1px solid $color-normal-light;
+  &:before {
+    display: block;
+    padding-top: 100%;
+    content: "";
+  }
+  figure {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-color: $color-base;
   }
 }

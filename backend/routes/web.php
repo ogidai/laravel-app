@@ -24,9 +24,13 @@ Auth::routes(['verify' => true]);
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::get('post/index', 'PostController@index')->name('your_post');
+Route::get('post/show/{id}', 'PostController@show')->name('post.show');
 Route::get('post/create', 'PostController@create')->name('post');
 Route::post('post/store', 'PostController@store');
 Route::get('post/store', 'PostController@store');
+Route::get('post/edit', 'PostController@edit');
+Route::post('post/edit', 'PostController@update');
 
 Route::get('contact', 'ContactController@index')->name('contact');
 
@@ -40,7 +44,7 @@ Route::get('policy_confirm', 'PolicyConfirmController@index')->name('policy_conf
 
 // Route::get('home', 'HomeController@index')->name('home');
 
-Route::get('product/detail', 'ProductDetailController@index')->name('detail');
+Route::get('product/detail/{id}', 'ProductDetailController@index')->name('detail');
 
 Route::get('user/index', 'Admin\UserController@index')->name('user');
 Route::get('user/edit', 'Admin\UserController@edit');

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\StorePostForm;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Models\Post;
 
 class PostController extends Controller
@@ -15,10 +17,55 @@ class PostController extends Controller
       $this->middleware('verified');
     }
 
-    public function create()
-    {
+    public function index() {
+      $authUser = Auth::user()->id;
+      $items = Post::with('user')->where('user_id', $authUser)->get();
+      // dd($items);
+      return view('post.index', compact('items'));
+    }
+
+    public function show(Request $request, $id, Post $item) {
+    // public function show($id) {
+    	$items = Post::find($id);
+      // $items = Post::with('user')->get();
+      // dd($items);
+    	return view('post.show', compact('items'));
+    }
+
+    public function create()  {
       return view('post.create');
     }
+
+    public function edit()  {
+      $authUser = Auth::user()->id;
+      $items = Post::with('user')->where('user_id', $authUser)->get();
+      // dd($user);
+      // $values = Post::all();
+      // $values = Post::where([
+      //   ['user_id', $user],
+      //   ['id', ],
+      // ])->get();
+      // dd($values);
+      // dd($items);
+      $params = [
+            'authUser' => $authUser,
+            'items' => $items,
+        ];
+      return view('post.edit', $params);
+    }
+
+    public function update(StorePostForm $request) {
+        $user_form = $request->all();
+        $user = Auth::user();
+        //不要な「_token」の削除
+        // dd($user_form);
+        unset($user_form['_token']);
+        //保存
+        $user->fill($user_form)->save();
+        //リダイレクト
+        return redirect('user/index');
+    }
+
 
     public function store(StorePostForm $request)
     {

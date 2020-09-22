@@ -102,14 +102,14 @@ h2 {
 }
 
 h2.pro_name {
-  margin-top: 20px;
+  margin-top: 5px;
   padding: 0;
   font-size: 1.6rem;
 }
 
 h2.pro_name + .pro_img {
   margin: 0;
-  padding: 15px;
+  padding: 15px 0;
   width: 100%;
 }
 
@@ -1543,7 +1543,7 @@ input[type=file] {
 }
 
 .card + .card {
-  margin-top: 15px;
+  margin-top: 0px;
 }
 
 .card + .btnWrap {
@@ -1553,33 +1553,6 @@ input[type=file] {
 .card + .arrow_next {
   position: relative;
   margin-bottom: 70px;
-}
-
-.-modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  top: 50%;
-  left: calc(50% - 20px);
-  width: calc(100% - 40px);
-  max-width: 335px;
-  margin: 0 20px;
-  padding: 30px 50px;
-  text-align: center;
-  font-size: 1.6rem;
-  transform: translate(-50%, -50%);
-}
-
-.-modal .btnWrap + .btnWrap {
-  margin-top: 10px;
-}
-
-.-modal.active {
-  display: block;
-}
-
-.nocard + .btnWrap {
-  margin-top: 20px;
 }
 
 .arrow {
@@ -2563,6 +2536,10 @@ input[type=file] {
   }
 }
 
+.main {
+  margin-bottom: 100px;
+}
+
 .inner {
   padding: 30px 15px;
   text-align: center;
@@ -2624,6 +2601,10 @@ input[type=file] {
   display: block;
 }
 
+.catch {
+  text-align: center;
+}
+
 .card {
   width: calc(100% - 30px);
   max-width: 800px;
@@ -2656,6 +2637,10 @@ input[type=file] {
 
 .card p + .btnWrap {
   margin-top: 30px;
+}
+
+.card p + .btnWrap.-margin {
+  margin-top: 20px;
 }
 
 .card.-faq {
@@ -2949,7 +2934,7 @@ input[type=file] {
 .pro_item a {
   display: -ms-flex;
   display: flex;
-  padding: 10px;
+  padding: 15px;
 }
 
 @media screen and (min-width: 992px) {
@@ -2966,14 +2951,16 @@ input[type=file] {
 }
 
 .pro_item_left figure {
-  padding: 5px;
-  width: 120px;
-  height: 120px;
   overflow: hidden;
 }
 
 .pro_item_right {
-  padding-left: 10px;
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex: 1;
+  padding: 15px;
   color: #333;
 }
 
@@ -2983,10 +2970,24 @@ input[type=file] {
   }
 }
 
-.pro_name {
-  padding-right: 5px;
+.pro_item_right .post_date {
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.pro_item_right .post_date span {
   font-size: 1.5rem;
+}
+
+.pro_name {
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: 700;
   line-height: 1.4;
+}
+
+.pro_name span {
+  margin-right: 10px;
 }
 
 @media screen and (min-width: 992px) {
@@ -3029,7 +3030,7 @@ input[type=file] {
 }
 
 .pro_detail {
-  padding: 15px;
+  padding: 0 0 15px 0;
 }
 
 .star_icons {
@@ -3049,6 +3050,7 @@ input[type=file] {
 
 .review_cat {
   padding-top: 5px;
+  font-weight: 700;
 }
 
 .invalid-feedback {
@@ -3129,5 +3131,32 @@ input[type=file] {
   background: #808080;
   font-weight: 700;
   line-height: 1;
+}
+
+.img_outer {
+  position: relative;
+  width: 120px;
+  border: 1px solid #808080;
+}
+
+.img_outer:before {
+  display: block;
+  padding-top: 100%;
+  content: "";
+}
+
+.img_outer figure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: -ms-flex;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-color: #fff;
 }
 

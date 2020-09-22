@@ -14,7 +14,7 @@
     <!-- <div class="navBtn js-navBtn">
       <span class="js-badge active"></span><span></span><span></span>
     </div> -->
-    <a href="{{('../')}}" class="left arrow_back"></a>
+    <a href="" class="left arrow_back" onclick="history.back();"></a>
     @guest
     <div class="right btnWrap">
         <a href="{{ route('login') }}" class="btn">ログイン</a>
@@ -40,17 +40,19 @@
 
   <main class="main">
     @guest
-    <div class="inner -top">
-        <p class="catch">会員になってプロテインのレビューを書きませんか？</p>
-        <div class="btnWrap">
-        <a href="{{route('register')}}" class="btn -full">新規登録！</a>
-        </div>
+    <div class="card">
+      <p class="catch">会員になってプロテインのレビューを書きませんか？</p>
+      <div class="btnWrap -margin">
+        <a href="{{route('register')}}" class="btn -full -primary">新規登録！</a>
+      </div>
     </div>
     @endguest
+    <div class="card">
+
     <div class="pro_detail">
-        <h2 class="pro_name">ビーレジェンド　ベリベリベリー味　</h2>
+        <h2 class="pro_name">{{$items->pro_name}}<span>{{$items->flavor}}</span></h2>
         <figure class="pro_img">
-          <img src="" alt="">
+          <img src="../../{{$items->read_temp_path_01}}" alt="">
         </figure>
         <div class="review -row_sp">
           <p class="review_cat">おすすめ度</p>
@@ -215,14 +217,15 @@
           </div>
         </div>
     </div>
-    @auth
-    <div class="inner -top -post">
-        <p class="catch">お気に入りのプロテインをレビューしてみませんか？</p>
-        <div class="btnWrap">
-        <a href="{{route('post')}}" class="btn -full">レビューを投稿！</a>
-        </div>
+  </div>
+  @auth
+  <div class="card">
+    <p class="catch">お気に入りのプロテインをレビューしてみませんか？</p>
+    <div class="btnWrap -margin">
+      <a href="{{route('post')}}" class="btn -full -primary">レビューを投稿！</a>
     </div>
-    @endauth
+  </div>
+  @endauth
 
   </main>
 

@@ -12,7 +12,7 @@
           <a href="{{ route('post') }}" class="arrow -next">レビューを投稿する</a>
         </li>
         <li class="gnav_item">
-          <a href="#" class="arrow -next">あなたの投稿</a>
+          <a href="{{ route('your_post') }}" class="arrow -next">あなたの投稿</a>
         </li>
         <li class="gnav_item -margin">
           <a href="{{ route('user') }}" class="arrow -next">ユーザー情報</a>

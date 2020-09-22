@@ -10,7 +10,7 @@
     padding: 20px;
   }
   & + .card {
-    margin-top: 15px;
+    margin-top: 0px;
   }
   & + .btnWrap {
     margin-top: 30px;
@@ -18,30 +18,5 @@
   & + .arrow_next {
     position: relative;
     margin-bottom: 70px;
-  }
-}
-.-modal{
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  top: 50%;
-  left: calc(50% - 20px);
-  width: calc(100% - 40px);
-  max-width: 335px;
-  margin: 0 20px;
-  padding: 30px 50px;
-  text-align: center;
-  font-size: 1.6rem;
-  transform: translate(-50%,-50%);
-  .btnWrap + .btnWrap{
-    margin-top: 10px;
-  }
-  &.active{
-    display: block;
-  }
-}
-.nocard {
-  & + .btnWrap {
-    margin-top: 20px;
   }
 }
