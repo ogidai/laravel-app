@@ -26,6 +26,7 @@
     </div>
 </div> -->
 <div class="container">
+  <div class="overlay"></div>
     <header class="header">
       <div class="contentInner">
         <div class="logo">
@@ -37,8 +38,10 @@
       </div>
     </header>
 
-    <div class="wrapper">
+    <div class="wrapper -top">
+      @extends('layouts.gnav')
 
+      @section('gnav')
       <main class="main">
         <div class="card">
           <h2 class="page_title">本登録が完了していません！</h2>

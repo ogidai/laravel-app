@@ -34,7 +34,7 @@
             <a href="{{ route('policy') }}" class="arrow -next">利用規約・プライバシーポリシー</a>
         </li>
         <li class="gnav_item -sns">
-            <a href="#"><img src="images/t_logo.svg" alt=""></a>
+            <a href="#"><img src="{{ asset('images/t_logo.svg') }}" alt=""></a>
         </li>
     </ul>
     <footer class="footer -pc">

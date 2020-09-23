@@ -12,18 +12,38 @@
           </a>
         </div>
         <a href="{{route('home')}}" class="left arrow_back"></a>
+        @guest
+        <div class="right btnWrap">
+          <a href="{{ route('login') }}" class="btn">ログイン</a>
+        </div>
+        @else
+        <div class="right btnWrap">
+          <span class="btn js-showLogoutModal">ログアウト</span>
+        </div>
+        @endguest
       </div>
     </header>
 
     <div class="wrapper -top">
 
+      @extends('layouts.gnav')
+
+      @section('gnav')
 
 
       <main class="main">
+        @if($items->isEmpty())
+        <div class="card">
+          <p class="text_align">{{Auth::user()->name}}さんの投稿は、まだありません。
+          <br>あなたが好きなプロテインをシェアしませんか？</p>
+          <div class="btnWrap">
+            <a href="{{ route('post') }}" class="btn -full -primary">好きなプロテインをシェアする！</a>
+          </div>
+        </div>
+        @endif
 
         <ul class="pro_list">
           @foreach($items as $item)
-
           <li class="pro_item">
             <a href="{{ route('post.show', [$item->id]) }}">
               <div class="pro_item_left">

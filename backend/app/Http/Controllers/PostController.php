@@ -25,10 +25,8 @@ class PostController extends Controller
     }
 
     public function show(Request $request, $id, Post $item) {
-    // public function show($id) {
     	$items = Post::find($id);
-      // $items = Post::with('user')->get();
-      // dd($items);
+
     	return view('post.show', compact('items'));
     }
 
@@ -65,6 +63,13 @@ class PostController extends Controller
         //リダイレクト
         return redirect('user/index');
     }
+
+    public function destroy(Request $request) {
+      $post = Post::find($request->id);
+      $post->delete();
+
+      return redirect('post/index');
+  }
 
 
     public function store(StorePostForm $request)

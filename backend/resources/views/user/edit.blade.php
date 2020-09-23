@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-
+<div class="overlay"></div>
     <header class="header">
       <div class="contentInner">
         <div class="logo">
@@ -11,15 +11,23 @@
             <img src="{{ asset('images/logo.png') }}" alt="">
           </a>
         </div>
-        <!-- <div class="navBtn js-navBtn">
-          <span class="js-badge active"></span><span></span><span></span>
-        </div> -->
+        @guest
+        <div class="right btnWrap">
+          <a href="{{ route('login') }}" class="btn">ログイン</a>
+        </div>
+        @else
+        <div class="right btnWrap">
+          <span class="btn js-showLogoutModal">ログアウト</span>
+        </div>
+        @endguest
         <a href="{{route('user')}}" class="left arrow_back"></a>
       </div>
     </header>
 
-    <div class="wrapper -hasform">
+    <div class="wrapper -top">
+      @extends('layouts.gnav')
 
+      @section('gnav')
       <main class="main">
         <div class="inner">
           <form class="form" action="{{ action('Admin\UserController@update') }}" method="POST">

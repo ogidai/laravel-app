@@ -22,8 +22,9 @@
     }
   }
   .submit {
-    margin-top: 30px;
+    margin: 30px auto 0;
     padding: 12px;
+    max-width: 900px;
     @include mq {
       margin-top: 60px;
     }

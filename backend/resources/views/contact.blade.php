@@ -3,6 +3,7 @@
 @section('content')
 
 <div class="container">
+  <div class="overlay"></div>
     <header class="header">
       <div class="contentInner">
         <div class="logo">
@@ -11,12 +12,23 @@
           </a>
         </div>
         <a href="{{('/')}}" class="left arrow_back"></a>
+        @guest
+        <div class="right btnWrap">
+          <a href="{{ route('login') }}" class="btn">ログイン</a>
+        </div>
+        @else
+        <div class="right btnWrap">
+          <span class="btn js-showLogoutModal">ログアウト</span>
+        </div>
+        @endguest
       </div>
     </header>
 
-    <div class="wrapper">
+    <div class="wrapper -top">
 
+      @extends('layouts.gnav')
 
+      @section('gnav')
 
       <main class="main">
         <div class="card">

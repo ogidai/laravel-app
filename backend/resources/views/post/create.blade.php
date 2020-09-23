@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-
+<div class="overlay"></div>
     <header class="header">
       <div class="contentInner">
         <div class="logo">
@@ -12,14 +12,25 @@
           </a>
         </div>
         <a href="{{route('home')}}" class="left arrow_back"></a>
+        @guest
+        <div class="right btnWrap">
+          <a href="{{ route('login') }}" class="btn">ログイン</a>
+        </div>
+        @else
+        <div class="right btnWrap">
+          <span class="btn js-showLogoutModal">ログアウト</span>
+        </div>
+        @endguest
       </div>
 
     </header>
 
 
-    <div class="wrapper -hasform">
+    <div class="wrapper -top">
 
+      @extends('layouts.gnav')
 
+      @section('gnav')
 
       <main class="main">
         <div class="inner">
@@ -95,7 +106,7 @@
                 <p>日本のメーカーですか？</p>
                 <input type="radio" name="made" value="0" class="-secondary @error('made') is-invalid @enderror" required id="madejapan" {{ old('made') == "0" ? 'checked' : '' }}>
                 <label for="madejapan" class="label">はい</label>
-                <input type="radio" name="made" class="-secondary @error('made') is-invalid @enderror" required id="madeother" {{ old('made') == "1" ? 'checked' : '' }}>
+                <input type="radio" name="made" value="1" class="-secondary @error('made') is-invalid @enderror" required id="madeother" {{ old('made') == "1" ? 'checked' : '' }}>
                 <label for="madeother" class="label">いいえ</label>
               </div>
               @error('made')

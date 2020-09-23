@@ -31,10 +31,16 @@ h2 {
     margin-top: 5px;
     padding: 0;
     font-size: 1.6rem;
+    span {
+      margin-right: 10px;
+    }
     & + .pro_img {
       margin: 0;
       padding: 15px 0;
       width: 100%;
+    }
+    @include mq {
+      font-size: 1.8rem;
     }
   }
   &.page_title {

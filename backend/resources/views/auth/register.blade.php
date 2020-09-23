@@ -88,6 +88,7 @@
     </header>
 
     <div class="wrapper -hasform">
+
       <main class="main">
         <div class="inner">
           <h2 class="page_title">仮登録</h2>

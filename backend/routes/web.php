@@ -31,6 +31,7 @@ Route::post('post/store', 'PostController@store');
 Route::get('post/store', 'PostController@store');
 Route::get('post/edit', 'PostController@edit');
 Route::post('post/edit', 'PostController@update');
+Route::get('post/destroy/{id}', 'PostController@destroy')->name('post.destroy');
 
 Route::get('contact', 'ContactController@index')->name('contact');
 

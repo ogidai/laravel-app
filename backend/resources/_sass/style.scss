@@ -64,6 +64,10 @@ version： 0.0.1
   display: block;
 }
 
+.text_align {
+  text-align: center;
+}
+
 .-hidden {
   display: none;
 }
@@ -86,7 +90,7 @@ version： 0.0.1
 .modal {
   display: none;
   &.active {
-    position: absolute;
+    position: fixed;
     z-index: 100000;
     top: 50%;
     left: 50%;
@@ -116,7 +120,7 @@ version： 0.0.1
 
 .overlay {
   &.active {
-    position: absolute;
+    position: fixed;
     z-index: 1000;
     top: 0;
     left: 0;
@@ -144,13 +148,13 @@ version： 0.0.1
   &.-secondary {
     @include mq {
       margin: 0 auto;
-      max-width: 800px;
+      max-width: 900px;
     }
   }
   &.-hasform {
     @include mq {
       margin: 0 auto;
-      max-width: 830px;
+      max-width: 930px;
     }
   }
 }
@@ -213,7 +217,7 @@ version： 0.0.1
 
 .card {
   width: calc(100% - 30px);
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   margin: 30px auto;
   padding: 15px;
@@ -222,6 +226,7 @@ version： 0.0.1
   background: $color-base;
   @include mq {
     margin: 60px auto;
+    padding: 30px;
   }
   h1 {
     font-size: 1.8rem;
@@ -245,6 +250,9 @@ version： 0.0.1
   }
   &.-faq {
     padding: 15px 15px 30px;
+    @include mq {
+      padding: 30px;
+    }
     .question {
       position: relative;
       font-weight: $weight-bold;
@@ -502,6 +510,7 @@ version： 0.0.1
     padding-left: 40px;
   }
   .post_date {
+    padding-top: 5px;
     font-weight: $weight-bold;
     font-size: 1.3rem;
     span {
@@ -536,6 +545,10 @@ version： 0.0.1
     }
   }
   &.-row_pc {
+    width: 100%;
+    .review_cat {
+      line-height: 1;
+    }
     @include mq {
       display: -webkit-flex;
       display: -ms-flex;
@@ -674,5 +687,68 @@ version： 0.0.1
     height: 100%;
     pointer-events: none;
     background-color: $color-base;
+  }
+}
+
+.list_items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  .list_item {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    align-items: center;
+    padding: 15px 0 5px;
+    border-bottom: 1px solid $color-normal-light;
+  }
+  .list_left {
+    margin: 0;
+    padding-left: 5px;
+    width: 45%;
+    font-size: 1.3rem;
+    font-weight: $weight-bold;
+    color: $color-normal;
+    opacity: .8;
+    @include mq {
+      font-size: 1.5rem;
+    }
+  }
+  .list_right {
+    margin: 0;
+    padding-left: 5px;
+    width: 55%;
+    @include mq {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+.st {
+  fill: $color-normal-light;
+}
+.star_icon_1 {
+  .st1 {
+    fill: $color-primary;
+  }
+}
+.star_icon_2 {
+  .st1, .st2 {
+    fill: $color-primary;
+  }
+}
+.star_icon_3 {
+  .st1, .st2, .st3 {
+    fill: $color-primary;
+  }
+}
+.star_icon_4 {
+  .st1, .st2, .st3, .st4 {
+    fill: $color-primary;
+  }
+}
+.star_icon_5 {
+  .st1, .st2, .st3, .st4, .st5 {
+    fill: $color-primary;
   }
 }

@@ -144,6 +144,7 @@
         $('.overlay').removeClass('active');
         $('body').css('overflow', 'auto');
       });
+
       // delete an account modal
       $('.js-showDeleteAccountModal').click(function() {
           $('.js-deleteAccountModal').addClass('active');
@@ -157,6 +158,23 @@
       });
       $('.js-deleteAccountModalBack').click(function() {
         $('.js-deleteAccountModal').removeClass('active');
+        $('.overlay').removeClass('active');
+        $('body').css('overflow', 'auto');
+      });
+
+      // delete post modal
+      $('.js-showDeletePostModal').click(function() {
+          $('.js-deletePostModal').addClass('active');
+          $('.overlay').addClass('active');
+          $('body').css('overflow', 'hidden');
+      });
+      $('.overlay').click(function() {
+          $('.js-deletePostModal').removeClass('active');
+          $('.overlay').removeClass('active');
+          $('body').css('overflow', 'auto');
+      });
+      $('.js-deletePostModalBack').click(function() {
+        $('.js-deletePostModal').removeClass('active');
         $('.overlay').removeClass('active');
         $('body').css('overflow', 'auto');
       });

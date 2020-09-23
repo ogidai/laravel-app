@@ -22,7 +22,6 @@
         <div class="right btnWrap">
           <span class="btn js-showLogoutModal">ログアウト</span>
         </div>
-
         @endguest
       </div>
     </header>
@@ -83,7 +82,7 @@
               </div>
               <div class="pro_item_right">
                 <p class="pro_name"><span>{{$item->pro_name}}</span><span>{{$item->flavor}}</span>{{$item->weight}}kg</p>
-                <div class="review -row_sp">
+                <div class="review -row_pc">
                   <p class="review_cat">おすすめ度</p>
                   <div class="star_icons">
                     <i class="star_icon">

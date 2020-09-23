@@ -107,10 +107,20 @@ h2.pro_name {
   font-size: 1.6rem;
 }
 
+h2.pro_name span {
+  margin-right: 10px;
+}
+
 h2.pro_name + .pro_img {
   margin: 0;
   padding: 15px 0;
   width: 100%;
+}
+
+@media screen and (min-width: 992px) {
+  h2.pro_name {
+    font-size: 1.8rem;
+  }
 }
 
 h2.page_title {
@@ -619,7 +629,7 @@ table .bg-light {
 }
 
 .gnav {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 85vw;
@@ -1004,8 +1014,9 @@ table .bg-light {
 }
 
 .form .submit {
-  margin-top: 30px;
+  margin: 30px auto 0;
   padding: 12px;
+  max-width: 900px;
 }
 
 @media screen and (min-width: 992px) {
@@ -1475,6 +1486,11 @@ input[type=file] {
   width: 100%;
   padding-left: 0;
   padding-right: 0;
+}
+
+.btnWrap.-margin {
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .delete {
@@ -2429,6 +2445,10 @@ input[type=file] {
   display: block;
 }
 
+.text_align {
+  text-align: center;
+}
+
 .-hidden {
   display: none;
 }
@@ -2458,7 +2478,7 @@ input[type=file] {
 }
 
 .modal.active {
-  position: absolute;
+  position: fixed;
   z-index: 100000;
   top: 50%;
   left: 50%;
@@ -2489,7 +2509,7 @@ input[type=file] {
 }
 
 .overlay.active {
-  position: absolute;
+  position: fixed;
   z-index: 1000;
   top: 0;
   left: 0;
@@ -2525,14 +2545,14 @@ input[type=file] {
 @media screen and (min-width: 992px) {
   .wrapper.-secondary {
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 900px;
   }
 }
 
 @media screen and (min-width: 992px) {
   .wrapper.-hasform {
     margin: 0 auto;
-    max-width: 830px;
+    max-width: 930px;
   }
 }
 
@@ -2607,7 +2627,7 @@ input[type=file] {
 
 .card {
   width: calc(100% - 30px);
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   margin: 30px auto;
   padding: 15px;
@@ -2619,6 +2639,7 @@ input[type=file] {
 @media screen and (min-width: 992px) {
   .card {
     margin: 60px auto;
+    padding: 30px;
   }
 }
 
@@ -2645,6 +2666,12 @@ input[type=file] {
 
 .card.-faq {
   padding: 15px 15px 30px;
+}
+
+@media screen and (min-width: 992px) {
+  .card.-faq {
+    padding: 30px;
+  }
 }
 
 .card.-faq .question {
@@ -2971,6 +2998,7 @@ input[type=file] {
 }
 
 .pro_item_right .post_date {
+  padding-top: 5px;
   font-weight: 700;
   font-size: 1.3rem;
 }
@@ -3009,6 +3037,14 @@ input[type=file] {
 
 .review.-row_sp .star_icons {
   margin-left: 20px;
+}
+
+.review.-row_pc {
+  width: 100%;
+}
+
+.review.-row_pc .review_cat {
+  line-height: 1;
 }
 
 @media screen and (min-width: 992px) {
@@ -3158,5 +3194,81 @@ input[type=file] {
   height: 100%;
   pointer-events: none;
   background-color: #fff;
+}
+
+.list_items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list_items .list_item {
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
+  padding: 15px 0 5px;
+  border-bottom: 1px solid #808080;
+}
+
+.list_items .list_left {
+  margin: 0;
+  padding-left: 5px;
+  width: 45%;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #333;
+  opacity: 0.8;
+}
+
+@media screen and (min-width: 992px) {
+  .list_items .list_left {
+    font-size: 1.5rem;
+  }
+}
+
+.list_items .list_right {
+  margin: 0;
+  padding-left: 5px;
+  width: 55%;
+}
+
+@media screen and (min-width: 992px) {
+  .list_items .list_right {
+    font-size: 1.6rem;
+  }
+}
+
+.st {
+  fill: #808080;
+}
+
+.star_icon_1 .st1 {
+  fill: #FFD00C;
+}
+
+.star_icon_2 .st1,
+.star_icon_2 .st2 {
+  fill: #FFD00C;
+}
+
+.star_icon_3 .st1,
+.star_icon_3 .st2,
+.star_icon_3 .st3 {
+  fill: #FFD00C;
+}
+
+.star_icon_4 .st1,
+.star_icon_4 .st2,
+.star_icon_4 .st3,
+.star_icon_4 .st4 {
+  fill: #FFD00C;
+}
+
+.star_icon_5 .st1,
+.star_icon_5 .st2,
+.star_icon_5 .st3,
+.star_icon_5 .st4,
+.star_icon_5 .st5 {
+  fill: #FFD00C;
 }
 
