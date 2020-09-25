@@ -49,7 +49,7 @@ class StorePostForm extends FormRequest
             'comment' => [
               'nullable',
               'string',
-              'max:200',
+              'max:400',
               'not_regex:/^(http)$/',
             ],
         ];

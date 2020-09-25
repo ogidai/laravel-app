@@ -29,8 +29,8 @@ Route::get('post/show/{id}', 'PostController@show')->name('post.show');
 Route::get('post/create', 'PostController@create')->name('post');
 Route::post('post/store', 'PostController@store');
 Route::get('post/store', 'PostController@store');
-Route::get('post/edit', 'PostController@edit');
-Route::post('post/edit', 'PostController@update');
+Route::get('post/edit/{id}', 'PostController@edit')->name('post.edit');
+Route::post('post/edit/{id}', 'PostController@update')->name('post.update');
 Route::get('post/destroy/{id}', 'PostController@destroy')->name('post.destroy');
 
 Route::get('contact', 'ContactController@index')->name('contact');

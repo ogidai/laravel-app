@@ -34,7 +34,7 @@ class CreatePostsTable extends Migration
             $table->integer('recomend');
             $table->string('how_to_buy', 100)->nullable($value = true);
             $table->string('how_to_drink', 100)->nullable($value = true);
-            $table->string('comment', 200)->nullable($value = true);
+            $table->string('comment', 400)->nullable($value = true);
             $table->timestamps();
         });
     }

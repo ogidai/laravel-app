@@ -74,11 +74,15 @@
 }
 
 .radio_wrap {
+  position: relative;
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
   flex-flow: wrap;
   margin-top: 15px;
+  input {
+    opacity: 0;
+  }
   p {
     width: 100%;
     text-align: left;

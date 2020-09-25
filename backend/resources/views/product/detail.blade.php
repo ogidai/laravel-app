@@ -7,7 +7,7 @@
 <header class="header">
   <div class="contentInner">
     <div class="logo">
-      <a href="#">
+      <a href="{{ route('home') }}">
         <img src="{{ asset('images/logo.png') }}" alt="">
       </a>
     </div>
@@ -48,20 +48,81 @@
 
     <div class="pro_detail">
         <h2 class="pro_name"><span>{{$items->pro_name}}</span><span>{{$items->flavor}}</span><span>{{$items->weight}}kg</span></h2>
-        <figure class="pro_img">
-          <img src="../../{{$items->read_temp_path_01}}" alt="">
-        </figure>
-        <ul class="list_items">
-          <li class="list_item">
-            <p class="list_left">投稿日</p>
-            <p class="list_right">{{date('Y/m/d', strtotime($items->created_at))}}</p>
-          </li>
-          @if($items->created_at != $items->updated_at)
-          <li class="list_item">
-            <p class="list_left">更新日</p>
-            <p class="list_right">{{date('Y/m/d', strtotime($items->updated_at))}}</p>
-          </li>
+        <div class="pro_img_wrap
+          @if (  empty($items->read_temp_path_02) != true && empty($items->read_temp_path_03) != false  )
+          pro_img_2
           @endif
+          @if (  empty($items->read_temp_path_02 ) != false && empty($items->read_temp_path_03) != true  )
+          pro_img_2
+          @endif
+          @if (  empty($items->read_temp_path_02 ) != true && empty($items->read_temp_path_03) != true  )
+          pro_img_3
+          @endif
+        ">
+          <div class="img_outer">
+            <figure>
+              <img src="../../{{$items->read_temp_path_01}}" alt="">
+            </figure>
+            @if (  empty($items->read_temp_path_02) != true && empty($items->read_temp_path_03) != false  )
+            <div class="arrow -next js-arrow -tab"></div>
+            <div class="arrow -prev js-arrow -tab"></div>
+            @endif
+            @if (  empty($items->read_temp_path_02 ) != false && empty($items->read_temp_path_03) != true  )
+            <div class="arrow -next js-arrow -tab"></div>
+            <div class="arrow -prev js-arrow -tab"></div>
+            @endif
+            @if (  empty($items->read_temp_path_02 ) != true && empty($items->read_temp_path_03) != true  )
+            <div class="arrow -next js-arrowTransN -tab"></div>
+            <div class="arrow -prev js-arrowTransM -tab"></div>
+            @endif
+            <div class="number">1</div>
+          </div>
+          @if ( empty($items->read_temp_path_02) != true )
+          <div class="img_outer">
+            <figure>
+              <img src="../../{{$items->read_temp_path_02}}" alt="">
+            </figure>
+            @if (  empty($items->read_temp_path_02) != true && empty($items->read_temp_path_03) != false  )
+            <div class="arrow -next js-arrow -tab"></div>
+            <div class="arrow -prev js-arrow -tab"></div>
+            <div class="number">2</div>
+            @endif
+            @if (  empty($items->read_temp_path_02 ) != false && empty($items->read_temp_path_03) != true  )
+            <div class="arrow -next js-arrow -tab"></div>
+            <div class="arrow -prev js-arrow -tab"></div>
+            <div class="number">2</div>
+            @endif
+            @if (  empty($items->read_temp_path_02 ) != true && empty($items->read_temp_path_03) != true  )
+            <div class="arrow -next js-arrowTransM -tab"></div>
+            <div class="arrow -prev js-arrowTransP -tab"></div>
+            <div class="number">2</div>
+            @endif
+          </div>
+          @endif
+          @if ( empty($items->read_temp_path_03) != true )
+          <div class="img_outer">
+            <figure>
+              <img src="../../{{$items->read_temp_path_03}}" alt="">
+            </figure>
+            @if (  empty($items->read_temp_path_02) != true && empty($items->read_temp_path_03) != false  )
+            <div class="arrow -next js-arrow -tab"></div>
+            <div class="arrow -prev js-arrow -tab"></div>
+            <div class="number">2</div>
+            @endif
+            @if (  empty($items->read_temp_path_02 ) != false && empty($items->read_temp_path_03) != true  )
+            <div class="arrow -next js-arrow -tab"></div>
+            <div class="arrow -prev js-arrow -tab"></div>
+            <div class="number">2</div>
+            @endif
+            @if (  empty($items->read_temp_path_02 ) != true && empty($items->read_temp_path_03) != true  )
+            <div class="arrow -next js-arrowTransP -tab"></div>
+            <div class="arrow -prev js-arrowTransN -tab"></div>
+            <div class="number">3</div>
+            @endif
+          </div>
+          @endif
+        </div>
+        <ul class="list_items">
           <li class="list_item">
             <p class="list_left">商品名</p>
             <p class="list_right">{{ $items->pro_name }}</p>
@@ -389,6 +450,16 @@
           <li class="list_item">
             <p class="list_left">コメント</p>
             <p class="list_right">{{ $items->comment }}</p>
+          </li>
+          @endif
+          <li class="list_item">
+            <p class="list_left">投稿日</p>
+            <p class="list_right">{{date('Y/m/d', strtotime($items->created_at))}}</p>
+          </li>
+          @if($items->created_at != $items->updated_at)
+          <li class="list_item">
+            <p class="list_left">更新日</p>
+            <p class="list_right">{{date('Y/m/d', strtotime($items->updated_at))}}</p>
           </li>
           @endif
         </ul>

@@ -163,7 +163,11 @@
 
                     </div>
                     </div>
-              <p class="post_date">投稿日：<span>{{date('Y/m/d', strtotime($item->created_at))}}</span></p>
+                    @if ( $item->created_at == $item->updated_at )
+                    <p class="post_date">投稿日：<span>{{date('Y/m/d', strtotime($item->created_at))}}</span></p>
+                    @else
+                    <p class="post_date">更新日：<span>{{date('Y/m/d', strtotime($item->updated_at))}}</span></p>
+                    @endif
 
               </div>
             </a>

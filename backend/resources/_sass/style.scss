@@ -1,16 +1,10 @@
 @charset "utf-8";
-/*
-theme Name: exat theme
-Author: exat Inc,
-Description: for exat Corporate Original Theme
-version： 0.0.1
-*/
 
 // ==========================================================================
 // Import Modules
 // ==========================================================================
-@import url('https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700&display=swap');
+// @import url('https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap');
+// @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700&display=swap');
 
 @import "01_settings/variables";
 
@@ -21,44 +15,20 @@ version： 0.0.1
 
 @import "04_elements/base";
 @import "04_elements/form";
-@import "04_elements/table";
 
 @import "05_objects/footer";
 @import "05_objects/gnav";
 @import "05_objects/header";
-@import "05_objects/sidebar";
 @import "05_objects/forms";
 @import "05_objects/pagenation";
-@import "05_objects/dlList";
 
 @import "06_components/button";
 @import "06_components/card";
 @import "06_components/arrow";
-@import "06_components/breadcrumb";
-@import "06_components/sort";
-
-@import "07_utilities/type";
-@import "07_utilities/align";
-@import "07_utilities/ellipsis";
-@import "07_utilities/margin";
-@import "07_utilities/padding";
-
 
 
 
 //------------------------------------
-.align-left {
-  text-align: left !important;
-}
-
-.align-center {
-  text-align: center !important;
-}
-
-.align-right {
-  text-align: right !important;
-}
-
 
 .disp-block {
   display: block;
@@ -75,6 +45,13 @@ version： 0.0.1
 .-sp {
   display: block;
   @include mq {
+    display: none;
+  }
+}
+
+.-tab {
+  display: block;
+  @include mq(sm) {
     display: none;
   }
 }
@@ -245,6 +222,7 @@ version： 0.0.1
       margin-top: 30px;
       &.-margin {
         margin-top: 20px;
+        margin-bottom: 0;
       }
     }
   }
@@ -509,12 +487,23 @@ version： 0.0.1
   @include mq {
     padding-left: 40px;
   }
+  .post_date_wrap {
+    margin-top: 15px;
+  }
   .post_date {
-    padding-top: 5px;
+    padding-top: 10px;
     font-weight: $weight-bold;
     font-size: 1.3rem;
+    line-height: 1;
     span {
       font-size: 1.5rem;
+    }
+    & + .post_date {
+      margin-top: 3px;
+      padding-top: 0;
+    }
+    &.-secondary {
+      padding-top: 0;
     }
   }
 }
@@ -547,7 +536,11 @@ version： 0.0.1
   &.-row_pc {
     width: 100%;
     .review_cat {
+      padding-top: 10px;
       line-height: 1;
+    }
+    .star_icons {
+      padding-top: 5px;
     }
     @include mq {
       display: -webkit-flex;
@@ -570,6 +563,94 @@ version： 0.0.1
 }
 .pro_detail {
   padding: 0 0 15px 0;
+  overflow: hidden;
+}
+
+.pro_img_wrap {
+  position: relative;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 15px 0;
+  width: 100%;
+  &.pro_img_2 {
+    transform: translateX(50%);
+    -webkit-transition: .35s ease-in-out;
+    -moz-transition: .35s ease-in-out;
+    transition: .35s ease-in-out;
+    @include mq(sm) {
+      transform: none;
+    }
+    &.active {
+      transform: translateX(-50%);
+    }
+  }
+  &.pro_img_3 {
+    transform: translateX(100%);
+    -webkit-transition: .35s ease-in-out;
+    -moz-transition: .35s ease-in-out;
+    transition: .35s ease-in-out;
+    @include mq(sm) {
+      transform: none;
+    }
+    &.transform_none {
+      transform: none;
+    }
+    &.transform {
+      transform: translateX(-100%);
+    }
+  }
+  .img_outer {
+    min-width: calc(100% - 30px);
+    margin: 0 15px;
+    @include mq(sm) {
+      min-width: auto;
+      width: calc(33.33333% - 30px);
+    }
+  }
+  .arrow {
+    position: absolute;
+    top: calc(50% - 20px);
+    width: 40px;
+    height: 40px;
+    &:before {
+      top: 20px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 20px;
+      height: 20px;
+      border-top: 5px solid $color-primary;
+      border-right: 5px solid $color-accent;
+    }
+
+    &.-next {
+      right: 0;
+      &:before {
+        left: 5px;
+      }
+    }
+    &.-prev {
+      left: 0;
+      &:before {
+        left: 15px;
+      }
+    }
+  }
+  .number {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    padding: 5px 8px;
+    pointer-events: none;
+    color: $color-base;
+    background: $color-normal-light;
+    font-weight: 700;
+    line-height: 1;
+  }
 }
 
 .star_icons {
@@ -582,6 +663,22 @@ version： 0.0.1
     height: 16px;
     & + .star_icon {
       margin-left: 2px;
+    }
+  }
+  &.-lg{
+    position: absolute;
+    bottom: 3px;
+    padding-left: 8px;
+    pointer-events: none;
+    .star_icon {
+      height: 35px;
+      & + .star_icon {
+        margin-left: 15px;
+      }
+      svg {
+        width: 35px;
+        height: 35px;
+      }
     }
   }
 }

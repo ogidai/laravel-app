@@ -34,35 +34,89 @@ class PostController extends Controller
       return view('post.create');
     }
 
-    public function edit()  {
-      $authUser = Auth::user()->id;
-      $items = Post::with('user')->where('user_id', $authUser)->get();
-      // dd($user);
-      // $values = Post::all();
-      // $values = Post::where([
-      //   ['user_id', $user],
-      //   ['id', ],
-      // ])->get();
-      // dd($values);
-      // dd($items);
-      $params = [
-            'authUser' => $authUser,
-            'items' => $items,
-        ];
-      return view('post.edit', $params);
+    public function edit(Request $request)  {
+      $items = Post::find($request->id);
+      return view('post.edit', compact('items'));
     }
 
-    public function update(StorePostForm $request) {
-        $user_form = $request->all();
-        $user = Auth::user();
-        //不要な「_token」の削除
-        // dd($user_form);
-        unset($user_form['_token']);
+    public function update(StorePostForm $request, $id) {
+        $post = new Post;
+
+        $post = Post::find($id);
+
+        $post_data = $request->except('image_01', 'image_02', 'image_03');
+
+        unset($post_data['_token']);
+
+        $imagefile_01 = $request->file('image_01');
+        $imagefile_02 = $request->file('image_02');
+        $imagefile_03 = $request->file('image_03');
+
+        $temp_path_01 = $imagefile_01->store('public/temp');
+        $read_temp_path_01 = str_replace('public/', 'storage/', $temp_path_01);
+
+        if (empty($imagefile_02) == true) {
+          $temp_path_02 = $imagefile_02;
+          $read_temp_path_02 = $temp_path_02;
+        } else {
+          $temp_path_02 = $imagefile_02->store('public/temp');
+          $read_temp_path_02 = str_replace('public/', 'storage/', $temp_path_02);
+        }
+
+        if (empty($imagefile_03) == true) {
+          $temp_path_03 = $imagefile_03;
+          $read_temp_path_03 = $temp_path_03;
+        } else {
+          $temp_path_03 = $imagefile_03->store('public/temp');
+          $read_temp_path_03 = str_replace('public/', 'storage/', $temp_path_03);
+        }
+
+        $id = $post_data['id'];
+        $user_id = $post_data['user_id'];
+        $pro_name = $post_data['pro_name'];
+        $flavor = $post_data['flavor'];
+        $weight = $post_data['weight'];
+        $price = $post_data['price'];
+        $per_protein = $post_data['per_protein'];
+        $made = $post_data['made'];
+        $type = $post_data['type'];
+        $taste_good = $post_data['taste_good'];
+        $cost_paf = $post_data['cost_paf'];
+        $recomend = $post_data['recomend'];
+        $how_to_buy = $post_data['how_to_buy'];
+        $how_to_drink = $post_data['how_to_drink'];
+        $comment = $post_data['comment'];
+
+        $post->id = $id;
+        $post->user_id = $user_id;
+        $post->temp_path_01 = $temp_path_01;
+        $post->temp_path_02 = $temp_path_02;
+        $post->temp_path_03 = $temp_path_03;
+        $post->read_temp_path_01 = $read_temp_path_01;
+        $post->read_temp_path_02 = $read_temp_path_02;
+        $post->read_temp_path_03 = $read_temp_path_03;
+        $post->pro_name = $pro_name;
+        $post->flavor = $flavor;
+        $post->weight = $weight;
+        $post->price = $price;
+        $post->per_protein = $per_protein;
+        $post->made = $made;
+        $post->type = $type;
+        $post->taste_good = $taste_good;
+        $post->cost_paf = $cost_paf;
+        $post->recomend = $recomend;
+        $post->how_to_buy = $how_to_buy;
+        $post->how_to_drink = $how_to_drink;
+        $post->comment = $comment;
+
         //保存
-        $user->fill($user_form)->save();
+        $post->save();
+        // $post_old->fill($post)->save();
+        // $data->fill($post_old)->update();
         //リダイレクト
-        return redirect('user/index');
+        return redirect('post/index');
     }
+
 
     public function destroy(Request $request) {
       $post = Post::find($request->id);

@@ -55,8 +55,13 @@
               </div>
               <div class="pro_item_right">
                 <p class="pro_name"><span>{{$item->pro_name}}</span><span>{{$item->flavor}}</span>{{$item->weight}}kg</p>
-              <p class="post_date">投稿日：<span>{{date('Y/m/d', strtotime($item->created_at))}}</span></p>
-            </div>
+                <div class="post_date_wrap">
+                  <p class="post_date -secondary">投稿日：<span>{{date('Y/m/d', strtotime($item->created_at))}}</span></p>
+                  @if ( $item->created_at != $item->updated_at )
+                  <p class="post_date">更新日：<span>{{date('Y/m/d', strtotime($item->updated_at))}}</span></p>
+                  @endif
+                </div>
+              </div>
             </a>
           </li>
           @endforeach

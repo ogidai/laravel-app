@@ -11,7 +11,6 @@ body {
   color: $base-color-text;
   font-size: $base-font-size;
   font-weight: $base-font-weight;
-  //font-size: 1em; // currently ems cause chrome bug misinterpreting rems on body element
   font-family: $font-family-primary;
   line-height: $base-line-height;
   letter-spacing: 0.01em;
@@ -33,11 +32,6 @@ h2 {
     font-size: 1.6rem;
     span {
       margin-right: 10px;
-    }
-    & + .pro_img {
-      margin: 0;
-      padding: 15px 0;
-      width: 100%;
     }
     @include mq {
       font-size: 1.8rem;
@@ -103,7 +97,7 @@ p {
   }
 }
 
-p,dt,dd {
+p {
   line-height: 1.75;
   letter-spacing: 0.02em;
   &.-xs {
