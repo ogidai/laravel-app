@@ -122,93 +122,91 @@ $(function(){
 });
 
 // 画像の追加
+
 $(function() {
-  $('#addImages02, #addImages03').attr('disabled', 'disabled');
 
-  $('#addImages01').on('change', function() {
-    if ( $(this).prop('')) {
-      $('#addImages02').attr('disabled', 'disabled');
-    } else {
-      $('#addImages02').removeAttr('disabled');
-    }
-  });
-  $('#addImages02').on('change', function() {
-    if ( $(this).prop('')) {
-      $('#addImages03').attr('disabled', 'disabled');
-    } else {
-      $('#addImages03').removeAttr('disabled');
-      $('#delete01').removeClass('-hidden');
-    }
-  });
-  $('#addImages03').on('change', function() {
-    if ( $(this).prop('')) {
-      $('#delete01').removeClass('-hidden');
-      $('#delete02').addClass('-hidden');
-    } else {
-      // $('#delete01').addClass('-hidden');
-      $('#delete02').removeClass('-hidden');
-    }
-  });
-
-$('#addImages01').on('change', function (e) {
-  var reader = new FileReader();
-  reader.onload = function (e) {
+  $(document).on('change', '#addImages01', function (e) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
       $("#showImages01").attr('src', e.target.result);
-  }
-  reader.readAsDataURL(e.target.files[0]);
-});
-$('#addImages02').on('change', function (e) {
-  var reader = new FileReader();
-  reader.onload = function (e) {
+    }
+    reader.readAsDataURL(e.target.files[0]);
+  });
+  $(document).on('change', '#addImages02', function (e) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
       $("#showImages02").attr('src', e.target.result);
-  }
-  reader.readAsDataURL(e.target.files[0]);
-});
-$('#addImages03').on('change', function (e) {
-  var reader = new FileReader();
-  reader.onload = function (e) {
+    }
+    reader.readAsDataURL(e.target.files[0]);
+    $("#submit").addClass('img_change_02');
+  });
+  $(document).on('change', '#addImages03', function (e) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
       $("#showImages03").attr('src', e.target.result);
-  }
-  reader.readAsDataURL(e.target.files[0]);
-});
+    }
+    reader.readAsDataURL(e.target.files[0]);
+    $("#submit").addClass('img_change_03');
+  });
 
-$('#delete01').click(function() {
-  $("#showImages02").attr('src', '');
-  $('#addImages03').attr('disabled', 'disabled');
-  $('#delete01').addClass('-hidden');
-});
-$('#delete02').click(function() {
-  $("#showImages03").attr('src', '');
-  $('#delete02').addClass('-hidden');
-});
+  $(document).on('click', '#delete01', function() {
+    $("#addImages02").addClass('delete_input_02');
+    $("#showImages02").addClass('delete_img_02');
+    $("#addImages02").after('<input type="file" name="image_02" class="-secondary" id="addImages02" accept="image/*">');
+    $("#showImages02").after('<img src="" alt="" id="showImages02">');
+    $('.delete_input_02').remove();
+    $('.delete_img_02').remove();
+    $("#submit").addClass('img_change_02');
+  });
+  $(document).on('click', '#delete02', function() {
+    $("#addImages03").addClass('delete_input_03');
+    $("#showImages03").addClass('delete_img_03');
+    $("#addImages03").after('<input type="file" name="image_03" class="-secondary" id="addImages03" accept="image/*">');
+    $("#showImages03").after('<img src="" alt="" id="showImages03">');
+    $('.delete_input_03').remove();
+    $('.delete_img_03').remove();
+    $("#submit").addClass('img_change_03');
+  });
+
+  $(document).on('click', '#submit', function() {
+    if ($(this).hasClass('img_change_02')) {
+      $(this).val('img_changed_02');
+    }
+    if ($(this).hasClass('img_change_03')) {
+      $(this).val('img_changed_03');
+    }
+    if ($(this).hasClass('img_change_02') && $(this).hasClass('img_change_03')) {
+      $(this).val('img_changed');
+    }
+  });
+
 });
 
 $(function(){
-$('.question').on('click', function() {
-  $(this).next('.answer').slideToggle();
-})
+  $('.question').on('click', function() {
+    $(this).next('.answer').slideToggle();
+  })
 });
 
 $(function(){
-$('.js-arrow').on('click', function() {
-  if($('.pro_img_2').hasClass('active')) {
-    $('.pro_img_2').removeClass('active');
-  } else {
-    $('.pro_img_2').addClass('active');
-  }
-});
-$('.js-arrowTransP').on('click', function() {
-  $('.pro_img_3').removeClass('transform_none');
-  $('.pro_img_3').removeClass('transform');
-});
-$('.js-arrowTransN').on('click', function() {
-  $('.pro_img_3').addClass('transform_none');
-  $('.pro_img_3').removeClass('transform');
+  $('.js-arrow').on('click', function() {
+    if($('.pro_img_2').hasClass('active')) {
+      $('.pro_img_2').removeClass('active');
+    } else {
+      $('.pro_img_2').addClass('active');
+    }
+  });
+  $('.js-arrowTransP').on('click', function() {
+    $('.pro_img_3').removeClass('transform_none');
+    $('.pro_img_3').removeClass('transform');
+  });
+  $('.js-arrowTransN').on('click', function() {
+    $('.pro_img_3').addClass('transform_none');
+    $('.pro_img_3').removeClass('transform');
 
-});
-$('.js-arrowTransM').on('click', function() {
-  $('.pro_img_3').removeClass('transform_none');
-  $('.pro_img_3').addClass('transform');
-});
-
+  });
+  $('.js-arrowTransM').on('click', function() {
+    $('.pro_img_3').removeClass('transform_none');
+    $('.pro_img_3').addClass('transform');
+  });
 });

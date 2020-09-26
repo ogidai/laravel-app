@@ -14,7 +14,7 @@
     <!-- <div class="navBtn js-navBtn">
       <span class="js-badge active"></span><span></span><span></span>
     </div> -->
-    <a href="{{ route('home') }}" class="left arrow_back"></a>
+    <a href="{{ route('your_post') }}" class="left arrow_back"></a>
     @guest
     <div class="right btnWrap">
       <a href="{{ route('login') }}" class="btn">ログイン</a>
@@ -46,7 +46,11 @@
     <div class="card">
 
     <div class="pro_detail">
-        <h2 class="pro_name"><span>{{$items->pro_name}}</span><span>{{$items->flavor}}</span><span>{{$items->weight}}kg</span></h2>
+        <h2 class="pro_name"><span>{{$items->pro_name}}</span><span>{{$items->flavor}}</span><span>
+          @if( empty($items->weight) != true )
+          {{$items->weight}}kg
+          @endif
+        </span></h2>
         <div class="pro_img_wrap
           @if (  empty($items->read_temp_path_02) != true && empty($items->read_temp_path_03) != false  )
           pro_img_2
@@ -140,22 +144,31 @@
             <p class="list_left">味</p>
             <p class="list_right">{{ $items->flavor }}</p>
           </li>
+          @if( empty($items->weight) != true )
           <li class="list_item">
             <p class="list_left">内容量</p>
             <p class="list_right">{{ $items->weight }}kg</p>
           </li>
+          @endif
+          @if( empty($items->price) != true )
           <li class="list_item">
             <p class="list_left">参考価格</p>
             <p class="list_right">{{ $items->price }}円</p>
           </li>
+          @endif
+          @if( empty($items->price) != true && empty($items->weight) != true )
           <li class="list_item">
             <p class="list_left">参考価格/１kg</p>
             <p class="list_right">{{ round( $items->price / $items->weight ) }}円</p>
           </li>
+          @endif
+          @if( empty($items->per_protein) != true )
           <li class="list_item">
             <p class="list_left">タンパク質/１食</p>
             <p class="list_right">{{ $items->per_protein }}g</p>
           </li>
+          @endif
+          @if( $items->made == 0 || $items->made == 1 )
           <li class="list_item">
             <p class="list_left">生産地</p>
             <p class="list_right">
@@ -166,6 +179,8 @@
               @endif
             </p>
           </li>
+          @endif
+          @if( $items->type == 0 || $items->type == 1 || $items->type == 2 || $items->type == 3 )
           <li class="list_item">
             <p class="list_left">プロテインの種類</p>
             <p class="list_right">
@@ -183,6 +198,7 @@
               @endif
             </p>
           </li>
+          @endif
           <li class="list_item">
             <p class="list_left">おいしさ</p>
             <div class="star_icons list_right star_icon_{{ $items->taste_good }}">
@@ -462,7 +478,6 @@
           </li>
           @endif
         </ul>
-
     </div>
     <div class="btnWrap -margin">
       <a href="{{route('post.edit', $items->id )}}" class="btn -full">この投稿を編集</a>

@@ -19,13 +19,16 @@
         </li>
         @endauth
         <li class="gnav_item">
+            <a href="#" class="arrow -next">運営からのお知らせ</a>
+        </li>
+        <li class="gnav_item">
             <a href="{{ route('about') }}" class="arrow -next">ProHikaとは？</a>
         </li>
         <li class="gnav_item">
-            <a href="{{ route('about') }}" class="arrow -next">初めてガイド</a>
+          <a href="{{ route('faq') }}" class="arrow -next">よくある質問</a>
         </li>
         <li class="gnav_item">
-            <a href="{{ route('faq') }}" class="arrow -next">よくある質問</a>
+            <a href="{{ route('about') }}" class="arrow -next">初めてガイド</a>
         </li>
         <li class="gnav_item">
             <a href="{{ route('contact') }}" class="arrow -next">お問い合わせ</a>

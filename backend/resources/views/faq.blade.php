@@ -49,6 +49,24 @@
           <p class="answer"><a href="{{ route('password.request') }}">こちらから</a>再設定してください。</p>
           <p class="question">メール認証ができない</p>
           <p class="answer">メールをご確認ください。もし送信されていない場合は、登録したメールアドレスが間違っている可能性があります。</p>
+          <p class="question">投稿を削除</p>
+          <p class="answer">「メニュー」→「あなたの投稿」→削除したい投稿を選択→「投稿を削除」で投稿を削除することができます。</p>
+          <p class="question">投稿を編集</p>
+          <p class="answer">「メニュー」→「あなたの投稿」→編集したい投稿を選択→「投稿を編集」で投稿を編集することができます。</p>
+          <p class="question">自分の投稿の確認</p>
+          <p class="answer">「メニュー」→「あなたの投稿」で過去の投稿の一覧が表示されます。</p>
+          <p class="question">投稿が完了できない</p>
+          <p class="answer">投稿に必要な項目の全てに回答しているかをお確かめください。</p>
+          <p class="question">購入方法やコメントにURLを添付できないのはなぜですか</p>
+          <p class="answer">ProHikaでは販売サイトへの遷移を禁止しているためです。</p>
+          <p class="question"></p>
+          <p class="answer"></p>
+          <p class="question"></p>
+          <p class="answer"></p>
+          <p class="question"></p>
+          <p class="answer"></p>
+          <p class="question"></p>
+          <p class="answer"></p>
           <p class="question"></p>
           <p class="answer"></p>
           <p class="question"></p>

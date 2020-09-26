@@ -81,7 +81,11 @@
                 </div>
               </div>
               <div class="pro_item_right">
-                <p class="pro_name"><span>{{$item->pro_name}}</span><span>{{$item->flavor}}</span>{{$item->weight}}kg</p>
+                <p class="pro_name"><span>{{$item->pro_name}}</span><span>{{$item->flavor}}</span>
+                  @if( empty($items->weight) != true )
+                  {{$item->weight}}kg
+                  @endif
+                </p>
                 <div class="review -row_pc">
                   <p class="review_cat">おすすめ度</p>
                   <div class="star_icons">

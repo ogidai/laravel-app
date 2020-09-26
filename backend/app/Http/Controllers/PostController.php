@@ -45,31 +45,144 @@ class PostController extends Controller
         $post = Post::find($id);
 
         $post_data = $request->except('image_01', 'image_02', 'image_03');
-
         unset($post_data['_token']);
 
         $imagefile_01 = $request->file('image_01');
         $imagefile_02 = $request->file('image_02');
         $imagefile_03 = $request->file('image_03');
 
-        $temp_path_01 = $imagefile_01->store('public/temp');
-        $read_temp_path_01 = str_replace('public/', 'storage/', $temp_path_01);
+        // dd($request->submit);
+        $img_old_path_01 = $post->temp_path_01;
+        $img_old_path_02 = $post->temp_path_02;
+        $img_old_path_03 = $post->temp_path_03;
 
-        if (empty($imagefile_02) == true) {
-          $temp_path_02 = $imagefile_02;
-          $read_temp_path_02 = $temp_path_02;
+        if ( empty($imagefile_01) == true ) {
+          $temp_path_01 = $img_old_path_01;
+          $read_temp_path_01 = str_replace('public/', 'storage/', $temp_path_01);
         } else {
-          $temp_path_02 = $imagefile_02->store('public/temp');
-          $read_temp_path_02 = str_replace('public/', 'storage/', $temp_path_02);
+          $temp_path_01 = $imagefile_01->store('public/temp');
+          $read_temp_path_01 = str_replace('public/', 'storage/', $temp_path_01);
         }
 
-        if (empty($imagefile_03) == true) {
-          $temp_path_03 = $imagefile_03;
-          $read_temp_path_03 = $temp_path_03;
-        } else {
-          $temp_path_03 = $imagefile_03->store('public/temp');
-          $read_temp_path_03 = str_replace('public/', 'storage/', $temp_path_03);
+
+        if ($request->submit == 'submit') {
+
+          if( empty($img_old_path_02) == true ) {
+              $temp_path_02 = $imagefile_02;
+              $read_temp_path_02 = $temp_path_02;
+            } else {
+              $temp_path_02 = $img_old_path_02;
+              $read_temp_path_02 = str_replace('public/', 'storage/', $temp_path_02);
+            }
+          if( empty($img_old_path_03) == true ) {
+              $temp_path_03 = $imagefile_03;
+              $read_temp_path_03 = $temp_path_03;
+            } else {
+              $temp_path_03 = $img_old_path_03;
+              $read_temp_path_03 = str_replace('public/', 'storage/', $temp_path_03);
+            }
+
         }
+
+
+        if ($request->submit == 'img_changed_02') {
+
+          if ( empty($imagefile_02) == true ) {
+            $temp_path_02 = $imagefile_02;
+            $read_temp_path_02 = $temp_path_02;
+          } else {
+            $temp_path_02 = $imagefile_02->store('public/temp');
+            $read_temp_path_02 = str_replace('public/', 'storage/', $temp_path_02);
+          }
+
+        }
+        else {
+
+          if( empty($img_old_path_02) == true ) {
+            $temp_path_02 = $imagefile_02;
+            $read_temp_path_02 = $temp_path_02;
+          } else {
+            $temp_path_02 = $img_old_path_02;
+            $read_temp_path_02 = str_replace('public/', 'storage/', $temp_path_02);
+          }
+
+        }
+
+        // if ( empty($imagefile_02) == true ) {
+        //
+        //   if( empty($img_old_path_02) == true ) {
+        //     $temp_path_02 = $img_old_path_02;
+        //     $read_temp_path_02 = str_replace('public/', 'storage/', $temp_path_02);
+        //   }
+        //   if( empty($img_old_path_02) != true ){
+        //     $temp_path_02 = $imagefile_02;
+        //     $read_temp_path_02 = $temp_path_02;
+        //   }
+        //
+        // } else {
+        //   $temp_path_02 = $imagefile_02->store('public/temp');
+        //   $read_temp_path_02 = str_replace('public/', 'storage/', $temp_path_02);
+        // }
+
+        if ($request->submit == 'img_changed_03') {
+
+          if ( empty($imagefile_03) == true ) {
+            $temp_path_03 = $imagefile_03;
+            $read_temp_path_03 = $temp_path_03;
+          } else {
+            $temp_path_03 = $imagefile_03->store('public/temp');
+            $read_temp_path_03 = str_replace('public/', 'storage/', $temp_path_03);
+          }
+
+        }
+        else {
+
+            if( empty($img_old_path_03) == true ) {
+              $temp_path_03 = $imagefile_03;
+              $read_temp_path_03 = $temp_path_03;
+            } else {
+              $temp_path_03 = $img_old_path_03;
+              $read_temp_path_03 = str_replace('public/', 'storage/', $temp_path_03);
+            }
+
+        }
+
+        // if ( empty($imagefile_03) == true ) {
+        //
+        //   if( empty($img_old_path_03) == true ) {
+        //     $temp_path_03 = $img_old_path_03;
+        //     $read_temp_path_03 = str_replace('public/', 'storage/', $temp_path_03);
+        //   } else {
+        //     $temp_path_03 = $imagefile_03;
+        //     $read_temp_path_03 = $temp_path_03;
+        //   }
+        // } else {
+        //   $temp_path_03 = $imagefile_03->store('public/temp');
+        //   $read_temp_path_03 = str_replace('public/', 'storage/', $temp_path_03);
+        // }
+
+
+        if ($request->submit == 'img_changed') {
+
+          if ( empty($imagefile_02) == true ) {
+            $temp_path_02 = $imagefile_02;
+            $read_temp_path_02 = $temp_path_02;
+          } else {
+            $temp_path_02 = $imagefile_02->store('public/temp');
+            $read_temp_path_02 = str_replace('public/', 'storage/', $temp_path_02);
+          }
+
+          if ( empty($imagefile_03) == true ) {
+            $temp_path_03 = $imagefile_03;
+            $read_temp_path_03 = $temp_path_03;
+          } else {
+            $temp_path_03 = $imagefile_03->store('public/temp');
+            $read_temp_path_03 = str_replace('public/', 'storage/', $temp_path_03);
+          }
+
+
+        }
+
 
         $id = $post_data['id'];
         $user_id = $post_data['user_id'];
