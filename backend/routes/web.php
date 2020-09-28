@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes(['verify' => true]);
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::post('/', 'HomeController@index');
 
 Route::get('post/index', 'PostController@index')->name('your_post');
 Route::get('post/show/{id}', 'PostController@show')->name('post.show');
@@ -52,6 +53,8 @@ Route::get('user/edit', 'Admin\UserController@edit');
 Route::post('user/edit', 'Admin\UserController@update');
 Route::get('user/delete_account', 'Admin\UserController@show')->name('delete');
 Route::get('user/destroy', 'Admin\UserController@destroy');
+
+Route::get('search/top', 'SearchController@index')->name('search');
 
 Route::get('changepassword', 'HomeController@showChangePasswordForm');
 Route::post('changepassword', 'HomeController@changePassword')->name('changepassword');

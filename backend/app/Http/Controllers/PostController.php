@@ -19,7 +19,9 @@ class PostController extends Controller
 
     public function index() {
       $authUser = Auth::user()->id;
-      $items = Post::with('user')->where('user_id', $authUser)->get();
+      $items = Post::with('user')->where('user_id', $authUser)
+      ->orderBy('updated_at', 'desc')
+      ->get();
       // dd($items);
       return view('post.index', compact('items'));
     }

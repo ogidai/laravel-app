@@ -1,42 +1,32 @@
-// require('./bootstrap');
-// <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 
-// spハンバーガーメニューのクリックイベント
   $(function() {
+
+
+    // spハンバーガーメニューのクリックイベント
     $('.js-navBtnActive').click(function() {
         $('.gnav').addClass('active');
         $('.overlay').addClass('active');
         $('body').css('overflow', 'hidden');
     });
-    $('.js-navBtnBack').click(function() {
+    $('.js-navBtnBack, .overlay').click(function() {
         $('.gnav').removeClass('active');
         $('.overlay').removeClass('active');
         $('body').css('overflow', 'auto');
     });
-    $('.overlay').click(function() {
-        $('.gnav').removeClass('active');
-        $('.overlay').removeClass('active');
-        $('body').css('overflow', 'auto');
-    });
-  });
 
-  $(function() {
+
     // logout modal
     $('.js-showLogoutModal').click(function() {
         $('.js-logoutModal').addClass('active');
         $('.overlay').addClass('active');
         $('body').css('overflow', 'hidden');
     });
-    $('.overlay').click(function() {
+    $('.overlay, .js-logoutModal').click(function() {
         $('.js-logoutModal').removeClass('active');
         $('.overlay').removeClass('active');
         $('body').css('overflow', 'auto');
     });
-    $('.js-logoutModalBack').click(function() {
-      $('.js-logoutModal').removeClass('active');
-      $('.overlay').removeClass('active');
-      $('body').css('overflow', 'auto');
-    });
+
 
     // delete an account modal
     $('.js-showDeleteAccountModal').click(function() {
@@ -44,16 +34,12 @@
         $('.overlay').addClass('active');
         $('body').css('overflow', 'hidden');
     });
-    $('.overlay').click(function() {
+    $('.overlay, .js-deleteAccountModalBack').click(function() {
         $('.js-deleteAccountModal').removeClass('active');
         $('.overlay').removeClass('active');
         $('body').css('overflow', 'auto');
     });
-    $('.js-deleteAccountModalBack').click(function() {
-      $('.js-deleteAccountModal').removeClass('active');
-      $('.overlay').removeClass('active');
-      $('body').css('overflow', 'auto');
-    });
+
 
     // delete post modal
     $('.js-showDeletePostModal').click(function() {
@@ -61,19 +47,13 @@
         $('.overlay').addClass('active');
         $('body').css('overflow', 'hidden');
     });
-    $('.overlay').click(function() {
+    $('.overlay, .js-deletePostModalBack').click(function() {
         $('.js-deletePostModal').removeClass('active');
         $('.overlay').removeClass('active');
         $('body').css('overflow', 'auto');
     });
-    $('.js-deletePostModalBack').click(function() {
-      $('.js-deletePostModal').removeClass('active');
-      $('.overlay').removeClass('active');
-      $('body').css('overflow', 'auto');
-    });
-  });
 
-  $(function() {
+
     $('#term_check').attr('disabled', 'disabled');
     $('form input:required').change(function() {
         //必須項目が空かどうかフラグ
@@ -95,10 +75,9 @@
             $('#term_check').attr('disabled', 'disabled');
         }
     });
-  });
+
 
   // 新規登録のフォームが全て入力されていたらsubmitできるようにする
-  $(function() {
     $('#register_submit').attr('disabled', 'disabled');
 
     $('#term_check').click(function() {
@@ -108,23 +87,18 @@
         $('#register_submit').removeAttr('disabled');
       }
     });
-  });
 
 
 // コンテンツの高さがない時にフッターを下に固定する
-$(function(){
   var winHeight = $(window).height();
   var containerHeight = $('.container').height();
   var contentHeight = winHeight - containerHeight;
   if (contentHeight > 0) {
     $('footer').css({'position':'fixed','bottom':'0','left':'0'});
   }
-});
+
 
 // 画像の追加
-
-$(function() {
-
   $(document).on('change', '#addImages01', function (e) {
     var reader = new FileReader();
     reader.onload = function (e) {
@@ -148,7 +122,6 @@ $(function() {
     reader.readAsDataURL(e.target.files[0]);
     $("#submit").addClass('img_change_03');
   });
-
   $(document).on('click', '#delete01', function() {
     $("#addImages02").addClass('delete_input_02');
     $("#showImages02").addClass('delete_img_02');
@@ -167,7 +140,6 @@ $(function() {
     $('.delete_img_03').remove();
     $("#submit").addClass('img_change_03');
   });
-
   $(document).on('click', '#submit', function() {
     if ($(this).hasClass('img_change_02')) {
       $(this).val('img_changed_02');
@@ -180,15 +152,14 @@ $(function() {
     }
   });
 
-});
 
-$(function(){
+  //faq
   $('.question').on('click', function() {
     $(this).next('.answer').slideToggle();
   })
-});
 
-$(function(){
+
+  // 画像のスライダー
   $('.js-arrow').on('click', function() {
     if($('.pro_img_2').hasClass('active')) {
       $('.pro_img_2').removeClass('active');
@@ -209,4 +180,44 @@ $(function(){
     $('.pro_img_3').removeClass('transform_none');
     $('.pro_img_3').addClass('transform');
   });
+
+
+// radioのスター
+  $('#taste_check_01, #cost_check_01, #recomend_check_01').on('click', function() {
+    $(this).parent('.radio_wrap').addClass('star_icon_1');
+    $(this).parent('.radio_wrap').removeClass('star_icon_2 star_icon_3 star_icon_4 star_icon_5');
+  });
+  $('#taste_check_02, #cost_check_02, #recomend_check_02').on('click', function() {
+    $(this).parent('.radio_wrap').addClass('star_icon_2');
+    $(this).parent('.radio_wrap').removeClass('star_icon_1 star_icon_3 star_icon_4 star_icon_5');
+  });
+  $('#taste_check_03, #cost_check_03, #recomend_check_03').on('click', function() {
+    $(this).parent('.radio_wrap').addClass('star_icon_3');
+    $(this).parent('.radio_wrap').removeClass('star_icon_2 star_icon_1 star_icon_4 star_icon_5');
+  });
+  $('#taste_check_04, #cost_check_04, #recomend_check_04').on('click', function() {
+    $(this).parent('.radio_wrap').addClass('star_icon_4');
+    $(this).parent('.radio_wrap').removeClass('star_icon_2 star_icon_3 star_icon_1 star_icon_5');
+  });
+  $('#taste_check_05, #cost_check_05, #recomend_check_05').on('click', function() {
+    $(this).parent('.radio_wrap').addClass('star_icon_5');
+    $(this).parent('.radio_wrap').removeClass('star_icon_2 star_icon_3 star_icon_4 star_icon_1');
+  });
+
+
+  // tab
+  $('.options_item').on('click' ,function() {
+    if ($(this).hasClass('active')) {
+      $(this).removeClass('active');
+      $('.option_form_wrap').removeClass('active');
+    } else {
+      $('.options_item').removeClass('active');
+      $('.option_form_wrap').removeClass('active');
+      $(this).addClass('active');
+      var index = $(this).index();
+      $('.option_form_wrap').eq(index).addClass('active');
+    }
+  });
+
+
 });

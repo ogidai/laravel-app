@@ -999,6 +999,32 @@ input[type=submit] + label:hover::after {
   }
 }
 
+.form.-search {
+  position: relative;
+  margin: 0;
+}
+
+.form.-search .input_wrap {
+  margin-top: 0;
+  padding: 0 60px 0 0;
+}
+
+.form.-search .input_wrap .btnWrap {
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+  margin-top: 0;
+}
+
+.form.-search .input_wrap .btnWrap .btn {
+  text-align: center;
+  padding: 5px 25px;
+}
+
+.form.-search .input_wrap .label {
+  font-weight: 700;
+}
+
 .radio_wrap {
   position: relative;
   display: -ms-flex;
@@ -1535,6 +1561,10 @@ input[type=file] {
   }
 }
 
+.-bold {
+  font-weight: 700;
+}
+
 .modal {
   display: none;
 }
@@ -1947,11 +1977,9 @@ input[type=file] {
   position: relative;
   display: -ms-flex;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   margin: 0;
-  padding: 15px 70px 15px 10px;
-  border-bottom: 1px solid #D6DADD;
+  padding: 5px 0 0 0;
 }
 
 @media screen and (min-width: 992px) {
@@ -1977,13 +2005,78 @@ input[type=file] {
   display: block;
 }
 
+.options.-top {
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  overflow: scroll;
+  border-bottom: 1px solid #D6DADD;
+}
+
+.options.-top .options_item {
+  margin: 0;
+  border-right: 1px solid #D6DADD;
+}
+
+.options.-top .options_item.active {
+  background: #D6DADD;
+}
+
+.options.-top .options_title {
+  display: block;
+  padding: 15px 30px 10px 15px;
+  line-height: 1;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.options.-top .arrow:before {
+  right: 15px;
+  border-color: #FFD00C;
+}
+
+.option_form_wrap {
+  display: none;
+  background: #D6DADD;
+  padding: 15px;
+}
+
+.option_form_wrap.active {
+  display: block;
+}
+
+.option_form_wrap .submit {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.option_form_wrap .submit input {
+  display: block;
+}
+
+.option_form_wrap .-bold {
+  padding-bottom: 10px;
+}
+
+.option_form_wrap .option_select + .option_select {
+  margin-top: 5px;
+}
+
+.option_form_wrap.active {
+  display: block;
+}
+
 .options_item {
-  margin-right: 5px;
+  margin-top: 10px;
+  margin-right: 30px;
 }
 
 @media screen and (min-width: 992px) {
   .options_item {
-    margin-right: 25px;
+    margin-right: 40px;
     font-size: 1.6rem;
   }
 }

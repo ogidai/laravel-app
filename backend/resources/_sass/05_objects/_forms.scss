@@ -71,6 +71,27 @@
       height: 300px;
     }
   }
+  &.-search {
+    position: relative;
+    margin: 0;
+    .input_wrap {
+      margin-top: 0;
+      padding: 0 60px 0 0;
+      .btnWrap {
+        position: absolute;
+        right: 0;
+        bottom: 5px;
+        margin-top: 0;
+        .btn {
+          text-align: center;
+          padding: 5px 25px;
+        }
+      }
+      .label {
+        font-weight: $weight-bold;
+      }
+    }
+  }
 }
 
 .radio_wrap {
@@ -115,6 +136,7 @@
     }
   }
 }
+
 
 .input_wrap {
   position: relative;

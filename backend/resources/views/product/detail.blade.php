@@ -48,18 +48,18 @@
 
       <div class="pro_detail">
           <h2 class="pro_name"><span>{{$items->pro_name}}</span><span>{{$items->flavor}}</span><span>
-            @if( empty($items->weight) != true )
+            @if( is_null($items->weight) != true )
             {{$items->weight}}kg
             @endif
           </span></h2>
           <div class="pro_img_wrap
-            @if (  empty($items->read_temp_path_02) != true && empty($items->read_temp_path_03) != false  )
+            @if (  is_null($items->read_temp_path_02) != true && is_null($items->read_temp_path_03) != false  )
             pro_img_2
             @endif
-            @if (  empty($items->read_temp_path_02 ) != false && empty($items->read_temp_path_03) != true  )
+            @if (  is_null($items->read_temp_path_02 ) != false && is_null($items->read_temp_path_03) != true  )
             pro_img_2
             @endif
-            @if (  empty($items->read_temp_path_02 ) != true && empty($items->read_temp_path_03) != true  )
+            @if (  is_null($items->read_temp_path_02 ) != true && is_null($items->read_temp_path_03) != true  )
             pro_img_3
             @endif
           ">
@@ -67,58 +67,58 @@
               <figure>
                 <img src="../../{{$items->read_temp_path_01}}" alt="">
               </figure>
-              @if (  empty($items->read_temp_path_02) != true && empty($items->read_temp_path_03) != false  )
+              @if (  is_null($items->read_temp_path_02) != true && is_null($items->read_temp_path_03) != false  )
               <div class="arrow -next js-arrow -tab"></div>
               <div class="arrow -prev js-arrow -tab"></div>
               @endif
-              @if (  empty($items->read_temp_path_02 ) != false && empty($items->read_temp_path_03) != true  )
+              @if (  is_null($items->read_temp_path_02 ) != false && is_null($items->read_temp_path_03) != true  )
               <div class="arrow -next js-arrow -tab"></div>
               <div class="arrow -prev js-arrow -tab"></div>
               @endif
-              @if (  empty($items->read_temp_path_02 ) != true && empty($items->read_temp_path_03) != true  )
+              @if (  is_null($items->read_temp_path_02 ) != true && is_null($items->read_temp_path_03) != true  )
               <div class="arrow -next js-arrowTransN -tab"></div>
               <div class="arrow -prev js-arrowTransM -tab"></div>
               @endif
               <div class="number">1</div>
             </div>
-            @if ( empty($items->read_temp_path_02) != true )
+            @if ( is_null($items->read_temp_path_02) != true )
             <div class="img_outer">
               <figure>
                 <img src="../../{{$items->read_temp_path_02}}" alt="">
               </figure>
-              @if (  empty($items->read_temp_path_02) != true && empty($items->read_temp_path_03) != false  )
+              @if (  is_null($items->read_temp_path_02) != true && is_null($items->read_temp_path_03) != false  )
               <div class="arrow -next js-arrow -tab"></div>
               <div class="arrow -prev js-arrow -tab"></div>
               <div class="number">2</div>
               @endif
-              @if (  empty($items->read_temp_path_02 ) != false && empty($items->read_temp_path_03) != true  )
+              @if (  is_null($items->read_temp_path_02 ) != false && is_null($items->read_temp_path_03) != true  )
               <div class="arrow -next js-arrow -tab"></div>
               <div class="arrow -prev js-arrow -tab"></div>
               <div class="number">2</div>
               @endif
-              @if (  empty($items->read_temp_path_02 ) != true && empty($items->read_temp_path_03) != true  )
+              @if (  is_null($items->read_temp_path_02 ) != true && is_null($items->read_temp_path_03) != true  )
               <div class="arrow -next js-arrowTransM -tab"></div>
               <div class="arrow -prev js-arrowTransP -tab"></div>
               <div class="number">2</div>
               @endif
             </div>
             @endif
-            @if ( empty($items->read_temp_path_03) != true )
+            @if ( is_null($items->read_temp_path_03) != true )
             <div class="img_outer">
               <figure>
                 <img src="../../{{$items->read_temp_path_03}}" alt="">
               </figure>
-              @if (  empty($items->read_temp_path_02) != true && empty($items->read_temp_path_03) != false  )
+              @if (  is_null($items->read_temp_path_02) != true && is_null($items->read_temp_path_03) != false  )
               <div class="arrow -next js-arrow -tab"></div>
               <div class="arrow -prev js-arrow -tab"></div>
               <div class="number">2</div>
               @endif
-              @if (  empty($items->read_temp_path_02 ) != false && empty($items->read_temp_path_03) != true  )
+              @if (  is_null($items->read_temp_path_02 ) != false && is_null($items->read_temp_path_03) != true  )
               <div class="arrow -next js-arrow -tab"></div>
               <div class="arrow -prev js-arrow -tab"></div>
               <div class="number">2</div>
               @endif
-              @if (  empty($items->read_temp_path_02 ) != true && empty($items->read_temp_path_03) != true  )
+              @if (  is_null($items->read_temp_path_02 ) != true && is_null($items->read_temp_path_03) != true  )
               <div class="arrow -next js-arrowTransP -tab"></div>
               <div class="arrow -prev js-arrowTransN -tab"></div>
               <div class="number">3</div>
@@ -145,25 +145,25 @@
               <p class="list_left">味</p>
               <p class="list_right">{{ $items->flavor }}</p>
             </li>
-            @if( empty($items->weight) != true )
+            @if( is_null($items->weight) != true )
             <li class="list_item">
               <p class="list_left">内容量</p>
               <p class="list_right">{{ $items->weight }}kg</p>
             </li>
             @endif
-            @if( empty($items->price) != true )
+            @if( is_null($items->price) != true )
             <li class="list_item">
               <p class="list_left">参考価格</p>
               <p class="list_right">{{ $items->price }}円</p>
             </li>
             @endif
-            @if( empty($items->price) != true && empty($items->weight) != true )
+            @if( is_null($items->price) != true && is_null($items->weight) != true )
             <li class="list_item">
               <p class="list_left">参考価格/１kg</p>
               <p class="list_right">{{ round( $items->price / $items->weight ) }}円</p>
             </li>
             @endif
-            @if( empty($items->per_protein) != true )
+            @if( is_null($items->per_protein) != true )
             <li class="list_item">
               <p class="list_left">タンパク質/１食</p>
               <p class="list_right">{{ $items->per_protein }}g</p>
@@ -460,19 +460,19 @@
               </i>
             </div>
             </li>
-            @if( empty($items->how_to_buy) != true )
+            @if( is_null($items->how_to_buy) != true )
             <li class="list_item">
               <p class="list_left">購入方法</p>
               <p class="list_right">{{ $items->how_to_buy }}</p>
             </li>
             @endif
-            @if( empty($items->how_to_drink) != true )
+            @if( is_null($items->how_to_drink) != true )
             <li class="list_item">
               <p class="list_left">おすすめの飲み方</p>
               <p class="list_right">{{ $items->how_to_drink }}</p>
             </li>
             @endif
-            @if( empty($items->comment) != true )
+            @if( is_null($items->comment) != true )
             <li class="list_item">
               <p class="list_left">コメント</p>
               <p class="list_right">{{ $items->comment }}</p>

@@ -63,6 +63,11 @@
   }
 }
 
+.-bold {
+  font-weight: $weight-bold;
+}
+
+
 //-------------------------------------------------
 .modal {
   display: none;
@@ -399,11 +404,9 @@
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   margin: 0;
-  padding: 15px 70px 15px 10px;
-  border-bottom: 1px solid $color-normal-lighter;
+  padding: 5px 0 0 0;
   @include mq {
     padding: 25px 160px 25px 80px;
   }
@@ -419,11 +422,65 @@
       display: block;
     }
   }
+  &.-top {
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    overflow: scroll;
+    border-bottom: 1px solid $color-normal-lighter;
+    .options_item {
+      margin: 0;
+      border-right: 1px solid $color-normal-lighter;
+      &.active {
+        background: $color-normal-lighter;
+      }
+    }
+    .options_title {
+      display: block;
+      padding: 15px 30px 10px 15px;
+      line-height: 1;
+      font-size: 1.3rem;
+      font-weight: $weight-bold;
+    }
+    .arrow:before {
+      right: 15px;
+      border-color: $color-primary;
+    }
+  }
 }
+.option_form_wrap {
+  display: none;
+  background: $color-normal-lighter;
+  padding: 15px;
+  &.active {
+    display: block;
+  }
+  .submit {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    input {
+      display: block;
+    }
+  }
+  .-bold {
+    padding-bottom: 10px;
+  }
+  .option_select + .option_select {
+    margin-top: 5px;
+  }
+  &.active {
+    display: block;
+  }
+}
+
 .options_item {
-    margin-right: 5px;
+    margin-top: 10px;
+    margin-right: 30px;
     @include mq {
-      margin-right: 25px;
+      margin-right: 40px;
       font-size: 1.6rem;
     }
 }

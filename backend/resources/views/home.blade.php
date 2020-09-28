@@ -45,31 +45,303 @@
         @endguest
 
         <div class="options_wrap">
-          <form class="options" action="{{ route('home')}}" method="post">
-            @csrf
-            <div class="options_item">
-              <input type="radio" name="option" value="all" id="all"　 checked="checked">
-              <label for="all">総合評価</label>
+          <div class="options -top">
+            <div class="options_item
+            @if($id == 0)
+            active
+            @endif
+            ">
+              <span class="options_title arrow">投稿日</span>
             </div>
-            <div class="options_item">
-              <input type="radio" name="option" value="taste" id="taste">
-              <label for="taste">美味しさ</label>
+            <div class="options_item
+            @if($id == 1)
+            active
+            @endif
+            ">
+              <span class="options_title arrow">キーワード</span>
             </div>
-            <div class="options_item">
-              <input type="radio" name="option" value="cost" id="cost">
-              <label for="cost">コスパ</label>
+            <div class="options_item
+            @if($id == 2)
+            active
+            @endif
+            ">
+              <span class="options_title arrow">総合評価</span>
             </div>
-            <div class="submit">
-              <input type="submit" name="submit" value="submit">
-              <p class="search_text">検索</p>
+            <div class="options_item
+            @if($id == 3)
+            active
+            @endif
+            ">
+              <span class="options_title arrow">美味しさ</span>
             </div>
-          </form>
+            <div class="options_item
+            @if($id == 4)
+            active
+            @endif
+            ">
+              <span class="options_title arrow">コスパ</span>
+            </div>
+            <div class="options_item
+            @if($id == 4)
+            active
+            @endif
+            ">
+              <span class="options_title arrow">おすすめ度</span>
+            </div>
+            <div class="options_item
+            @if($id == 6)
+            active
+            @endif
+            ">
+              <span class="options_title arrow">参考価格</span>
+            </div>
+            <div class="options_item
+            @if($id == 7)
+            active
+            @endif
+            ">
+              <span class="options_title arrow">種類</span>
+            </div>
+            <div class="options_item
+            @if($id == 8)
+            active
+            @endif
+            ">
+              <span class="options_title arrow">生産国</span>
+            </div>
+          </div>
+
+          <div class="option_form_wrap">
+            <form class="form -search" action="{{ action('HomeController@index') }}" method="post">
+              @csrf
+              <div class="option_select">
+                <input type="radio" name="date" value="0" id="new" required checked>
+                <label for="new">新しい順</label>
+              </div>
+              <div class="option_select">
+                <input type="radio" name="date" value="1" id="old" required>
+                <label for="old">古い順</label>
+              </div>
+              <div class="submit">
+                <input type="submit" name="submit" value="submit">
+                <p class="search_text">検索</p>
+              </div>
+            </form>
+          </div>
+
+          <div class="option_form_wrap">
+            <form class="form -search" action="{{ action('HomeController@index') }}" method="post">
+              @csrf
+              <div class="input_wrap">
+                <label for="search" class="label"></label>
+                <input type="text" name="search" value="" id="search" class="-secondary">
+                <div class="submit">
+                  <input type="submit" name="submit" value="submit">
+                  <p class="search_text">検索</p>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="option_form_wrap">
+            <form class="form -search" action="{{ action('HomeController@index') }}" method="post">
+              @csrf
+              <div class="option_select">
+                <input type="radio" name="total" value="0" id="total_asc" required checked>
+                <label for="total_asc">評価が高い順</label>
+              </div>
+              <div class="option_select">
+                <input type="radio" name="total" value="1" id="total_des" required>
+                <label for="total_des">評価が低い順</label>
+              </div>
+              <div class="submit">
+                <input type="submit" name="submit" value="submit">
+                <p class="search_text">検索</p>
+              </div>
+            </form>
+          </div>
+
+          <div class="option_form_wrap">
+            <form class="form -search" action="{{ action('HomeController@index') }}" method="post">
+              @csrf
+              <div class="option_select">
+                <input type="radio" name="taste" value="0" id="taste_asc" required checked>
+                <label for="taste_asc">評価が高い順</label>
+              </div>
+              <div class="option_select">
+                <input type="radio" name="taste" value="1" id="taste_des" required>
+                <label for="taste_des">評価が低い順</label>
+              </div>
+              <div class="submit">
+                <input type="submit" name="submit" value="submit">
+                <p class="search_text">検索</p>
+              </div>
+            </form>
+          </div>
+
+          <div class="option_form_wrap">
+            <form class="form -search" action="{{ action('HomeController@index') }}" method="post">
+              @csrf
+              <div class="option_select">
+                <input type="radio" name="cost" value="0" id="cost_asc" required checked>
+                <label for="cost_asc">評価が高い順</label>
+              </div>
+              <div class="option_select">
+                <input type="radio" name="cost" value="1" id="cost_des" required>
+                <label for="cost_des">評価が低い順</label>
+              </div>
+              <div class="submit">
+                <input type="submit" name="submit" value="submit">
+                <p class="search_text">検索</p>
+              </div>
+            </form>
+          </div>
+
+          <div class="option_form_wrap">
+            <form class="form -search" action="{{ action('HomeController@index') }}" method="post">
+              @csrf
+              <div class="option_select">
+                <input type="radio" name="recomend" value="0" id="recomend_asc" required checked>
+                <label for="recomend_asc">評価が高い順</label>
+              </div>
+              <div class="option_select">
+                <input type="radio" name="recomend" value="1" id="recomend_des" required>
+                <label for="recomend_des">評価が低い順</label>
+              </div>
+              <div class="submit">
+                <input type="submit" name="submit" value="submit">
+                <p class="search_text">検索</p>
+              </div>
+            </form>
+          </div>
+
+          <div class="option_form_wrap">
+            <form class="form -search" action="{{ action('HomeController@index') }}" method="post">
+              @csrf
+              <div class="option_select">
+                <input type="radio" name="price" value="0" id="price_asc" required checked>
+                <label for="price_asc">参考価格が高い順</label>
+              </div>
+              <div class="option_select">
+                <input type="radio" name="price" value="1" id="price_des" required>
+                <label for="price_des">参考価格が低い順</label>
+              </div>
+              <div class="submit">
+                <input type="submit" name="submit" value="submit">
+                <p class="search_text">検索</p>
+              </div>
+            </form>
+          </div>
+
+          <div class="option_form_wrap">
+            <form class="form -search" action="{{ action('HomeController@index') }}" method="post">
+              @csrf
+              <div class="option_select">
+                <input type="radio" name="type" value="0" id="whey" required checked>
+                <label for="whey">ホエイ</label>
+              </div>
+              <div class="option_select">
+                <input type="radio" name="type" value="1" id="soy" required>
+                <label for="soy">ソイ</label>
+              </div>
+              <div class="option_select">
+                <input type="radio" name="type" value="2" id="casein" required>
+                <label for="casein">カゼイン</label>
+              </div>
+              <div class="submit">
+                <input type="submit" name="submit" value="submit">
+                <p class="search_text">検索</p>
+              </div>
+            </form>
+          </div>
+
+          <div class="option_form_wrap">
+            <form class="form -search" action="{{ action('HomeController@index') }}" method="post">
+              @csrf
+              <div class="option_select">
+                <input type="radio" name="made" value="0" id="ja" required checked>
+                <label for="ja">日本</label>
+              </div>
+              <div class="option_select">
+                <input type="radio" name="made" value="1" id="other" required>
+                <label for="other">海外</label>
+              </div>
+              <div class="submit">
+                <input type="submit" name="submit" value="submit">
+                <p class="search_text">検索</p>
+              </div>
+            </form>
+          </div>
+
+
         </div>
 
 
+        @if($items->isEmpty())
+        <div class="card">
+          <p class="text_align">
+            @if ($id == 0)
+            投稿日
+            @endif
+            @if ($id == 2)
+            総合評価
+            @endif
+            @if ($id == 3)
+            美味しさ
+            @endif
+            @if ($id == 4)
+            コスパ
+            @endif
+            @if ($id == 5)
+            おすすめ度
+            @endif
+            @if ($id == 6)
+            参考価格
+            @endif
+            @if ($id == 7)
+            種類
+            @endif
+            @if ($id == 8)
+            生産国
+            @endif
+            の投稿は、まだありません。
+            <br>記念すべき
+            @if ($id == 0)
+            投稿日
+            @endif
+            @if ($id == 2)
+            総合評価
+            @endif
+            @if ($id == 3)
+            美味しさ
+            @endif
+            @if ($id == 4)
+            コスパ
+            @endif
+            @if ($id == 5)
+            おすすめ度
+            @endif
+            @if ($id == 6)
+            参考価格
+            @endif
+            @if ($id == 7)
+            種類
+            @endif
+            @if ($id == 8)
+            生産国
+            @endif
+            の最初の投稿をしてみませんか？
+          </p>
+            <div class="btnWrap">
+              <a href="{{ route('post') }}" class="btn -full -primary">投稿してみる！</a>
+            </div>
+          </div>
+          @endif
 
         <ul class="pro_list">
+
           @foreach($items as $item)
+
 
           <li class="pro_item">
             <a href="{{ route('detail', [$item->id]) }}">
@@ -87,20 +359,52 @@
                   @endif
                 </p>
                 <div class="review -row_pc">
-                  <p class="review_cat">おすすめ度</p>
-                  <div class="star_icons">
+                  @if ( $id == 0 || $id == 2 || $id == 3 || $id == 4 || $id == 5 || $id == 6 || $id == 7 || $id == 8 )
+                  <p class="review_cat">
+                    @if ($id == 0)
+                    投稿日：<span>{{date('Y/m/d', strtotime($item->created_at))}}</span>
+                    @endif
+                    @if ($id == 2)
+                    総合評価
+                    @endif
+                    @if ($id == 3)
+                    美味しさ
+                    @endif
+                    @if ($id == 4)
+                    コスパ
+                    @endif
+                    @if ($id == 5)
+                    おすすめ度
+                    @endif
+                    @if ($id == 6)
+                    参考価格
+                    @endif
+                    @if ($id == 7)
+                    種類
+                    @endif
+                    @if ($id == 8)
+                    生産国
+                    @endif
+                  </p>
+                  @endif
+                  @if  ($id == 3 || $id == 4 || $id == 5 )
+                  <div class="star_icons
+                  @if($id == 3)star_icon_{{$item->taste_good}}@endif
+                  @if($id == 4)star_icon_{{$item->cost_paf}}@endif
+                  @if($id == 5)star_icon_{{$item->recomend}}@endif
+                  ">
                     <i class="star_icon">
                       <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="width: 16px; height: 16px; opacity: 1;" xml:space="preserve">
                         <style type="text/css">
                         .st0{fill:#4B4B4B;}
                         </style>
                         <g>
-                          <path class="st0" d="M510.549,196.024c-3.812-11.726-14.5-19.868-26.82-20.42l-147.935-6.686l-52.09-138.642
+                          <path class="st1 st" d="M510.549,196.024c-3.812-11.726-14.5-19.868-26.82-20.42l-147.935-6.686l-52.09-138.642
                           C279.37,18.739,268.329,11.089,256,11.089c-12.329,0-23.37,7.65-27.704,19.187l-52.089,138.642l-147.935,6.686
                           c-12.321,0.552-23.008,8.694-26.821,20.42c-3.812,11.726,0.052,24.598,9.689,32.283l115.756,92.368L87.542,463.453
                           c-3.27,11.889,1.155,24.554,11.136,31.808c9.985,7.246,23.404,7.548,33.704,0.758L256,414.473l123.617,81.547
                           c10.3,6.789,23.719,6.487,33.704-0.758c9.982-7.245,14.405-19.92,11.131-31.808l-39.347-142.779l115.756-92.368
-                          C510.498,220.621,514.362,207.749,510.549,196.024z" style="fill: rgb(255, 208, 12);"></path>
+                          C510.498,220.621,514.362,207.749,510.549,196.024z"></path>
                         </g>
                       </svg>
                     </i>
@@ -110,12 +414,12 @@
                         .st0{fill:#4B4B4B;}
                         </style>
                         <g>
-                          <path class="st0" d="M510.549,196.024c-3.812-11.726-14.5-19.868-26.82-20.42l-147.935-6.686l-52.09-138.642
+                          <path class="st2 st" d="M510.549,196.024c-3.812-11.726-14.5-19.868-26.82-20.42l-147.935-6.686l-52.09-138.642
                           C279.37,18.739,268.329,11.089,256,11.089c-12.329,0-23.37,7.65-27.704,19.187l-52.089,138.642l-147.935,6.686
                           c-12.321,0.552-23.008,8.694-26.821,20.42c-3.812,11.726,0.052,24.598,9.689,32.283l115.756,92.368L87.542,463.453
                           c-3.27,11.889,1.155,24.554,11.136,31.808c9.985,7.246,23.404,7.548,33.704,0.758L256,414.473l123.617,81.547
                           c10.3,6.789,23.719,6.487,33.704-0.758c9.982-7.245,14.405-19.92,11.131-31.808l-39.347-142.779l115.756-92.368
-                          C510.498,220.621,514.362,207.749,510.549,196.024z" style="fill: rgb(255, 208, 12);"></path>
+                          C510.498,220.621,514.362,207.749,510.549,196.024z"></path>
                         </g>
                       </svg>
                     </i>
@@ -125,12 +429,12 @@
                         .st0{fill:#4B4B4B;}
                         </style>
                         <g>
-                          <path class="st0" d="M510.549,196.024c-3.812-11.726-14.5-19.868-26.82-20.42l-147.935-6.686l-52.09-138.642
+                          <path class="st3 st" d="M510.549,196.024c-3.812-11.726-14.5-19.868-26.82-20.42l-147.935-6.686l-52.09-138.642
                           C279.37,18.739,268.329,11.089,256,11.089c-12.329,0-23.37,7.65-27.704,19.187l-52.089,138.642l-147.935,6.686
                           c-12.321,0.552-23.008,8.694-26.821,20.42c-3.812,11.726,0.052,24.598,9.689,32.283l115.756,92.368L87.542,463.453
                           c-3.27,11.889,1.155,24.554,11.136,31.808c9.985,7.246,23.404,7.548,33.704,0.758L256,414.473l123.617,81.547
                           c10.3,6.789,23.719,6.487,33.704-0.758c9.982-7.245,14.405-19.92,11.131-31.808l-39.347-142.779l115.756-92.368
-                          C510.498,220.621,514.362,207.749,510.549,196.024z" style="fill: rgb(255, 208, 12);"></path>
+                          C510.498,220.621,514.362,207.749,510.549,196.024z"></path>
                         </g>
                       </svg>
                     </i>
@@ -140,12 +444,12 @@
                           .st0{fill:#4B4B4B;}
                         </style>
                         <g>
-                          <path class="st0" d="M510.549,196.024c-3.812-11.726-14.5-19.868-26.82-20.42l-147.935-6.686l-52.09-138.642
+                          <path class="st4 st" d="M510.549,196.024c-3.812-11.726-14.5-19.868-26.82-20.42l-147.935-6.686l-52.09-138.642
                           C279.37,18.739,268.329,11.089,256,11.089c-12.329,0-23.37,7.65-27.704,19.187l-52.089,138.642l-147.935,6.686
                           c-12.321,0.552-23.008,8.694-26.821,20.42c-3.812,11.726,0.052,24.598,9.689,32.283l115.756,92.368L87.542,463.453
                           c-3.27,11.889,1.155,24.554,11.136,31.808c9.985,7.246,23.404,7.548,33.704,0.758L256,414.473l123.617,81.547
                           c10.3,6.789,23.719,6.487,33.704-0.758c9.982-7.245,14.405-19.92,11.131-31.808l-39.347-142.779l115.756-92.368
-                          C510.498,220.621,514.362,207.749,510.549,196.024z" style="fill: rgb(255, 208, 12);"></path>
+                          C510.498,220.621,514.362,207.749,510.549,196.024z"></path>
                         </g>
                       </svg>
                     </i>
@@ -155,19 +459,19 @@
                           .st0{fill:#4B4B4B;}
                         </style>
                         <g>
-                          <path class="st0" d="M510.549,196.024c-3.812-11.726-14.5-19.868-26.82-20.42l-147.935-6.686l-52.09-138.642
+                          <path class="st5 st" d="M510.549,196.024c-3.812-11.726-14.5-19.868-26.82-20.42l-147.935-6.686l-52.09-138.642
                           C279.37,18.739,268.329,11.089,256,11.089c-12.329,0-23.37,7.65-27.704,19.187l-52.089,138.642l-147.935,6.686
                           c-12.321,0.552-23.008,8.694-26.821,20.42c-3.812,11.726,0.052,24.598,9.689,32.283l115.756,92.368L87.542,463.453
                           c-3.27,11.889,1.155,24.554,11.136,31.808c9.985,7.246,23.404,7.548,33.704,0.758L256,414.473l123.617,81.547
                           c10.3,6.789,23.719,6.487,33.704-0.758c9.982-7.245,14.405-19.92,11.131-31.808l-39.347-142.779l115.756-92.368
-                          C510.498,220.621,514.362,207.749,510.549,196.024z" style="fill: rgb(255, 208, 12);"></path>
+                          C510.498,220.621,514.362,207.749,510.549,196.024z"></path>
                         </g>
                       </svg>
                     </i>
-
                     </div>
+                    @endif
                     </div>
-                    @if ( $item->created_at == $item->updated_at )
+                    @if ( $item->created_at == $item->updated_at)
                     <p class="post_date">投稿日：<span>{{date('Y/m/d', strtotime($item->created_at))}}</span></p>
                     @else
                     <p class="post_date">更新日：<span>{{date('Y/m/d', strtotime($item->updated_at))}}</span></p>
