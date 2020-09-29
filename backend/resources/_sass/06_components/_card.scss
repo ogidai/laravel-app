@@ -2,21 +2,213 @@
 // card
 // ==========================================================================
 
-
 .card {
-  background-color: #fff;
+  width: calc(100% - 30px);
+  max-width: 900px;
+  margin: 0 auto;
+  margin: 30px auto 0;
+  padding: 15px;
+  border: 1px solid $color-normal-lighter;
   border-radius: 10px;
-  &.-padding{
-    padding: 20px;
+  background: $color-base;
+  @include mq {
+    margin: 60px auto 0;
+    padding: 30px;
   }
   & + .card {
-    margin-top: 0px;
+    margin-top: 15px;
+    @include mq {
+      margin-top: 30px;
+    }
+  }
+  h1 {
+    font-size: 1.8rem;
+    font-weight: $weight-bold;
+    & + p {
+      margin-top: 15px;
+    }
+  }
+  h2 {
+    & + p {
+      margin-top: 15px;
+    }
+  }
+  p {
+    & + .btnWrap {
+      margin-top: 30px;
+      &.-margin {
+        margin-top: 20px;
+        margin-bottom: 0;
+      }
+    }
   }
   & + .btnWrap {
     margin-top: 30px;
   }
-  & + .arrow_next {
-    position: relative;
-    margin-bottom: 70px;
+  &.-faq {
+    padding: 15px 15px 30px;
+    @include mq {
+      padding: 30px;
+    }
+    .question {
+      position: relative;
+      font-weight: $weight-bold;
+      padding-left: 20px;
+      &::before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        content: "";
+        width: 6px;
+        height: 10px;
+        border-bottom: 2px solid $color-normal;
+        border-right: 2px solid $color-normal;
+        transform: rotate(45deg);
+      }
+      & + .answer {
+        margin-top: 0;
+      }
+    }
+    .answer {
+      display: none;
+      padding: 15px;
+      background: $color-normal-lighter;
+      & + .question {
+        margin-top: 15px;
+      }
+    }
+  }
+  &.-policy {
+    padding: 15px 15px 30px;
+    @include mq {
+      padding: 20px 30px 30px;
+    }
+    h2 {
+      margin-top: 30px;
+      font-size: 1.7rem;
+      &.-top {
+        margin-top: 15px;
+      }
+    }
+    h3 {
+      margin: 0;
+      padding-left: 5px;
+      font-size: 1.6rem;
+      font-weight: $weight-bold;
+      & + h4 {
+        margin-top: 10px;
+      }
+      & + p {
+        padding-left: 5px;
+      }
+    }
+    h4 {
+      margin: 0;
+      padding-left: 10px;
+      font-size: 1.5rem;
+    }
+    p {
+      margin-top: 5px;
+      font-size: 1.4rem;
+      & + h3 {
+        margin-top: 10px;
+      }
+    }
+    &.-register {
+      margin: 15px 0 0;
+      width: 100%;
+      max-width: none;
+      height: 250px;
+      overflow: scroll;
+      text-align: left;
+      @include mq {
+        margin: 30px 0 0;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+      h2 {
+        margin-top: 15px;
+        font-size: 1.4rem;
+        &.-top {
+          margin-top: 15px;
+        }
+      }
+      h3 {
+        margin: 0;
+        padding-left: 5px;
+        font-size: 1.3rem;
+        font-weight: $weight-bold;
+        & + h4 {
+          margin-top: 10px;
+        }
+      }
+      h4 {
+        margin: 0;
+        padding-left: 10px;
+        font-size: 1.2rem;
+      }
+      p {
+        margin-top: 5px;
+        font-size: 1.1rem;
+        & + h3 {
+          margin-top: 10px;
+        }
+      }
+    }
+    & + .btnWrap {
+      margin: 0 auto 100px;;
+      width: calc(100% - 30px);
+      max-width: 800px;
+    }
+    &.-confirm {
+      max-height: 50vh;
+      overflow: scroll;
+      h1 {
+        font-size: 1.5rem;
+      }
+      h2 {
+        margin-top: 15px;
+        font-size: 1.4rem;
+        &.-top {
+          margin-top: 15px;
+        }
+      }
+      h3 {
+        margin: 0;
+        padding-left: 5px;
+        font-size: 1.3rem;
+        font-weight: $weight-bold;
+        & + h4 {
+          margin-top: 10px;
+        }
+      }
+      h4 {
+        margin: 0;
+        padding-left: 10px;
+        font-size: 1.2rem;
+      }
+      p {
+        margin-top: 5px;
+        font-size: 1.1rem;
+        & + h3 {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+  &.-form {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px 15px 15px;
+    @include mq {
+      padding: 20px 30px 20px;
+    }
+    .explain {
+      text-align: left;
+      & + .label {
+        margin-top: 15px;
+      }
+    }
   }
 }

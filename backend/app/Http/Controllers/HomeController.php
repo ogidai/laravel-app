@@ -58,9 +58,14 @@ class HomeController extends Controller
         ->get();
         $items = Post::with('user')
         ->orderBy('updated_at', 'desc')
-        ->get();
+        ->paginate(10);
+        // ->get();
 
+        // if (is_null($id) == true) {
+        // }
         $id = 100;
+        $result = 100;
+
 
         $date = $request->date;
         $search = $request->search;
@@ -76,39 +81,46 @@ class HomeController extends Controller
           if ( ($date == 0)) {
             $items = DB::table('posts')
             ->orderBy('updated_at', 'desc')
-            ->get();
+            ->paginate(10);
+            // ->get();
             $id = 0;
+            $result = $date;
           } else {
             $items = DB::table('posts')
             ->orderBy('updated_at', 'asc')
-            ->get();
+            ->paginate(10);
+            // ->get();
             $id = 0;
+            $result = $date;
           }
         }
 
-        // if( empty($) == false ) {
-        //   if ( ($ == 0)) {
-        //     $items = DB::table('posts')
-        //     ->orderBy('updated_at', 'desc')
-        //     ->get();
-        //   } else {
-        //     $items = DB::table('posts')
-        //     ->orderBy('updated_at', 'asc')
-        //     ->get();
-        //   }
-        // }
+        if( is_null($search) == false ) {
+          $items = DB::table('posts')
+          ->where('pro_name', 'like', '%'.$search.'%')
+          ->orwhere('flavor', 'like', '%'.$search.'%')
+          ->orderBy('updated_at', 'desc')
+          ->paginate(10);
+          // ->get();
+          $id = 1;
+          $result = $search;
+        }
 
         if( is_null($taste) == false ) {
           if ( ($taste == 0)) {
             $items = DB::table('posts')
             ->orderBy('taste_good', 'desc')
-            ->get();
+            ->paginate(10);
+            // ->get();
             $id = 3;
+            $result = $taste;
           } else {
             $items = DB::table('posts')
             ->orderBy('taste_good', 'asc')
-            ->get();
+            ->paginate(10);
+            // ->get();
             $id = 3;
+            $result = $taste;
           }
         }
 
@@ -116,13 +128,17 @@ class HomeController extends Controller
           if ( ($cost == 0)) {
             $items = DB::table('posts')
             ->orderBy('cost_paf', 'desc')
-            ->get();
+            ->paginate(10);
+            // ->get();
             $id = 4;
+            $result = $cost;
           } else {
             $items = DB::table('posts')
             ->orderBy('cost_paf', 'asc')
-            ->get();
+            ->paginate(10);
+            // ->get();
             $id = 4;
+            $result = $cost;
           }
         }
 
@@ -130,13 +146,17 @@ class HomeController extends Controller
           if ( ($recomend == 0)) {
             $items = DB::table('posts')
             ->orderBy('recomend', 'desc')
-            ->get();
+            ->paginate(10);
+            // ->get();
             $id = 5;
+            $result = $recomend;
           } else {
             $items = DB::table('posts')
             ->orderBy('recomend', 'asc')
-            ->get();
+            ->paginate(10);
+            // ->get();
             $id = 5;
+            $result = $recomend;
           }
         }
 
@@ -145,14 +165,18 @@ class HomeController extends Controller
             $items = DB::table('posts')
             ->whereNotNull('price')
             ->orderBy('price', 'asc')
-            ->get();
+            ->paginate(10);
+            // ->get();
             $id = 6;
+            $result = $price;
           } else {
             $items = DB::table('posts')
             ->whereNotNull('price')
             ->orderBy('price', 'asc')
-            ->get();
+            ->paginate(10);
+            // ->get();
             $id = 6;
+            $result = $price;
           }
         }
 
@@ -162,23 +186,39 @@ class HomeController extends Controller
             $items = DB::table('posts')
             ->where('type', 0)
             ->orderBy('updated_at', 'desc')
-            ->get();
+            ->paginate(10);
+            // ->get();
             $id = 7;
+            $result = $type;
           }
           if ( ($type == 1) ) {
             $items = DB::table('posts')
             ->where('type', 1)
             ->orderBy('updated_at', 'desc')
-            ->get();
+            ->paginate(10);
+            // ->get();
             $id = 7;
+            $result = $type;
           }
           if ( ($type == 2) ) {
             $items = DB::table('posts')
             ->where('type', 2)
             ->orderBy('updated_at', 'desc')
-            ->get();
+            ->paginate(10);
+            // ->get();
             $id = 7;
+            $result = $type;
           }
+          if ( ($type == 3) ) {
+            $items = DB::table('posts')
+            ->where('type', 3)
+            ->orderBy('updated_at', 'desc')
+            ->paginate(10);
+            $id = 7;
+            $result = $type;
+          }
+
+
         }
 
         if( is_null($made) == false ) {
@@ -186,18 +226,22 @@ class HomeController extends Controller
             $items = DB::table('posts')
             ->where('made', 0)
             ->orderBy('updated_at', 'desc')
-            ->get();
+            ->paginate(10);
+            // ->get();
             $id = 8;
+            $result = $made;
           } else {
             $items = DB::table('posts')
             ->where('made', 1)
             ->orderBy('updated_at', 'desc')
-            ->get();
+            ->paginate(10);
+            // ->get();
             $id = 8;
+            $result = $made;
           }
         }
 
-        return view('home',compact('values', 'items', 'id'));
+        return view('home',compact('values', 'items', 'id', 'result'));
     }
 
 }

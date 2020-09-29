@@ -14,7 +14,7 @@
         <a href="{{('/')}}" class="left arrow_back"></a>
         @guest
         <div class="right btnWrap">
-          <a href="{{ route('login') }}" class="btn">ログイン</a>
+          <a href="javascript:history.back()" class="btn">ログイン</a>
         </div>
         @else
         <div class="right btnWrap">

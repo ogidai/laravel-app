@@ -45,7 +45,7 @@
         @endguest
 
         <div class="options_wrap">
-          <div class="options -top">
+          <div class="options">
             <div class="options_item
             @if($id == 0)
             active
@@ -111,15 +111,19 @@
             </div>
           </div>
 
-          <div class="option_form_wrap">
+          <div class="option_form_wrap
+          @if ($id == 0)
+          active
+          @endif
+          ">
             <form class="form -search" action="{{ action('HomeController@index') }}" method="post">
               @csrf
               <div class="option_select">
-                <input type="radio" name="date" value="0" id="new" required checked>
+                <input type="radio" name="date" value="0" id="new" required {{ $id == 0 && $result == 0 ? 'checked' : '' }}>
                 <label for="new">新しい順</label>
               </div>
               <div class="option_select">
-                <input type="radio" name="date" value="1" id="old" required>
+                <input type="radio" name="date" value="1" id="old" required {{ $id == 0 && $result == 1 ? 'checked' : '' }}>
                 <label for="old">古い順</label>
               </div>
               <div class="submit">
@@ -129,12 +133,16 @@
             </form>
           </div>
 
-          <div class="option_form_wrap">
+          <div class="option_form_wrap
+          @if ($id == 1)
+          active
+          @endif
+          ">
             <form class="form -search" action="{{ action('HomeController@index') }}" method="post">
               @csrf
               <div class="input_wrap">
                 <label for="search" class="label"></label>
-                <input type="text" name="search" value="" id="search" class="-secondary">
+                <input type="text" name="search" value="@if ($id == 1){{ $result }}@endif" id="search" class="-secondary">
                 <div class="submit">
                   <input type="submit" name="submit" value="submit">
                   <p class="search_text">検索</p>
@@ -143,15 +151,19 @@
             </form>
           </div>
 
-          <div class="option_form_wrap">
+          <div class="option_form_wrap
+          @if ($id == 2)
+          active
+          @endif
+          ">
             <form class="form -search" action="{{ action('HomeController@index') }}" method="post">
               @csrf
               <div class="option_select">
-                <input type="radio" name="total" value="0" id="total_asc" required checked>
+                <input type="radio" name="total" value="0" id="total_asc" required {{ $id == 2 && $result == 0 ? 'checked' : '' }}>
                 <label for="total_asc">評価が高い順</label>
               </div>
               <div class="option_select">
-                <input type="radio" name="total" value="1" id="total_des" required>
+                <input type="radio" name="total" value="1" id="total_des" required {{ $id == 2 && $result == 1 ? 'checked' : '' }}>
                 <label for="total_des">評価が低い順</label>
               </div>
               <div class="submit">
@@ -161,15 +173,19 @@
             </form>
           </div>
 
-          <div class="option_form_wrap">
+          <div class="option_form_wrap
+          @if ($id == 3)
+          active
+          @endif
+          ">
             <form class="form -search" action="{{ action('HomeController@index') }}" method="post">
               @csrf
               <div class="option_select">
-                <input type="radio" name="taste" value="0" id="taste_asc" required checked>
+                <input type="radio" name="taste" value="0" id="taste_asc" required {{ $id == 3 && $result == 0 ? 'checked' : '' }}>
                 <label for="taste_asc">評価が高い順</label>
               </div>
               <div class="option_select">
-                <input type="radio" name="taste" value="1" id="taste_des" required>
+                <input type="radio" name="taste" value="1" id="taste_des" required {{ $id == 3 && $result == 1 ? 'checked' : '' }}>
                 <label for="taste_des">評価が低い順</label>
               </div>
               <div class="submit">
@@ -179,15 +195,19 @@
             </form>
           </div>
 
-          <div class="option_form_wrap">
+          <div class="option_form_wrap
+          @if ($id == 4)
+          active
+          @endif
+          ">
             <form class="form -search" action="{{ action('HomeController@index') }}" method="post">
               @csrf
               <div class="option_select">
-                <input type="radio" name="cost" value="0" id="cost_asc" required checked>
+                <input type="radio" name="cost" value="0" id="cost_asc" required  {{ $id == 4 && $result == 0 ? 'checked' : '' }}>
                 <label for="cost_asc">評価が高い順</label>
               </div>
               <div class="option_select">
-                <input type="radio" name="cost" value="1" id="cost_des" required>
+                <input type="radio" name="cost" value="1" id="cost_des" required  {{ $id == 4 && $result == 1 ? 'checked' : '' }}>
                 <label for="cost_des">評価が低い順</label>
               </div>
               <div class="submit">
@@ -197,15 +217,19 @@
             </form>
           </div>
 
-          <div class="option_form_wrap">
+          <div class="option_form_wrap
+          @if ($id == 5)
+          active
+          @endif
+          ">
             <form class="form -search" action="{{ action('HomeController@index') }}" method="post">
               @csrf
               <div class="option_select">
-                <input type="radio" name="recomend" value="0" id="recomend_asc" required checked>
+                <input type="radio" name="recomend" value="0" id="recomend_asc" required  {{ $id == 5 && $result == 0 ? 'checked' : '' }}>
                 <label for="recomend_asc">評価が高い順</label>
               </div>
               <div class="option_select">
-                <input type="radio" name="recomend" value="1" id="recomend_des" required>
+                <input type="radio" name="recomend" value="1" id="recomend_des" required  {{ $id == 5 && $result == 1 ? 'checked' : '' }}>
                 <label for="recomend_des">評価が低い順</label>
               </div>
               <div class="submit">
@@ -215,15 +239,19 @@
             </form>
           </div>
 
-          <div class="option_form_wrap">
+          <div class="option_form_wrap
+          @if ($id == 6)
+          active
+          @endif
+          ">
             <form class="form -search" action="{{ action('HomeController@index') }}" method="post">
               @csrf
               <div class="option_select">
-                <input type="radio" name="price" value="0" id="price_asc" required checked>
+                <input type="radio" name="price" value="0" id="price_asc" required  {{ $id == 6 && $result == 0 ? 'checked' : '' }}>
                 <label for="price_asc">参考価格が高い順</label>
               </div>
               <div class="option_select">
-                <input type="radio" name="price" value="1" id="price_des" required>
+                <input type="radio" name="price" value="1" id="price_des" required  {{ $id == 6 && $result == 1 ? 'checked' : '' }}>
                 <label for="price_des">参考価格が低い順</label>
               </div>
               <div class="submit">
@@ -233,20 +261,28 @@
             </form>
           </div>
 
-          <div class="option_form_wrap">
+          <div class="option_form_wrap
+          @if ($id == 7)
+          active
+          @endif
+          ">
             <form class="form -search" action="{{ action('HomeController@index') }}" method="post">
               @csrf
               <div class="option_select">
-                <input type="radio" name="type" value="0" id="whey" required checked>
+                <input type="radio" name="type" value="0" id="whey" required {{ $id == 7 && $result == 0 ? 'checked' : '' }}>
                 <label for="whey">ホエイ</label>
               </div>
               <div class="option_select">
-                <input type="radio" name="type" value="1" id="soy" required>
+                <input type="radio" name="type" value="1" id="soy" required {{ $id == 7 && $result == 1 ? 'checked' : '' }}>
                 <label for="soy">ソイ</label>
               </div>
               <div class="option_select">
-                <input type="radio" name="type" value="2" id="casein" required>
+                <input type="radio" name="type" value="2" id="casein" required {{ $id == 7 && $result == 2 ? 'checked' : '' }}>
                 <label for="casein">カゼイン</label>
+              </div>
+              <div class="option_select">
+                <input type="radio" name="type" value="3" id="typeother" required {{ $id == 7 && $result == 3 ? 'checked' : '' }}>
+                <label for="typeother">その他</label>
               </div>
               <div class="submit">
                 <input type="submit" name="submit" value="submit">
@@ -255,16 +291,20 @@
             </form>
           </div>
 
-          <div class="option_form_wrap">
+          <div class="option_form_wrap
+          @if ($id == 8)
+          active
+          @endif
+          ">
             <form class="form -search" action="{{ action('HomeController@index') }}" method="post">
               @csrf
               <div class="option_select">
-                <input type="radio" name="made" value="0" id="ja" required checked>
+                <input type="radio" name="made" value="0" id="ja" required {{ $id == 8 && $result == 0 ? 'checked' : '' }}>
                 <label for="ja">日本</label>
               </div>
               <div class="option_select">
-                <input type="radio" name="made" value="1" id="other" required>
-                <label for="other">海外</label>
+                <input type="radio" name="made" value="1" id="madeother" required {{ $id == 8 && $result == 1 ? 'checked' : '' }}>
+                <label for="madeother">海外</label>
               </div>
               <div class="submit">
                 <input type="submit" name="submit" value="submit">
@@ -282,6 +322,9 @@
           <p class="text_align">
             @if ($id == 0)
             投稿日
+            @endif
+            @if ($id == 1)
+            "{{$result}}"
             @endif
             @if ($id == 2)
             総合評価
@@ -308,6 +351,9 @@
             <br>記念すべき
             @if ($id == 0)
             投稿日
+            @endif
+            @if ($id == 1)
+            "{{$result}}"
             @endif
             @if ($id == 2)
             総合評価
@@ -359,10 +405,10 @@
                   @endif
                 </p>
                 <div class="review -row_pc">
-                  @if ( $id == 0 || $id == 2 || $id == 3 || $id == 4 || $id == 5 || $id == 6 || $id == 7 || $id == 8 )
+                  @if ( $id == 0 || $id == 1 || $id == 2 || $id == 3 || $id == 4 || $id == 5 || $id == 6 || $id == 7 || $id == 8 )
                   <p class="review_cat">
-                    @if ($id == 0)
-                    投稿日：<span>{{date('Y/m/d', strtotime($item->created_at))}}</span>
+                    @if ($id == 0 || $id == 1 || $id == 7)
+                    投稿日：<span class="font_bigger">{{date('Y/m/d', strtotime($item->created_at))}}</span>
                     @endif
                     @if ($id == 2)
                     総合評価
@@ -377,13 +423,10 @@
                     おすすめ度
                     @endif
                     @if ($id == 6)
-                    参考価格
-                    @endif
-                    @if ($id == 7)
-                    種類
+                    参考価格<span class="font_bigger">{{$item->price}}</span>円
                     @endif
                     @if ($id == 8)
-                    生産国
+                    生産国：@if($result == 0)日本@else海外@endif
                     @endif
                   </p>
                   @endif
@@ -471,11 +514,7 @@
                     </div>
                     @endif
                     </div>
-                    @if ( $item->created_at == $item->updated_at)
-                    <p class="post_date">投稿日：<span>{{date('Y/m/d', strtotime($item->created_at))}}</span></p>
-                    @else
-                    <p class="post_date">更新日：<span>{{date('Y/m/d', strtotime($item->updated_at))}}</span></p>
-                    @endif
+
 
               </div>
             </a>
@@ -484,7 +523,7 @@
           @endforeach
 
         </ul>
-
+        {{ $items->links() }}
       </main>
 
 

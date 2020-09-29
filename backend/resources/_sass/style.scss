@@ -197,240 +197,29 @@
   text-align: center;
 }
 
-.card {
-  width: calc(100% - 30px);
-  max-width: 900px;
-  margin: 0 auto;
-  margin: 30px auto;
-  padding: 15px;
-  border: 1px solid $color-normal-lighter;
-  border-radius: 10px;
-  background: $color-base;
-  @include mq {
-    margin: 60px auto;
-    padding: 30px;
-  }
-  h1 {
-    font-size: 1.8rem;
-    font-weight: $weight-bold;
-    & + p {
-      margin-top: 15px;
-    }
-  }
-  h2 {
-    & + p {
-      margin-top: 15px;
-    }
-  }
-  p {
-    & + .btnWrap {
-      margin-top: 30px;
-      &.-margin {
-        margin-top: 20px;
-        margin-bottom: 0;
-      }
-    }
-  }
-  &.-faq {
-    padding: 15px 15px 30px;
-    @include mq {
-      padding: 30px;
-    }
-    .question {
-      position: relative;
-      font-weight: $weight-bold;
-      padding-left: 15px;
-      &::before {
-        position: absolute;
-        top: 11px;
-        left: 0;
-        content: "";
-        width: 8px;
-        height: 2px;
-        background: $color-normal;
-      }
-      & + .answer {
-        margin-top: 0;
-      }
-    }
-    .answer {
-      display: none;
-      padding: 15px;
-      & + .question {
-        margin-top: 15px;
-      }
-    }
-  }
-  &.-policy {
-    padding: 15px 15px 30px;
-    @include mq {
-      padding: 20px 30px 30px;
-    }
-    h2 {
-      margin-top: 30px;
-      font-size: 1.7rem;
-      &.-top {
-        margin-top: 15px;
-      }
-    }
-    h3 {
-      margin: 0;
-      padding-left: 5px;
-      font-size: 1.6rem;
-      font-weight: $weight-bold;
-      & + h4 {
-        margin-top: 10px;
-      }
-      & + p {
-        padding-left: 5px;
-      }
-    }
-    h4 {
-      margin: 0;
-      padding-left: 10px;
-      font-size: 1.5rem;
-    }
-    p {
-      margin-top: 5px;
-      font-size: 1.4rem;
-      & + h3 {
-        margin-top: 10px;
-      }
-    }
-    &.-register {
-      margin: 15px 0 0;
-      width: 100%;
-      max-width: none;
-      height: 250px;
-      overflow: scroll;
-      text-align: left;
-      @include mq {
-        margin: 30px 0 0;
-      }
-      h1 {
-        font-size: 1.5rem;
-      }
-      h2 {
-        margin-top: 15px;
-        font-size: 1.4rem;
-        &.-top {
-          margin-top: 15px;
-        }
-      }
-      h3 {
-        margin: 0;
-        padding-left: 5px;
-        font-size: 1.3rem;
-        font-weight: $weight-bold;
-        & + h4 {
-          margin-top: 10px;
-        }
-      }
-      h4 {
-        margin: 0;
-        padding-left: 10px;
-        font-size: 1.2rem;
-      }
-      p {
-        margin-top: 5px;
-        font-size: 1.1rem;
-        & + h3 {
-          margin-top: 10px;
-        }
-      }
-    }
-    & + .btnWrap {
-      margin: 0 auto 100px;;
-      width: calc(100% - 30px);
-      max-width: 800px;
-    }
-    &.-confirm {
-      max-height: 50vh;
-      overflow: scroll;
-      h1 {
-        font-size: 1.5rem;
-      }
-      h2 {
-        margin-top: 15px;
-        font-size: 1.4rem;
-        &.-top {
-          margin-top: 15px;
-        }
-      }
-      h3 {
-        margin: 0;
-        padding-left: 5px;
-        font-size: 1.3rem;
-        font-weight: $weight-bold;
-        & + h4 {
-          margin-top: 10px;
-        }
-      }
-      h4 {
-        margin: 0;
-        padding-left: 10px;
-        font-size: 1.2rem;
-      }
-      p {
-        margin-top: 5px;
-        font-size: 1.1rem;
-        & + h3 {
-          margin-top: 10px;
-        }
-      }
-    }
-  }
-  &.-form {
-    width: 100%;
-    margin: 0 auto;
-    padding: 20px 15px 15px;
-    @include mq {
-      padding: 20px 30px 20px;
-    }
-    .explain {
-      text-align: left;
-      & + .label {
-        margin-top: 15px;
-      }
-    }
-  }
-}
-
 .options_wrap {
   background: $color-base-secondary;
 }
 .options {
-  position: relative;
-  display: -webkit-flex;
-  display: -ms-flex;
-  display: flex;
-  align-items: center;
-  margin: 0;
-  padding: 5px 0 0 0;
-  @include mq {
-    padding: 25px 160px 25px 80px;
-  }
-  .submit {
-    position: absolute;
-    top: auto;
-    right: 10px;
-    bottom: auto;
-    @include mq {
-      right: 80px;
-    }
-    input {
-      display: block;
-    }
-  }
-  &.-top {
+    position: relative;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    align-items: center;
     margin: 0;
     padding: 0;
     white-space: nowrap;
     overflow: scroll;
     border-bottom: 1px solid $color-normal-lighter;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display:none;
+    }
     .options_item {
       margin: 0;
-      border-right: 1px solid $color-normal-lighter;
+      border-right: 2px solid $color-normal-lighter;
+      cursor: pointer;
       &.active {
         background: $color-normal-lighter;
       }
@@ -446,12 +235,26 @@
       right: 15px;
       border-color: $color-primary;
     }
+  .submit {
+    position: absolute;
+    top: auto;
+    right: 10px;
+    bottom: auto;
+    @include mq {
+      right: 80px;
+    }
+    input {
+      display: block;
+    }
   }
 }
 .option_form_wrap {
   display: none;
   background: $color-normal-lighter;
   padding: 15px;
+  @include mq {
+    padding: 15px 80px;
+  }
   &.active {
     display: block;
   }
@@ -742,6 +545,9 @@
 .review_cat {
   padding-top: 5px;
   font-weight: $weight-bold;
+  .font_bigger {
+    font-size: 1.5rem;
+  }
 }
 
 .invalid-feedback {
@@ -820,8 +626,11 @@
 
 .img_outer {
   position: relative;
-  width: 120px;
+  width: 100px;
   border: 1px solid $color-normal-light;
+  @include mq {
+    width: 120px;
+  }
   &:before {
     display: block;
     padding-top: 100%;
@@ -935,5 +744,47 @@
 .star_icon_5 {
   .st1, .st2, .st3, .st4, .st5 {
     fill: $color-primary;
+  }
+}
+
+// pagination
+.pagination {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px auto 0;
+  padding: 0;
+  list-style-type: none;
+  li {
+    margin: 0 5px;
+    padding: 0 12px;
+    border: 1px solid $color-normal-light;
+    background: $color-normal-light;
+    color: $color-base;
+    font-weight: $weight-bold;
+    font-size: 2rem;
+    &.active {
+      border: 1px solid $color-primary;
+      background: $color-primary;
+    }
+    &:first-child {
+      margin-right: 10px;
+      span, a {
+        display: block;
+        margin: -2px 0 2px;
+      }
+    }
+    &:last-child {
+      margin-left: 10px;
+      span, a {
+        display: block;
+        margin: -2px 0 2px;
+      }
+    }
+    a {
+      color: $color-base;
+    }
   }
 }

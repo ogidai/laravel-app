@@ -19,9 +19,6 @@
         </li>
         @endauth
         <li class="gnav_item">
-            <a href="{{ route('search') }}" class="arrow -next">ラクラク検索＆並び替え</a>
-        </li>
-        <li class="gnav_item">
             <a href="#" class="arrow -next">運営からのお知らせ</a>
         </li>
         <li class="gnav_item">

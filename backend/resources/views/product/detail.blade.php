@@ -14,7 +14,9 @@
     <!-- <div class="navBtn js-navBtn">
       <span class="js-badge active"></span><span></span><span></span>
     </div> -->
-    <a href="{{ route('home') }}" class="left arrow_back"></a>
+    <!-- <a href="{{ route('home') }}" class="left arrow_back"></a> -->
+    <!-- <a href="{{ action('HomeController@index') }}" class="left arrow_back"></a> -->
+    <a href="javascript:history.back()" class="left arrow_back"></a>
     @guest
     <div class="right btnWrap">
       <a href="{{ route('login') }}" class="btn">ログイン</a>
@@ -171,7 +173,7 @@
             @endif
             @if( $items->made == 0 || $items->made == 1 )
             <li class="list_item">
-              <p class="list_left">生産地</p>
+              <p class="list_left">生産国</p>
               <p class="list_right">
                 @if($items->made == 0)
                 日本

@@ -20,7 +20,7 @@
           <span class="btn js-showLogoutModal">ログアウト</span>
         </div>
         @endguest
-        <a href="{{route('user')}}" class="left arrow_back"></a>
+        <a href="javascript:history.back()" class="left arrow_back"></a>
       </div>
     </header>
 

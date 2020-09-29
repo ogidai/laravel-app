@@ -83,7 +83,7 @@
             <img src="{{ asset('images/logo.png') }}" alt="">
           </a>
         </div>
-        <a href="{{('/')}}" class="left arrow_back"></a>
+        <a href="javascript:history.back()" class="left arrow_back"></a>
       </div>
     </header>
 

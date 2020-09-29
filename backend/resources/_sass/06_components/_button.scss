@@ -16,9 +16,6 @@
   text-align: center;
   transition: all 0.2s linear;
   cursor: pointer;
-  @include mq {
-    font-size: 1.6rem;
-  }
   &.-hasicon {
     display: -webkit-flex;
     display: -ms-flex;

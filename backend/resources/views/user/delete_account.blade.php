@@ -14,7 +14,7 @@
         <!-- <div class="navBtn js-navBtn">
           <span class="js-badge active"></span><span></span><span></span>
         </div> -->
-        <a href="{{route('user')}}" class="left arrow_back"></a>
+        <a href="javascript:history.back()" class="left arrow_back"></a>
         @guest
         <div class="right btnWrap">
           <a href="{{ route('login') }}" class="btn">ログイン</a>

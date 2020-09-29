@@ -11,7 +11,7 @@
             <img src="{{ asset('images/logo.png') }}" alt="">
           </a>
         </div>
-        <a href="{{route('your_post')}}" class="left arrow_back"></a>
+        <a href="javascript:history.back()" class="left arrow_back"></a>
         @guest
         <div class="right btnWrap">
           <a href="{{ route('login') }}" class="btn">ログイン</a>
@@ -325,7 +325,7 @@
                 <p class="alert -top">＊半角数字のみ。単位は省略してください。</p>
               </div>
               <div class="radio_wrap">
-                <p>日本のメーカーですか？</p>
+                <p>生産国は日本ですか？</p>
                 <input type="radio" name="made" value="0" class="-secondary @error('made') is-invalid @enderror" id="madejapan" {{ $items->made == "0" ? 'checked' : '' }}>
                 <label for="madejapan" class="label">はい</label>
                 <input type="radio" name="made" value="1" class="-secondary @error('made') is-invalid @enderror" id="madeother" {{ $items->made == "1" ? 'checked' : '' }}>

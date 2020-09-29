@@ -21,7 +21,8 @@ class PostController extends Controller
       $authUser = Auth::user()->id;
       $items = Post::with('user')->where('user_id', $authUser)
       ->orderBy('updated_at', 'desc')
-      ->get();
+      ->paginate(10);
+      // ->get();
       // dd($items);
       return view('post.index', compact('items'));
     }
