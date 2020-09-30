@@ -26,9 +26,49 @@
       </div>
     </header>
 
-    @extends('layouts.gnav')
+    <nav id="gnav">
+        <div class="navBtn -back js-navBtnBack">
+            <span></span><span></span><span></span>
+        </div>
+        <ul class="gnav_list">
+            @auth
+            <li class="gnav_item">
+                <p class="greeting">こんにちは！<span>{{Auth::user()->name}}</span>さん</p>
+                <p class="auth_email">{{Auth::user()->email}}</p>
+            </li>
+            <li class="gnav_item">
+              <a href="{{ route('post') }}" class="arrow -next">レビューを投稿する</a>
+            </li>
+            <li class="gnav_item">
+              <a href="{{ route('your_post') }}" class="arrow -next">あなたの投稿</a>
+            </li>
+            <li class="gnav_item -margin">
+              <a href="{{ route('user') }}" class="arrow -next">ユーザー情報</a>
+            </li>
+            @endauth
+            <li class="gnav_item">
+              <a href="{{ ('/') }}" class="arrow -next">トップページへ</a>
+            </li>
+            <li class="gnav_item">
+              <a href="{{ route('faq') }}" class="arrow -next">よくある質問</a>
+            </li>
+            <li class="gnav_item">
+                <a href="{{ route('contact') }}" class="arrow -next">お問い合わせ</a>
+            </li>
+            <li class="gnav_item">
+                <a href="{{ route('policy') }}" class="arrow -next">利用規約・プライバシーポリシー</a>
+            </li>
+            <li class="gnav_item -sns">
+                <a href="https://twitter.com/procomi2020"><img src="{{ asset('images/t_logo.svg') }}" alt=""></a>
+            </li>
+        </ul>
+        <footer class="footer -pc">
+            <div class="copyright">
+              <small>© 2020 プロコミ！</small>
+            </div>
+          </footer>
+    </nav>
 
-    @section('gnav')
 
     <div class="wrapper -top">
 
@@ -82,7 +122,7 @@
               <span class="options_title arrow">コスパ</span>
             </div>
             <div class="options_item
-            @if($id == 4)
+            @if($id == 5)
             active
             @endif
             ">
@@ -107,7 +147,7 @@
             active
             @endif
             ">
-              <span class="options_title arrow">生産国</span>
+              <span class="options_title arrow">製造</span>
             </div>
           </div>
 
@@ -321,60 +361,66 @@
         <div class="card">
           <p class="text_align">
             @if ($id == 0)
-            投稿日
+            "投稿日"
             @endif
             @if ($id == 1)
             "{{$result}}"
             @endif
             @if ($id == 2)
-            総合評価
+            "総合評価"
             @endif
             @if ($id == 3)
-            美味しさ
+            "美味しさ"
             @endif
             @if ($id == 4)
-            コスパ
+            "コスパ"
             @endif
             @if ($id == 5)
-            おすすめ度
+            "おすすめ度"
             @endif
             @if ($id == 6)
-            参考価格
+            "参考価格"
             @endif
             @if ($id == 7)
-            種類
+            @if($result == 0)"プロテインの種類がホエイ"@endif
+            @if($result == 1)"プロテインの種類がソイ"@endif
+            @if($result == 2)"プロテインの種類がカゼイン"@endif
+            @if($result == 3)"プロテインの種類がその他"@endif
             @endif
             @if ($id == 8)
-            生産国
+            "製造が@if($result == 0)日本@else海外@endif"
             @endif
             の投稿は、まだありません。
             <br>記念すべき
             @if ($id == 0)
-            投稿日
+            "投稿日"
             @endif
             @if ($id == 1)
             "{{$result}}"
             @endif
             @if ($id == 2)
-            総合評価
+            "総合評価"
             @endif
             @if ($id == 3)
-            美味しさ
+            "美味しさ"
             @endif
             @if ($id == 4)
-            コスパ
+            "コスパ"
             @endif
             @if ($id == 5)
-            おすすめ度
+            "おすすめ度"
             @endif
             @if ($id == 6)
-            参考価格
+            "参考価格"
             @endif
             @if ($id == 7)
-            種類
+            @if($result == 0)"プロテインの種類がホエイ"@endif
+            @if($result == 1)"プロテインの種類がソイ"@endif
+            @if($result == 2)"プロテインの種類がカゼイン"@endif
+            @if($result == 3)"プロテインの種類がその他"@endif
             @endif
             @if ($id == 8)
-            生産国
+            "製造が@if($result == 0)日本@else海外@endif"
             @endif
             の最初の投稿をしてみませんか？
           </p>
@@ -405,9 +451,9 @@
                   @endif
                 </p>
                 <div class="review -row_pc">
-                  @if ( $id == 0 || $id == 1 || $id == 2 || $id == 3 || $id == 4 || $id == 5 || $id == 6 || $id == 7 || $id == 8 )
+                  @if ( $id == 0 || $id == 1 || $id == 2 || $id == 3 || $id == 4 || $id == 5 || $id == 6 || $id == 7 || $id == 8 || $id == 100 )
                   <p class="review_cat">
-                    @if ($id == 0 || $id == 1 || $id == 7)
+                    @if ($id == 0 || $id == 1 || $id == 7|| $id == 100 )
                     投稿日：<span class="font_bigger">{{date('Y/m/d', strtotime($item->created_at))}}</span>
                     @endif
                     @if ($id == 2)
@@ -426,15 +472,16 @@
                     参考価格<span class="font_bigger">{{$item->price}}</span>円
                     @endif
                     @if ($id == 8)
-                    生産国：@if($result == 0)日本@else海外@endif
+                    製造：@if($result == 0)日本@else海外@endif
                     @endif
                   </p>
                   @endif
-                  @if  ($id == 3 || $id == 4 || $id == 5 )
+                  @if  ($id == 2 || $id == 3 || $id == 4 || $id == 5 )
                   <div class="star_icons
-                  @if($id == 3)star_icon_{{$item->taste_good}}@endif
-                  @if($id == 4)star_icon_{{$item->cost_paf}}@endif
-                  @if($id == 5)star_icon_{{$item->recomend}}@endif
+                  @if($id == 2)star_icon_{{ $item->total }}@endif
+                  @if($id == 3)star_icon_{{ $item->taste_good }}@endif
+                  @if($id == 4)star_icon_{{ $item->cost_paf }}@endif
+                  @if($id == 5)star_icon_{{ $item->recomend }}@endif
                   ">
                     <i class="star_icon">
                       <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="width: 16px; height: 16px; opacity: 1;" xml:space="preserve">

@@ -1,79 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
 <div class="container">
 
     <header class="header">
@@ -131,7 +59,7 @@
               <div class="card -policy -register">
                 <h1>利用規約・プライバシーポリシー</h1>
                 <h2 class="-top">1.はじめに</h2>
-                <p>ProHika（以下「当方」）は、アプリケーション（以下「アプリ」）を開発・運用しています。本アプリのご使用によって、本規約に同意していただいたものとみなします。</p>
+                <p>プロコミ！（以下「当方」）は、アプリケーション（以下「アプリ」）を開発・運用しています。本アプリのご使用によって、本規約に同意していただいたものとみなします。</p>
                 <h2>2.収集する情報</h2>
                 <p>アプリのご利用に際して、以下の利用者情報を取得いたします。</p>
                 <h3>2.1 アプリケーションの利用状況の収集</h3>
@@ -155,7 +83,7 @@
                 <h2>8.著作権・知的財産権等</h2>
                 <p>著作権その他一切の権利は、当方又は権利を有する第三者に帰属します。</p>
                 <h2>9.連絡先</h2>
-                <p><a href="mailto:prohika2020&#64;gmail.com">prohika2020&#64;gmail.com</a></p>
+                <p><a href="mailto:procomi2020&#64;gmail.com">procomi2020&#64;gmail.com</a></p>
               </div>
               <p class="alert -margin">＊利用規約・プライバシーポリシーを確認の上、同意される方はチェクを入れてください。
               <br>＊全ての項目が入力されていない場合、以下をチェックできません。

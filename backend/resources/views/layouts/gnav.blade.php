@@ -1,4 +1,4 @@
-<nav class="gnav">
+<nav id="gnav">
     <div class="navBtn -back js-navBtnBack">
         <span></span><span></span><span></span>
     </div>
@@ -19,16 +19,10 @@
         </li>
         @endauth
         <li class="gnav_item">
-            <a href="#" class="arrow -next">運営からのお知らせ</a>
-        </li>
-        <li class="gnav_item">
-            <a href="{{ route('about') }}" class="arrow -next">ProHikaとは？</a>
+          <a href="{{ ('/') }}" class="arrow -next">トップページへ</a>
         </li>
         <li class="gnav_item">
           <a href="{{ route('faq') }}" class="arrow -next">よくある質問</a>
-        </li>
-        <li class="gnav_item">
-            <a href="{{ route('about') }}" class="arrow -next">初めてガイド</a>
         </li>
         <li class="gnav_item">
             <a href="{{ route('contact') }}" class="arrow -next">お問い合わせ</a>
@@ -37,12 +31,12 @@
             <a href="{{ route('policy') }}" class="arrow -next">利用規約・プライバシーポリシー</a>
         </li>
         <li class="gnav_item -sns">
-            <a href="#"><img src="{{ asset('images/t_logo.svg') }}" alt=""></a>
+            <a href="https://twitter.com/procomi2020"><img src="{{ asset('images/t_logo.svg') }}" alt=""></a>
         </li>
     </ul>
     <footer class="footer -pc">
         <div class="copyright">
-          <small>© 2020 ProHika</small>
+          <small>© 2020 プロコミ！</small>
         </div>
       </footer>
 </nav>

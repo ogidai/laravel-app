@@ -26,15 +26,58 @@
 
     <div class="wrapper -top">
 
-      @extends('layouts.gnav')
+      <nav id="gnav">
+          <div class="navBtn -back js-navBtnBack">
+              <span></span><span></span><span></span>
+          </div>
+          <ul class="gnav_list">
+              @auth
+              <li class="gnav_item">
+                  <p class="greeting">こんにちは！<span>{{Auth::user()->name}}</span>さん</p>
+                  <p class="auth_email">{{Auth::user()->email}}</p>
+              </li>
+              <li class="gnav_item">
+                <a href="{{ route('post') }}" class="arrow -next">レビューを投稿する</a>
+              </li>
+              <li class="gnav_item">
+                <a href="{{ route('your_post') }}" class="arrow -next">あなたの投稿</a>
+              </li>
+              <li class="gnav_item -margin">
+                <a href="{{ route('user') }}" class="arrow -next">ユーザー情報</a>
+              </li>
+              @endauth
+              <li class="gnav_item">
+                <a href="{{ ('/') }}" class="arrow -next">トップページへ</a>
+              </li>
+              <li class="gnav_item">
+                <a href="{{ route('faq') }}" class="arrow -next">よくある質問</a>
+              </li>
+              <li class="gnav_item">
+                  <a href="{{ route('contact') }}" class="arrow -next">お問い合わせ</a>
+              </li>
+              <li class="gnav_item">
+                  <a href="{{ route('policy') }}" class="arrow -next">利用規約・プライバシーポリシー</a>
+              </li>
+              <li class="gnav_item -sns">
+                  <a href="https://twitter.com/procomi2020"><img src="{{ asset('images/t_logo.svg') }}" alt=""></a>
+              </li>
+          </ul>
+          <footer class="footer -pc">
+              <div class="copyright">
+                <small>© 2020 プロコミ！</small>
+              </div>
+            </footer>
+      </nav>
 
-      @section('gnav')
+      <!-- @extends('layouts.gnav')
+
+      @section('gnav') -->
 
       <main class="main">
         <div class="card -policy">
           <h1>利用規約・プライバシーポリシー</h1>
           <h2 class="-top">1.はじめに</h2>
-          <p>ProHika（以下「当方」）は、アプリケーション（以下「アプリ」）を開発・運用しています。本アプリのご使用によって、本規約に同意していただいたものとみなします。</p>
+          <p>プロコミ！（以下「当方」）は、アプリケーション（以下「アプリ」）を開発・運用しています。本アプリのご使用によって、本規約に同意していただいたものとみなします。</p>
           <h2>2.収集する情報</h2>
           <p>アプリのご利用に際して、以下の利用者情報を取得いたします。</p>
           <h3>2.1 アプリケーションの利用状況の収集</h3>
@@ -58,7 +101,7 @@
           <h2>8.著作権・知的財産権等</h2>
           <p>著作権その他一切の権利は、当方又は権利を有する第三者に帰属します。</p>
           <h2>9.連絡先</h2>
-          <p><a href="mailto:prohika2020&#64;gmail.com">prohika2020&#64;gmail.com</a></p>
+          <p><a href="mailto:procomi2020&#64;gmail.com">procomi2020&#64;gmail.com</a></p>
         </div>
 
       </main>

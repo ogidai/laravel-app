@@ -104,15 +104,18 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$(function () {
-  // spハンバーガーメニューのクリックイベント
+$(window).on('load', function () {
+  $('#gnav').fadeIn(100);
+  $('#body').fadeIn(100);
+  $('.header').fadeIn(100); // spハンバーガーメニューのクリックイベント
+
   $('.js-navBtnActive').click(function () {
-    $('.gnav').addClass('active');
+    $('#gnav').addClass('active');
     $('.overlay').addClass('active');
     $('body').css('overflow', 'hidden');
   });
   $('.js-navBtnBack, .overlay').click(function () {
-    $('.gnav').removeClass('active');
+    $('#gnav').removeClass('active');
     $('.overlay').removeClass('active');
     $('body').css('overflow', 'auto');
   }); // logout modal

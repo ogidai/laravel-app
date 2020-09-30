@@ -26,22 +26,65 @@
 
     <div class="wrapper -top">
 
-      @extends('layouts.gnav')
+      <nav id="gnav">
+          <div class="navBtn -back js-navBtnBack">
+              <span></span><span></span><span></span>
+          </div>
+          <ul class="gnav_list">
+              @auth
+              <li class="gnav_item">
+                  <p class="greeting">こんにちは！<span>{{Auth::user()->name}}</span>さん</p>
+                  <p class="auth_email">{{Auth::user()->email}}</p>
+              </li>
+              <li class="gnav_item">
+                <a href="{{ route('post') }}" class="arrow -next">レビューを投稿する</a>
+              </li>
+              <li class="gnav_item">
+                <a href="{{ route('your_post') }}" class="arrow -next">あなたの投稿</a>
+              </li>
+              <li class="gnav_item -margin">
+                <a href="{{ route('user') }}" class="arrow -next">ユーザー情報</a>
+              </li>
+              @endauth
+              <li class="gnav_item">
+                <a href="{{ ('/') }}" class="arrow -next">トップページへ</a>
+              </li>
+              <li class="gnav_item">
+                <a href="{{ route('faq') }}" class="arrow -next">よくある質問</a>
+              </li>
+              <li class="gnav_item">
+                  <a href="{{ route('contact') }}" class="arrow -next">お問い合わせ</a>
+              </li>
+              <li class="gnav_item">
+                  <a href="{{ route('policy') }}" class="arrow -next">利用規約・プライバシーポリシー</a>
+              </li>
+              <li class="gnav_item -sns">
+                  <a href="https://twitter.com/procomi2020"><img src="{{ asset('images/t_logo.svg') }}" alt=""></a>
+              </li>
+          </ul>
+          <footer class="footer -pc">
+              <div class="copyright">
+                <small>© 2020 プロコミ！</small>
+              </div>
+            </footer>
+      </nav>
 
-      @section('gnav')
+      <!-- @extends('layouts.gnav')
+
+      @section('gnav') -->
 
       <main class="main">
         <div class="card">
           <h1>お問い合わせ</h1>
-          <p>ProHikaをご利用いただき、誠にありがとうございます。
+          <p>プロコミ！をご利用いただき、誠にありがとうございます。
             <br>ご質問やご不明な点がある場合、まずは<a href="#">よくある質問</a>を参照してみてください。
             <br>
             <br>それでも解決できない場合、お手数をおかけしますが、
-            <a href="mailto:prohika&#64;gmail.com">prohika2020&#64;gmail.com</a>
+            <a href="mailto:procomi2020&#64;gmail.com">procomi2020&#64;gmail.com</a>
             にお問い合わせください。
             <br>
             <br>お問い合わせ内容や、時期によって異なりますが、お問い合わせから10日前後で返信します。
-            <br>今後ともProHikaをよろしくお願いします。
+            <br>今後ともプロコミ！をよろしくお願いします。
           </p>
         </div>
 

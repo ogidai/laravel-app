@@ -7,20 +7,16 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'ProHika') }}</title>
+    <title>{{ config('app.name', 'プロコミ！') }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app_min.css') }}" rel="stylesheet">
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 </head>
 
 <body id="body">
+
+
     @yield('content')
     @auth
     <div class="modal js-logoutModal">
@@ -44,7 +40,7 @@
     @endauth
     <footer class="footer -sp">
       <div class="copyright">
-        <small>© 2020 ProHika</small>
+        <small>© 2020 プロコミ！</small>
       </div>
     </footer>
 
@@ -54,7 +50,9 @@
 
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="{{ asset('js/app_min.js') }}" defer></script>
 
 </body>
 </html>

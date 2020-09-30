@@ -82,14 +82,12 @@ class HomeController extends Controller
             $items = DB::table('posts')
             ->orderBy('updated_at', 'desc')
             ->paginate(10);
-            // ->get();
             $id = 0;
             $result = $date;
           } else {
             $items = DB::table('posts')
             ->orderBy('updated_at', 'asc')
             ->paginate(10);
-            // ->get();
             $id = 0;
             $result = $date;
           }
@@ -101,9 +99,24 @@ class HomeController extends Controller
           ->orwhere('flavor', 'like', '%'.$search.'%')
           ->orderBy('updated_at', 'desc')
           ->paginate(10);
-          // ->get();
           $id = 1;
           $result = $search;
+        }
+
+        if( is_null($total) == false ) {
+          if ( ($total == 0)) {
+            $items = DB::table('posts')
+            ->orderBy('total', 'desc')
+            ->paginate(10);
+            $id = 2;
+            $result = $total;
+          } else {
+            $items = DB::table('posts')
+            ->orderBy('total', 'asc')
+            ->paginate(10);
+            $id = 2;
+            $result = $total;
+          }
         }
 
         if( is_null($taste) == false ) {

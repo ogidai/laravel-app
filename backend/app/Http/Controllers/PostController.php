@@ -54,12 +54,11 @@ class PostController extends Controller
         $imagefile_02 = $request->file('image_02');
         $imagefile_03 = $request->file('image_03');
 
-        // dd($request->submit);
         $img_old_path_01 = $post->temp_path_01;
         $img_old_path_02 = $post->temp_path_02;
         $img_old_path_03 = $post->temp_path_03;
 
-        if ( empty($imagefile_01) == true ) {
+        if ( is_null($imagefile_01) == true ) {
           $temp_path_01 = $img_old_path_01;
           $read_temp_path_01 = str_replace('public/', 'storage/', $temp_path_01);
         } else {
@@ -70,14 +69,14 @@ class PostController extends Controller
 
         if ($request->submit == 'submit') {
 
-          if( empty($img_old_path_02) == true ) {
+          if( is_null($img_old_path_02) == true ) {
               $temp_path_02 = $imagefile_02;
               $read_temp_path_02 = $temp_path_02;
             } else {
               $temp_path_02 = $img_old_path_02;
               $read_temp_path_02 = str_replace('public/', 'storage/', $temp_path_02);
             }
-          if( empty($img_old_path_03) == true ) {
+          if( is_null($img_old_path_03) == true ) {
               $temp_path_03 = $imagefile_03;
               $read_temp_path_03 = $temp_path_03;
             } else {
@@ -90,7 +89,7 @@ class PostController extends Controller
 
         if ($request->submit == 'img_changed_02') {
 
-          if ( empty($imagefile_02) == true ) {
+          if ( is_null($imagefile_02) == true ) {
             $temp_path_02 = $imagefile_02;
             $read_temp_path_02 = $temp_path_02;
           } else {
@@ -101,7 +100,7 @@ class PostController extends Controller
         }
         else {
 
-          if( empty($img_old_path_02) == true ) {
+          if( is_null($img_old_path_02) == true ) {
             $temp_path_02 = $imagefile_02;
             $read_temp_path_02 = $temp_path_02;
           } else {
@@ -111,25 +110,10 @@ class PostController extends Controller
 
         }
 
-        // if ( empty($imagefile_02) == true ) {
-        //
-        //   if( empty($img_old_path_02) == true ) {
-        //     $temp_path_02 = $img_old_path_02;
-        //     $read_temp_path_02 = str_replace('public/', 'storage/', $temp_path_02);
-        //   }
-        //   if( empty($img_old_path_02) != true ){
-        //     $temp_path_02 = $imagefile_02;
-        //     $read_temp_path_02 = $temp_path_02;
-        //   }
-        //
-        // } else {
-        //   $temp_path_02 = $imagefile_02->store('public/temp');
-        //   $read_temp_path_02 = str_replace('public/', 'storage/', $temp_path_02);
-        // }
 
         if ($request->submit == 'img_changed_03') {
 
-          if ( empty($imagefile_03) == true ) {
+          if ( is_null($imagefile_03) == true ) {
             $temp_path_03 = $imagefile_03;
             $read_temp_path_03 = $temp_path_03;
           } else {
@@ -140,7 +124,7 @@ class PostController extends Controller
         }
         else {
 
-            if( empty($img_old_path_03) == true ) {
+            if( is_null($img_old_path_03) == true ) {
               $temp_path_03 = $imagefile_03;
               $read_temp_path_03 = $temp_path_03;
             } else {
@@ -150,24 +134,11 @@ class PostController extends Controller
 
         }
 
-        // if ( empty($imagefile_03) == true ) {
-        //
-        //   if( empty($img_old_path_03) == true ) {
-        //     $temp_path_03 = $img_old_path_03;
-        //     $read_temp_path_03 = str_replace('public/', 'storage/', $temp_path_03);
-        //   } else {
-        //     $temp_path_03 = $imagefile_03;
-        //     $read_temp_path_03 = $temp_path_03;
-        //   }
-        // } else {
-        //   $temp_path_03 = $imagefile_03->store('public/temp');
-        //   $read_temp_path_03 = str_replace('public/', 'storage/', $temp_path_03);
-        // }
 
 
         if ($request->submit == 'img_changed') {
 
-          if ( empty($imagefile_02) == true ) {
+          if ( is_null($imagefile_02) == true ) {
             $temp_path_02 = $imagefile_02;
             $read_temp_path_02 = $temp_path_02;
           } else {
@@ -175,7 +146,7 @@ class PostController extends Controller
             $read_temp_path_02 = str_replace('public/', 'storage/', $temp_path_02);
           }
 
-          if ( empty($imagefile_03) == true ) {
+          if ( is_null($imagefile_03) == true ) {
             $temp_path_03 = $imagefile_03;
             $read_temp_path_03 = $temp_path_03;
           } else {
@@ -184,7 +155,7 @@ class PostController extends Controller
           }
 
 
-        }
+        }  
 
 
         $id = $post_data['id'];
@@ -194,14 +165,27 @@ class PostController extends Controller
         $weight = $post_data['weight'];
         $price = $post_data['price'];
         $per_protein = $post_data['per_protein'];
-        $made = $post_data['made'];
-        $type = $post_data['type'];
         $taste_good = $post_data['taste_good'];
         $cost_paf = $post_data['cost_paf'];
         $recomend = $post_data['recomend'];
+        $total = round(( $taste_good + $cost_paf + $recomend ) / 3);
         $how_to_buy = $post_data['how_to_buy'];
         $how_to_drink = $post_data['how_to_drink'];
         $comment = $post_data['comment'];
+
+
+        if (isset($post_data['made']) == true) {
+          $made = $post_data['made'];
+        } else {
+          $made = 2;
+        }
+
+        if (isset($post_data['type']) == true) {
+          $type = $post_data['type'];
+        } else {
+          $type = 4;
+        }
+
 
         $post->id = $id;
         $post->user_id = $user_id;
@@ -221,15 +205,13 @@ class PostController extends Controller
         $post->taste_good = $taste_good;
         $post->cost_paf = $cost_paf;
         $post->recomend = $recomend;
+        $post->total = $total;
         $post->how_to_buy = $how_to_buy;
         $post->how_to_drink = $how_to_drink;
         $post->comment = $comment;
 
-        //保存
         $post->save();
-        // $post_old->fill($post)->save();
-        // $data->fill($post_old)->update();
-        //リダイレクト
+
         return redirect('post/index');
     }
 
@@ -254,7 +236,7 @@ class PostController extends Controller
       $temp_path_01 = $imagefile_01->store('public/temp');
       $read_temp_path_01 = str_replace('public/', 'storage/', $temp_path_01);
 
-      if (empty($imagefile_02) == true) {
+      if (is_null($imagefile_02) == true) {
         $temp_path_02 = $imagefile_02;
         $read_temp_path_02 = $temp_path_02;
       } else {
@@ -262,7 +244,7 @@ class PostController extends Controller
         $read_temp_path_02 = str_replace('public/', 'storage/', $temp_path_02);
       }
 
-      if (empty($imagefile_03) == true) {
+      if (is_null($imagefile_03) == true) {
         $temp_path_03 = $imagefile_03;
         $read_temp_path_03 = $temp_path_03;
       } else {
@@ -270,20 +252,32 @@ class PostController extends Controller
         $read_temp_path_03 = str_replace('public/', 'storage/', $temp_path_03);
       }
 
+
       $user_id = $post_data['user_id'];
       $pro_name = $post_data['pro_name'];
       $flavor = $post_data['flavor'];
       $weight = $post_data['weight'];
       $price = $post_data['price'];
       $per_protein = $post_data['per_protein'];
-      $made = $post_data['made'];
-      $type = $post_data['type'];
       $taste_good = $post_data['taste_good'];
       $cost_paf = $post_data['cost_paf'];
       $recomend = $post_data['recomend'];
+      $total = round(( $taste_good + $cost_paf + $recomend ) / 3);
       $how_to_buy = $post_data['how_to_buy'];
       $how_to_drink = $post_data['how_to_drink'];
       $comment = $post_data['comment'];
+
+      if (isset($post_data['made']) == true) {
+        $made = $post_data['made'];
+      } else {
+        $made = 2;
+      }
+
+      if (isset($post_data['type']) == true) {
+        $type = $post_data['type'];
+      } else {
+        $type = 4;
+      }
 
       $post->user_id = $user_id;
       $post->temp_path_01 = $temp_path_01;
@@ -302,32 +296,10 @@ class PostController extends Controller
       $post->taste_good = $taste_good;
       $post->cost_paf = $cost_paf;
       $post->recomend = $recomend;
+      $post->total = $total;
       $post->how_to_buy = $how_to_buy;
       $post->how_to_drink = $how_to_drink;
       $post->comment = $comment;
-      // $data = array(
-      //   'user_id' => $user_id,
-      //   'temp_path_01' => $temp_path_01,
-      //   'temp_path_02' => $temp_path_02,
-      //   'temp_path_03' => $temp_path_03,
-      //   'read_temp_path_01' => $read_temp_path_01,
-      //   'read_temp_path_02' => $read_temp_path_02,
-      //   'read_temp_path_03' => $read_temp_path_03,
-      //   'pro_name' => $pro_name,
-      //   'flavor' => $flavor,
-      //   'weight' => $weight,
-      //   'price' => $price,
-      //   'per_protein' => $per_protein,
-      //   'made' => $made,
-      //   'type' => $type,
-      //   'taste_good' => $taste_good,
-      //   'cost_paf' => $cost_paf,
-      //   'recomend' => $recomend,
-      //   'how_to_buy' => $how_to_buy,
-      //   'how_to_drink' => $how_to_drink,
-      //   'comment' => $comment,
-      // );
-      // $request->session()->put('data', $data);
 
       $post->save();
 

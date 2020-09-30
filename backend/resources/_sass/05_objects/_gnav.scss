@@ -1,7 +1,7 @@
 // ==========================================================================
 // global navigation
 // ==========================================================================
-.gnav {
+#gnav {
   position: fixed;
   top: 0;
   left: 0;
@@ -14,6 +14,11 @@
   -moz-transition: .35s ease-in-out;
   transition: .35s ease-in-out;
   overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display:none;
+  }
   @include mq {
     position: fixed;
     width: 25vw;

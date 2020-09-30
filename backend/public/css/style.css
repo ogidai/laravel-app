@@ -549,7 +549,7 @@ input[type=submit] + label:hover::after {
   }
 }
 
-.gnav {
+#gnav {
   position: fixed;
   top: 0;
   left: 0;
@@ -560,10 +560,16 @@ input[type=submit] + label:hover::after {
   transform: translateX(-100%);
   transition: 0.35s ease-in-out;
   overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#gnav::-webkit-scrollbar {
+  display: none;
 }
 
 @media screen and (min-width: 992px) {
-  .gnav {
+  #gnav {
     position: fixed;
     width: 25vw;
     z-index: 10;
@@ -572,7 +578,7 @@ input[type=submit] + label:hover::after {
   }
 }
 
-.gnav.active {
+#gnav.active {
   transform: none;
 }
 
@@ -644,6 +650,7 @@ input[type=submit] + label:hover::after {
 }
 
 .header {
+  display: none;
   position: fixed;
   left: 0;
   top: 0;
@@ -1512,35 +1519,60 @@ input[type=file] {
   }
 }
 
+.card.-faq .title {
+  position: relative;
+  margin-top: 15px;
+  padding: 0 0 0 25px;
+  font-size: 1.5rem;
+}
+
+.card.-faq .title::before {
+  position: absolute;
+  top: 5px;
+  left: 6px;
+  content: "";
+  width: 8px;
+  height: 14px;
+  border-bottom: 3px solid #FFD00C;
+  border-right: 3px solid #FFD00C;
+  transform: rotate(45deg);
+}
+
+.card.-faq .title + .question {
+  margin-top: 10px;
+}
+
 .card.-faq .question {
   position: relative;
   font-weight: 700;
-  padding-left: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
+  cursor: pointer;
 }
 
 .card.-faq .question::before {
   position: absolute;
-  top: 6px;
-  left: 6px;
+  top: 11px;
+  left: 12px;
   content: "";
   width: 6px;
   height: 10px;
-  border-bottom: 2px solid #333;
-  border-right: 2px solid #333;
-  transform: rotate(45deg);
-}
-
-.card.-faq .question + .answer {
-  margin-top: 0;
+  border-top: 2px solid #333;
 }
 
 .card.-faq .answer {
   display: none;
+  margin: 5px 0 10px 0;
   padding: 15px;
+  font-size: 1.3rem;
   background: #D6DADD;
 }
 
 .card.-faq .answer + .question {
+  margin-top: 5px;
+}
+
+.card.-faq .answer + .title {
   margin-top: 15px;
 }
 
@@ -1550,7 +1582,7 @@ input[type=file] {
 
 @media screen and (min-width: 992px) {
   .card.-policy {
-    padding: 20px 30px 30px;
+    padding: 30px;
   }
 }
 
@@ -1758,6 +1790,10 @@ input[type=file] {
   border-top: 30px solid #333;
   border-right: 55px solid transparent;
   border-left: 55px solid transparent;
+}
+
+#body {
+  display: none;
 }
 
 .disp-block {
@@ -2209,6 +2245,12 @@ input[type=file] {
   line-height: 1;
 }
 
+@media screen and (min-width: 992px) {
+  .review.-row_pc .review_cat {
+    padding-top: 3px;
+  }
+}
+
 .review.-row_pc .star_icons {
   padding-top: 5px;
 }
@@ -2307,8 +2349,9 @@ input[type=file] {
   bottom: 0;
   width: 20px;
   height: 20px;
-  border-top: 5px solid #FFD00C;
-  border-right: 5px solid #F25768;
+  border-top: 5px solid #808080;
+  border-right: 5px solid #808080;
+  box-shadow: 2px -2px 2px 0px #D6DADD;
 }
 
 .pro_img_wrap .arrow.-next {
@@ -2520,22 +2563,10 @@ input[type=file] {
   opacity: 0.8;
 }
 
-@media screen and (min-width: 992px) {
-  .list_items .list_left {
-    font-size: 1.5rem;
-  }
-}
-
 .list_items .list_right {
   margin: 0;
   padding-left: 5px;
   width: 55%;
-}
-
-@media screen and (min-width: 992px) {
-  .list_items .list_right {
-    font-size: 1.6rem;
-  }
 }
 
 .border_line {

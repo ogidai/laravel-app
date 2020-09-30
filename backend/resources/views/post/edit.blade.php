@@ -28,9 +28,52 @@
 
     <div class="wrapper -top">
 
-      @extends('layouts.gnav')
+      <nav id="gnav">
+          <div class="navBtn -back js-navBtnBack">
+              <span></span><span></span><span></span>
+          </div>
+          <ul class="gnav_list">
+              @auth
+              <li class="gnav_item">
+                  <p class="greeting">こんにちは！<span>{{Auth::user()->name}}</span>さん</p>
+                  <p class="auth_email">{{Auth::user()->email}}</p>
+              </li>
+              <li class="gnav_item">
+                <a href="{{ route('post') }}" class="arrow -next">レビューを投稿する</a>
+              </li>
+              <li class="gnav_item">
+                <a href="{{ route('your_post') }}" class="arrow -next">あなたの投稿</a>
+              </li>
+              <li class="gnav_item -margin">
+                <a href="{{ route('user') }}" class="arrow -next">ユーザー情報</a>
+              </li>
+              @endauth
+              <li class="gnav_item">
+                <a href="{{ ('/') }}" class="arrow -next">トップページへ</a>
+              </li>
+              <li class="gnav_item">
+                <a href="{{ route('faq') }}" class="arrow -next">よくある質問</a>
+              </li>
+              <li class="gnav_item">
+                  <a href="{{ route('contact') }}" class="arrow -next">お問い合わせ</a>
+              </li>
+              <li class="gnav_item">
+                  <a href="{{ route('policy') }}" class="arrow -next">利用規約・プライバシーポリシー</a>
+              </li>
+              <li class="gnav_item -sns">
+                  <a href="https://twitter.com/procomi2020"><img src="{{ asset('images/t_logo.svg') }}" alt=""></a>
+              </li>
+          </ul>
+          <footer class="footer -pc">
+              <div class="copyright">
+                <small>© 2020 プロコミ！</small>
+              </div>
+            </footer>
+      </nav>
 
-      @section('gnav')
+      <!-- @extends('layouts.gnav')
+
+      @section('gnav') -->
 
       <main class="main">
         <div class="inner">
@@ -54,7 +97,11 @@
                   <div class="add_image_input">
                     <input type="file" name="image_02" class="-secondary" id="addImages02" accept="image/*">
                     <figure>
+                      @if( is_null($items->read_temp_path_02) == false )
                       <img src="../../{{ $items->read_temp_path_02 }}" alt="" id="showImages02">
+                      @else
+                      <img src="" alt="" id="showImages02">
+                      @endif
                     </figure>
                     <p class="number">2</p>
                     <div class="delete -sm" id="delete01"></div>
@@ -62,7 +109,11 @@
                   <div class="add_image_input">
                     <input type="file" name="image_03" class="-secondary" id="addImages03" accept="image/*">
                     <figure>
+                      @if( is_null($items->read_temp_path_02) == false )
                       <img src="../../{{ $items->read_temp_path_03 }}" alt="" id="showImages03">
+                      @else
+                      <img src="" alt="" id="showImages03">
+                      @endif
                     </figure>
                     <p class="number">3</p>
                     <div class="delete -sm" id="delete02"></div>
@@ -91,11 +142,11 @@
               @enderror
               <div class="radio_wrap -hasStar star_icon_{{ $items->taste_good + 1 }}">
                 <p><span class="alert">＊</span>美味しさ（５段階評価）</p>
-                <input type="radio" name="taste_good" value="0" class="-secondary @error('taste_good') is-invalid @enderror" required id="taste_check_01" {{ $items->taste_good == "0" ? 'checked' : '' }}>
-                <input type="radio" name="taste_good" value="1" class="-secondary @error('taste_good') is-invalid @enderror" required id="taste_check_02" {{ $items->taste_good == "1" ? 'checked' : '' }}>
-                <input type="radio" name="taste_good" value="2" class="-secondary @error('taste_good') is-invalid @enderror" required id="taste_check_03" {{ $items->taste_good == "2" ? 'checked' : '' }}>
-                <input type="radio" name="taste_good" value="3" class="-secondary @error('taste_good') is-invalid @enderror" required id="taste_check_04" {{ $items->taste_good == "3" ? 'checked' : '' }}>
-                <input type="radio" name="taste_good" value="4" class="-secondary @error('taste_good') is-invalid @enderror" required id="taste_check_05" {{ $items->taste_good == "4" ? 'checked' : '' }}>
+                <input type="radio" name="taste_good" value="1" class="-secondary @error('taste_good') is-invalid @enderror" required id="taste_check_01" {{ $items->taste_good == "1" ? 'checked' : '' }}>
+                <input type="radio" name="taste_good" value="2" class="-secondary @error('taste_good') is-invalid @enderror" required id="taste_check_02" {{ $items->taste_good == "2" ? 'checked' : '' }}>
+                <input type="radio" name="taste_good" value="3" class="-secondary @error('taste_good') is-invalid @enderror" required id="taste_check_03" {{ $items->taste_good == "3" ? 'checked' : '' }}>
+                <input type="radio" name="taste_good" value="4" class="-secondary @error('taste_good') is-invalid @enderror" required id="taste_check_04" {{ $items->taste_good == "4" ? 'checked' : '' }}>
+                <input type="radio" name="taste_good" value="5" class="-secondary @error('taste_good') is-invalid @enderror" required id="taste_check_05" {{ $items->taste_good == "5" ? 'checked' : '' }}>
                 <div class="star_icons -lg">
                   <i class="star_icon">
                     <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
@@ -166,11 +217,11 @@
               @enderror
               <div class="radio_wrap -hasStar star_icon_{{ $items->cost_paf + 1 }}">
                 <p><span class="alert">＊</span>コスパ（５段階評価）</p>
-                <input type="radio" name="cost_paf" value="0" class="-secondary @error('cost_paf') is-invalid @enderror" required id="cost_check_01" {{ $items->cost_paf == "0" ? 'checked' : '' }}>
-                <input type="radio" name="cost_paf" value="1" class="-secondary @error('cost_paf') is-invalid @enderror" required id="cost_check_02" {{ $items->cost_paf == "1" ? 'checked' : '' }}>
-                <input type="radio" name="cost_paf" value="2" class="-secondary @error('cost_paf') is-invalid @enderror" required id="cost_check_03" {{ $items->cost_paf == "2" ? 'checked' : '' }}>
-                <input type="radio" name="cost_paf" value="3" class="-secondary @error('cost_paf') is-invalid @enderror" required id="cost_check_04" {{ $items->cost_paf == "3" ? 'checked' : '' }}>
-                <input type="radio" name="cost_paf" value="4" class="-secondary @error('cost_paf') is-invalid @enderror" required id="cost_check_05" {{ $items->cost_paf == "4" ? 'checked' : '' }}>
+                <input type="radio" name="cost_paf" value="1" class="-secondary @error('cost_paf') is-invalid @enderror" required id="cost_check_01" {{ $items->cost_paf == "1" ? 'checked' : '' }}>
+                <input type="radio" name="cost_paf" value="2" class="-secondary @error('cost_paf') is-invalid @enderror" required id="cost_check_02" {{ $items->cost_paf == "2" ? 'checked' : '' }}>
+                <input type="radio" name="cost_paf" value="3" class="-secondary @error('cost_paf') is-invalid @enderror" required id="cost_check_03" {{ $items->cost_paf == "3" ? 'checked' : '' }}>
+                <input type="radio" name="cost_paf" value="4" class="-secondary @error('cost_paf') is-invalid @enderror" required id="cost_check_04" {{ $items->cost_paf == "4" ? 'checked' : '' }}>
+                <input type="radio" name="cost_paf" value="5" class="-secondary @error('cost_paf') is-invalid @enderror" required id="cost_check_05" {{ $items->cost_paf == "5" ? 'checked' : '' }}>
                 <div class="star_icons -lg">
                   <i class="star_icon">
                     <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
@@ -241,11 +292,11 @@
               @enderror
               <div class="radio_wrap -hasStar star_icon_{{ $items->recomend + 1 }}">
                 <p><span class="alert">＊</span>おすすめ度（５段階評価）</p>
-                <input type="radio" name="recomend" value="0" class="-secondary @error('recomend') is-invalid @enderror" required id="recomend_check_01" {{ $items->recomend == "0" ? 'checked' : '' }}>
-                <input type="radio" name="recomend" value="1" class="-secondary @error('recomend') is-invalid @enderror" required id="recomend_check_02" {{ $items->recomend == "1" ? 'checked' : '' }}>
-                <input type="radio" name="recomend" value="2" class="-secondary @error('recomend') is-invalid @enderror" required id="recomend_check_03" {{ $items->recomend == "2" ? 'checked' : '' }}>
-                <input type="radio" name="recomend" value="3" class="-secondary @error('recomend') is-invalid @enderror" required id="recomend_check_04" {{ $items->recomend == "3" ? 'checked' : '' }}>
-                <input type="radio" name="recomend" value="4" class="-secondary @error('recomend') is-invalid @enderror" required id="recomend_check_05" {{ $items->recomend == "4" ? 'checked' : '' }}>
+                <input type="radio" name="recomend" value="1" class="-secondary @error('recomend') is-invalid @enderror" required id="recomend_check_01" {{ $items->recomend == "1" ? 'checked' : '' }}>
+                <input type="radio" name="recomend" value="2" class="-secondary @error('recomend') is-invalid @enderror" required id="recomend_check_02" {{ $items->recomend == "2" ? 'checked' : '' }}>
+                <input type="radio" name="recomend" value="3" class="-secondary @error('recomend') is-invalid @enderror" required id="recomend_check_03" {{ $items->recomend == "3" ? 'checked' : '' }}>
+                <input type="radio" name="recomend" value="4" class="-secondary @error('recomend') is-invalid @enderror" required id="recomend_check_04" {{ $items->recomend == "4" ? 'checked' : '' }}>
+                <input type="radio" name="recomend" value="5" class="-secondary @error('recomend') is-invalid @enderror" required id="recomend_check_05" {{ $items->recomend == "5" ? 'checked' : '' }}>
                 <div class="star_icons -lg">
                   <i class="star_icon">
                     <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
@@ -325,12 +376,11 @@
                 <p class="alert -top">＊半角数字のみ。単位は省略してください。</p>
               </div>
               <div class="radio_wrap">
-                <p>生産国は日本ですか？</p>
+                <p>製造は日本ですか？</p>
                 <input type="radio" name="made" value="0" class="-secondary @error('made') is-invalid @enderror" id="madejapan" {{ $items->made == "0" ? 'checked' : '' }}>
                 <label for="madejapan" class="label">はい</label>
                 <input type="radio" name="made" value="1" class="-secondary @error('made') is-invalid @enderror" id="madeother" {{ $items->made == "1" ? 'checked' : '' }}>
                 <label for="madeother" class="label">いいえ</label>
-                <!-- <input type="hidden" name="made" value="2" class="-secondary @error('made') is-invalid @enderror"  {{ $items->made == "2" ? 'checked' : '' }}> -->
               </div>
               @error('made')
               <span class="invalid-feedback" role="alert">
@@ -346,8 +396,7 @@
                 <input type="radio" name="type" value="2" class="-secondary @error('type') is-invalid @enderror" id="casein" {{ $items->type == "2" ? 'checked' : '' }}>
                 <label for="casein" class="label">カゼイン</label>
                 <input type="radio" name="type" value="3" class="-secondary @error('type') is-invalid @enderror" id="typeother" {{ $items->type == "3" ? 'checked' : '' }}>
-                <label for="typeother" class="label">わからん</label>
-                <!-- <input type="hidden" name="type" value="4" class="-secondary @error('type') is-invalid @enderror" {{ $items->type == "4" ? 'checked' : '' }}> -->
+                <label for="typeother" class="label">その他</label>
               </div>
               @error('type')
               <span class="invalid-feedback" role="alert">
