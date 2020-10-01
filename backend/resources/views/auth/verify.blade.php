@@ -54,7 +54,7 @@
           </ul>
           <footer class="footer -pc">
               <div class="copyright">
-                <small>© 2020 ProHika</small>
+                <small>© 2020 プロコミ！</small>
               </div>
             </footer>
       </nav>

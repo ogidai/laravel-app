@@ -7,7 +7,7 @@
     <header class="header">
       <div class="contentInner">
         <div class="logo">
-          <a href="#">
+          <a href="{{ ('/') }}">
             <img src="{{ asset('images/logo.png') }}" alt="">
           </a>
         </div>
