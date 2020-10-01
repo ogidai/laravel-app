@@ -179,9 +179,12 @@
       }
     }
     & + .btnWrap {
-      margin: 0 auto 100px;;
+      margin: 30px auto 100px;
       width: calc(100% - 30px);
       max-width: 800px;
+      @include mq {
+        margin-top: 60px;
+      }
     }
     &.-confirm {
       max-height: 50vh;

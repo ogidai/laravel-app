@@ -1680,9 +1680,15 @@ input[type=file] {
 }
 
 .card.-policy + .btnWrap {
-  margin: 0 auto 100px;
+  margin: 30px auto 100px;
   width: calc(100% - 30px);
   max-width: 800px;
+}
+
+@media screen and (min-width: 992px) {
+  .card.-policy + .btnWrap {
+    margin-top: 60px;
+  }
 }
 
 .card.-policy.-confirm {
@@ -2028,7 +2034,7 @@ input[type=file] {
 
 .options .options_title {
   display: block;
-  padding: 15px 30px 10px 15px;
+  padding: 15px 30px 14px 15px;
   line-height: 1;
   font-size: 1.3rem;
   font-weight: 700;
