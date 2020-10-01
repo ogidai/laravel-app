@@ -9,7 +9,7 @@
     プロテインの購入の参考や、お気に入りのプロテインをレビューしてみんなでシェアすることができます！">
   	<meta property="og:title" content="プロコミ！">
   	<meta property="og:type" content="website">
-  	<meta property="og:url" content="https://example.com/">
+  	<meta property="og:url" content="https://procomi.herokuapp.com/">
   	<meta property="og:image" content="{{ asset('images/catch.png') }}">
   	<meta property="og:site_name" content="プロコミ！">
   	<meta property="og:description" content="広告なしで安心のプロテイン口コミサイト「プロコミ！」　
@@ -21,7 +21,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'プロコミ！') }}</title>
+    <title>プロコミ！</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app_min.css') }}" rel="stylesheet">
