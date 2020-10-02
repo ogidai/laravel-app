@@ -15,6 +15,7 @@
   	<meta property="og:description" content="広告なしで安心のプロテイン口コミサイト「プロコミ！」　
     プロテインの購入の参考や、お気に入りのプロテインをレビューしてみんなでシェアすることができます！">
   	<meta name="twitter:card" content="summary_large_image">
+    <link rel="apple-touch-icon" href="https://procomi.herokuapp.com/images/icon_square.png">
 
     <link rel="icon" href="{{ asset('images/favicon.ico') }}">
 
