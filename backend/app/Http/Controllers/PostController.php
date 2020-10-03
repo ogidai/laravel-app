@@ -8,6 +8,7 @@ use App\Http\Requests\StorePostForm;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Post;
+use Storage;
 
 class PostController extends Controller
 {
@@ -22,15 +23,30 @@ class PostController extends Controller
       $items = Post::with('user')->where('user_id', $authUser)
       ->orderBy('updated_at', 'desc')
       ->paginate(10);
-      // ->get();
-      // dd($items);
+
+
+      // $path_01 = Storage::disk('s3')->url($items->img_01);
+
       return view('post.index', compact('items'));
     }
 
     public function show(Request $request, $id, Post $item) {
     	$items = Post::find($id);
+      $path_01 = Storage::disk('s3')->url($items->img_01);
 
-    	return view('post.show', compact('items'));
+      if (is_null($items->img_02) == true) {
+        $path_02 = $items->img_02;
+      } else {
+        $path_02 = Storage::disk('s3')->url($items->img_02);
+      }
+
+      if (is_null($items->img_03) == true) {
+        $path_03 = $items->img_03;
+      } else {
+        $path_03 = Storage::disk('s3')->url($items->img_03);
+      }
+
+    	return view('post.show', compact('items', 'path_01', 'path_02', 'path_03'));
     }
 
     public function create()  {
@@ -39,7 +55,22 @@ class PostController extends Controller
 
     public function edit(Request $request)  {
       $items = Post::find($request->id);
-      return view('post.edit', compact('items'));
+
+      $path_01 = Storage::disk('s3')->url($items->img_01);
+
+      if (is_null($items->img_02) == true) {
+        $path_02 = $items->img_02;
+      } else {
+        $path_02 = Storage::disk('s3')->url($items->img_02);
+      }
+
+      if (is_null($items->img_03) == true) {
+        $path_03 = $items->img_03;
+      } else {
+        $path_03 = Storage::disk('s3')->url($items->img_03);
+      }
+
+      return view('post.edit', compact('items', 'path_01', 'path_02', 'path_03'));
     }
 
     public function update(StorePostForm $request, $id) {
@@ -50,112 +81,149 @@ class PostController extends Controller
         $post_data = $request->except('image_01', 'image_02', 'image_03');
         unset($post_data['_token']);
 
+
         $imagefile_01 = $request->file('image_01');
         $imagefile_02 = $request->file('image_02');
         $imagefile_03 = $request->file('image_03');
 
-        $img_old_path_01 = $post->temp_path_01;
-        $img_old_path_02 = $post->temp_path_02;
-        $img_old_path_03 = $post->temp_path_03;
+
+        $old_path_01 = $post->img_01;
+        $old_path_02 = $post->img_02;
+        $old_path_03 = $post->img_03;
+
 
         if ( is_null($imagefile_01) == true ) {
-          $temp_path_01 = $img_old_path_01;
-          $read_temp_path_01 = str_replace('public/', 'storage/', $temp_path_01);
+          $path_01 = $old_path_01;
         } else {
-          $temp_path_01 = $imagefile_01->store('public/temp');
-          $read_temp_path_01 = str_replace('public/', 'storage/', $temp_path_01);
+          Storage::disk('s3')->delete($old_path_01, 'public');
+          $path_01 = Storage::disk('s3')->putFile('/post_image_01',$imagefile_01, 'public');
         }
 
 
+        // img_02,03に変化なし = nullが返ってくる。
         if ($request->submit == 'submit') {
 
-          if( is_null($img_old_path_02) == true ) {
-              $temp_path_02 = $imagefile_02;
-              $read_temp_path_02 = $temp_path_02;
+          // 過去の画像があるか判断。ある場合は$path_01にいれる。ない場合はnullをいれる。
+          if( is_null($old_path_02) == true ) {
+              $path_02 = $imagefile_02;
             } else {
-              $temp_path_02 = $img_old_path_02;
-              $read_temp_path_02 = str_replace('public/', 'storage/', $temp_path_02);
+              $path_02 = $old_path_02;
             }
-          if( is_null($img_old_path_03) == true ) {
-              $temp_path_03 = $imagefile_03;
-              $read_temp_path_03 = $temp_path_03;
+          if( is_null($old_path_03) == true ) {
+              $path_03 = $imagefile_03;
             } else {
-              $temp_path_03 = $img_old_path_03;
-              $read_temp_path_03 = str_replace('public/', 'storage/', $temp_path_03);
+              $path_03 = $old_path_03;
             }
 
         }
 
 
+        // img_02のみに変更があった場合。
         if ($request->submit == 'img_changed_02') {
 
+          // もしnullだったら => 画像を削除した
           if ( is_null($imagefile_02) == true ) {
-            $temp_path_02 = $imagefile_02;
-            $read_temp_path_02 = $temp_path_02;
+
+            Storage::disk('s3')->delete($old_path_02, 'public');
+            $path_02 = $imagefile_02;
+
+            // 画像を変更した or 画像を追加した。
           } else {
-            $temp_path_02 = $imagefile_02->store('public/temp');
-            $read_temp_path_02 = str_replace('public/', 'storage/', $temp_path_02);
-          }
 
-        }
-        else {
-
-          if( is_null($img_old_path_02) == true ) {
-            $temp_path_02 = $imagefile_02;
-            $read_temp_path_02 = $temp_path_02;
-          } else {
-            $temp_path_02 = $img_old_path_02;
-            $read_temp_path_02 = str_replace('public/', 'storage/', $temp_path_02);
-          }
-
-        }
-
-
-        if ($request->submit == 'img_changed_03') {
-
-          if ( is_null($imagefile_03) == true ) {
-            $temp_path_03 = $imagefile_03;
-            $read_temp_path_03 = $temp_path_03;
-          } else {
-            $temp_path_03 = $imagefile_03->store('public/temp');
-            $read_temp_path_03 = str_replace('public/', 'storage/', $temp_path_03);
-          }
-
-        }
-        else {
-
-            if( is_null($img_old_path_03) == true ) {
-              $temp_path_03 = $imagefile_03;
-              $read_temp_path_03 = $temp_path_03;
+            if ( is_null($old_path_02) == true ) {
+              $path_02 = Storage::disk('s3')->putFile('/post_image_02',$imagefile_02, 'public');
             } else {
-              $temp_path_03 = $img_old_path_03;
-              $read_temp_path_03 = str_replace('public/', 'storage/', $temp_path_03);
+              Storage::disk('s3')->delete($old_path_02, 'public');
+              $path_02 = Storage::disk('s3')->putFile('/post_image_02',$imagefile_02, 'public');
             }
 
+          }
+
+          // img_03は変更なし。過去の画像があればそれを保存。
+          if( is_null($old_path_03) == true ) {
+              $path_03 = $imagefile_03;
+            } else {
+              $path_03 = $old_path_03;
+            }
+
+
         }
 
 
+        // img_03のみに変更があった場合。
+        if ($request->submit == 'img_changed_03') {
 
+          // もしnullだったら => 画像を削除した
+          if ( is_null($imagefile_03) == true ) {
+
+            Storage::disk('s3')->delete($old_path_03, 'public');
+            $path_03 = $imagefile_03;
+
+            // 画像を変更した or 画像を追加した。
+          } else {
+
+            if ( is_null($old_path_03) == true ) {
+              $path_03 = Storage::disk('s3')->putFile('/post_image_03',$imagefile_03, 'public');
+            } else {
+              Storage::disk('s3')->delete($old_path_03, 'public');
+              $path_03 = Storage::disk('s3')->putFile('/post_image_03',$imagefile_03, 'public');
+            }
+
+          }
+
+          // img_02は変更なし。過去の画像があればそれを保存。
+          if( is_null($old_path_02) == true ) {
+              $path_02 = $imagefile_02;
+            } else {
+              $path_02 = $old_path_02;
+            }
+
+
+        }
+
+
+        // img_02,03どちらともに変更があった場合
         if ($request->submit == 'img_changed') {
 
+
+          // もしimg_02がnullだったら => 画像を削除した
           if ( is_null($imagefile_02) == true ) {
-            $temp_path_02 = $imagefile_02;
-            $read_temp_path_02 = $temp_path_02;
+
+            Storage::disk('s3')->delete($old_path_02, 'public');
+            $path_02 = $imagefile_02;
+
+            // 画像を変更した or 画像を追加した。
           } else {
-            $temp_path_02 = $imagefile_02->store('public/temp');
-            $read_temp_path_02 = str_replace('public/', 'storage/', $temp_path_02);
+
+            if ( is_null($old_path_02) == true ) {
+              $path_02 = Storage::disk('s3')->putFile('/post_image_02',$imagefile_02, 'public');
+            } else {
+              Storage::disk('s3')->delete($old_path_02, 'public');
+              $path_02 = Storage::disk('s3')->putFile('/post_image_02',$imagefile_02, 'public');
+            }
+
           }
 
+          // もしimg_03がnullだったら => 画像を削除した
           if ( is_null($imagefile_03) == true ) {
-            $temp_path_03 = $imagefile_03;
-            $read_temp_path_03 = $temp_path_03;
+
+            Storage::disk('s3')->delete($old_path_03, 'public');
+            $path_03 = $imagefile_03;
+
+            // 画像を変更した or 画像を追加した。
           } else {
-            $temp_path_03 = $imagefile_03->store('public/temp');
-            $read_temp_path_03 = str_replace('public/', 'storage/', $temp_path_03);
+
+            if ( is_null($old_path_03) == true ) {
+              $path_03 = Storage::disk('s3')->putFile('/post_image_03',$imagefile_03, 'public');
+            } else {
+              Storage::disk('s3')->delete($old_path_03, 'public');
+              $path_03 = Storage::disk('s3')->putFile('/post_image_03',$imagefile_03, 'public');
+            }
+
           }
 
 
-        }  
+        }
 
 
         $id = $post_data['id'];
@@ -189,12 +257,9 @@ class PostController extends Controller
 
         $post->id = $id;
         $post->user_id = $user_id;
-        $post->temp_path_01 = $temp_path_01;
-        $post->temp_path_02 = $temp_path_02;
-        $post->temp_path_03 = $temp_path_03;
-        $post->read_temp_path_01 = $read_temp_path_01;
-        $post->read_temp_path_02 = $read_temp_path_02;
-        $post->read_temp_path_03 = $read_temp_path_03;
+        $post->img_01 = $path_01;
+        $post->img_02 = $path_02;
+        $post->img_03 = $path_03;
         $post->pro_name = $pro_name;
         $post->flavor = $flavor;
         $post->weight = $weight;
@@ -218,6 +283,15 @@ class PostController extends Controller
 
     public function destroy(Request $request) {
       $post = Post::find($request->id);
+
+      Storage::disk('s3')->delete($post->img_01, 'public');
+
+      if (is_null($post->img_02) == false ) {
+        Storage::disk('s3')->delete($post->img_02, 'public');
+      }
+      if (is_null($post->img_03) == false ) {
+        Storage::disk('s3')->delete($post->img_03, 'public');
+      }
       $post->delete();
 
       return redirect('post/index');
@@ -233,23 +307,18 @@ class PostController extends Controller
       $imagefile_02 = $request->file('image_02');
       $imagefile_03 = $request->file('image_03');
 
-      $temp_path_01 = $imagefile_01->store('public/temp');
-      $read_temp_path_01 = str_replace('public/', 'storage/', $temp_path_01);
+      $path_01 = Storage::disk('s3')->putFile('/post_image_01',$imagefile_01, 'public');
 
       if (is_null($imagefile_02) == true) {
-        $temp_path_02 = $imagefile_02;
-        $read_temp_path_02 = $temp_path_02;
+        $path_02 = $imagefile_02;
       } else {
-        $temp_path_02 = $imagefile_02->store('public/temp');
-        $read_temp_path_02 = str_replace('public/', 'storage/', $temp_path_02);
+        $path_02 = Storage::disk('s3')->putFile('/post_image_02',$imagefile_02, 'public');
       }
 
       if (is_null($imagefile_03) == true) {
-        $temp_path_03 = $imagefile_03;
-        $read_temp_path_03 = $temp_path_03;
+        $path_03 = $imagefile_03;
       } else {
-        $temp_path_03 = $imagefile_03->store('public/temp');
-        $read_temp_path_03 = str_replace('public/', 'storage/', $temp_path_03);
+        $path_03 = Storage::disk('s3')->putFile('/post_image_03',$imagefile_03, 'public');
       }
 
 
@@ -280,12 +349,9 @@ class PostController extends Controller
       }
 
       $post->user_id = $user_id;
-      $post->temp_path_01 = $temp_path_01;
-      $post->temp_path_02 = $temp_path_02;
-      $post->temp_path_03 = $temp_path_03;
-      $post->read_temp_path_01 = $read_temp_path_01;
-      $post->read_temp_path_02 = $read_temp_path_02;
-      $post->read_temp_path_03 = $read_temp_path_03;
+      $post->img_01 = $path_01;
+      $post->img_02 = $path_02;
+      $post->img_03 = $path_03;
       $post->pro_name = $pro_name;
       $post->flavor = $flavor;
       $post->weight = $weight;

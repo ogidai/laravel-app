@@ -31,9 +31,20 @@
 
 <body id="body">
 
+    <div id="loading">
+      <figure class="loading_logo">
+        <img src="{{ asset('images/logo.png') }}" alt="プロコミ！">
+      </figure>
+      <figure class="loading_icon">
+        <img src="{{ asset('images/load.gif') }}" alt="loadeing">
+      </figure>
+    </div>
+    <div id="body_hidden">
 
     @yield('content')
     @auth
+
+  </div>
     <div class="modal js-logoutModal">
       <p class="text">ログアウトしてもよろしいですか？</p>
       <div class="btnWrap">
@@ -44,13 +55,6 @@
       <form id="logout-form" action="{{ route('logout') }}" method="POST" class="">
         @csrf
       </form>
-    </div>
-    <div class="modal js-deleteAccountModal">
-      <p class="text">この操作は戻せません。<br>本当に退会しますか？</p>
-      <div class="btnWrap">
-        <a href="{{ action('Admin\UserController@destroy')}}" class="btn -primary">はい</a>
-        <span class="btn js-deleteAccountModalBack">いいえ</span>
-      </div>
     </div>
     @endauth
     <footer class="footer -sp">

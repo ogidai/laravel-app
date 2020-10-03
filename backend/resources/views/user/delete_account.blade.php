@@ -84,6 +84,13 @@
             <a class="btn -full" href="{{ route('user') }}">いいえ</a>
           </div>
         </div>
+        <div class="modal js-deleteAccountModal">
+          <p class="text">この操作は戻せません。<br>本当に退会しますか？</p>
+          <div class="btnWrap">
+            <a href="{{ action('Admin\UserController@destroy')}}" class="btn -primary">はい</a>
+            <span class="btn js-deleteAccountModalBack">いいえ</span>
+          </div>
+        </div>
       </main>
 
 @endsection

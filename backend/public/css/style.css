@@ -1,5 +1,36 @@
 @charset "UTF-8";
 
+#body_hidden {
+  display: none;
+}
+
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 1000000000;
+}
+
+.loading_logo {
+  width: 80%;
+  max-width: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -150%);
+}
+
+.loading_icon {
+  width: 80px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 /* setting ------------------ */
 
 /* -------------------------- */
@@ -550,6 +581,7 @@ input[type=submit] + label:hover::after {
 }
 
 #gnav {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -650,7 +682,6 @@ input[type=submit] + label:hover::after {
 }
 
 .header {
-  display: none;
   position: fixed;
   left: 0;
   top: 0;
@@ -1796,10 +1827,6 @@ input[type=file] {
   border-top: 30px solid #333;
   border-right: 55px solid transparent;
   border-left: 55px solid transparent;
-}
-
-#body {
-  display: none;
 }
 
 .disp-block {

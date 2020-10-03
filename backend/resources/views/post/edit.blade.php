@@ -90,15 +90,15 @@
                   <div class="add_image_input">
                     <input type="file" name="image_01" class="-secondary" id="addImages01" accept="image/*">
                     <figure>
-                      <img src="../../{{ $items->read_temp_path_01 }}" alt="" id="showImages01">
+                      <img src="{{ $path_01 }}" alt="" id="showImages01">
                     </figure>
                     <p class="number">1</p>
                   </div>
                   <div class="add_image_input">
                     <input type="file" name="image_02" class="-secondary" id="addImages02" accept="image/*">
                     <figure>
-                      @if( is_null($items->read_temp_path_02) == false )
-                      <img src="../../{{ $items->read_temp_path_02 }}" alt="" id="showImages02">
+                      @if( is_null($path_02) == false )
+                      <img src="{{ $path_02 }}" alt="" id="showImages02">
                       @else
                       <img src="" alt="" id="showImages02">
                       @endif
@@ -109,8 +109,8 @@
                   <div class="add_image_input">
                     <input type="file" name="image_03" class="-secondary" id="addImages03" accept="image/*">
                     <figure>
-                      @if( is_null($items->read_temp_path_02) == false )
-                      <img src="../../{{ $items->read_temp_path_03 }}" alt="" id="showImages03">
+                      @if( is_null($path_02) == false )
+                      <img src="{{ $path_03 }}" alt="" id="showImages03">
                       @else
                       <img src="" alt="" id="showImages03">
                       @endif

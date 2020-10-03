@@ -96,72 +96,72 @@
             @endif
           </span></h2>
           <div class="pro_img_wrap
-            @if (  is_null($items->read_temp_path_02) != true && is_null($items->read_temp_path_03) != false  )
+            @if (  is_null($path_02) == false && is_null($path_03) == true  )
             pro_img_2
             @endif
-            @if (  is_null($items->read_temp_path_02 ) != false && is_null($items->read_temp_path_03) != true  )
+            @if (  is_null($path_02 ) == true && is_null($path_03) == false  )
             pro_img_2
             @endif
-            @if (  is_null($items->read_temp_path_02 ) != true && is_null($items->read_temp_path_03) != true  )
+            @if (  is_null($path_02 ) == false && is_null($path_03) == false  )
             pro_img_3
             @endif
           ">
             <div class="img_outer">
               <figure>
-                <img src="../../{{$items->read_temp_path_01}}" alt="">
+                <img src="{{$path_01}}" alt="">
               </figure>
-              @if (  is_null($items->read_temp_path_02) != true && is_null($items->read_temp_path_03) != false  )
+              @if (  is_null($path_02) == false && is_null($path_03) == true  )
               <div class="arrow -next js-arrow -tab"></div>
               <div class="arrow -prev js-arrow -tab"></div>
               @endif
-              @if (  is_null($items->read_temp_path_02 ) != false && is_null($items->read_temp_path_03) != true  )
+              @if (  is_null($path_02 ) == true && is_null($path_03) == false  )
               <div class="arrow -next js-arrow -tab"></div>
               <div class="arrow -prev js-arrow -tab"></div>
               @endif
-              @if (  is_null($items->read_temp_path_02 ) != true && is_null($items->read_temp_path_03) != true  )
+              @if (  is_null($path_02 ) == false && is_null($path_03) == false  )
               <div class="arrow -next js-arrowTransN -tab"></div>
               <div class="arrow -prev js-arrowTransM -tab"></div>
               @endif
               <div class="number">1</div>
             </div>
-            @if ( is_null($items->read_temp_path_02) != true )
+            @if ( is_null($path_02) == false )
             <div class="img_outer">
               <figure>
-                <img src="../../{{$items->read_temp_path_02}}" alt="">
+                <img src="{{$path_02}}" alt="">
               </figure>
-              @if (  is_null($items->read_temp_path_02) != true && is_null($items->read_temp_path_03) != false  )
+              @if (  is_null($path_02) == false && is_null($path_03) == true  )
               <div class="arrow -next js-arrow -tab"></div>
               <div class="arrow -prev js-arrow -tab"></div>
               <div class="number">2</div>
               @endif
-              @if (  is_null($items->read_temp_path_02 ) != false && is_null($items->read_temp_path_03) != true  )
+              @if (  is_null($path_02 ) == true && is_null($path_03) == false  )
               <div class="arrow -next js-arrow -tab"></div>
               <div class="arrow -prev js-arrow -tab"></div>
               <div class="number">2</div>
               @endif
-              @if (  is_null($items->read_temp_path_02 ) != true && is_null($items->read_temp_path_03) != true  )
+              @if (  is_null($path_02 ) == false && is_null($path_03) == false  )
               <div class="arrow -next js-arrowTransM -tab"></div>
               <div class="arrow -prev js-arrowTransP -tab"></div>
               <div class="number">2</div>
               @endif
             </div>
             @endif
-            @if ( is_null($items->read_temp_path_03) != true )
+            @if ( is_null($path_03) == false )
             <div class="img_outer">
               <figure>
-                <img src="../../{{$items->read_temp_path_03}}" alt="">
+                <img src="{{$path_03}}" alt="">
               </figure>
-              @if (  is_null($items->read_temp_path_02) != true && is_null($items->read_temp_path_03) != false  )
+              @if (  is_null($path_02) == false && is_null($path_03) == true  )
               <div class="arrow -next js-arrow -tab"></div>
               <div class="arrow -prev js-arrow -tab"></div>
               <div class="number">2</div>
               @endif
-              @if (  is_null($items->read_temp_path_02 ) != false && is_null($items->read_temp_path_03) != true  )
+              @if (  is_null($path_02 ) == true && is_null($path_03) == false  )
               <div class="arrow -next js-arrow -tab"></div>
               <div class="arrow -prev js-arrow -tab"></div>
               <div class="number">2</div>
               @endif
-              @if (  is_null($items->read_temp_path_02 ) != true && is_null($items->read_temp_path_03) != true  )
+              @if (  is_null($path_02 ) == false && is_null($path_03) == false  )
               <div class="arrow -next js-arrowTransP -tab"></div>
               <div class="arrow -prev js-arrowTransN -tab"></div>
               <div class="number">3</div>

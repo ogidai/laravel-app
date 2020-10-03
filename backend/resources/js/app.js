@@ -1,8 +1,13 @@
 
   $(window).on('load', function () {
-    $('#gnav').fadeIn(100);
-    $('#body').fadeIn(100);
-    $('.header').fadeIn(100);
+    $('#body_hidden').fadeIn(1000);
+    $('#gnav').fadeIn(1000);
+    $('#loading').fadeOut(1000);
+
+    $('a, input[type=submit]').on('click', function() {
+      $('#body_hidden').addClass('-hidden').delay(3000).removeClass('-hidden');
+      $('#loading').fadeIn(0).delay(3000).fadeOut(0);
+    })
 
     // spハンバーガーメニューのクリックイベント
     $('.js-navBtnActive').click(function() {
@@ -114,7 +119,8 @@
       $("#showImages02").attr('src', e.target.result);
     }
     reader.readAsDataURL(e.target.files[0]);
-    $("#submit").addClass('img_change_02');
+    $("#submit").addClass('img_changed_02');
+    $("#delete01").removeClass('-hidden');
   });
   $(document).on('change', '#addImages03', function (e) {
     var reader = new FileReader();
@@ -122,7 +128,8 @@
       $("#showImages03").attr('src', e.target.result);
     }
     reader.readAsDataURL(e.target.files[0]);
-    $("#submit").addClass('img_change_03');
+    $("#submit").addClass('img_changed_03');
+    $("#delete02").removeClass('-hidden');
   });
   $(document).on('click', '#delete01', function() {
     $("#addImages02").addClass('delete_input_02');
@@ -131,7 +138,8 @@
     $("#showImages02").after('<img src="" alt="" id="showImages02">');
     $('.delete_input_02').remove();
     $('.delete_img_02').remove();
-    $("#submit").addClass('img_change_02');
+    $("#submit").addClass('img_changed_02');
+    $("#delete01").addClass('-hidden');
   });
   $(document).on('click', '#delete02', function() {
     $("#addImages03").addClass('delete_input_03');
@@ -140,19 +148,32 @@
     $("#showImages03").after('<img src="" alt="" id="showImages03">');
     $('.delete_input_03').remove();
     $('.delete_img_03').remove();
-    $("#submit").addClass('img_change_03');
+    $("#submit").addClass('img_changed_03');
+    $("#delete02").addClass('-hidden');
   });
   $(document).on('click', '#submit', function() {
-    if ($(this).hasClass('img_change_02')) {
+    if ($(this).hasClass('img_changed_02')) {
       $(this).val('img_changed_02');
     }
-    if ($(this).hasClass('img_change_03')) {
+    if ($(this).hasClass('img_changed_03')) {
       $(this).val('img_changed_03');
     }
-    if ($(this).hasClass('img_change_02') && $(this).hasClass('img_change_03')) {
+    if ($(this).hasClass('img_changed_02') && $(this).hasClass('img_changed_03')) {
       $(this).val('img_changed');
     }
   });
+  if ( ($("#showImages02").attr('src')) == '' ) {
+    $("#delete01").addClass('-hidden');
+  } else {
+    $("#delete01").removeClass('-hidden');
+  }
+  if ( ($("#showImages03").attr('src')) == '' ) {
+    $("#delete02").addClass('-hidden');
+  } else {
+    $("#delete02").removeClass('-hidden');
+  }
+
+
 
 
   //faq

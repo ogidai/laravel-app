@@ -1,5 +1,33 @@
 @charset "utf-8";
 
+#body_hidden {
+  display: none;
+}
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 1000000000;
+}
+.loading_logo {
+  width: 80%;
+  max-width: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -150%);
+}
+.loading_icon {
+  width: 80px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 // ==========================================================================
 // Import Modules
 // ==========================================================================
@@ -28,9 +56,6 @@
 
 //------------------------------------
 
-#body {
-  display: none;
-}
 
 .disp-block {
   display: block;

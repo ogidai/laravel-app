@@ -7,7 +7,7 @@
     <header class="header">
       <div class="contentInner">
         <div class="logo">
-          <a href="#">
+          <a href="{{ ('/') }}">
             <img src="{{ asset('images/logo.png') }}" alt="">
           </a>
         </div>
@@ -440,7 +440,7 @@
               <div class="pro_item_left">
                 <div class="img_outer">
                   <figure>
-                    <img src="../{{$item->read_temp_path_01}}" alt="">
+                    <img src="{{ Storage::disk('s3')->url($item->img_01)}}" alt="">
                   </figure>
                 </div>
               </div>
