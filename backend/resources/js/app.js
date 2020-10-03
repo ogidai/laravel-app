@@ -1,4 +1,3 @@
-
   $(window).on('load', function () {
     $('#body_hidden').fadeIn(1000);
     $('#gnav').fadeIn(1000);
@@ -7,7 +6,7 @@
     $('a, input[type=submit]').on('click', function() {
       $('#body_hidden').addClass('-hidden').delay(3000).removeClass('-hidden');
       $('#loading').fadeIn(0).delay(3000).fadeOut(0);
-    })
+    });
 
     // spハンバーガーメニューのクリックイベント
     $('.js-navBtnActive').click(function() {
@@ -102,7 +101,7 @@
   var contentHeight = winHeight - containerHeight;
   if (contentHeight > 0) {
     $('footer').css({'position':'fixed','bottom':'0','left':'0'});
-  }
+  };
 
 
 // 画像の追加
@@ -110,14 +109,14 @@
     var reader = new FileReader();
     reader.onload = function (e) {
       $("#showImages01").attr('src', e.target.result);
-    }
+    };
     reader.readAsDataURL(e.target.files[0]);
   });
   $(document).on('change', '#addImages02', function (e) {
     var reader = new FileReader();
     reader.onload = function (e) {
       $("#showImages02").attr('src', e.target.result);
-    }
+    };
     reader.readAsDataURL(e.target.files[0]);
     $("#submit").addClass('img_changed_02');
     $("#delete01").removeClass('-hidden');
@@ -126,7 +125,7 @@
     var reader = new FileReader();
     reader.onload = function (e) {
       $("#showImages03").attr('src', e.target.result);
-    }
+    };
     reader.readAsDataURL(e.target.files[0]);
     $("#submit").addClass('img_changed_03');
     $("#delete02").removeClass('-hidden');
@@ -171,7 +170,7 @@
     $("#delete02").addClass('-hidden');
   } else {
     $("#delete02").removeClass('-hidden');
-  }
+  };
 
 
 
@@ -179,7 +178,7 @@
   //faq
   $('.question').on('click', function() {
     $(this).next('.answer').slideToggle();
-  })
+  });
 
 
   // 画像のスライダー

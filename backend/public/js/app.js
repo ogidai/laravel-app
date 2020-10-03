@@ -196,8 +196,9 @@ $(window).on('load', function () {
       'bottom': '0',
       'left': '0'
     });
-  } // 画像の追加
+  }
 
+  ; // 画像の追加
 
   $(document).on('change', '#addImages01', function (e) {
     var reader = new FileReader();
@@ -274,8 +275,9 @@ $(window).on('load', function () {
     $("#delete02").addClass('-hidden');
   } else {
     $("#delete02").removeClass('-hidden');
-  } //faq
+  }
 
+  ; //faq
 
   $('.question').on('click', function () {
     $(this).next('.answer').slideToggle();
