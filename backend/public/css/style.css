@@ -2528,7 +2528,7 @@ input[type=file] {
 .list_items .list_item {
   display: -ms-flex;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   padding: 15px 0 5px;
   border-bottom: 1px solid #808080;
 }
