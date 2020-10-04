@@ -79,14 +79,7 @@
 
 
   <main class="main">
-    @guest
-    <div class="card">
-      <p class="catch">会員になってプロテインのレビューを書きませんか？</p>
-      <div class="btnWrap -margin">
-        <a href="{{route('register')}}" class="btn -full -primary">新規登録！</a>
-      </div>
-    </div>
-    @endguest
+
     <div class="card">
 
       <div class="pro_detail">
@@ -524,6 +517,14 @@
           </ul>
       </div>
   </div>
+  @guest
+  <div class="card">
+    <p class="catch">最短30秒で登録完了！会員になるとプロテインのレビューを投稿できるようになります👍</p>
+    <div class="btnWrap -margin">
+      <a href="{{route('register')}}" class="btn -full -primary">新規会員登録！</a>
+    </div>
+  </div>
+  @endguest
   @auth
   <div class="card">
     <p class="catch">たった１分でレビューを投稿できます！</p>

@@ -1903,7 +1903,7 @@ input[type=file] {
 
 .inner.-top {
   padding: 20px 15px;
-  border-bottom: 1px solid #D6DADD;
+  border-top: 1px solid #D6DADD;
 }
 
 .inner.-post {
