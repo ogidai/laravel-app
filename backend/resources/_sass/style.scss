@@ -46,7 +46,6 @@
 @import "05_objects/gnav";
 @import "05_objects/header";
 @import "05_objects/forms";
-@import "05_objects/pagenation";
 
 @import "06_components/button";
 @import "06_components/card";
@@ -652,6 +651,11 @@
       line-height: 1;
     }
   }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
 }
 
 .img_outer {
@@ -680,6 +684,11 @@
     height: 100%;
     pointer-events: none;
     background-color: $color-base;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 }
 
