@@ -121,32 +121,26 @@
                 </div>
               </div>
               @error('image_01')
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
+                <p class="alert -margin_bottom">{{ $message }}</p>
               @enderror
 
               <label for="pro_name" class="label -margin"><span class="alert">＊</span>商品名</label>
-              <input type="text" name="pro_name" class="-secondary @error('pro_name') is-invalid @enderror" required placeholder="プロヒカマッスルプロテイン" id="pro_name" value="{{ $items->pro_name }}">
+              <input type="text" name="pro_name" class="-secondary @error('pro_name') is-invalid @enderror" placeholder="プロヒカマッスルプロテイン" id="pro_name" value="@if( is_null(old('pro_name')) == false){{ old('pro_name') }}@else{{ $items->pro_name }}@endif">
               @error('pro_name')
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
+                <p class="alert -top">{{ $message }}</p>
               @enderror
               <label for="flavor" class="label"><span class="alert">＊</span>プロテインの味</label>
-              <input type="text" name="flavor" class="-secondary @error('flavor') is-invalid @enderror" required placeholder="チョコレート" id="flavor" value="{{ $items->flavor }}">
+              <input type="text" name="flavor" class="-secondary @error('flavor') is-invalid @enderror" placeholder="チョコレート" id="flavor" value="@if( is_null(old('flavor')) == false ){{ old('flavor') }}@else{{ $items->flavor }}@endif">
               @error('flavor')
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
+                <p class="alert -top">{{ $message }}</p>
               @enderror
-              <div class="radio_wrap -hasStar star_icon_{{ $items->taste_good + 1 }}">
+              <div class="radio_wrap -hasStar @if( is_null(old('taste_good')) == false )star_icon_{{ old('taste_good') }}@else star_icon_{{ $items->taste_good }}@endif">
                 <p><span class="alert">＊</span>美味しさ（５段階評価）</p>
-                <input type="radio" name="taste_good" value="1" class="-secondary @error('taste_good') is-invalid @enderror" required id="taste_check_01" {{ $items->taste_good == "1" ? 'checked' : '' }}>
-                <input type="radio" name="taste_good" value="2" class="-secondary @error('taste_good') is-invalid @enderror" required id="taste_check_02" {{ $items->taste_good == "2" ? 'checked' : '' }}>
-                <input type="radio" name="taste_good" value="3" class="-secondary @error('taste_good') is-invalid @enderror" required id="taste_check_03" {{ $items->taste_good == "3" ? 'checked' : '' }}>
-                <input type="radio" name="taste_good" value="4" class="-secondary @error('taste_good') is-invalid @enderror" required id="taste_check_04" {{ $items->taste_good == "4" ? 'checked' : '' }}>
-                <input type="radio" name="taste_good" value="5" class="-secondary @error('taste_good') is-invalid @enderror" required id="taste_check_05" {{ $items->taste_good == "5" ? 'checked' : '' }}>
+                <input type="radio" name="taste_good" value="1" class="-secondary @error('taste_good') is-invalid @enderror" id="taste_check_01" @if( is_null(old('taste_good')) == false ){{ old('taste_good') == "1" ? 'checked' : '' }}@else{{ $items->taste_good == "1" ? 'checked' : '' }}@endif>
+                <input type="radio" name="taste_good" value="2" class="-secondary @error('taste_good') is-invalid @enderror" id="taste_check_02" @if( is_null(old('taste_good')) == false ){{ old('taste_good') == "2" ? 'checked' : '' }}@else{{ $items->taste_good == "2" ? 'checked' : '' }}@endif>
+                <input type="radio" name="taste_good" value="3" class="-secondary @error('taste_good') is-invalid @enderror" id="taste_check_03" @if( is_null(old('taste_good')) == false ){{ old('taste_good') == "3" ? 'checked' : '' }}@else{{ $items->taste_good == "3" ? 'checked' : '' }}@endif>
+                <input type="radio" name="taste_good" value="4" class="-secondary @error('taste_good') is-invalid @enderror" id="taste_check_04" @if( is_null(old('taste_good')) == false ){{ old('taste_good') == "4" ? 'checked' : '' }}@else{{ $items->taste_good == "4" ? 'checked' : '' }}@endif>
+                <input type="radio" name="taste_good" value="5" class="-secondary @error('taste_good') is-invalid @enderror" id="taste_check_05" @if( is_null(old('taste_good')) == false ){{ old('taste_good') == "5" ? 'checked' : '' }}@else{{ $items->taste_good == "5" ? 'checked' : '' }}@endif>
                 <div class="star_icons -lg">
                   <i class="star_icon">
                     <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
@@ -211,17 +205,15 @@
               </div>
               </div>
               @error('taste_good')
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
+                <p class="alert -top">{{ $message }}</p>
               @enderror
-              <div class="radio_wrap -hasStar star_icon_{{ $items->cost_paf + 1 }}">
+              <div class="radio_wrap -hasStar @if( is_null(old('cost_paf')) == false )star_icon_{{ old('cost_paf') }}@else star_icon_{{ $items->cost_paf }}@endif">
                 <p><span class="alert">＊</span>コスパ（５段階評価）</p>
-                <input type="radio" name="cost_paf" value="1" class="-secondary @error('cost_paf') is-invalid @enderror" required id="cost_check_01" {{ $items->cost_paf == "1" ? 'checked' : '' }}>
-                <input type="radio" name="cost_paf" value="2" class="-secondary @error('cost_paf') is-invalid @enderror" required id="cost_check_02" {{ $items->cost_paf == "2" ? 'checked' : '' }}>
-                <input type="radio" name="cost_paf" value="3" class="-secondary @error('cost_paf') is-invalid @enderror" required id="cost_check_03" {{ $items->cost_paf == "3" ? 'checked' : '' }}>
-                <input type="radio" name="cost_paf" value="4" class="-secondary @error('cost_paf') is-invalid @enderror" required id="cost_check_04" {{ $items->cost_paf == "4" ? 'checked' : '' }}>
-                <input type="radio" name="cost_paf" value="5" class="-secondary @error('cost_paf') is-invalid @enderror" required id="cost_check_05" {{ $items->cost_paf == "5" ? 'checked' : '' }}>
+                <input type="radio" name="cost_paf" value="1" class="-secondary @error('cost_paf') is-invalid @enderror" id="cost_check_01" @if( is_null(old('cost_paf')) == false ){{ old('cost_paf') == "1" ? 'checked' : '' }}@else{{ $items->cost_paf == "1" ? 'checked' : '' }}@endif>
+                <input type="radio" name="cost_paf" value="2" class="-secondary @error('cost_paf') is-invalid @enderror" id="cost_check_02" @if( is_null(old('cost_paf')) == false ){{ old('cost_paf') == "2" ? 'checked' : '' }}@else{{ $items->cost_paf == "2" ? 'checked' : '' }}@endif>
+                <input type="radio" name="cost_paf" value="3" class="-secondary @error('cost_paf') is-invalid @enderror" id="cost_check_03" @if( is_null(old('cost_paf')) == false ){{ old('cost_paf') == "3" ? 'checked' : '' }}@else{{ $items->cost_paf == "3" ? 'checked' : '' }}@endif>
+                <input type="radio" name="cost_paf" value="4" class="-secondary @error('cost_paf') is-invalid @enderror" id="cost_check_04" @if( is_null(old('cost_paf')) == false ){{ old('cost_paf') == "4" ? 'checked' : '' }}@else{{ $items->cost_paf == "4" ? 'checked' : '' }}@endif>
+                <input type="radio" name="cost_paf" value="5" class="-secondary @error('cost_paf') is-invalid @enderror" id="cost_check_05" @if( is_null(old('cost_paf')) == false ){{ old('cost_paf') == "5" ? 'checked' : '' }}@else{{ $items->cost_paf == "5" ? 'checked' : '' }}@endif>
                 <div class="star_icons -lg">
                   <i class="star_icon">
                     <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
@@ -286,17 +278,15 @@
               </div>
               </div>
               @error('cost_paf')
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
+                <p class="alert -top">{{ $message }}</p>
               @enderror
-              <div class="radio_wrap -hasStar star_icon_{{ $items->recomend + 1 }}">
+              <div class="radio_wrap -hasStar @if( is_null(old('recomend')) == false )star_icon_{{ old('recomend') }}@else star_icon_{{ $items->recomend }}@endif">
                 <p><span class="alert">＊</span>おすすめ度（５段階評価）</p>
-                <input type="radio" name="recomend" value="1" class="-secondary @error('recomend') is-invalid @enderror" required id="recomend_check_01" {{ $items->recomend == "1" ? 'checked' : '' }}>
-                <input type="radio" name="recomend" value="2" class="-secondary @error('recomend') is-invalid @enderror" required id="recomend_check_02" {{ $items->recomend == "2" ? 'checked' : '' }}>
-                <input type="radio" name="recomend" value="3" class="-secondary @error('recomend') is-invalid @enderror" required id="recomend_check_03" {{ $items->recomend == "3" ? 'checked' : '' }}>
-                <input type="radio" name="recomend" value="4" class="-secondary @error('recomend') is-invalid @enderror" required id="recomend_check_04" {{ $items->recomend == "4" ? 'checked' : '' }}>
-                <input type="radio" name="recomend" value="5" class="-secondary @error('recomend') is-invalid @enderror" required id="recomend_check_05" {{ $items->recomend == "5" ? 'checked' : '' }}>
+                <input type="radio" name="recomend" value="1" class="-secondary @error('recomend') is-invalid @enderror" id="recomend_check_01" @if( is_null(old('recomend')) == false ){{ old('recomend') == "1" ? 'checked' : '' }}@else{{ $items->recomend == "1" ? 'checked' : '' }}@endif>
+                <input type="radio" name="recomend" value="2" class="-secondary @error('recomend') is-invalid @enderror" id="recomend_check_02" @if( is_null(old('recomend')) == false ){{ old('recomend') == "2" ? 'checked' : '' }}@else{{ $items->recomend == "2" ? 'checked' : '' }}@endif>
+                <input type="radio" name="recomend" value="3" class="-secondary @error('recomend') is-invalid @enderror" id="recomend_check_03" @if( is_null(old('recomend')) == false ){{ old('recomend') == "3" ? 'checked' : '' }}@else{{ $items->recomend == "3" ? 'checked' : '' }}@endif>
+                <input type="radio" name="recomend" value="4" class="-secondary @error('recomend') is-invalid @enderror" id="recomend_check_04" @if( is_null(old('recomend')) == false ){{ old('recomend') == "4" ? 'checked' : '' }}@else{{ $items->recomend == "4" ? 'checked' : '' }}@endif>
+                <input type="radio" name="recomend" value="5" class="-secondary @error('recomend') is-invalid @enderror" id="recomend_check_05" @if( is_null(old('recomend')) == false ){{ old('recomend') == "5" ? 'checked' : '' }}@else{{ $items->recomend == "5" ? 'checked' : '' }}@endif>
                 <div class="star_icons -lg">
                   <i class="star_icon">
                     <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
@@ -360,69 +350,71 @@
                 </i>
               </div>
               </div>
+              @error('recomend')
+                <p class="alert -top">{{ $message }}</p>
+              @enderror
               <div class="input_wrap">
                 <label for="weight" class="label">内容量（ kg 換算）</label>
-                <input type="text" name="weight" class="-secondary @error('weight') is-invalid @enderror" placeholder="500g→0.5 / 1kg→1" id="weight" value="{{ $items->weight }}">
+                <input type="text" name="weight" class="-secondary @error('weight') is-invalid @enderror" placeholder="500g→0.5 / 1kg→1" id="weight" value="@if( is_null(old('weight')) == false){{ old('weight') }}@else{{ $items->weight }}@endif">
                 <p class="alert -top">＊半角数字のみ。単位は省略してください。</p>
+                @error('weight')
+                  <p class="alert -margin_bottom">入力方法が間違っています。</p>
+                @enderror
               </div>
               <div class="input_wrap">
                 <label for="price" class="label">参考価格（大体の税抜き価格で結構です）</label>
-                <input type="text" name="price" class="-secondary @error('price') is-invalid @enderror" placeholder="3000円→3000" id="price" value="{{ $items->price }}">
+                <input type="text" name="price" class="-secondary @error('price') is-invalid @enderror" placeholder="3000円→3000" id="price" value="@if( is_null(old('price')) == false){{ old('price') }}@else{{ $items->price }}@endif">
                 <p class="alert -top">＊半角数字のみ。単位は省略してください。</p>
+                @error('price')
+                  <p class="alert -margin_bottom">入力方法が間違っています。</p>
+                @enderror
               </div>
               <div class="input_wrap">
                 <label for="per_protein" class="label">１食あたりのタンパク質含有量</label>
-                <input type="text" name="per_protein" class="-secondary @error('per_protein') is-invalid @enderror" placeholder="20g→20" id="per_protein" value="{{ $items->per_protein }}">
+                <input type="text" name="per_protein" class="-secondary @error('per_protein') is-invalid @enderror" placeholder="20g→20" id="per_protein" value="@if( is_null(old('per_protein')) == false){{ old('per_protein') }}@else{{ $items->per_protein }}@endif">
                 <p class="alert -top">＊半角数字のみ。単位は省略してください。</p>
+                @error('per_protein')
+                  <p class="alert -margin_bottom">入力方法が間違っています。</p>
+                @enderror
               </div>
               <div class="radio_wrap">
                 <p>製造は日本ですか？</p>
-                <input type="radio" name="made" value="0" class="-secondary @error('made') is-invalid @enderror" id="madejapan" {{ $items->made == "0" ? 'checked' : '' }}>
+                <input type="radio" name="made" value="0" class="-secondary @error('made') is-invalid @enderror" id="madejapan" @if( is_null(old('made')) == false ){{ old('made') == "0" ? 'checked' : '' }}@else{{ $items->made == "0" ? 'checked' : '' }}@endif>
                 <label for="madejapan" class="label">はい</label>
-                <input type="radio" name="made" value="1" class="-secondary @error('made') is-invalid @enderror" id="madeother" {{ $items->made == "1" ? 'checked' : '' }}>
+                <input type="radio" name="made" value="1" class="-secondary @error('made') is-invalid @enderror" id="madeother" @if( is_null(old('made')) == false ){{ old('made') == "1" ? 'checked' : '' }}@else{{ $items->made == "1" ? 'checked' : '' }}@endif>
                 <label for="madeother" class="label">いいえ</label>
               </div>
-              @error('made')
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
-              @enderror
               <div class="radio_wrap">
                 <p>プロテインの種類を選択してください。</p>
-                <input type="radio" name="type" value="0" class="-secondary @error('type') is-invalid @enderror" id="whey" {{ $items->type == "0" ? 'checked' : '' }}>
+                <input type="radio" name="type" value="0" class="-secondary @error('type') is-invalid @enderror" id="whey" @if( is_null(old('type')) == false ){{ old('type') == "0" ? 'checked' : '' }}@else{{ $items->type == "0" ? 'checked' : '' }}@endif>
                 <label for="whey" class="label">ホエイ</label>
-                <input type="radio" name="type" value="1" class="-secondary @error('type') is-invalid @enderror" id="soy" {{ $items->type == "1" ? 'checked' : '' }}>
+                <input type="radio" name="type" value="1" class="-secondary @error('type') is-invalid @enderror" id="soy" @if( is_null(old('type')) == false ){{ old('type') == "1" ? 'checked' : '' }}@else{{ $items->type == "1" ? 'checked' : '' }}@endif>
                 <label for="soy" class="label">SOY</label>
-                <input type="radio" name="type" value="2" class="-secondary @error('type') is-invalid @enderror" id="casein" {{ $items->type == "2" ? 'checked' : '' }}>
+                <input type="radio" name="type" value="2" class="-secondary @error('type') is-invalid @enderror" id="casein" @if( is_null(old('type')) == false ){{ old('type') == "2" ? 'checked' : '' }}@else{{ $items->type == "2" ? 'checked' : '' }}@endif>
                 <label for="casein" class="label">カゼイン</label>
-                <input type="radio" name="type" value="3" class="-secondary @error('type') is-invalid @enderror" id="typeother" {{ $items->type == "3" ? 'checked' : '' }}>
+                <input type="radio" name="type" value="3" class="-secondary @error('type') is-invalid @enderror" id="typeother" @if( is_null(old('type')) == false ){{ old('type') == "3" ? 'checked' : '' }}@else{{ $items->type == "3" ? 'checked' : '' }}@endif>
                 <label for="typeother" class="label">その他</label>
               </div>
-              @error('type')
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
-              @enderror
               <label for="how_to_buy" class="label">購入方法（任意）</label>
-              <input type="text" name="how_to_buy" value="{{ $items->how_to_buy }}" class="-secondary @error('how_to_buy') is-invalid @enderror" placeholder="〇〇のECサイト" id="how_to_buy">
+              <input type="text" name="how_to_buy" value="@if( is_null(old('how_to_buy')) == false){{ old('how_to_buy') }}@else{{ $items->how_to_buy }}@endif" class="-secondary @error('how_to_buy') is-invalid @enderror" placeholder="〇〇のECサイト" id="how_to_buy">
               <p class="alert -top">＊URL不可</p>
               @error('how_to_buy')
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
+                <p class="alert -margin_bottom">入力方法が間違っています。</p>
               @enderror
               <label for="how_to_drink" class="label">おすすめの飲み方（任意）</label>
-              <input type="text" name="how_to_drink" value="{{ $items->how_to_drink }}" class="-secondary @error('how_to_drink') is-invalid @enderror" placeholder="牛乳で飲むと美味しいです！" id="how_to_drink">
+              <input type="text" name="how_to_drink" value="@if( is_null(old('how_to_drink')) == false){{ old('how_to_drink') }}@else{{ $items->how_to_drink }}@endif" class="-secondary @error('how_to_drink') is-invalid @enderror" placeholder="牛乳で飲むと美味しいです！" id="how_to_drink">
               <p class="alert -top">＊URL不可</p>
               @error('how_to_drink')
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
+                <p class="alert -margin_bottom">入力方法が間違っています。</p>
               @enderror
               <label for="comment" class="label">コメント（任意）</label>
-              <textarea type="text" name="comment" class="textarea -secondary @error('comment') is-invalid @enderror" placeholder="このプロテインはすっきりとしていて、プロテインの独特な味がほとんどしないのでとてもおすすめです！プロテインは毎日飲むものですから、美味しいのが一番ですよね。是非お試しください！" id="comment">{{ $items->comment }}</textarea>
+              <textarea type="text" name="comment" class="textarea -secondary @error('comment') is-invalid @enderror"
+              placeholder="このプロテインはすっきりとしていて、プロテインの独特な味がほとんどしないのでとてもおすすめです！プロテインは毎日飲むものですから、美味しいのが一番ですよね。是非お試しください！"
+              id="comment">@if( is_null(old('comment')) == false){{ old('comment') }}@else{{ $items->comment }}@endif</textarea>
               <p class="alert -top">＊URL不可</p>
-
+              @error('comment')
+                <p class="alert -margin_bottom">入力方法が間違っています。</p>
+              @enderror
             </div>
             <input type="submit" name="submit" value="submit" id="submit">
             <label for="submit" class="submit">上記の内容で再投稿</label>

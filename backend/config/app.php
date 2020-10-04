@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'ProHika'),
+    'name' => env('APP_NAME', 'プロコミ！'),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://procomi.herokuapp.com/'),
 
     'asset_url' => env('ASSET_URL', null),
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\StorePostForm;
+use App\Http\Requests\EditPostForm;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Post;
@@ -73,14 +74,13 @@ class PostController extends Controller
       return view('post.edit', compact('items', 'path_01', 'path_02', 'path_03'));
     }
 
-    public function update(StorePostForm $request, $id) {
+    public function update(EditPostForm $request, $id) {
         $post = new Post;
 
         $post = Post::find($id);
 
         $post_data = $request->except('image_01', 'image_02', 'image_03');
         unset($post_data['_token']);
-
 
         $imagefile_01 = $request->file('image_01');
         $imagefile_02 = $request->file('image_02');
@@ -241,6 +241,11 @@ class PostController extends Controller
         $how_to_drink = $post_data['how_to_drink'];
         $comment = $post_data['comment'];
 
+        if ( is_null($weight) == false && is_null($price) == false ) {
+          $per_price = round($price / $weight);
+        } else {
+          $per_price = null;
+        }
 
         if (isset($post_data['made']) == true) {
           $made = $post_data['made'];
@@ -264,6 +269,7 @@ class PostController extends Controller
         $post->flavor = $flavor;
         $post->weight = $weight;
         $post->price = $price;
+        $post->per_price = $per_price;
         $post->per_protein = $per_protein;
         $post->made = $made;
         $post->type = $type;
@@ -298,8 +304,7 @@ class PostController extends Controller
   }
 
 
-    public function store(StorePostForm $request)
-    {
+    public function store(StorePostForm $request) {
       $post = new Post;
 
       $post_data = $request->except('image_01', 'image_02', 'image_03');
@@ -336,6 +341,12 @@ class PostController extends Controller
       $how_to_drink = $post_data['how_to_drink'];
       $comment = $post_data['comment'];
 
+      if ( is_null($weight) == false && is_null($price) == false ) {
+        $per_price = round($price / $weight);
+      } else {
+        $per_price = null;
+      }
+
       if (isset($post_data['made']) == true) {
         $made = $post_data['made'];
       } else {
@@ -356,6 +367,7 @@ class PostController extends Controller
       $post->flavor = $flavor;
       $post->weight = $weight;
       $post->price = $price;
+      $post->per_price = $per_price;
       $post->per_protein = $per_protein;
       $post->made = $made;
       $post->type = $type;

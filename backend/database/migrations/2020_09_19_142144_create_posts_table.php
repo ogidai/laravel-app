@@ -21,9 +21,10 @@ class CreatePostsTable extends Migration
             $table->string('img_03')->nullable($value = true);
             $table->string('pro_name', 40);
             $table->string('flavor', 20);
-            $table->integer('weight')->nullable($value = true);
+            $table->double('weight', 8, 2)->nullable($value = true);
             $table->integer('price')->nullable($value = true);
-            $table->integer('per_protein')->nullable($value = true);
+            $table->integer('per_price')->nullable($value = true);
+            $table->double('per_protein',8, 2)->nullable($value = true);
             $table->integer('made')->nullable($value = true);
             $table->integer('type')->nullable($value = true);
             $table->integer('taste_good');

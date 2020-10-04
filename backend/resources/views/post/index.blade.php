@@ -11,7 +11,7 @@
             <img src="{{ asset('images/logo.png') }}" alt="">
           </a>
         </div>
-        <a href="javascript:history.back()" class="left arrow_back"></a>
+        <a href="{{ ('/') }}" class="left arrow_back"></a>
         @guest
         <div class="right btnWrap">
           <a href="{{ route('login') }}" class="btn">ログイン</a>

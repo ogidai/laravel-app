@@ -188,27 +188,27 @@
               <p class="list_left">味</p>
               <p class="list_right">{{ $items->flavor }}</p>
             </li>
-            @if( is_null($items->weight) != true )
+            @if( is_null($items->weight) == false )
             <li class="list_item">
               <p class="list_left">内容量</p>
               <p class="list_right">{{ $items->weight }}kg</p>
             </li>
             @endif
-            @if( is_null($items->price) != true )
+            @if( is_null($items->price) == false )
             <li class="list_item">
               <p class="list_left">参考価格</p>
               <p class="list_right">{{ $items->price }}円</p>
             </li>
             @endif
-            @if( is_null($items->price) != true && is_null($items->weight) != true )
+            @if( is_null($items->per_price) == false )
             <li class="list_item">
-              <p class="list_left">参考価格/１kg</p>
-              <p class="list_right">{{ round( $items->price / $items->weight ) }}円</p>
+              <p class="list_left">参考価格／１kg</p>
+              <p class="list_right">{{ $items->per_price }}円</p>
             </li>
             @endif
-            @if( is_null($items->per_protein) != true )
+            @if( is_null($items->per_protein) == false )
             <li class="list_item">
-              <p class="list_left">タンパク質/１食</p>
+              <p class="list_left">タンパク質／１食</p>
               <p class="list_right">{{ $items->per_protein }}g</p>
             </li>
             @endif

@@ -1010,6 +1010,11 @@ input[type=submit] + label:hover::after {
   margin-top: 15px;
 }
 
+.form .alert.-margin_bottom {
+  margin-top: -15px;
+  margin-bottom: 15px;
+}
+
 .form .link_wrap {
   margin-top: 20px;
 }
