@@ -305,6 +305,10 @@ img {
   height: auto;
 }
 
+input {
+  -webkit-appearance: none;
+}
+
 input[type=text],
 input[type=email],
 input[type=password],
