@@ -369,7 +369,7 @@
   align-items: center;
   flex-wrap: wrap;
   flex: 1;
-  padding: 0 15px;
+  padding: 0 0 0 15px;
   color: $color-normal;
   @include mq {
     padding: 15px 40px 15px 15px;

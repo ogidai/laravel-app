@@ -2132,7 +2132,7 @@ input[type=file] {
   align-items: center;
   flex-wrap: wrap;
   flex: 1;
-  padding: 0 15px;
+  padding: 0 0 0 15px;
   color: #333;
 }
 
