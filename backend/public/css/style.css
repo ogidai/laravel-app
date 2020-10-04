@@ -1957,6 +1957,7 @@ input[type=file] {
 
 .options_wrap {
   background: #E2E6EA47;
+  border-top: 1px solid #D6DADD;
 }
 
 .options {
@@ -2019,8 +2020,8 @@ input[type=file] {
 
 .option_form_wrap {
   display: none;
-  background: #D6DADD;
   padding: 15px;
+  background: #D6DADD;
 }
 
 @media screen and (min-width: 992px) {
@@ -2131,13 +2132,13 @@ input[type=file] {
   align-items: center;
   flex-wrap: wrap;
   flex: 1;
-  padding: 15px;
+  padding: 0 15px;
   color: #333;
 }
 
 @media screen and (min-width: 992px) {
   .pro_item_right {
-    padding-left: 40px;
+    padding: 15px 40px 15px 15px;
   }
 }
 
@@ -2173,12 +2174,16 @@ input[type=file] {
 }
 
 .pro_name span {
-  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.pro_name span:first-child {
+  margin-left: 0;
 }
 
 @media screen and (min-width: 992px) {
   .pro_name {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
   }
 }
 

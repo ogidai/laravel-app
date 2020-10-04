@@ -225,6 +225,7 @@
 
 .options_wrap {
   background: $color-base-secondary;
+  border-top: 1px solid $color-normal-lighter;
 }
 .options {
     position: relative;
@@ -276,8 +277,8 @@
 }
 .option_form_wrap {
   display: none;
-  background: $color-normal-lighter;
   padding: 15px;
+  background: $color-normal-lighter;
   @include mq {
     padding: 15px 80px;
   }
@@ -368,10 +369,10 @@
   align-items: center;
   flex-wrap: wrap;
   flex: 1;
-  padding: 15px;
+  padding: 0 15px;
   color: $color-normal;
   @include mq {
-    padding-left: 40px;
+    padding: 15px 40px 15px 15px;
   }
   .post_date_wrap {
     margin-top: 15px;
@@ -399,10 +400,13 @@
   font-weight: $weight-bold;
   line-height: 1.4;
   span {
-    margin-right: 10px;
+    margin-left: 10px;
+    &:first-child {
+      margin-left: 0;
+    }
   }
   @include mq {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
   }
 }
 .review {
