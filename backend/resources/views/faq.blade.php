@@ -8,10 +8,13 @@
       <div class="contentInner">
         <div class="logo">
           <a href="{{('/')}}">
-            <img src="{{ asset('images/logo.png') }}" alt="">
+            <img src="{{ asset('images/logo.png') }}" alt="プロコミ！">
           </a>
         </div>
-        <a href="{{('/')}}" class="left arrow_back"></a>
+        <a href="{{('/')}}" class="left arrow_back -pc"></a>
+        <div class="navBtn js-navBtnActive">
+          <span></span><span></span><span></span>
+        </div>
         @guest
         <div class="right btnWrap">
           <a href="javascript:history.back()" class="btn">ログイン</a>
@@ -59,7 +62,7 @@
                   <a href="{{ route('policy') }}" class="arrow -next">利用規約・プライバシーポリシー</a>
               </li>
               <li class="gnav_item -sns">
-                  <a href="https://twitter.com/procomi2020"><img src="{{ asset('images/t_logo.svg') }}" alt=""></a>
+                  <a href="https://twitter.com/procomi2020"><img src="{{ asset('images/t_logo.svg') }}" alt="Twitter"></a>
               </li>
           </ul>
           <footer class="footer -pc">
@@ -105,11 +108,11 @@
           <p class="answer">「メニュー」→「あなたの投稿」→削除したい投稿を選択→「投稿を削除」で投稿を削除することができます。</p>
           <p class="question">投稿が完了できない</p>
           <p class="answer">投稿に必要な項目の全てに回答しているかをお確かめください。</p>
-          <p class="question">購入方法やコメントにURLを添付できないのはなぜですか</p>
-          <p class="answer">プロコミ！では販売サイトへの遷移を禁止しているためです。
-          <br>販売サイトへの遷移を禁止することで、ユーザーの皆様がトラブルに巻き込まれることを防ぐという目的があります。</p>
+          <p class="question">投稿にURLを添付できないのはなぜですか</p>
+          <p class="answer">プロコミ！では全ての広告への誘導、全ての勧誘を禁止しているためです。
+          <br>全ての広告への誘導、全ての勧誘を禁止することで、ユーザーの皆様に快適にサイトを楽しんでいただく目的があります。</p>
           <p class="question">総合評価とは</p>
-          <p class="answer">総合評価とは美味しさ、コスパ、おすすめ度の平均値です。
+          <p class="answer">総合評価とは美味しさ、溶けやすさ、泡立ちの少なさ、コスパ、おすすめ度の平均値です。
           <br>総合評価はプロヒカ！で計算するため、入力する必要はありません。</p>
           <!-- <p class="question"></p>
           <p class="answer"></p> -->

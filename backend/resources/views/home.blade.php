@@ -8,7 +8,7 @@
       <div class="contentInner">
         <div class="logo">
           <a href="{{ ('/') }}">
-            <img src="{{ asset('images/logo.png') }}" alt="">
+            <img src="{{ asset('images/logo.png') }}" alt="プロコミ！">
           </a>
         </div>
         <div class="navBtn js-navBtnActive">
@@ -59,7 +59,7 @@
                 <a href="{{ route('policy') }}" class="arrow -next">利用規約・プライバシーポリシー</a>
             </li>
             <li class="gnav_item -sns">
-                <a href="https://twitter.com/procomi2020"><img src="{{ asset('images/t_logo.svg') }}" alt=""></a>
+                <a href="https://twitter.com/procomi2020"><img src="{{ asset('images/t_logo.svg') }}" alt="Twitter"></a>
             </li>
         </ul>
         <footer class="footer -pc">
@@ -133,17 +133,31 @@
             active
             @endif
             ">
-              <span class="options_title arrow">参考価格</span>
+              <span class="options_title arrow">溶けやすさ</span>
             </div>
             <div class="options_item
             @if($id == 7)
             active
             @endif
             ">
-              <span class="options_title arrow">種類</span>
+              <span class="options_title arrow">泡立ちの少なさ</span>
             </div>
             <div class="options_item
             @if($id == 8)
+            active
+            @endif
+            ">
+              <span class="options_title arrow">参考価格</span>
+            </div>
+            <div class="options_item
+            @if($id == 9)
+            active
+            @endif
+            ">
+              <span class="options_title arrow">種類</span>
+            </div>
+            <div class="options_item
+            @if($id == 10)
             active
             @endif
             ">
@@ -287,12 +301,12 @@
             <form class="form -search" action="{{ action('HomeController@index') }}" method="post">
               @csrf
               <div class="option_select">
-                <input type="radio" name="price" value="0" id="price_asc" required  {{ $id == 6 && $result == 0 ? 'checked' : '' }}>
-                <label for="price_asc">参考価格が高い順</label>
+                <input type="radio" name="melt" value="0" id="melt_asc" required  {{ $id == 6 && $result == 0 ? 'checked' : '' }}>
+                <label for="melt_asc">評価が高い順</label>
               </div>
               <div class="option_select">
-                <input type="radio" name="price" value="1" id="price_des" required  {{ $id == 6 && $result == 1 ? 'checked' : '' }}>
-                <label for="price_des">参考価格が低い順</label>
+                <input type="radio" name="melt" value="1" id="melt_des" required  {{ $id == 6 && $result == 1 ? 'checked' : '' }}>
+                <label for="melt_des">評価が低い順</label>
               </div>
               <div class="submit">
                 <input type="submit" name="submit" value="submit">
@@ -309,20 +323,12 @@
             <form class="form -search" action="{{ action('HomeController@index') }}" method="post">
               @csrf
               <div class="option_select">
-                <input type="radio" name="type" value="0" id="whey" required {{ $id == 7 && $result == 0 ? 'checked' : '' }}>
-                <label for="whey">ホエイ</label>
+                <input type="radio" name="foam" value="0" id="foam_asc" required  {{ $id == 7 && $result == 0 ? 'checked' : '' }}>
+                <label for="foam_asc">評価が高い順</label>
               </div>
               <div class="option_select">
-                <input type="radio" name="type" value="1" id="soy" required {{ $id == 7 && $result == 1 ? 'checked' : '' }}>
-                <label for="soy">ソイ</label>
-              </div>
-              <div class="option_select">
-                <input type="radio" name="type" value="2" id="casein" required {{ $id == 7 && $result == 2 ? 'checked' : '' }}>
-                <label for="casein">カゼイン</label>
-              </div>
-              <div class="option_select">
-                <input type="radio" name="type" value="3" id="typeother" required {{ $id == 7 && $result == 3 ? 'checked' : '' }}>
-                <label for="typeother">その他</label>
+                <input type="radio" name="foam" value="1" id="foam_des" required  {{ $id == 7 && $result == 1 ? 'checked' : '' }}>
+                <label for="foam_des">評価が低い順</label>
               </div>
               <div class="submit">
                 <input type="submit" name="submit" value="submit">
@@ -339,11 +345,63 @@
             <form class="form -search" action="{{ action('HomeController@index') }}" method="post">
               @csrf
               <div class="option_select">
-                <input type="radio" name="made" value="0" id="ja" required {{ $id == 8 && $result == 0 ? 'checked' : '' }}>
+                <input type="radio" name="price" value="0" id="price_asc" required  {{ $id == 8 && $result == 0 ? 'checked' : '' }}>
+                <label for="price_asc">参考価格が高い順</label>
+              </div>
+              <div class="option_select">
+                <input type="radio" name="price" value="1" id="price_des" required  {{ $id == 8 && $result == 1 ? 'checked' : '' }}>
+                <label for="price_des">参考価格が低い順</label>
+              </div>
+              <div class="submit">
+                <input type="submit" name="submit" value="submit">
+                <p class="search_text">検索</p>
+              </div>
+            </form>
+          </div>
+
+          <div class="option_form_wrap
+          @if ($id == 9)
+          active
+          @endif
+          ">
+            <form class="form -search" action="{{ action('HomeController@index') }}" method="post">
+              @csrf
+              <div class="option_select">
+                <input type="radio" name="type" value="0" id="whey" required {{ $id == 9 && $result == 0 ? 'checked' : '' }}>
+                <label for="whey">ホエイ</label>
+              </div>
+              <div class="option_select">
+                <input type="radio" name="type" value="1" id="soy" required {{ $id == 9 && $result == 1 ? 'checked' : '' }}>
+                <label for="soy">ソイ</label>
+              </div>
+              <div class="option_select">
+                <input type="radio" name="type" value="2" id="casein" required {{ $id == 9 && $result == 2 ? 'checked' : '' }}>
+                <label for="casein">カゼイン</label>
+              </div>
+              <div class="option_select">
+                <input type="radio" name="type" value="3" id="typeother" required {{ $id == 9 && $result == 3 ? 'checked' : '' }}>
+                <label for="typeother">その他</label>
+              </div>
+              <div class="submit">
+                <input type="submit" name="submit" value="submit">
+                <p class="search_text">検索</p>
+              </div>
+            </form>
+          </div>
+
+          <div class="option_form_wrap
+          @if ($id == 10)
+          active
+          @endif
+          ">
+            <form class="form -search" action="{{ action('HomeController@index') }}" method="post">
+              @csrf
+              <div class="option_select">
+                <input type="radio" name="made" value="0" id="ja" required {{ $id == 10 && $result == 0 ? 'checked' : '' }}>
                 <label for="ja">日本</label>
               </div>
               <div class="option_select">
-                <input type="radio" name="made" value="1" id="madeother" required {{ $id == 8 && $result == 1 ? 'checked' : '' }}>
+                <input type="radio" name="made" value="1" id="madeother" required {{ $id == 10 && $result == 1 ? 'checked' : '' }}>
                 <label for="madeother">海外</label>
               </div>
               <div class="submit">
@@ -379,15 +437,21 @@
             "おすすめ度"
             @endif
             @if ($id == 6)
-            "参考価格"
+            "溶けやすさ"
             @endif
             @if ($id == 7)
+            "泡立ちの少なさ"
+            @endif
+            @if ($id == 8)
+            "参考価格"
+            @endif
+            @if ($id == 9)
             @if($result == 0)"プロテインの種類がホエイ"@endif
             @if($result == 1)"プロテインの種類がソイ"@endif
             @if($result == 2)"プロテインの種類がカゼイン"@endif
             @if($result == 3)"プロテインの種類がその他"@endif
             @endif
-            @if ($id == 8)
+            @if ($id == 10)
             "製造が@if($result == 0)日本@else海外@endif"
             @endif
             の投稿は、まだありません。
@@ -411,15 +475,21 @@
             "おすすめ度"
             @endif
             @if ($id == 6)
-            "参考価格"
+            "溶けやすさ"
             @endif
             @if ($id == 7)
+            "泡立ちの少なさ"
+            @endif
+            @if ($id == 8)
+            "参考価格"
+            @endif
+            @if ($id == 9)
             @if($result == 0)"プロテインの種類がホエイ"@endif
             @if($result == 1)"プロテインの種類がソイ"@endif
             @if($result == 2)"プロテインの種類がカゼイン"@endif
             @if($result == 3)"プロテインの種類がその他"@endif
             @endif
-            @if ($id == 8)
+            @if ($id == 10)
             "製造が@if($result == 0)日本@else海外@endif"
             @endif
             の最初の投稿をしてみませんか？
@@ -450,38 +520,44 @@
                   {{$item->weight}}kg
                   @endif
                 </p>
-                <div class="review -row_pc">
-                  @if ( $id == 0 || $id == 1 || $id == 2 || $id == 3 || $id == 4 || $id == 5 || $id == 6 || $id == 7 || $id == 8 || $id == 100 )
+                <div class="review -row_sp">
                   <p class="review_cat">
-                    @if ($id == 0 || $id == 1 || $id == 7|| $id == 100 )
-                    投稿日：<span class="font_bigger">{{date('Y/m/d', strtotime($item->created_at))}}</span>
+                    @if ( $id == 0 || $id == 1 || $id == 9 )
+                    投稿日：<span class="font_bigger">{{ date('Y/m/d', strtotime($item->created_at)) }}</span>
                     @endif
-                    @if ($id == 2)
+                    @if ( $id == 2 )
                     総合評価
                     @endif
-                    @if ($id == 3)
+                    @if ( $id == 3 )
                     美味しさ
                     @endif
-                    @if ($id == 4)
+                    @if ( $id == 4 )
                     コスパ
                     @endif
-                    @if ($id == 5)
+                    @if ( $id == 5 )
                     おすすめ度
                     @endif
-                    @if ($id == 6)
-                    参考価格<span class="font_bigger">{{$item->price}}</span>円
+                    @if ( $id == 6 )
+                    溶けやすさ
                     @endif
-                    @if ($id == 8)
+                    @if ( $id == 7 )
+                    泡立ちの少なさ
+                    @endif
+                    @if ( $id == 8 )
+                    参考価格：<span class="font_bigger">{{ $item->price }}</span>円
+                    @endif
+                    @if ($id == 10)
                     製造：@if($result == 0)日本@else海外@endif
                     @endif
                   </p>
-                  @endif
-                  @if  ($id == 2 || $id == 3 || $id == 4 || $id == 5 )
+                  @if  ($id == 2 || $id == 3 || $id == 4 || $id == 5 || $id == 6 || $id == 7 )
                   <div class="star_icons
                   @if($id == 2)star_icon_{{ $item->total }}@endif
                   @if($id == 3)star_icon_{{ $item->taste_good }}@endif
                   @if($id == 4)star_icon_{{ $item->cost_paf }}@endif
                   @if($id == 5)star_icon_{{ $item->recomend }}@endif
+                  @if($id == 6)star_icon_{{ $item->melt }}@endif
+                  @if($id == 7)star_icon_{{ $item->foam }}@endif
                   ">
                     <i class="star_icon">
                       <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="width: 16px; height: 16px; opacity: 1;" xml:space="preserve">

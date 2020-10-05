@@ -1914,6 +1914,13 @@ input[type=file] {
   border-top: 1px solid #D6DADD;
 }
 
+@media screen and (min-width: 992px) {
+  .inner.-max {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}
+
 .inner .or {
   position: relative;
   padding: 30px 0;
@@ -2110,6 +2117,7 @@ input[type=file] {
 .pro_item a {
   display: -ms-flex;
   display: flex;
+  align-items: center;
   padding: 15px;
 }
 
@@ -2178,11 +2186,7 @@ input[type=file] {
 }
 
 .pro_name span {
-  margin-left: 10px;
-}
-
-.pro_name span:first-child {
-  margin-left: 0;
+  margin-right: 10px;
 }
 
 @media screen and (min-width: 992px) {
@@ -2195,7 +2199,14 @@ input[type=file] {
   display: -ms-flex;
   display: flex;
   align-items: center;
+  margin-top: 5px;
   padding: 0;
+}
+
+@media screen and (min-width: 992px) {
+  .review.-row_sp {
+    margin-top: 15px;
+  }
 }
 
 .review.-row_sp .review_cat {
@@ -2203,7 +2214,13 @@ input[type=file] {
 }
 
 .review.-row_sp .star_icons {
-  margin-left: 20px;
+  margin-left: 10px;
+}
+
+@media screen and (min-width: 992px) {
+  .review.-row_sp .star_icons {
+    margin-left: 20px;
+  }
 }
 
 .review.-row_pc {
@@ -2549,6 +2566,7 @@ input[type=file] {
 
 .list_items .list_right {
   margin: 0;
+  padding-right: 5px;
   padding-left: 5px;
   width: 55%;
 }

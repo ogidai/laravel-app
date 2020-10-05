@@ -134,6 +134,8 @@ return [
       'taste_good' => '美味しさ',
       'cost_paf' => 'コスパ',
       'recomend' => 'おすすめ度',
+      'melt' => '溶けやすさ',
+      'foam' => '泡立ちの少なさ',
       'how_to_buy' => '購入方法',
       'how_to_drink' => 'おすすめの飲み方',
       'comment' => 'コメント',

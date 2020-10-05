@@ -205,23 +205,23 @@
 
 
 // radioのスター
-  $('#taste_check_01, #cost_check_01, #recomend_check_01').on('click', function() {
+  $('#taste_check_01, #cost_check_01, #recomend_check_01, #melt_check_01, #foam_check_01').on('click', function() {
     $(this).parent('.radio_wrap').addClass('star_icon_1');
     $(this).parent('.radio_wrap').removeClass('star_icon_2 star_icon_3 star_icon_4 star_icon_5');
   });
-  $('#taste_check_02, #cost_check_02, #recomend_check_02').on('click', function() {
+  $('#taste_check_02, #cost_check_02, #recomend_check_02, #melt_check_02, #foam_check_02').on('click', function() {
     $(this).parent('.radio_wrap').addClass('star_icon_2');
     $(this).parent('.radio_wrap').removeClass('star_icon_1 star_icon_3 star_icon_4 star_icon_5');
   });
-  $('#taste_check_03, #cost_check_03, #recomend_check_03').on('click', function() {
+  $('#taste_check_03, #cost_check_03, #recomend_check_03, #melt_check_03, #foam_check_03').on('click', function() {
     $(this).parent('.radio_wrap').addClass('star_icon_3');
     $(this).parent('.radio_wrap').removeClass('star_icon_2 star_icon_1 star_icon_4 star_icon_5');
   });
-  $('#taste_check_04, #cost_check_04, #recomend_check_04').on('click', function() {
+  $('#taste_check_04, #cost_check_04, #recomend_check_04, #melt_check_04, #foam_check_04').on('click', function() {
     $(this).parent('.radio_wrap').addClass('star_icon_4');
     $(this).parent('.radio_wrap').removeClass('star_icon_2 star_icon_3 star_icon_1 star_icon_5');
   });
-  $('#taste_check_05, #cost_check_05, #recomend_check_05').on('click', function() {
+  $('#taste_check_05, #cost_check_05, #recomend_check_05, #melt_check_05, #foam_check_05').on('click', function() {
     $(this).parent('.radio_wrap').addClass('star_icon_5');
     $(this).parent('.radio_wrap').removeClass('star_icon_2 star_icon_3 star_icon_4 star_icon_1');
   });

@@ -8,13 +8,13 @@
       <div class="contentInner">
         <div class="logo">
           <a href="{{route('home')}}">
-            <img src="{{ asset('images/logo.png') }}" alt="">
+            <img src="{{ asset('images/logo.png') }}" alt="プロコミ！">
           </a>
         </div>
-        <!-- <div class="navBtn js-navBtn">
-          <span class="js-badge active"></span><span></span><span></span>
-        </div> -->
-        <a href="javascript:history.back()" class="left arrow_back"></a>
+        <div class="navBtn js-navBtnActive">
+          <span></span><span></span><span></span>
+        </div>
+        <a href="javascript:history.back()" class="left arrow_back -pc"></a>
         @guest
         <div class="right btnWrap">
           <a href="{{ route('login') }}" class="btn">ログイン</a>
@@ -62,7 +62,7 @@
                   <a href="{{ route('policy') }}" class="arrow -next">利用規約・プライバシーポリシー</a>
               </li>
               <li class="gnav_item -sns">
-                  <a href="https://twitter.com/procomi2020"><img src="{{ asset('images/t_logo.svg') }}" alt=""></a>
+                  <a href="https://twitter.com/procomi2020"><img src="{{ asset('images/t_logo.svg') }}" alt="Twitter"></a>
               </li>
           </ul>
           <footer class="footer -pc">

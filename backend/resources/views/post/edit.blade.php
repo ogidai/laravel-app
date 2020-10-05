@@ -8,10 +8,13 @@
       <div class="contentInner">
         <div class="logo">
           <a href="{{route('home')}}">
-            <img src="{{ asset('images/logo.png') }}" alt="">
+            <img src="{{ asset('images/logo.png') }}" alt="プロコミ！">
           </a>
         </div>
-        <a href="javascript:history.back()" class="left arrow_back"></a>
+        <a href="javascript:history.back()" class="left arrow_back -pc"></a>
+        <div class="navBtn js-navBtnActive">
+          <span></span><span></span><span></span>
+        </div>
         @guest
         <div class="right btnWrap">
           <a href="{{ route('login') }}" class="btn">ログイン</a>
@@ -61,7 +64,7 @@
                   <a href="{{ route('policy') }}" class="arrow -next">利用規約・プライバシーポリシー</a>
               </li>
               <li class="gnav_item -sns">
-                  <a href="https://twitter.com/procomi2020"><img src="{{ asset('images/t_logo.svg') }}" alt=""></a>
+                  <a href="https://twitter.com/procomi2020"><img src="{{ asset('images/t_logo.svg') }}" alt="Twitter"></a>
               </li>
           </ul>
           <footer class="footer -pc">
@@ -205,6 +208,152 @@
               </div>
               </div>
               @error('taste_good')
+                <p class="alert -top">{{ $message }}</p>
+              @enderror
+              <div class="radio_wrap -hasStar @if( is_null(old('melt')) == false )star_icon_{{ old('melt') }}@else star_icon_{{ $items->melt }}@endif">
+                <p><span class="alert">＊</span>溶けやすさ（５段階評価）</p>
+                <input type="radio" name="melt" value="1" class="-secondary @error('melt') is-invalid @enderror" id="melt_check_01" @if( is_null(old('melt')) == false ){{ old('melt') == "1" ? 'checked' : '' }}@else{{ $items->melt == "1" ? 'checked' : '' }}@endif>
+                <input type="radio" name="melt" value="2" class="-secondary @error('melt') is-invalid @enderror" id="melt_check_02" @if( is_null(old('melt')) == false ){{ old('melt') == "2" ? 'checked' : '' }}@else{{ $items->melt == "2" ? 'checked' : '' }}@endif>
+                <input type="radio" name="melt" value="3" class="-secondary @error('melt') is-invalid @enderror" id="melt_check_03" @if( is_null(old('melt')) == false ){{ old('melt') == "3" ? 'checked' : '' }}@else{{ $items->melt == "3" ? 'checked' : '' }}@endif>
+                <input type="radio" name="melt" value="4" class="-secondary @error('melt') is-invalid @enderror" id="melt_check_04" @if( is_null(old('melt')) == false ){{ old('melt') == "4" ? 'checked' : '' }}@else{{ $items->melt == "4" ? 'checked' : '' }}@endif>
+                <input type="radio" name="melt" value="5" class="-secondary @error('melt') is-invalid @enderror" id="melt_check_05" @if( is_null(old('melt')) == false ){{ old('melt') == "5" ? 'checked' : '' }}@else{{ $items->melt == "5" ? 'checked' : '' }}@endif>
+                <div class="star_icons -lg">
+                  <i class="star_icon">
+                    <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
+                      <g>
+                        <path class="st1 st mst01" d="M510.549,196.024c-3.812-11.726-14.5-19.868-26.82-20.42l-147.935-6.686l-52.09-138.642
+                        C279.37,18.739,268.329,11.089,256,11.089c-12.329,0-23.37,7.65-27.704,19.187l-52.089,138.642l-147.935,6.686
+                        c-12.321,0.552-23.008,8.694-26.821,20.42c-3.812,11.726,0.052,24.598,9.689,32.283l115.756,92.368L87.542,463.453
+                        c-3.27,11.889,1.155,24.554,11.136,31.808c9.985,7.246,23.404,7.548,33.704,0.758L256,414.473l123.617,81.547
+                        c10.3,6.789,23.719,6.487,33.704-0.758c9.982-7.245,14.405-19.92,11.131-31.808l-39.347-142.779l115.756-92.368
+                        C510.498,220.621,514.362,207.749,510.549,196.024z"></path>
+                      </g>
+                    </svg>
+                  </i>
+                  <i class="star_icon">
+                    <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
+                      <g>
+                        <path class="st2 st mst02" d="M510.549,196.024c-3.812-11.726-14.5-19.868-26.82-20.42l-147.935-6.686l-52.09-138.642
+                        C279.37,18.739,268.329,11.089,256,11.089c-12.329,0-23.37,7.65-27.704,19.187l-52.089,138.642l-147.935,6.686
+                        c-12.321,0.552-23.008,8.694-26.821,20.42c-3.812,11.726,0.052,24.598,9.689,32.283l115.756,92.368L87.542,463.453
+                        c-3.27,11.889,1.155,24.554,11.136,31.808c9.985,7.246,23.404,7.548,33.704,0.758L256,414.473l123.617,81.547
+                        c10.3,6.789,23.719,6.487,33.704-0.758c9.982-7.245,14.405-19.92,11.131-31.808l-39.347-142.779l115.756-92.368
+                        C510.498,220.621,514.362,207.749,510.549,196.024z"></path>
+                      </g>
+                    </svg>
+                  </i>
+                  <i class="star_icon">
+                    <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
+                      <g>
+                        <path class="st3 st mst03" d="M510.549,196.024c-3.812-11.726-14.5-19.868-26.82-20.42l-147.935-6.686l-52.09-138.642
+                        C279.37,18.739,268.329,11.089,256,11.089c-12.329,0-23.37,7.65-27.704,19.187l-52.089,138.642l-147.935,6.686
+                        c-12.321,0.552-23.008,8.694-26.821,20.42c-3.812,11.726,0.052,24.598,9.689,32.283l115.756,92.368L87.542,463.453
+                        c-3.27,11.889,1.155,24.554,11.136,31.808c9.985,7.246,23.404,7.548,33.704,0.758L256,414.473l123.617,81.547
+                        c10.3,6.789,23.719,6.487,33.704-0.758c9.982-7.245,14.405-19.92,11.131-31.808l-39.347-142.779l115.756-92.368
+                        C510.498,220.621,514.362,207.749,510.549,196.024z"></path>
+                      </g>
+                    </svg>
+                  </i>
+                  <i class="star_icon">
+                    <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
+                    <g>
+                      <path class="st st4 mst04" d="M510.549,196.024c-3.812-11.726-14.5-19.868-26.82-20.42l-147.935-6.686l-52.09-138.642
+                      C279.37,18.739,268.329,11.089,256,11.089c-12.329,0-23.37,7.65-27.704,19.187l-52.089,138.642l-147.935,6.686
+                      c-12.321,0.552-23.008,8.694-26.821,20.42c-3.812,11.726,0.052,24.598,9.689,32.283l115.756,92.368L87.542,463.453
+                      c-3.27,11.889,1.155,24.554,11.136,31.808c9.985,7.246,23.404,7.548,33.704,0.758L256,414.473l123.617,81.547
+                      c10.3,6.789,23.719,6.487,33.704-0.758c9.982-7.245,14.405-19.92,11.131-31.808l-39.347-142.779l115.756-92.368
+                      C510.498,220.621,514.362,207.749,510.549,196.024z"></path>
+                    </g>
+                  </svg>
+                </i>
+                <i class="star_icon">
+                  <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
+                    <g>
+                      <path class="st5 st mst05" d="M510.549,196.024c-3.812-11.726-14.5-19.868-26.82-20.42l-147.935-6.686l-52.09-138.642
+                      C279.37,18.739,268.329,11.089,256,11.089c-12.329,0-23.37,7.65-27.704,19.187l-52.089,138.642l-147.935,6.686
+                      c-12.321,0.552-23.008,8.694-26.821,20.42c-3.812,11.726,0.052,24.598,9.689,32.283l115.756,92.368L87.542,463.453
+                      c-3.27,11.889,1.155,24.554,11.136,31.808c9.985,7.246,23.404,7.548,33.704,0.758L256,414.473l123.617,81.547
+                      c10.3,6.789,23.719,6.487,33.704-0.758c9.982-7.245,14.405-19.92,11.131-31.808l-39.347-142.779l115.756-92.368
+                      C510.498,220.621,514.362,207.749,510.549,196.024z"></path>
+                    </g>
+                  </svg>
+                </i>
+              </div>
+              </div>
+              @error('melt')
+                <p class="alert -top">{{ $message }}</p>
+              @enderror
+              <div class="radio_wrap -hasStar @if( is_null(old('foam')) == false )star_icon_{{ old('foam') }}@else star_icon_{{ $items->foam }}@endif">
+                <p><span class="alert">＊</span>泡立ちの少なさ（５段階評価）</p>
+                <input type="radio" name="foam" value="1" class="-secondary @error('foam') is-invalid @enderror" id="foam_check_01" @if( is_null(old('foam')) == false ){{ old('foam') == "1" ? 'checked' : '' }}@else{{ $items->foam == "1" ? 'checked' : '' }}@endif>
+                <input type="radio" name="foam" value="2" class="-secondary @error('foam') is-invalid @enderror" id="foam_check_02" @if( is_null(old('foam')) == false ){{ old('foam') == "2" ? 'checked' : '' }}@else{{ $items->foam == "2" ? 'checked' : '' }}@endif>
+                <input type="radio" name="foam" value="3" class="-secondary @error('foam') is-invalid @enderror" id="foam_check_03" @if( is_null(old('foam')) == false ){{ old('foam') == "3" ? 'checked' : '' }}@else{{ $items->foam == "3" ? 'checked' : '' }}@endif>
+                <input type="radio" name="foam" value="4" class="-secondary @error('foam') is-invalid @enderror" id="foam_check_04" @if( is_null(old('foam')) == false ){{ old('foam') == "4" ? 'checked' : '' }}@else{{ $items->foam == "4" ? 'checked' : '' }}@endif>
+                <input type="radio" name="foam" value="5" class="-secondary @error('foam') is-invalid @enderror" id="foam_check_05" @if( is_null(old('foam')) == false ){{ old('foam') == "5" ? 'checked' : '' }}@else{{ $items->foam == "5" ? 'checked' : '' }}@endif>
+                <div class="star_icons -lg">
+                  <i class="star_icon">
+                    <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
+                      <g>
+                        <path class="st1 st fst01" d="M510.549,196.024c-3.812-11.726-14.5-19.868-26.82-20.42l-147.935-6.686l-52.09-138.642
+                        C279.37,18.739,268.329,11.089,256,11.089c-12.329,0-23.37,7.65-27.704,19.187l-52.089,138.642l-147.935,6.686
+                        c-12.321,0.552-23.008,8.694-26.821,20.42c-3.812,11.726,0.052,24.598,9.689,32.283l115.756,92.368L87.542,463.453
+                        c-3.27,11.889,1.155,24.554,11.136,31.808c9.985,7.246,23.404,7.548,33.704,0.758L256,414.473l123.617,81.547
+                        c10.3,6.789,23.719,6.487,33.704-0.758c9.982-7.245,14.405-19.92,11.131-31.808l-39.347-142.779l115.756-92.368
+                        C510.498,220.621,514.362,207.749,510.549,196.024z"></path>
+                      </g>
+                    </svg>
+                  </i>
+                  <i class="star_icon">
+                    <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
+                      <g>
+                        <path class="st2 st fst02" d="M510.549,196.024c-3.812-11.726-14.5-19.868-26.82-20.42l-147.935-6.686l-52.09-138.642
+                        C279.37,18.739,268.329,11.089,256,11.089c-12.329,0-23.37,7.65-27.704,19.187l-52.089,138.642l-147.935,6.686
+                        c-12.321,0.552-23.008,8.694-26.821,20.42c-3.812,11.726,0.052,24.598,9.689,32.283l115.756,92.368L87.542,463.453
+                        c-3.27,11.889,1.155,24.554,11.136,31.808c9.985,7.246,23.404,7.548,33.704,0.758L256,414.473l123.617,81.547
+                        c10.3,6.789,23.719,6.487,33.704-0.758c9.982-7.245,14.405-19.92,11.131-31.808l-39.347-142.779l115.756-92.368
+                        C510.498,220.621,514.362,207.749,510.549,196.024z"></path>
+                      </g>
+                    </svg>
+                  </i>
+                  <i class="star_icon">
+                    <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
+                      <g>
+                        <path class="st3 st fst03" d="M510.549,196.024c-3.812-11.726-14.5-19.868-26.82-20.42l-147.935-6.686l-52.09-138.642
+                        C279.37,18.739,268.329,11.089,256,11.089c-12.329,0-23.37,7.65-27.704,19.187l-52.089,138.642l-147.935,6.686
+                        c-12.321,0.552-23.008,8.694-26.821,20.42c-3.812,11.726,0.052,24.598,9.689,32.283l115.756,92.368L87.542,463.453
+                        c-3.27,11.889,1.155,24.554,11.136,31.808c9.985,7.246,23.404,7.548,33.704,0.758L256,414.473l123.617,81.547
+                        c10.3,6.789,23.719,6.487,33.704-0.758c9.982-7.245,14.405-19.92,11.131-31.808l-39.347-142.779l115.756-92.368
+                        C510.498,220.621,514.362,207.749,510.549,196.024z"></path>
+                      </g>
+                    </svg>
+                  </i>
+                  <i class="star_icon">
+                    <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
+                    <g>
+                      <path class="st st4 fst04" d="M510.549,196.024c-3.812-11.726-14.5-19.868-26.82-20.42l-147.935-6.686l-52.09-138.642
+                      C279.37,18.739,268.329,11.089,256,11.089c-12.329,0-23.37,7.65-27.704,19.187l-52.089,138.642l-147.935,6.686
+                      c-12.321,0.552-23.008,8.694-26.821,20.42c-3.812,11.726,0.052,24.598,9.689,32.283l115.756,92.368L87.542,463.453
+                      c-3.27,11.889,1.155,24.554,11.136,31.808c9.985,7.246,23.404,7.548,33.704,0.758L256,414.473l123.617,81.547
+                      c10.3,6.789,23.719,6.487,33.704-0.758c9.982-7.245,14.405-19.92,11.131-31.808l-39.347-142.779l115.756-92.368
+                      C510.498,220.621,514.362,207.749,510.549,196.024z"></path>
+                    </g>
+                  </svg>
+                </i>
+                <i class="star_icon">
+                  <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
+                    <g>
+                      <path class="st5 st fst05" d="M510.549,196.024c-3.812-11.726-14.5-19.868-26.82-20.42l-147.935-6.686l-52.09-138.642
+                      C279.37,18.739,268.329,11.089,256,11.089c-12.329,0-23.37,7.65-27.704,19.187l-52.089,138.642l-147.935,6.686
+                      c-12.321,0.552-23.008,8.694-26.821,20.42c-3.812,11.726,0.052,24.598,9.689,32.283l115.756,92.368L87.542,463.453
+                      c-3.27,11.889,1.155,24.554,11.136,31.808c9.985,7.246,23.404,7.548,33.704,0.758L256,414.473l123.617,81.547
+                      c10.3,6.789,23.719,6.487,33.704-0.758c9.982-7.245,14.405-19.92,11.131-31.808l-39.347-142.779l115.756-92.368
+                      C510.498,220.621,514.362,207.749,510.549,196.024z"></path>
+                    </g>
+                  </svg>
+                </i>
+              </div>
+              </div>
+              @error('foam')
                 <p class="alert -top">{{ $message }}</p>
               @enderror
               <div class="radio_wrap -hasStar @if( is_null(old('cost_paf')) == false )star_icon_{{ old('cost_paf') }}@else star_icon_{{ $items->cost_paf }}@endif">
@@ -353,6 +502,9 @@
               @error('recomend')
                 <p class="alert -top">{{ $message }}</p>
               @enderror
+
+              <span class="border_line">必須項目はここまで</span>
+
               <div class="input_wrap">
                 <label for="weight" class="label">内容量（ kg 換算）</label>
                 <input type="text" name="weight" class="-secondary @error('weight') is-invalid @enderror" placeholder="500g→0.5 / 1kg→1" id="weight" value="@if( is_null(old('weight')) == false){{ old('weight') }}@else{{ $items->weight }}@endif">

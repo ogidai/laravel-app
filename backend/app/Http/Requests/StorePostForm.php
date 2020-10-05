@@ -39,6 +39,8 @@ class StorePostForm extends FormRequest
             'taste_good' => 'required',
             'cost_paf' => 'required',
             'recomend' => 'required',
+            'melt' => 'required',
+            'foam' => 'required',
             'how_to_buy' => [
               'nullable',
               'string',

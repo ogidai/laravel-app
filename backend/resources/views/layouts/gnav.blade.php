@@ -31,7 +31,7 @@
             <a href="{{ route('policy') }}" class="arrow -next">利用規約・プライバシーポリシー</a>
         </li>
         <li class="gnav_item -sns">
-            <a href="https://twitter.com/procomi2020"><img src="{{ asset('images/t_logo.svg') }}" alt=""></a>
+            <a href="https://twitter.com/procomi2020"><img src="{{ asset('images/t_logo.svg') }}" alt="Twitter"></a>
         </li>
     </ul>
     <footer class="footer -pc">

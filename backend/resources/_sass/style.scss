@@ -184,6 +184,12 @@
   &.-post {
     border-top: 1px solid $color-normal-lighter;
   }
+  &.-max {
+    @include mq {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+  }
   .or {
     position: relative;
     padding: 30px 0;
@@ -347,6 +353,7 @@
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
+  align-items: center;
   padding: 15px;
   @include mq {
     padding: 15px 80px;
@@ -400,10 +407,7 @@
   font-weight: $weight-bold;
   line-height: 1.4;
   span {
-    margin-left: 10px;
-    &:first-child {
-      margin-left: 0;
-    }
+    margin-right: 10px;
   }
   @include mq {
     font-size: 1.7rem;
@@ -415,12 +419,19 @@
     display: -ms-flex;
     display: flex;
     align-items: center;
+    margin-top: 5px;
     padding: 0;
+    @include mq {
+      margin-top: 15px;
+    }
     .review_cat {
       padding-top: 2px;
     }
     .star_icons {
-      margin-left: 20px;
+      margin-left: 10px;
+      @include mq {
+        margin-left: 20px;
+      }
     }
   }
   &.-row_pc {
@@ -719,6 +730,7 @@
   }
   .list_right {
     margin: 0;
+    padding-right: 5px;
     padding-left: 5px;
     width: 55%;
   }

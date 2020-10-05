@@ -8,16 +8,19 @@
       <div class="contentInner">
         <div class="logo">
           <a href="{{('/')}}">
-            <img src="{{ asset('images/logo.png') }}" alt="">
+            <img src="{{ asset('images/logo.png') }}" alt="プロコミ！">
           </a>
         </div>
-        <a href="{{('/')}}" class="left arrow_back"></a>
+        <div class="navBtn js-navBtnActive">
+          <span class="js-badge"></span><span></span><span></span>
+        </div>
+        <a href="{{('/')}}" class="left arrow_back -pc"></a>
       </div>
     </header>
 
-    <div class="wrapper -hasform">
+    <div class="wrapper -top">
       <main class="main">
-        <div class="inner">
+        <div class="inner -max">
           <form class="form" method="POST" action="{{ route('password.update') }}">
             <div class="card -form">
               @csrf

@@ -236,7 +236,9 @@ class PostController extends Controller
         $taste_good = $post_data['taste_good'];
         $cost_paf = $post_data['cost_paf'];
         $recomend = $post_data['recomend'];
-        $total = round(( $taste_good + $cost_paf + $recomend ) / 3);
+        $melt = $post_data['melt'];
+        $foam = $post_data['foam'];
+        $total = round(( $taste_good + $cost_paf + $recomend + $melt + $foam ) / 5);
         $how_to_buy = $post_data['how_to_buy'];
         $how_to_drink = $post_data['how_to_drink'];
         $comment = $post_data['comment'];
@@ -246,6 +248,7 @@ class PostController extends Controller
         } else {
           $per_price = null;
         }
+
 
         if (isset($post_data['made']) == true) {
           $made = $post_data['made'];
@@ -276,6 +279,8 @@ class PostController extends Controller
         $post->taste_good = $taste_good;
         $post->cost_paf = $cost_paf;
         $post->recomend = $recomend;
+        $post->melt = $melt;
+        $post->foam = $foam;
         $post->total = $total;
         $post->how_to_buy = $how_to_buy;
         $post->how_to_drink = $how_to_drink;
@@ -302,6 +307,8 @@ class PostController extends Controller
 
       return redirect('post/index');
   }
+
+
 
 
     public function store(StorePostForm $request) {
@@ -336,7 +343,9 @@ class PostController extends Controller
       $taste_good = $post_data['taste_good'];
       $cost_paf = $post_data['cost_paf'];
       $recomend = $post_data['recomend'];
-      $total = round(( $taste_good + $cost_paf + $recomend ) / 3);
+      $melt = $post_data['melt'];
+      $foam = $post_data['foam'];
+      $total = round(( $taste_good + $cost_paf + $recomend + $melt + $foam ) / 5);
       $how_to_buy = $post_data['how_to_buy'];
       $how_to_drink = $post_data['how_to_drink'];
       $comment = $post_data['comment'];
@@ -374,6 +383,8 @@ class PostController extends Controller
       $post->taste_good = $taste_good;
       $post->cost_paf = $cost_paf;
       $post->recomend = $recomend;
+      $post->melt = $melt;
+      $post->foam = $foam;
       $post->total = $total;
       $post->how_to_buy = $how_to_buy;
       $post->how_to_drink = $how_to_drink;
