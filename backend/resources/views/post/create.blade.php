@@ -118,12 +118,12 @@
                 <p class="alert -margin_bottom">{{ $message }}</p>
               @enderror
               <label for="pro_name" class="label -margin"><span class="alert">＊</span>商品名</label>
-              <input type="text" name="pro_name" class="-secondary @error('pro_name') is-invalid @enderror" placeholder="プロヒカマッスルプロテイン" id="pro_name" value="{{ old('pro_name') }}">
+              <input type="text" name="pro_name" class="-secondary @error('pro_name') is-invalid @enderror" placeholder="プロコミマッスルプロテイン" id="pro_name" value="{{ old('pro_name') }}">
               @error('pro_name')
                 <p class="alert -top">{{ $message }}</p>
               @enderror
               <label for="flavor" class="label"><span class="alert">＊</span>プロテインの味</label>
-              <input type="text" name="flavor" class="-secondary @error('flavor') is-invalid @enderror" placeholder="チョコレート" id="flavor" value="{{ old('flavor') }}">
+              <input type="text" name="flavor" class="-secondary @error('flavor') is-invalid @enderror" placeholder="チョコレート味" id="flavor" value="{{ old('flavor') }}">
               @error('flavor')
                 <p class="alert -top">{{ $message }}</p>
               @enderror
