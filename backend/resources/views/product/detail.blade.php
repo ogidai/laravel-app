@@ -98,6 +98,7 @@
             @endif
           ">
             <div class="img_outer">
+              <div class="img_zoom img_01"></div>
               <figure>
                 <img src="{{$path_01}}" alt="">
               </figure>
@@ -117,6 +118,7 @@
             </div>
             @if ( is_null($path_02) == false )
             <div class="img_outer">
+              <div class="img_zoom img_02"></div>
               <figure>
                 <img src="{{$path_02}}" alt="">
               </figure>
@@ -139,6 +141,7 @@
             @endif
             @if ( is_null($path_03) == false )
             <div class="img_outer">
+              <div class="img_zoom img_03"></div>
               <figure>
                 <img src="{{$path_03}}" alt="">
               </figure>
@@ -660,6 +663,28 @@
 
 </div>
 
+<div class="img_zoomed img_zoomed_01">
+  <figure>
+    <img src="{{$path_01}}" alt="">
+  </figure>
+  <div class="delete"></div>
+</div>
+@if ( is_null($path_02) == false )
+<div class="img_zoomed img_zoomed_02">
+  <figure>
+    <img src="{{$path_02}}" alt="">
+  </figure>
+  <div class="delete"></div>
+</div>
+@endif
+@if ( is_null($path_03) == false )
+<div class="img_zoomed img_zoomed_03">
+  <figure>
+    <img src="{{$path_03}}" alt="">
+  </figure>
+  <div class="delete"></div>
+</div>
+@endif
 
 
 </div>

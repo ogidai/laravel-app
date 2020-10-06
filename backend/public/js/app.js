@@ -122,6 +122,30 @@ $(window).on('load', function () {
     $('#gnav').removeClass('active');
     $('.overlay').removeClass('active');
     $('body').css('overflow', 'auto');
+  }); // 画像のクリックイベント、ズームする
+
+  $('.img_zoom').on('click', function () {
+    $('img_zoomed').removeClass('active');
+    $('.overlay').addClass('active');
+    $('body').css('overflow', 'hidden');
+
+    if ($(this).hasClass('img_01')) {
+      $('.img_zoomed_01').addClass('active');
+    }
+
+    if ($(this).hasClass('img_02')) {
+      $('.img_zoomed_02').addClass('active');
+    }
+
+    if ($(this).hasClass('img_03')) {
+      $('.img_zoomed_03').addClass('active');
+    }
+
+    $('.overlay, .delete').on('click', function () {
+      $('.img_zoomed').removeClass('active');
+      $('.overlay').removeClass('active');
+      $('body').css('overflow', 'auto');
+    });
   }); // logout modal
 
   $('.js-showLogoutModal').click(function () {

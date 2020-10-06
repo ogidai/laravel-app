@@ -109,6 +109,7 @@
           @endif
         ">
           <div class="img_outer">
+            <div class="img_zoom img_01"></div>
             <figure>
               <img src="{{$path_01}}" alt="">
             </figure>
@@ -128,6 +129,7 @@
           </div>
           @if ( is_null($path_02) == false )
           <div class="img_outer">
+            <div class="img_zoom img_02"></div>
             <figure>
               <img src="{{$path_02}}" alt="">
             </figure>
@@ -150,6 +152,7 @@
           @endif
           @if ( is_null($path_03) != true )
           <div class="img_outer">
+            <div class="img_zoom img_03"></div>
             <figure>
               <img src="{{$path_03}}" alt="">
             </figure>
@@ -664,6 +667,29 @@
       <span class="btn js-deletePostModalBack">いいえ</span>
     </div>
   </div>
+  <div class="img_zoomed img_zoomed_01">
+    <div class="delete"></div>
+    <figure>
+      <img src="{{$path_01}}" alt="">
+    </figure>
+  </div>
+  @if ( is_null($path_02) == false )
+  <div class="img_zoomed img_zoomed_02">
+    <div class="delete"></div>
+    <figure>
+      <img src="{{$path_02}}" alt="">
+    </figure>
+  </div>
+  @endif
+  @if ( is_null($path_03) == false )
+  <div class="img_zoomed img_zoomed_03">
+    <div class="delete"></div>
+    <figure>
+      <img src="{{$path_03}}" alt="">
+    </figure>
+  </div>
+  @endif
+
 </div>
 
 
