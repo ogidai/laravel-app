@@ -25,9 +25,6 @@ class PostController extends Controller
       ->orderBy('updated_at', 'desc')
       ->paginate(10);
 
-
-      // $path_01 = Storage::disk('s3')->url($items->img_01);
-
       return view('post.index', compact('items'));
     }
 
@@ -287,6 +284,8 @@ class PostController extends Controller
         $post->comment = $comment;
 
         $post->save();
+
+        // $request->session()->regenerateToken();
 
         return redirect('post/index');
     }
