@@ -305,7 +305,8 @@ img {
   height: auto;
 }
 
-input {
+input,
+textarea {
   -webkit-appearance: none;
 }
 
