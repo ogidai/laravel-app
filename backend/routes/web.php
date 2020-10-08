@@ -22,6 +22,10 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes(['verify' => true]);
 
+Route::get('error/{code}', function ($code) {
+  abort($code);
+});
+
 Route::get('/', 'HomeController@index')->name('home');
 Route::post('/', 'HomeController@index');
 

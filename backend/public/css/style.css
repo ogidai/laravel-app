@@ -2721,3 +2721,14 @@ input[type=file] {
   color: #fff;
 }
 
+.error_img {
+  width: 80%;
+  max-width: 300px;
+  margin: 15px auto 30px;
+}
+
+.error_img + .btnWrap {
+  max-width: 300px;
+  margin: 0 auto;
+}
+

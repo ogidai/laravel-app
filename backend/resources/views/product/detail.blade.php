@@ -658,6 +658,12 @@
     </div>
   </div>
   @endauth
+  <div class="card">
+    <p class="catch">プロコミ！はこれからもサービスの向上に努めてまいります。少しでもご支援をいただけると泣いて喜びます。</p>
+    <div class="btnWrap -margin">
+      <a href="https://www.paypal.com/paypalme/ogidai" class="btn -full">プロコミ！を支援する</a>
+    </div>
+  </div>
 
   </main>
 

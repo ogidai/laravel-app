@@ -861,3 +861,12 @@
     }
   }
 }
+.error_img {
+  width: 80%;
+  max-width: 300px;
+  margin: 15px auto 30px;
+  & + .btnWrap {
+    max-width: 300px;;
+    margin: 0 auto;
+  }
+}
