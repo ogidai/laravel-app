@@ -12,7 +12,7 @@
             <img src="{{ asset('images/logo.png') }}" alt="プロコミ！">
           </a>
         </div>
-        <div class="navBtn js-navBtn">
+        <div class="navBtn js-navBtnActive">
           <span></span><span></span><span></span>
         </div>
         <!-- <a href="{{('/')}}" class="left arrow_back"></a> -->
