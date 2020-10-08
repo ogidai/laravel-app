@@ -15,13 +15,12 @@ class PostController extends Controller
 {
     //
     public function __construct() {
-      // $this->middleware('auth');
       $this->middleware('verified');
     }
 
     public function index() {
       $authUser = Auth::user()->id;
-      $items = Post::with('user')->where('user_id', $authUser)
+      $items = Post::where('user_id', $authUser)
       ->orderBy('updated_at', 'desc')
       ->paginate(10);
 

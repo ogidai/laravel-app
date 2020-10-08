@@ -8,6 +8,11 @@
       $('#loading').fadeIn(0).delay(3000).fadeOut(0);
     });
 
+    // ページを常にトップから表示する
+    if ($('.container').hasClass('scrollTop')) {
+      $('html, body').animate({scrollTop:0},'fast');
+    }
+
     // spハンバーガーメニューのクリックイベント
     $('.js-navBtnActive').click(function() {
         $('#gnav').addClass('active');

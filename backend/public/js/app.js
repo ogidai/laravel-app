@@ -111,7 +111,14 @@ $(window).on('load', function () {
   $('a, input[type=submit]').on('click', function () {
     $('#body_hidden').addClass('-hidden').delay(3000).removeClass('-hidden');
     $('#loading').fadeIn(0).delay(3000).fadeOut(0);
-  }); // spハンバーガーメニューのクリックイベント
+  }); // ページを常にトップから表示する
+
+  if ($('.container').hasClass('scrollTop')) {
+    $('html, body').animate({
+      scrollTop: 0
+    }, 'fast');
+  } // spハンバーガーメニューのクリックイベント
+
 
   $('.js-navBtnActive').click(function () {
     $('#gnav').addClass('active');
