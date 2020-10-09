@@ -104,7 +104,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$(window).on('load', function () {
+$(function () {
   $('#body_hidden').fadeIn(1000);
   $('#gnav').fadeIn(1000);
   $('#loading').fadeOut(1000);
@@ -117,9 +117,10 @@ $(window).on('load', function () {
     $('html, body').animate({
       scrollTop: 0
     }, 'fast');
-  } // spハンバーガーメニューのクリックイベント
-
-
+  }
+});
+$(window).on('load', function () {
+  // spハンバーガーメニューのクリックイベント
   $('.js-navBtnActive').click(function () {
     $('#gnav').addClass('active');
     $('.overlay').addClass('active');

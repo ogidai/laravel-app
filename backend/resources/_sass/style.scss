@@ -725,9 +725,10 @@
     display: block;
     width: 100%;
     max-width: 400px;
-    max-height: 100vh;
+    max-height: 80vh;
     margin: 0;
     transform: translate(-50%, -50%);
+    overflow: scroll;
   }
 }
 
