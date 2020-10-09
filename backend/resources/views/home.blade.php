@@ -523,7 +523,7 @@
                 <div class="review -row_sp">
                   <p class="review_cat">
                     @if ( $id == 0 || $id == 1 || $id == 9 )
-                    投稿日：<span class="font_bigger">{{ date('Y/m/d', strtotime($item->created_at)) }}</span>
+                    投稿日：<span class="font_bigger">{{ date('Y/m/d', strtotime($item->updated_at)) }}</span>
                     @endif
                     @if ( $id == 2 )
                     総合評価
