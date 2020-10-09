@@ -119,6 +119,7 @@
               @enderror
               <label for="pro_name" class="label -margin"><span class="alert">＊</span>商品名</label>
               <input type="text" name="pro_name" class="-secondary @error('pro_name') is-invalid @enderror" placeholder="プロコミマッスルプロテイン" id="pro_name" value="{{ old('pro_name') }}">
+              <p class="alert -top">メーカーや販売者が商品名に明記されていない場合は、一緒に記入してください。<br>例）ホエイプロテイン→プロコミ社　ホエイプロテイン</p>
               @error('pro_name')
                 <p class="alert -top">{{ $message }}</p>
               @enderror
