@@ -109,13 +109,13 @@
 
 
   // 新規登録のフォームが全て入力されていたらsubmitできるようにする
-    $('#register_submit').attr('disabled', 'disabled');
+    $('#register_submit').prop('disabled', true);
 
     $('#term_check').click(function() {
       if ( $(this).prop('checked') == false ) {
-        $('#register_submit').attr('disabled', 'disabled');
+        $('#register_submit').prop('disabled', true);
       } else {
-        $('#register_submit').removeAttr('disabled');
+        $('#register_submit').prop('disabled', false);
       }
     });
 
@@ -130,14 +130,32 @@
 
 
 // 画像の追加
-  $(document).on('change', '#addImages01', function (e) {
+  $('#add_images_create').hide();
+  $('#addImage').on('click', function() {
+      $('.add_images_wrap').slideDown();
+      $('.post_form').attr('action','store');
+  });
+  $('#noImage').on('click', function() {
+      $('.add_images_wrap').slideUp();
+      $('.post_form').attr('action','noImageStore');
+  });
+  $('#updateImage').on('click', function() {
+      $('.add_images_wrap').slideDown();
+      $('#submit').val('submit');
+  });
+  $('#updateNoImage').on('click', function() {
+      $('.add_images_wrap').slideUp();
+      $('#submit').val('noImage');
+  });
+
+  $(document).on('change', '#addImages01', function(e) {
     var reader = new FileReader();
     reader.onload = function (e) {
       $("#showImages01").attr('src', e.target.result);
     };
     reader.readAsDataURL(e.target.files[0]);
   });
-  $(document).on('change', '#addImages02', function (e) {
+  $(document).on('change', '#addImages02', function(e) {
     var reader = new FileReader();
     reader.onload = function (e) {
       $("#showImages02").attr('src', e.target.result);
@@ -146,7 +164,7 @@
     $("#submit").addClass('img_changed_02');
     $("#delete01").removeClass('-hidden');
   });
-  $(document).on('change', '#addImages03', function (e) {
+  $(document).on('change', '#addImages03', function(e) {
     var reader = new FileReader();
     reader.onload = function (e) {
       $("#showImages03").attr('src', e.target.result);
@@ -186,6 +204,7 @@
       $(this).val('img_changed');
     }
   });
+
   if ( ($("#showImages02").attr('src')) == '' ) {
     $("#delete01").addClass('-hidden');
   } else {
@@ -197,6 +216,9 @@
     $("#delete02").removeClass('-hidden');
   };
 
+  $('#addImages01').on('change', function () {
+    $('#addImages02, #addImages03').prop('disabled', false);
+  });
 
 
 
@@ -265,6 +287,7 @@
       $('.option_form_wrap').eq(index).addClass('active');
     }
   });
+
 
 
 });

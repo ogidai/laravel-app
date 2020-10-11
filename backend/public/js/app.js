@@ -104,23 +104,22 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$(function () {
+$(window).on('load', function () {
   $('#body_hidden').fadeIn(1000);
   $('#gnav').fadeIn(1000);
-  $('#loading').fadeOut(1000);
-  $('a, input[type=submit]').on('click', function () {
-    $('#body_hidden').addClass('-hidden').delay(3000).removeClass('-hidden');
-    $('#loading').fadeIn(0).delay(3000).fadeOut(0);
-  }); // ページを常にトップから表示する
+  $('#loading').fadeOut(1000); // ページを常にトップから表示する
 
   if ($('.container').hasClass('scrollTop')) {
     $('html, body').animate({
       scrollTop: 0
     }, 'fast');
   }
-});
-$(window).on('load', function () {
-  // spハンバーガーメニューのクリックイベント
+
+  $('a, input[type=submit]').on('click', function () {
+    $('#body_hidden').addClass('-hidden').delay(3000).removeClass('-hidden');
+    $('#loading').fadeIn(0).delay(3000).fadeOut(0);
+  }); // spハンバーガーメニューのクリックイベント
+
   $('.js-navBtnActive').click(function () {
     $('#gnav').addClass('active');
     $('.overlay').addClass('active');
@@ -209,12 +208,12 @@ $(window).on('load', function () {
     }
   }); // 新規登録のフォームが全て入力されていたらsubmitできるようにする
 
-  $('#register_submit').attr('disabled', 'disabled');
+  $('#register_submit').prop('disabled', true);
   $('#term_check').click(function () {
     if ($(this).prop('checked') == false) {
-      $('#register_submit').attr('disabled', 'disabled');
+      $('#register_submit').prop('disabled', true);
     } else {
-      $('#register_submit').removeAttr('disabled');
+      $('#register_submit').prop('disabled', false);
     }
   }); // コンテンツの高さがない時にフッターを下に固定する
 
@@ -232,6 +231,23 @@ $(window).on('load', function () {
 
   ; // 画像の追加
 
+  $('#add_images_create').hide();
+  $('#addImage').on('click', function () {
+    $('.add_images_wrap').slideDown();
+    $('.post_form').attr('action', 'store');
+  });
+  $('#noImage').on('click', function () {
+    $('.add_images_wrap').slideUp();
+    $('.post_form').attr('action', 'noImageStore');
+  });
+  $('#updateImage').on('click', function () {
+    $('.add_images_wrap').slideDown();
+    $('#submit').val('submit');
+  });
+  $('#updateNoImage').on('click', function () {
+    $('.add_images_wrap').slideUp();
+    $('#submit').val('noImage');
+  });
   $(document).on('change', '#addImages01', function (e) {
     var reader = new FileReader();
 
@@ -309,7 +325,10 @@ $(window).on('load', function () {
     $("#delete02").removeClass('-hidden');
   }
 
-  ; //faq
+  ;
+  $('#addImages01').on('change', function () {
+    $('#addImages02, #addImages03').prop('disabled', false);
+  }); //faq
 
   $('.question').on('click', function () {
     $(this).next('.answer').slideToggle();

@@ -185,6 +185,57 @@ input[type='radio'] {
       }
     }
   }
+  &.check {
+    & + label {
+      position: relative;		/* ボックスの位置を指定する */
+      margin-top: 5px;
+      padding: 0 0 0 30px;	/* ボックス内側の余白を指定する */
+      &:hover::after {
+        background-color: $base-color-bg;
+      }
+      &::after,
+      &::before {
+        position: absolute;	/* ボックスの位置を指定する */
+        content: "";		/* ボックスのコンテンツ */
+        display: block;		/* ブロックレベル要素化する */
+        top: 50%;			/* 上部から配置の基準位置を決める */
+        border-radius: 0;
+      }
+      &::after {
+        left: 0;
+        margin-top: -12px;
+        width: 22px;
+        height: 22px;
+        box-sizing: border-box;
+        border: 1px solid $base-color-border;
+        border-radius: 4px;	/* ボックスの角丸を指定する */
+        background-color: $base-color-bg;
+      }
+      &::before {
+        left: 7px;			/* 左から配置の基準位置を決める */
+        margin-top: -8px;	/* チェックマークの位置 */
+        width: 8px;			/* ボックスの横幅を指定する */
+        height: 11px;		/* ボックスの高さを指定する */
+
+        border-right: 3px solid $color-base;
+        border-bottom: 3px solid $color-base;
+        transform: rotate(45deg);	/* 要素を回転させる */
+        opacity: 0;			/* 要素を透過指定する */
+      }
+    }
+    &:checked {
+      & + label {
+        &::after {
+          border: 1px solid $color-primary;
+          background-color: $color-primary;
+        }
+        &::before {
+          opacity: 1;		/* 要素を表示する */
+          z-index: 1000;
+        }
+      }
+    }
+  }
 }
 
 input[type="submit"] {

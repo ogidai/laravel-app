@@ -88,17 +88,22 @@
               <input type="hidden" name="user_id" class="-secondary" id="" value="{{ Auth::user()->id }}">
 
               <div class="input_wrap -margin">
-                <label for="addImages01" class="label"><span class="alert">＊</span>画像を追加（最低１枚、最大３枚）</label>
+                <p class="text_left"><span class="alert">＊</span>画像を投稿しますか？</p>
+                <input type="radio" name="imgCheck" value="" id="updateImage" class="check" checked><label for="updateImage" class="label">画像を投稿する（最大３枚）</label>
                 <div class="add_images_wrap">
                   <div class="add_image_input">
                     <input type="file" name="image_01" class="-secondary" id="addImages01" accept="image/*">
                     <figure>
+                      @if( is_null($path_01) == false )
                       <img src="{{ $path_01 }}" alt="" id="showImages01">
+                      @else
+                      <img src="" alt="" id="showImages01">
+                      @endif
                     </figure>
                     <p class="number">1</p>
                   </div>
                   <div class="add_image_input">
-                    <input type="file" name="image_02" class="-secondary" id="addImages02" accept="image/*">
+                    <input type="file" name="image_02" class="-secondary" id="addImages02" accept="image/*" @if( is_null($path_01) == true ) disabled @endif>
                     <figure>
                       @if( is_null($path_02) == false )
                       <img src="{{ $path_02 }}" alt="" id="showImages02">
@@ -110,7 +115,7 @@
                     <div class="delete -sm" id="delete01"></div>
                   </div>
                   <div class="add_image_input">
-                    <input type="file" name="image_03" class="-secondary" id="addImages03" accept="image/*">
+                    <input type="file" name="image_03" class="-secondary" id="addImages03" accept="image/*" @if( is_null($path_01) == true ) disabled @endif>
                     <figure>
                       @if( is_null($path_02) == false )
                       <img src="{{ $path_03 }}" alt="" id="showImages03">
@@ -122,6 +127,7 @@
                     <div class="delete -sm" id="delete02"></div>
                   </div>
                 </div>
+                <input type="radio" name="imgCheck" value="" id="updateNoImage" class="check"><label for="updateNoImage" class="label">画像を投稿しない</label>
               </div>
               @error('image_01')
                 <p class="alert -margin_bottom">{{ $message }}</p>

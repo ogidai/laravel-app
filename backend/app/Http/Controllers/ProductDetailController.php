@@ -14,7 +14,11 @@ class ProductDetailController extends Controller
     {
       $items = Post::find($id);
 
-      $path_01 = Storage::disk('s3')->url($items->img_01);
+      if (is_null($items->img_01) == true) {
+        $path_01 = $items->img_01;
+      } else {
+        $path_01 = Storage::disk('s3')->url($items->img_01);
+      }
 
       if (is_null($items->img_02) == true) {
         $path_02 = $items->img_02;

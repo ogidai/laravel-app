@@ -87,8 +87,9 @@
               <input type="hidden" name="user_id" class="-secondary" id="" value="{{Auth::user()->id}}">
 
               <div class="input_wrap -margin">
-                <label for="addImages01" class="label"><span class="alert">＊</span>画像を追加（最低１枚、最大３枚）</label>
-                <div class="add_images_wrap">
+                <p class="text_left"><span class="alert">＊</span>画像を追加しますか？</p>
+                <input type="radio" name="imgCheck" value="" id="addImage" class="check"><label for="addImage" class="label">画像を追加する（最大３枚）</label>
+                <div class="add_images_wrap" id="add_images_create">
                   <div class="add_image_input">
                     <input type="file" name="image_01" class="-secondary" id="addImages01" accept="image/*">
                     <figure>
@@ -113,6 +114,7 @@
                     <div class="delete -sm" id="delete02"></div>
                   </div>
                 </div>
+                <input type="radio" name="imgCheck" value="" id="noImage" class="check"><label for="noImage" class="label">画像を追加しない</label>
               </div>
               @error('image_01')
                 <p class="alert -margin_bottom">{{ $message }}</p>
@@ -128,7 +130,6 @@
               @error('flavor')
                 <p class="alert -top">{{ $message }}</p>
               @enderror
-
               <div class="radio_wrap -hasStar star_icon_{{old('taste_good')}}">
                 <p><span class="alert">＊</span>美味しさ（５段階評価）</p>
                 <input type="radio" name="taste_good" value="1" class="-secondary @error('taste_good') is-invalid @enderror" id="taste_check_01" {{ old('taste_good') == "1" ? 'checked' : '' }}>
@@ -560,7 +561,6 @@
             </div>
             <input type="submit" name="submit" value="submit" id="submit">
             <label for="submit" class="submit">上記の内容で投稿</label>
-
           </form>
         </div>
 

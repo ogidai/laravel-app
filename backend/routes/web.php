@@ -34,6 +34,8 @@ Route::get('post/show/{id}', 'PostController@show')->name('post.show');
 Route::get('post/create', 'PostController@create')->name('post');
 Route::post('post/store', 'PostController@store');
 Route::get('post/store', 'PostController@store');
+Route::post('post/noImageStore', 'PostController@noImageStore');
+Route::get('post/noImageStore', 'PostController@noImageStore');
 Route::get('post/edit/{id}', 'PostController@edit')->name('post.edit');
 Route::post('post/edit/{id}', 'PostController@update')->name('post.update');
 Route::get('post/destroy/{id}', 'PostController@destroy')->name('post.destroy');

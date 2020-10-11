@@ -111,7 +111,11 @@
           <div class="img_outer">
             <div class="img_zoom img_01"></div>
             <figure>
+              @if (is_null($path_01) == true)
+              <img src="{{ asset('images/noimage.png') }}" alt="no image">
+              @else
               <img src="{{$path_01}}" alt="">
+              @endif
             </figure>
             @if (  is_null($path_02) == false && is_null($path_03) == true  )
             <div class="arrow -next js-arrow -tab"></div>
@@ -670,7 +674,11 @@
   <div class="img_zoomed img_zoomed_01">
     <div class="delete"></div>
     <figure>
+      @if (is_null($path_01) == false)
       <img src="{{$path_01}}" alt="">
+      @else
+      <img src="{{ asset('images/noimage.png') }}" alt="no image">
+      @endif
     </figure>
   </div>
   @if ( is_null($path_02) == false )

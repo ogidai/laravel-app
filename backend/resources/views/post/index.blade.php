@@ -95,7 +95,11 @@
               <div class="pro_item_left">
                 <div class="img_outer">
                   <figure>
+                    @if (is_null($item->img_01) == true)
+                    <img src="{{ asset('images/noimage.png') }}" alt="no image">
+                    @else
                     <img src="{{ Storage::disk('s3')->url($item->img_01)}}" alt="">
+                    @endif
                   </figure>
                 </div>
               </div>
