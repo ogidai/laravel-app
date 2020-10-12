@@ -82,11 +82,11 @@
                     <div class="delete -sm" id="delete02"></div>
                   </div>
                 </div>
+                @error('image_01')
+                <p class="alert -top">{{ $message }}</p>
+                @enderror
                 <input type="radio" name="imgCheck" value="" id="updateNoImage" class="check"><label for="updateNoImage" class="label">画像を投稿しない</label>
               </div>
-              @error('image_01')
-                <p class="alert -margin_bottom">{{ $message }}</p>
-              @enderror
 
               <label for="pro_name" class="label -margin"><span class="alert">＊</span>商品名</label>
               <input type="text" name="pro_name" class="-secondary @error('pro_name') is-invalid @enderror" placeholder="プロコミマッスルプロテイン" id="pro_name" value="@if( is_null(old('pro_name')) == false){{ old('pro_name') }}@else{{ $items->pro_name }}@endif">
