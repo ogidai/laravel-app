@@ -187,7 +187,7 @@ $(window).on('load', function () {
     $('.overlay').removeClass('active');
     $('body').css('overflow', 'auto');
   });
-  $('#term_check').attr('disabled', 'disabled');
+  $('#term_check').prop('disabled', true);
   $('form input:required').change(function () {
     //必須項目が空かどうかフラグ
     var flag = true; //必須項目をひとつずつチェック
@@ -201,10 +201,10 @@ $(window).on('load', function () {
 
     if (flag) {
       //送信ボタンを復活
-      $('#term_check').removeAttr('disabled');
+      $('#term_check').prop('disabled', false);
     } else {
       //送信ボタンを閉じる
-      $('#term_check').attr('disabled', 'disabled');
+      $('#term_check').prop('disabled', true);
     }
   }); // 新規登録のフォームが全て入力されていたらsubmitできるようにする
 

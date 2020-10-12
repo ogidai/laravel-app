@@ -98,7 +98,7 @@
                     <p class="number">1</p>
                   </div>
                   <div class="add_image_input">
-                    <input type="file" name="image_02" class="-secondary" id="addImages02" accept="image/*">
+                    <input type="file" name="image_02" class="-secondary" id="addImages02" accept="image/*" disabled>
                     <figure>
                       <img src="" alt="" id="showImages02">
                     </figure>
@@ -106,7 +106,7 @@
                     <div class="delete -sm" id="delete01"></div>
                   </div>
                   <div class="add_image_input">
-                    <input type="file" name="image_03" class="-secondary" id="addImages03" accept="image/*">
+                    <input type="file" name="image_03" class="-secondary" id="addImages03" accept="image/*" disabled>
                     <figure>
                       <img src="" alt="" id="showImages03">
                     </figure>
