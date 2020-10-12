@@ -52,9 +52,9 @@
     <div id="body_hidden">
 
     @yield('content')
-    @auth
 
-  </div>
+    @auth
+    </div>
     <div class="modal js-logoutModal">
       <p class="text">ログアウトしてもよろしいですか？</p>
       <div class="btnWrap">
@@ -72,12 +72,6 @@
         <small>© 2020 プロコミ！</small>
       </div>
     </footer>
-
-    </div>
-
-
-
-  </div>
 
   <!-- Scripts -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
