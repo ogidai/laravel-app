@@ -112,7 +112,7 @@
             <div class="img_zoom img_01"></div>
             <figure>
               @if (is_null($path_01) == true)
-              <img src="{{ asset('images/noimage.svg') }}" alt="no image">
+              <img src="{{ asset('images/noimage.png') }}" alt="no image">
               @else
               <img src="{{$path_01}}" alt="">
               @endif
@@ -677,7 +677,7 @@
       @if (is_null($path_01) == false)
       <img src="{{$path_01}}" alt="">
       @else
-      <img src="{{ asset('images/noimage.svg') }}" alt="no image">
+      <img src="{{ asset('images/noimage.png') }}" alt="no image">
       @endif
     </figure>
   </div>
