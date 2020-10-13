@@ -18,6 +18,17 @@ body {
 
 h1 {
   margin: 0;
+  .title_logo {
+    margin-right: 7px;
+    margin-bottom: -3px;
+    width: auto;
+    height: 40px;
+    @include mq {
+      margin-right: 10px;
+      margin-bottom: -4px;
+      height: 50px;
+    }
+  }
 }
 
 h2 {

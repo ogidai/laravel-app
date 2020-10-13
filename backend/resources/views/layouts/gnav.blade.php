@@ -22,6 +22,9 @@
           <a href="{{ ('/') }}" class="arrow -next">トップページへ</a>
         </li>
         <li class="gnav_item">
+          <a href="{{ route('about') }}" class="arrow -next">プロコミ！について</a>
+        </li>
+        <li class="gnav_item">
           <a href="{{ route('faq') }}" class="arrow -next">よくある質問</a>
         </li>
         <li class="gnav_item">

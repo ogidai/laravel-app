@@ -879,3 +879,51 @@
     margin: 0 auto;
   }
 }
+
+.talking {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  p {
+    padding: 15px;
+    border: 2px solid $color-normal-lighter;
+    border-radius: 10px;
+    @include mq {
+      padding: 30px;
+      font-size: 1.5rem;
+    }
+  }
+  figure {
+    img {
+      width: auto;
+      height: 100px;
+      @include mq {
+        height: 120px;
+      }
+    }
+  }
+  &.-left {
+    p {
+      margin-right: auto;
+    }
+    figure {
+      margin-right: 15px;
+      @include mq {
+        margin-right: 30px;
+      }
+    }
+  }
+  &.-right {
+    p {
+      margin-left: auto;
+    }
+    figure {
+      margin-left: 15px;
+      @include mq {
+        margin-left: 30px;
+      }
+    }
+  }
+}

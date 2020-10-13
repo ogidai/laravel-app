@@ -106,7 +106,6 @@
 
 $(window).on('load', function () {
   $('#body_hidden').fadeIn(1000);
-  $('#gnav').fadeIn(1000);
   $('#loading').fadeOut(1000); // ページを常にトップから表示する
 
   if ($('.container').hasClass('scrollTop')) {

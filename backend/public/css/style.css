@@ -114,6 +114,21 @@ h1 {
   margin: 0;
 }
 
+h1 .title_logo {
+  margin-right: 7px;
+  margin-bottom: -3px;
+  width: auto;
+  height: 40px;
+}
+
+@media screen and (min-width: 992px) {
+  h1 .title_logo {
+    margin-right: 10px;
+    margin-bottom: -4px;
+    height: 50px;
+  }
+}
+
 h2 {
   margin: 0;
   font-weight: 700;
@@ -651,7 +666,6 @@ input[type=submit] + label:hover::after {
 }
 
 #gnav {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -2572,6 +2586,7 @@ input[type=file] {
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+  background-image:url("../images/addimage.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -2805,3 +2820,61 @@ input[type=file] {
   margin: 0 auto;
 }
 
+.talking {
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.talking p {
+  padding: 15px;
+  border: 2px solid #D6DADD;
+  border-radius: 10px;
+}
+
+@media screen and (min-width: 992px) {
+  .talking p {
+    padding: 30px;
+    font-size: 1.5rem;
+  }
+}
+
+.talking figure img {
+  width: auto;
+  height: 100px;
+}
+
+@media screen and (min-width: 992px) {
+  .talking figure img {
+    height: 120px;
+  }
+}
+
+.talking.-left p {
+  margin-right: auto;
+}
+
+.talking.-left figure {
+  margin-right: 15px;
+}
+
+@media screen and (min-width: 992px) {
+  .talking.-left figure {
+    margin-right: 30px;
+  }
+}
+
+.talking.-right p {
+  margin-left: auto;
+}
+
+.talking.-right figure {
+  margin-left: 15px;
+}
+
+@media screen and (min-width: 992px) {
+  .talking.-right figure {
+    margin-left: 30px;
+  }
+}
