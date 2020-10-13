@@ -35,7 +35,7 @@
         <div class="card text_align">
           <h1>エラーが発生しました…</h1>
           <figure class="error_img">
-            <img src="{{ asset('images/error.svg') }}" alt="エラー">
+            <img src="{{ asset('images/error.png') }}" alt="エラー">
           </figure>
           <div class="btnWrap">
             <a href="{{ route('home') }}" class="btn -full -primary">トップページへ戻る</a>
