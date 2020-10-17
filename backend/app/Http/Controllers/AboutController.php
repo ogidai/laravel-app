@@ -11,4 +11,9 @@ class AboutController extends Controller
     {
       return view('about');
     }
+
+    // public function showGuide()
+    // {
+    //   return view('guide.top');
+    // }
 }

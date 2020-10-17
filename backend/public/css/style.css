@@ -2878,3 +2878,34 @@ input[type=file] {
   }
 }
 
+.talking.-vertically {
+  display: block;
+  margin-top: 15px;
+}
+
+.talking.-vertically p {
+  position: relative;
+  margin: 0;
+}
+
+.talking.-vertically p::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  right: 70px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid transparent;
+  border-right: 2px solid #D6DADD;
+  border-bottom: 2px solid #D6DADD;
+  border-left: 2px solid transparent;
+  transform: rotate(45deg);
+  background: #fff;
+}
+
+.talking.-vertically figure {
+  margin-top: 15px;
+  margin-left: auto;
+  width: 100px;
+}
+

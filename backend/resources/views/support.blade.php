@@ -29,26 +29,24 @@
 
     <div class="wrapper -top">
 
-      @include('layouts.gnav')
+    @include('layouts.gnav')
 
       <main class="main">
         <div class="card">
-          <h1>お問い合わせ</h1>
+          <h1><img class="title_logo" src="{{ asset('images/logo.png') }}" alt="プロコミ！">を支援する</h1>
           <div class="talking -right -vertically">
             <p>プロコミ！をご利用いただき、誠にありがとうございます。
-              <br>ご質問やご不明な点がある場合、まずは<a href="{{ route('faq') }}">よくある質問</a>を参照してみてください。
-              <br>
-              <br>それでも解決できない場合、お手数をおかけしますが、
-              <a href="mailto:procomi2020&#64;gmail.com">procomi2020&#64;gmail.com</a>
-              にお問い合わせください。
-              <br>
-              <br>お問い合わせ内容や、時期によって異なりますが、お問い合わせから10日前後で返信します。
-              <br>今後ともプロコミ！をよろしくお願いします。
-            </p>
+            <br>これからもサービスの向上に全力で努めてまいります。
+            <br>ご支援をいただけますと幸いです。
+            <br>＊以下のボタンをクリック・タップするとプロコミ！運営者（OGIKUBO DAIKI）のPayPal.Meのページへ移動します。</p>
             <figure>
               <img src="{{ asset('images/men02.png') }}" alt="男性１">
             </figure>
           </div>
+          <div class="btnWrap -margin">
+            <a href="https://www.paypal.com/paypalme/ogidai" class="btn -full -primary">プロコミ！を支援する</a>
+          </div>
+
         </div>
 
       </main>

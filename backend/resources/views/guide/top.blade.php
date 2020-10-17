@@ -33,17 +33,15 @@
 
       <main class="main">
         <div class="card">
-          <h1><img class="title_logo" src="{{ asset('images/logo.png') }}" alt="プロコミ！">とは？</h1>
+          <h1>使い方ガイド（ざっくりと）</h1>
           <div class="talking -left">
             <figure>
               <img src="{{ asset('images/men01.png') }}" alt="男性１">
             </figure>
-            <p>最近筋トレ始めたし、プロテイン飲もう！
-              <br><strong>でも…プロテインってどれがいいのかよくわからん！</strong>
-              <br>周りに詳しい人もいないしなぁ〜、もうダメだ…</p>
+            <p>早速プロコミ！を使ってみるか。どんなことができるんだろうか…</p>
           </div>
           <div class="talking -right">
-            <p>大丈夫！そんなときはプロテインの口コミサイト、<strong>「プロコミ！」</strong>を見るといいよ！</p>
+            <p>１分で簡単に解説してあげるよ！</p>
             <figure>
               <img src="{{ asset('images/men022.png') }}" alt="男性１">
             </figure>
@@ -52,7 +50,7 @@
             <figure>
               <img src="{{ asset('images/men01.png') }}" alt="男性１">
             </figure>
-            <p>プロコミ！って何だよ！へへっ、ダッセェ名前だな！</p>
+            <p>サンキュ！</p>
           </div>
           <div class="talking -right">
             <p>名前はダサいけど、とても便利で素晴らしいサイトだよ！
@@ -96,7 +94,7 @@
             <figure>
               <img src="{{ asset('images/men013.png') }}" alt="男性１">
             </figure>
-            <p>それはすげえな。早速使ってみるぜ！</p>
+            <p>それは激アツだな。早速使ってみるぜ！</p>
           </div>
 
         </div>

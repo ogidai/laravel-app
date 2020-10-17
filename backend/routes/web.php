@@ -18,8 +18,6 @@ use Illuminate\Support\Facades\Auth;
 //     return view('home');
 // });
 
-// Route::get('tests/test', 'TestController@index');
-
 Auth::routes(['verify' => true]);
 
 Route::get('error/{code}', function ($code) {
@@ -46,11 +44,15 @@ Route::get('faq', 'FaqController@index')->name('faq');
 
 Route::get('about', 'AboutController@index')->name('about');
 
+// Route::get('guide/top', 'AboutController@showGuide')->name('guide');
+
 Route::get('policy', 'PolicyController@index')->name('policy');
 
 Route::get('policy_confirm', 'PolicyConfirmController@index')->name('policy_confirm');
 
-// Route::get('home', 'HomeController@index')->name('home');
+Route::get('support', function () {
+    return view('support');
+});
 
 Route::get('product/detail/{id}', 'ProductDetailController@index')->name('detail');
 
