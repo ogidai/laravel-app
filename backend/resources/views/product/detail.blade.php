@@ -620,7 +620,10 @@
   </div>
   @endauth
   <div class="card">
-    <script type="text/javascript">amzn_assoc_ad_type ="responsive_search_widget"; amzn_assoc_tracking_id ="ogidai61000-22"; amzn_assoc_marketplace ="amazon"; amzn_assoc_region ="JP"; amzn_assoc_placement =""; amzn_assoc_search_type = "search_widget";amzn_assoc_width ="auto"; amzn_assoc_height ="auto"; amzn_assoc_default_search_category =""; amzn_assoc_default_search_key ="protein";amzn_assoc_theme ="light"; amzn_assoc_bg_color ="FFFFFF"; </script><script src="//z-fe.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&Marketplace=JP"></script>
+    <p class="catch">プロコミ！はこれからもサービスの向上に努めてまいります。少しでもご支援をいただけると泣いて喜びます。</p>
+    <div class="btnWrap -margin">
+      <a href="https://www.paypal.com/paypalme/ogidai" class="btn -full">プロコミ！を支援する</a>
+    </div>
   </div>
 
   </main>
