@@ -14,12 +14,9 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-// Route::get('/', function () {
-//     return view('home');
-// });
-
 Auth::routes(['verify' => true]);
 
+// errorページの表示
 Route::get('error/{code}', function ($code) {
   abort($code);
 });
@@ -27,48 +24,44 @@ Route::get('error/{code}', function ($code) {
 Route::get('/', 'HomeController@index')->name('home');
 Route::post('/', 'HomeController@index');
 
-Route::get('post/index', 'PostController@index')->name('your_post');
-Route::get('post/show/{id}', 'PostController@show')->name('post.show');
-Route::get('post/create', 'PostController@create')->name('post');
-Route::post('post/store', 'PostController@store');
-Route::get('post/store', 'PostController@store');
-Route::post('post/noImageStore', 'PostController@noImageStore');
-Route::get('post/noImageStore', 'PostController@noImageStore');
-Route::get('post/edit/{id}', 'PostController@edit')->name('post.edit');
-Route::post('post/edit/{id}', 'PostController@update')->name('post.update');
-Route::get('post/destroy/{id}', 'PostController@destroy')->name('post.destroy');
-
-Route::get('contact', 'ContactController@index')->name('contact');
-
-Route::get('faq', 'FaqController@index')->name('faq');
-
-Route::get('about', 'AboutController@index')->name('about');
-
-// Route::get('guide/top', 'AboutController@showGuide')->name('guide');
-
-Route::get('policy', 'PolicyController@index')->name('policy');
-
-Route::get('policy_confirm', 'PolicyConfirmController@index')->name('policy_confirm');
-
-Route::get('support', function () {
-    return view('support');
+// 投稿
+Route::prefix('post')->group(function () {
+  Route::get('index', 'PostController@index')->name('your_post');
+  Route::get('show/{id}', 'PostController@show')->name('post.show');
+  Route::get('create', 'PostController@create')->name('post');
+  Route::post('store', 'PostController@store');
+  Route::get('store', 'PostController@store');
+  Route::post('noImageStore', 'PostController@noImageStore');
+  Route::get('noImageStore', 'PostController@noImageStore');
+  Route::get('edit/{id}', 'PostController@edit')->name('post.edit');
+  Route::post('edit/{id}', 'PostController@update')->name('post.update');
+  Route::get('destroy/{id}', 'PostController@destroy')->name('post.destroy');
 });
 
 Route::get('product/detail/{id}', 'ProductDetailController@index')->name('detail');
 
-Route::get('user/index', 'Admin\UserController@index')->name('user');
-Route::get('user/edit', 'Admin\UserController@edit');
-Route::post('user/edit', 'Admin\UserController@update');
-Route::get('user/delete_account', 'Admin\UserController@show')->name('delete');
-Route::get('user/destroy', 'Admin\UserController@destroy');
+// ユーザー情報
+Route::prefix('user')->group(function () {
+  Route::get('index', 'Admin\UserController@index')->name('user');
+  Route::get('edit', 'Admin\UserController@edit');
+  Route::post('edit', 'Admin\UserController@update');
+  Route::get('delete_account', 'Admin\UserController@show')->name('delete');
+  Route::get('destroy', 'Admin\UserController@destroy');
+});
 
-Route::get('search/top', 'SearchController@index')->name('search');
+Route::get('about', 'GeneralController@showAboutPage')->name('about');
+Route::get('faq', 'GeneralController@showFaqPage')->name('faq');
+Route::get('contact', 'GeneralController@showContactPage')->name('contact');
+Route::get('policy', 'GeneralController@showPolicyPage')->name('policy');
+Route::get('policy_confirm', 'GeneralController@showPolicyConfirmPage')->name('policy_confirm');
+Route::get('support', 'GeneralController@showSupportPage')->name('support');
+Route::get('search/top', 'GeneralController@showSearchPage')->name('search');
 
 Route::get('changepassword', 'HomeController@showChangePasswordForm');
 Route::post('changepassword', 'HomeController@changePassword')->name('changepassword');
 
-Route::get('register_complete', 'RegisterCompleteController@index')->name('register_complete');
-Route::get('register_complete_gmail', 'RegisterCompleteGmailController@index')->name('register_complete_gmail');
+Route::get('register_complete', 'RegisterCompleteController@register')->name('register_complete');
+Route::get('register_complete_gmail', 'RegisterCompleteController@registerByGmail')->name('register_complete_gmail');
 
 // googleのログイン認証
 Route::get('login/google', 'Auth\LoginController@redirectToGoogle');

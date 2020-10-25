@@ -13,8 +13,13 @@ class RegisterCompleteController extends Controller
       $this->middleware('auth');
     }
 
-    public function index()
+    public function register()
     {
       return view('register_complete');
+    }
+
+    public function registerByGmail()
+    {
+      return view('register_complete_gmail');
     }
 }
